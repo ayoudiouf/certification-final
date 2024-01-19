@@ -12,7 +12,9 @@
     align-items: center;
   }
   #footernavigate a:hover  {
-    color: #A41034 !important;
+    color: Black !important;
+    font-weight: bold;
+    font-size: 18px;
   }
 
 

@@ -1,0 +1,44 @@
+
+#cercleicone{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+
+}
+#cercleicone a{
+color: black;
+
+}
+#logomenu1 img{
+height: 80px;
+}
+#logomenu2 img{
+height: 80px;
+}
+#navigation a:hover {
+  color: #A41034;
+  font-weight: bold;
+  font-size: 18px;
+
+
+}
+
+.Menu{
+  background-color: white;
+  width: 100%;
+}
+.navbar{
+  /* backdrop-filter: blur(50px); */
+
+}
+/* Media query menu header */
+@media (max-width:990px){
+  #logomenu1 img{
+    display: none;
+    }
+}
+

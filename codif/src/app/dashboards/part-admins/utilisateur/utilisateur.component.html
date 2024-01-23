@@ -6,116 +6,130 @@
       <app-header-sidebar></app-header-sidebar>
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
-          <h1 class="text-danger">Liste chef pavillon</h1>
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
+          <h1 class="text-danger">Liste chef pavillon</h1>
+          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Profil</th>
                   <th>Nom</th>
                   <th>Prenom</th>
                   <th>Contact</th>
+                  <th>Statut</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td><img src="" alt=""></td>
                   <td>Ndione</td>
                   <td>Andre</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-success">en lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
 
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td><img src="" alt=""></td>
                   <td>Ndiaye</td>
                   <td>Moussa</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td><img src="" alt=""></td>
                   <td>Mouhamed</td>
                   <td>Malick</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>4</td>
-                  <td><img src="" alt=""></td>
                   <td>Sylla</td>
                   <td>Mactar</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>5</td>
-                  <td><img src="" alt=""></td>
                   <td>Barry</td>
                   <td>Ahmed</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                   <td><span class="badge rounded-pill text-bg-success">en ligne</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>6</td>
-                  <td><img src="" alt=""></td>
                   <td>Badji</td>
                   <td>Cheikh</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>7</td>
-                  <td><img src="" alt=""></td>
                   <td>Gueye</td>
                   <td>Moussa</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-success">en ligne</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>8</td>
-                  <td><img src="" alt=""></td>
                   <td>Ndiaye</td>
                   <td>Ady</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>9</td>
-                  <td><img src="" alt=""></td>
                   <td>Ndiaye</td>
                   <td>Marious</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-success">en ligne</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>10</td>
-                  <td><img src="" alt=""></td>
                   <td>Ndiaye</td>
                   <td>Moustapha</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>11</td>
-                  <td><img src="" alt=""></td>
                   <td>Gaye</td>
                   <td>Henry</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-success">en lign</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
                 <tr>
                   <td>12</td>
-                  <td><img src="" alt=""></td>
                   <td>Cissé</td>
                   <td>Libass</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
+                  <td><span class="badge rounded-pill text-bg-success">en ligne</span>
+                  </td>
                   <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
                 </tr>
               </tbody>

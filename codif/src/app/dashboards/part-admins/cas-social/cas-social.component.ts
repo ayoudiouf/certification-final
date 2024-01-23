@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-etudiants',
-  templateUrl: './etudiants.component.html',
-  styleUrls: ['./etudiants.component.css']
+  selector: 'app-cas-social',
+  templateUrl: './cas-social.component.html',
+  styleUrls: ['./cas-social.component.css']
 })
-export class EtudiantsComponent  implements OnInit{
+export class CasSocialComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers'
-    };
     this.dtOptions = {
       searching: true,
       lengthChange: false,

@@ -1,1 +1,134 @@
-<p>reclamation works!</p>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <app-sidebarchefpavion></app-sidebarchefpavion>
+  <!-- Main Component -->
+  <div class="main ">
+      <app-header-sidebar></app-header-sidebar>
+      <main class="content px-3 py-2">
+          <!-- COntenue dynamique -->
+          <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
+          <h1 class="text-danger">Historique des reclamations</h1>
+          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+
+           <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Objet </th>
+                  <th>Message</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Camara</td>
+                  <td>Mariane</td>
+                  <td>Demande</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion A </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Sall</td>
+                  <td>Andre</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 40 au pavion D </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Sow</td>
+                  <td>Abdoul</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 100 au pavion B </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Sow</td>
+                  <td>Abdoul</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion H </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Sene</td>
+                  <td>Amadou</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 60 au pavion A </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Diouf</td>
+                  <td>Mamadou</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion E </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Sene</td>
+                  <td>Adrien</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion C </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Sene</td>
+                  <td>Baldé</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion J </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>Drey</td>
+                  <td>Amir</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion A </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Sarr</td>
+                  <td>Moustapha</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion D </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>Amar</td>
+                  <td>Binta</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion F </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>Diaw</td>
+                  <td>Fanta</td>
+                  <td>Réparation</td>
+                  <td>Demande de répation de la portail du chambre 20 au pavion H </td>
+                  <td><i class="fa-solid fa-marker"></i></td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+          </div>
+      </main>
+  </div>
+</div>
+

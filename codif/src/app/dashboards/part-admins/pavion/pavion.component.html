@@ -6,11 +6,13 @@
       <app-header-sidebar></app-header-sidebar>
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
-          <h1 class="text-danger">Liste des pavillon</h1>
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+          <h1 class="text-danger">Liste des pavillon</h1>
+          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
-              <thead>
+           <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+
+              <thead> 
                 <tr>
                   <th>ID</th>
                   <th>Nom pavion</th>

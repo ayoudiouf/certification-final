@@ -1,1 +1,156 @@
-<p>etudiants works!</p>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <app-sidebarchefpedagogique></app-sidebarchefpedagogique>
+  <!-- Main Component -->
+  <div class="main ">
+      <app-header-sidebar></app-header-sidebar>
+      <main class="content px-3 py-2">
+          <!-- COntenue dynamique -->
+          <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
+          <h1 class="text-danger ">Liste des étudiant par mérite</h1>
+            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>N Identificaion</th>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Contact </th>
+                  <th>Niveau d'étude</th>
+                  <th>Adress</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>525669</td>
+                  <td>Drey</td>
+                  <td>Farima</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Master1</td>
+                  <td>Dakar</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>362214</td>
+                  <td>Sylla</td>
+                  <td>Anta</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence2</td>
+                  <td>Dakar</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>852363</td>
+                  <td>Seye</td>
+                  <td>Panthère</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence3</td>
+                  <td>Fatick</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>85285</td>
+                  <td>Balmaséda</td>
+                  <td>Yoda</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence1</td>
+                  <td>Mbour</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>741952</td>
+                  <td>Anderson</td>
+                  <td>Patrick</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Master2</td>
+                  <td>Thies</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>741522</td>
+                  <td>Drey</td>
+                  <td>Armel</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Master1</td>
+                  <td>Joal</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>74822</td>
+                  <td>Faye</td>
+                  <td>françois</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence2</td>
+                  <td>Mbour</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>745566</td>
+                  <td>Faye</td>
+                  <td>Michel</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence1</td>
+                  <td>Thies</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>12584</td>
+                  <td>Sylla</td>
+                  <td>Mama Nar</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence2</td>
+                  <td>javier</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>44114</td>
+                  <td>Ndiaye</td>
+                  <td>Simon</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence1</td>
+                  <td>Dakar</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>2255454</td>
+                  <td>Levis</td>
+                  <td>Louis</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence3/td>
+                  <td>Thies</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>255631</td>
+                  <td>Anderson</td>
+                  <td>Zelda</td>
+                  <td><i class="fa-solid fa-envelope"></i></td>
+                  <td>Licence2</td>
+                  <td>Joal</td>
+                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+          </div>
+      </main>
+  </div>
+</div>
+
+

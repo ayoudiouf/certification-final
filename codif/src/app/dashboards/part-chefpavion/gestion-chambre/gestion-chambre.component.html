@@ -1,1 +1,131 @@
-<p>gestion-chambre works!</p>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <app-sidebarchefpavion></app-sidebarchefpavion>
+  <!-- Main Component -->
+  <div class="main ">
+      <app-header-sidebar></app-header-sidebar>
+      <main class="content px-3 py-2">
+          <!-- COntenue dynamique -->
+          <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
+          <h1 class="text-danger">Liste chambre</h1>
+          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+
+           <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Libellé</th>
+                  <th>Type pavillon</th>
+                  <th>Nbrs Chambres</th>
+                  <th>Nbrs de lit</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Pavillon A</td>
+                  <td>Mixte</td>
+                  <td>481</td>
+                  <td>5</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Pavillon B</td>
+                  <td>Hommes</td>
+                  <td>200</td>
+                  <td>3</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Pavillon C</td>
+                  <td>Hommes</td>
+                  <td>500</td>
+                  <td>6</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Pavillon D</td>
+                  <td>Femmes</td>
+                  <td>150</td>
+                  <td>3</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Pavillon E</td>
+                  <td>Mixte</td>
+                  <td>106</td>
+                  <td>3</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Pavillon F</td>
+                  <td>Femmes/td>
+                  <td>210</td>
+                  <td>4</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Pavillon G</td>
+                  <td>Femmes</td>
+                  <td>140</td>
+                  <td>3</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Pavillon H</td>
+                  <td>Mixte</td>
+                  <td>310</td>
+                  <td>4</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>Pavion I</td>
+                  <td>Mixte</td>
+                  <td>210</td>
+                  <td>3</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Pavillon J</td>
+                  <td>Hommes</td>
+                  <td>90</td>
+                  <td>2</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>Pavillon K</td>
+                  <td>Femmes</td>
+                  <td>200</td>
+                  <td>3</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>Pavillon L</td>
+                  <td>Mixte</td>
+                  <td>150</td>
+                  <td>2</td>
+                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+          </div>
+      </main>
+  </div>
+</div>

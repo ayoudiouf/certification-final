@@ -16,7 +16,6 @@ import { PolitiqueDeConfidentialiteComponent } from './composants/politique-de-c
 import { DataTablesModule } from 'angular-datatables';
 import { HeaderSidebarComponent } from './header-sidebar/header-sidebar.component';
 import { PaiementComponent } from './dashboards/part-admins/paiement/paiement.component';
-import { EtudiantComponent } from './dashboards/part-admins/etudiant/etudiant.component';
 import { UtilisateurComponent } from './dashboards/part-admins/utilisateur/utilisateur.component';
 import { PavionComponent } from './dashboards/part-admins/pavion/pavion.component';
 import { GestionChambreComponent } from './dashboards/part-chefpavion/gestion-chambre/gestion-chambre.component';
@@ -39,7 +38,6 @@ import { EtudiantsComponent } from './dashboards/part-chefpedagogique/etudiants/
     PolitiqueDeConfidentialiteComponent,
     HeaderSidebarComponent,
     PaiementComponent,
-    EtudiantComponent,
     UtilisateurComponent,
     PavionComponent,
     GestionChambreComponent,

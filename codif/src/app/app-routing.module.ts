@@ -7,6 +7,8 @@ import { DashChefpedagogiqueComponent } from './dashboards/part-chefpedagogique/
 import { DashEtudiantComponent } from './dashboards/part-etudiant/dash-etudiant/dash-etudiant.component';
 import { SitebarComponent } from './sitebar/sitebar.component';
 import { PaiementComponent } from './dashboards/part-admins/paiement/paiement.component';
+import { PavionComponent } from './dashboards/part-admins/pavion/pavion.component';
+import { UtilisateurComponent } from './dashboards/part-admins/utilisateur/utilisateur.component';
 
 const routes: Routes = [
   {path : 'acueil', component: AcueilComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path : 'etudiant' , component: DashEtudiantComponent},
   {path : 'sidebar' , component: SitebarComponent},
   {path : 'paiement' , component: PaiementComponent},
+  {path : 'pavion' , component: PavionComponent},
+  {path : 'utilisateur' , component: UtilisateurComponent},
   {path : '' , redirectTo:'acueil', pathMatch:'full'}
 ];
 

@@ -1,0 +1,501 @@
+*{
+  margin: 0;
+  padding: 0;
+  }
+  .banier{
+    margin-top: 7%;
+  }
+  .banier img{
+    height: 600px;
+   width: 100%;
+  }
+  .col-md-4 img{
+    width: 100%;
+  }
+#baniercarte{
+  box-shadow: 0px 4px 8px #A41034;
+  position: relative;
+  bottom: 50px;
+  left: 50%;
+  /* gap: 10px; */
+}
+#propos{
+  justify-content: center;
+  margin-left: 12%;
+  margin-bottom: 30px;
+}
+.imgloge{
+  margin-left: 10%;
+}
+.texte{
+  background-color: #A41034;
+  color: white;
+  width: 40%;
+  margin-right: 11%;
+  text-align: center;
+}
+.info{
+  /* height: 200px; */
+  width: 70%;
+  margin-left: 20%;
+}
+.info img{
+  height: 500px
+}
+p{
+  height: -10px;
+}
+.textpara{
+  position: relative;
+  right: 70px;
+  top: 70px;
+  width: 60%;
+  /* border-top: #A41034; */
+  text-align: center;
+}
+/* #title{
+  margin-top: -150%;
+  position: relative;
+  top: 15%;
+} */
+.cardBanner{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px
+}
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #100721;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+}
+
+.team {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  gap: 10px;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+
+  > div {
+    flex: 0 0 120px;
+    border-radius: 0.5rem;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: 1px 5px 15px #1e0e3e;
+    position: relative;
+    overflow: hidden;
+
+    &:nth-of-type(1) {
+      background: url("https://img.freepik.com/photos-gratuite/jeune-homme-afro-americain-bras-croises-isole_231208-5503.jpg?w=900&t=st=1702047661~exp=1702048261~hmac=0f542f50336a125876c9f0e6b313eeab8ce9dd9f17375f6aa20b398f9431153d")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(2) {
+      background: url("https://img.freepik.com/photos-gratuite/femme-souriante-coup-moyen-hijab_23-2149122755.jpg?w=740&t=st=1702049921~exp=1702050521~hmac=c1b8825a9a93418736108db6e262ffafe3248b781a07573446c571745aad4cbc ")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(3) {
+      background: url("https://img.freepik.com/photos-gratuite/tour-taille-entrepreneur-masculin-joyeux-confiant-large-sourire_273609-18909.jpg?t=st=1702049524~exp=1702050124~hmac=3514aea284b0fcb3567a9714010bbc56f4dbc7eac8cc11f39d6b085f6b032a58")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(4) {
+      background: url("https://img.freepik.com/photos-gratuite/concept-reussite-professionnelle-executive-femme-affaires_53876-137644.jpg?t=st=1702049723~exp=1702050323~hmac=308af217ea36f00044222965ab539bd936e592084a49f43fc5d3a682252d7c5a")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(5) {
+      background: url("https://img.freepik.com/photos-premium/savez-vous-que-j-aime-chez-vous-votre-sourire-photo-belle-jeune-femme-souriante-tout-posant-fond-gris_590464-43411.jpg?w=900")
+        no-repeat 50% / cover;
+    }
+
+
+
+    .content {
+      font-size: 1.5rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      opacity: 0;
+      flex-direction: column;
+      height: 100%;
+      margin-bottom: 30px;
+      justify-content: flex-end;
+      background: rgb(2, 2, 46);
+      background: linear-gradient(
+        0deg,
+        rgba(2, 2, 46, 0.6755077030812324) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: translatey(100%);
+      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+      visibility: hidden;
+
+      span {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.2rem;
+      }
+    }
+
+    &:hover {
+      flex: 0 0 250px;
+      box-shadow: 1px 3px 15px #7645d8;
+      transform: translatey(-30px);
+    }
+
+    &:hover .content {
+      opacity: 1;
+      transform: translatey(0%);
+      visibility: visible;
+    }
+  }
+}
+
+.timeline-centered {
+  position: relative;
+  margin-bottom: 30px;
+}
+.timeline-centered.timeline-sm .timeline-entry {
+  margin-bottom: 20px !important;
+}
+.timeline-centered.timeline-sm .timeline-entry .timeline-entry-inner .timeline-label {
+  padding: 1em;
+}
+.timeline-centered:before,
+.timeline-centered:after {
+  content: " ";
+  display: table;
+}
+.timeline-centered:after {
+  clear: both;
+}
+.timeline-centered:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 7px;
+  background: #ffffff;
+  left: 50%;
+  top: 20px;
+  bottom: 20px;
+  margin-left: -4px;
+}
+.timeline-centered .timeline-entry {
+  position: relative;
+  width: 50%;
+  float: right;
+  margin-bottom: 70px;
+  clear: both;
+}
+.timeline-centered .timeline-entry:before,
+.timeline-centered .timeline-entry:after {
+  content: " ";
+  display: table;
+}
+.timeline-centered .timeline-entry:after {
+  clear: both;
+}
+.timeline-centered .timeline-entry.begin {
+  margin-bottom: 0;
+}
+.timeline-centered .timeline-entry.left-aligned {
+  float: left;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner {
+  margin-left: 0;
+  margin-right: -28px;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-time {
+  left: auto;
+  right: -115px;
+  text-align: left;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-icon {
+  float: right;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label {
+  margin-left: 0;
+  margin-right: 85px;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label:after {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+  margin-right: -9px;
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.timeline-centered .timeline-entry .timeline-entry-inner {
+  position: relative;
+  margin-left: -31px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner:before,
+.timeline-centered .timeline-entry .timeline-entry-inner:after {
+  content: " ";
+  display: table;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner:after {
+  clear: both;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time {
+  position: absolute;
+  left: -115px;
+  text-align: right;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span {
+  display: block;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:first-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:last-child {
+  font-size: 12px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon {
+  background: #fff;
+  color: #999999;
+  display: block;
+  width: 60px;
+  height: 60px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  border-radius: 50%;
+  text-align: center;
+  border: 7px solid #ffffff;
+  line-height: 45px;
+  font-size: 15px;
+  float: left;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-primary {
+  background-color: #A41034;
+  color: #fff;
+}
+
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-warning {
+  background-color: #A41034;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-danger {
+  background-color: #A41034;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-red {
+  background-color: #A41034;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-green {
+  background-color: #E68513;
+  color: #fff;
+}
+
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-orange {
+  background-color: #A41034;
+  color: #fff;
+}
+/* .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-pink {
+  background-color: #bf3773;
+  color: #fff;
+} */
+
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-grey {
+  background-color: #E68513;
+  color: #fff;
+}
+
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
+  position: relative;
+  background: #ffffff;
+  padding: 1.7em;
+  margin-left: 85px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red {
+  background: #A41034;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red:after {
+  border-color: transparent #A41034 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green {
+  background: #E68513;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green:after {
+  border-color: transparent #E68513 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange {
+  background: #A41034;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange:after {
+  border-color: transparent #A41034 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange p {
+  color: #ffffff;
+}
+
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue {
+  background: #E68513;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue:after {
+  border-color: transparent #E68513 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue p {
+  color: #ffffff;
+}
+/* .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink {
+  background: #bf3773;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink:after {
+  border-color: transparent #bf3773 transparent transparent;
+} */
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink p {
+  color: #ffffff;
+}
+
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey {
+  background: #E68513;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey:after {
+  border-color: transparent #E68513 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey p {
+  color: #ffffff;
+}
+/* .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark {
+  background: #594857;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark:after {
+  border-color: transparent #594857 transparent transparent;
+} */
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 9px 9px 0;
+  border-color: transparent #ffffff transparent transparent;
+  left: 0;
+  top: 20px;
+  margin-left: -9px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p {
+  color: #999999;
+  margin: 0;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p + p {
+  margin-top: 15px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title {
+  margin-bottom: 10px;
+  font-family: 'Oswald';
+  font-weight: bold;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title span {
+  -webkit-opacity: .6;
+  -moz-opacity: .6;
+  opacity: .6;
+  -ms-filter: alpha(opacity=60);
+  filter: alpha(opacity=60);
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img {
+  margin: 5px 10px 0 0;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img.pull-right {
+  margin: 5px 0 0 10px;
+}
+
+@media screen and (max-width: 1238px){
+
+#banierecarte{
+ display: flex;
+ flex-direction: column;
+
+}
+.info {
+  display: flex;
+  flex-direction: column;
+
+}
+.carte {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70%;
+}
+.team{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80%;
+}
+.fw-bold{
+  margin-bottom: 100%;
+}
+
+}
+.timeline-centered{
+  margin-left: 100px;
+}
+.contact img{
+  width: 70%;
+  height: 93%;
+  margin-left: 30%;
+}
+.form{
+  background-color: white;
+  box-shadow: 0px 3px 4px#A41034;
+  width: 60%;
+  height: 100%;
+  margin-right: 15%;
+  padding-bottom: 42px;
+  /* padding-top: 10px; */
+}
+

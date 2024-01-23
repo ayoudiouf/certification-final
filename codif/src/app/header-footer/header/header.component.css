@@ -35,6 +35,9 @@ height: 80px;
   /* backdrop-filter: blur(50px); */
 
 }
+.navbar-nav{
+  margin-left: 20%;
+}
 /* Media query menu header */
 @media (max-width:990px){
   #logomenu1 img{

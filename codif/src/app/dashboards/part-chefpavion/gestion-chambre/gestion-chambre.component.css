@@ -1,12 +1,25 @@
+#icon{
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 15px;
+}
 .tHead{
-  background-color: #A41034;
+  background-color: #a41034;
   color: white;
 }
 span{
   display: flex;
   gap: 15px;
-  color: #E68513;
+  
 }
-.titre{
-  color: #A41034;
+.text{color: #A41034;
+
+}
+button{
+  background-color: #A41034;
+  color: white;
+}
+.typebutton{
+  background-color: #E68513;
+  color: white;
 }

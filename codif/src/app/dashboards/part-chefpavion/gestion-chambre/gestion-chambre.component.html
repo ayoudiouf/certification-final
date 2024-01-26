@@ -7,8 +7,8 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="titre">Liste chambre</h1>
-          <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="background-color: #E68513; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+          <h1 class="titre text-black text-center">Liste chambre</h1>
+          <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
@@ -87,11 +87,37 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputid" class="form-label">ID</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
+            <div id="idHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnompavion" class="form-label">Nom Pavillon</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nompavionHelp">
+            <div id="nompavionHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputtypepavillon" class="form-label">Type Pavillon</label>
+            <input type="id" class="form-control" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp">
+            <div id="typepavillonHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnbrschambre" class="form-label">Nbrs Chambres</label>
+            <input type="id" class="form-control" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp">
+            <div id="nbrschambreHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Nbrs Etages</label>
+            <input type="nbrsetage" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="typebutton btn ">Ajouter</button>
       </div>
     </div>
   </div>

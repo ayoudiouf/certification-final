@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-paiement',
-  templateUrl: './paiement.component.html',
-  styleUrls: ['./paiement.component.css']
+  selector: 'app-chambre',
+  templateUrl: './chambre.component.html',
+  styleUrls: ['./chambre.component.css']
 })
-export class PaiementComponent implements OnInit{
+export class ChambreComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
+
   ngOnInit(): void {
-    const script = document.createElement('script');
-    script.src = '../../../assets/js/script.js';
-    // Ajustez le chemin en conséquence
-    document.body.appendChild(script);
     this.dtOptions = {
       searching: true,
       lengthChange: false,

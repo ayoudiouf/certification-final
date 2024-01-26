@@ -7,7 +7,7 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll h-75" style="height: 88vh; ">
-            <h1 class="text">Liste des étudiants par mérite</h1>
+            <h1 class="text text-black text-center">Liste des étudiants par mérite</h1>
             <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #E68513; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
@@ -20,6 +20,7 @@
                   <th class="tHead">Prenom</th>
                   <th class="tHead">Contact </th>
                   <th class="tHead">Niveau d'étude</th>
+                  <th class="tHead">Notes</th>
                   <th class="tHead">Adress</th>
                   <th class="tHead">Action</th>
                 </tr>
@@ -32,6 +33,7 @@
                   <td>Farima</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Master1</td>
+                  <td>14</td>
                   <td>Dakar</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
@@ -43,6 +45,7 @@
                   <td>Anta</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Licence2</td>
+                  <td>13.5</td>
                   <td>Dakar</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
@@ -54,6 +57,7 @@
                   <td>Panthère</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Licence3</td>
+                  <td>13</td>
                   <td>Fatick</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
@@ -65,6 +69,7 @@
                   <td>Yoda</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Licence1</td>
+                  <td>12.5</td>
                   <td>Mbour</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
@@ -76,6 +81,7 @@
                   <td>Patrick</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Master2</td>
+                  <td>11</td>
                   <td>Thies</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
@@ -93,15 +99,56 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter les etudiant par odre de mérite</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputid" class="form-label">ID</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
+            <div id="idHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">N Identification</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nomHelp">
+            <div id="nomHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Nom</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nomHelp">
+            <div id="nomHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputpremon" class="form-label">Prenom</label>
+            <input type="id" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp">
+            <div id="premonHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputemail" class="form-label">Contact</label>
+            <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="nbrschambreHelp">
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">Niveau d'étude</label>
+            <input type="etude" class="form-control" id="exampleInputstatut1" aria-describedby="statutHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">Notes</label>
+            <input type="etude" class="form-control" id="exampleInputstatut1" aria-describedby="statutHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">Adress</label>
+            <input type="etude" class="form-control" id="exampleInputstatut1" aria-describedby="statutHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="typebutton btn btn-primary">Ajouter</button>
       </div>
     </div>
   </div>

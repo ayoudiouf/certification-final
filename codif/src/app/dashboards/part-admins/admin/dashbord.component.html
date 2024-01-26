@@ -11,12 +11,15 @@
             <div class="mescarte">
               <div class="carte1">
                 <div class="container">
+                  <div class="main-title">
+                    <p class="font-weight-bold">DASHBOARD</p>
+                  </div>
                   <div class="row">
                       <div class="col-md-4 col-xl-3 ">
                           <div class="card bg-c-blue order-card p-2">
                               <!-- <div class="card-block"> -->
                                   <h6 class="m-b-20">Réclamation</h6>
-                                  <h2 class="text-right"><i class="fa-solid fa-circle-info"></i><span>16</span></h2>
+                                  <h2 class="text-right"><span><i class="fa-solid fa-circle-info"></i>16</span></h2>
                                   <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                               <!-- </div> -->
                           </div>
@@ -26,7 +29,7 @@
                           <div class="card bg-c-green order-card p-2">
                               <!-- <div class="card-block"> -->
                                   <h6 class="m-b-20">Pavion</h6>
-                                  <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>20</span></h2>
+                                  <h2 class="text-right"><span><i class="fa fa-rocket f-left"></i>20</span></h2>
                                   <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                               <!-- </div> -->
                           </div>
@@ -36,7 +39,7 @@
                           <div class="card bg-c-yellow order-card p-2">
                               <!-- <div class="card-block"> -->
                                   <h6 class="m-b-20">Chambres</h6>
-                                  <h2 class="text-right"><i class="fa-solid fa-house"></i><span>600</span></h2>
+                                  <h2 class="text-right"><span><i class="fa-solid fa-house"></i>600</span></h2>
                                   <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                               <!-- </div> -->
                           </div>
@@ -46,31 +49,77 @@
                           <div class="card bg-c-pink order-card p-2">
                               <!-- <div class="card-block"> -->
                                   <h6 class="m-b-20">Etudiants</h6>
-                                  <h2 class="text-right"><i class="fa-solid fa-user"></i><span>486</span></h2>
+                                  <h2 class="text-right"><span><i class="fa-solid fa-user"></i>486</span></h2>
                                   <p class="m-b-0">Completed Orders<span class="f-right">100000</span></p>
                               <!-- </div> -->
                           </div>
                       </div>
                 </div>
+                 <!-- Main -->
+                    <main class="main-container">
+                      <div class="charts">
+                        <div class="charts-card">
+                          <p class="chart-title">Etudiants Récent</p>
+                          <div id="recent">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Prenom</th>
+                                  <th scope="col">Nom</th>
+                                  <th scope="col">E-mail</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>André</td>
+                                  <td>Ndione</td>
+                                  <td><i class="fa-solid fa-envelope"></i></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>Jacob</td>
+                                  <td>Ndiaye</td>
+                                  <td><i class="fa-solid fa-envelope"></i></td>
+                                </tr>
+                                <tr>
+                                  <th>3</th>
+                                  <td >Marianne</td>
+                                  <td >Diouf</td>
+                                  <td><i class="fa-solid fa-envelope"></i></td>
+                                </tr>
+                                <tr>
+                                  <th>4</th>
+                                  <td >Fatou</td>
+                                  <td >Diouf</td>
+                                  <td><i class="fa-solid fa-envelope"></i></td>
+                                </tr>
+                                <tr>
+                                  <th>5</th>
+                                  <td >Anna</td>
+                                  <td >Sarr</td>
+                                  <td><i class="fa-solid fa-envelope"></i></td>
+                                </tr>
+                                <tr>
+                                  <th>6</th>
+                                  <td >Aissatou</td>
+                                  <td >Diouldé</td>
+                                  <td><i class="fa-solid fa-envelope"></i></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
 
-                <div class="card text-center">
-                  <div class="card-header">
-                    Featured
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                  <div class="card-footer text-body-secondary">
-                    2 days ago
-                  </div>
-                </div>
+                        <div class="charts-card">
+                          <p class="chart-title">Nombre de Chambre </p>
+                          <div id="area-chart"></div>
+                        </div>
+                      </div>
+                    </main>
               </div>
-
               </div>
-
-
             </div>
           </div>
       </main>

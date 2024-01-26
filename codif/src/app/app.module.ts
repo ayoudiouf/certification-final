@@ -26,6 +26,14 @@ import { EtudiantParMeriteComponent } from './dashboards/part-admins/etudiant-pa
 import { SidebarchefpavionComponent } from './sidebarchefpavion/sidebarchefpavion.component';
 import { SidebarchefpedagogiqueComponent } from './sidebarchefpedagogique/sidebarchefpedagogique.component';
 import { SidebaretudiantComponent } from './sidebaretudiant/sidebaretudiant.component';
+import { DashProfesseurComponent } from './dashboards/part-professeur/dash-professeur/dash-professeur.component';
+import { AjoutNotesComponent } from './dashboards/part-professeur/ajout-notes/ajout-notes.component';
+import { SidebarprofesseurComponent } from './sidebarprofesseur/sidebarprofesseur.component';
+import { DemandereclamationComponent } from './dashboards/part-etudiant/demandereclamation/demandereclamation.component';
+import { EtudiantpayeComponent } from './dashboards/part-etudiant/etudiantpaye/etudiantpaye.component';
+import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
+import { ChartComponent } from './chart/chart.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 // import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/connexion.component';
 // import { InscriptionComponent } from './inscription/inscription.component';
 
@@ -48,22 +56,30 @@ import { SidebaretudiantComponent } from './sidebaretudiant/sidebaretudiant.comp
     UtilisateurComponent,
     PavionComponent,
     GestionChambreComponent,
+    AjoutNotesComponent,
     ReclamationComponent,
     // ReclamationEtudiantComponent,
     EtudiantsComponent,
     CasSocialComponent,
     EtudiantParMeriteComponent,
-    
+
     SidebarchefpavionComponent,
     SidebarchefpedagogiqueComponent,
-    SidebaretudiantComponent
+    SidebaretudiantComponent,
+    DashProfesseurComponent,
+    AjoutNotesComponent,
+    SidebarprofesseurComponent,
+    DemandereclamationComponent,
+    EtudiantpayeComponent,
+    ChambreComponent,
+    ChartComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DataTablesModule
-
+    DataTablesModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

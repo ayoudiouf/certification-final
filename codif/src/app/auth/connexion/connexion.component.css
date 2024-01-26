@@ -1,8 +1,9 @@
 
  #mainForm{
-  height: 100vh;
+  /* height: 80vh; */
   /* text-align: center; */
   align-items: center;
+  margin-top: 5%;
 }
 .container{
   /* margin-bottom: 500px; */
@@ -12,7 +13,7 @@
   background-image: url(../../../assets/actu/etudiant.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 75%;
+  height: 68.5vh;
 }
 #description{
   margin-bottom: 10px;

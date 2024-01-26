@@ -8,20 +8,22 @@
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
 
-          <h1 class="text-danger">Liste des étudiant cas social</h1>
-          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
-            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+          <h1 class="text">Liste des étudiant cas social</h1>
+          <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutCasSocial" style="background-color: #E68513; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
-              <thead>
+
+            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table shadow">
+
+              <thead class="titre" style="background-color: #A41034;">
                 <tr>
-                  <th>ID</th>
-                  <th>N Identificaion</th>
-                  <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>Telephone </th>
-                  <th>Email</th>
-                  <th>Adress</th>
-                  <th>Action</th>
+                  <th class="cassocial">ID</th>
+                  <th class="cassocial">N Identificaion</th>
+                  <th class="cassocial">Nom</th>
+                  <th class="cassocial">Prenom</th>
+                  <th class="cassocial">Telephone </th>
+                  <th class="cassocial">Email</th>
+                  <th class="cassocial">Adress</th>
+                  <th class="cassocial">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -33,7 +35,8 @@
                   <td>772369854</td>
                   <td>farimagmail.com</td>
                   <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>2</td>
@@ -43,7 +46,8 @@
                   <td>789654225</td>
                   <td>antagmail.com</td>
                   <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>3</td>
@@ -53,7 +57,8 @@
                   <td>772145639</td>
                   <td>pantheregmail.com</td>
                   <td>Fatick</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>4</td>
@@ -63,7 +68,8 @@
                   <td>751239671</td>
                   <td>yodagmail.com</td>
                   <td>Mbour</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>5</td>
@@ -73,78 +79,10 @@
                   <td>771236496</td>
                   <td>patrickgmail.com</td>
                   <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
-                <tr>
-                  <td>6</td>
-                  <td>741522</td>
-                  <td>Drey</td>
-                  <td>Armel</td>
-                  <td>754129563</td>
-                  <td>armelgmail.com</td>
-                  <td>Joal</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>74822</td>
-                  <td>Faye</td>
-                  <td>françois</td>
-                  <td>774589621</td>
-                  <td>frncoigmail.com</td>
-                  <td>Mbour</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>745566</td>
-                  <td>Faye</td>
-                  <td>Michel</td>
-                  <td>michelgmail.com</td>
-                  <td>78214596</td>
-                  <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>12584</td>
-                  <td>Sylla</td>
-                  <td>Mama Nar</td>
-                  <td>mamanargmail.com</td>
-                  <td>3000</td>
-                  <td>javier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>44114</td>
-                  <td>Ndiaye</td>
-                  <td>Simon</td>
-                  <td>772589641</td>
-                  <td>simongmail.com</td>
-                  <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>2255454</td>
-                  <td>Levis</td>
-                  <td>Louis</td>
-                  <td>784125364</td>
-                  <td>levisgmail.com</td>
-                  <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>255631</td>
-                  <td>Anderson</td>
-                  <td>Zelda</td>
-                  <td>782541143</td>
-                  <td>zeldagmail.com</td>
-                  <td>Joal</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
+
               </tbody>
             </table>
 
@@ -152,5 +90,55 @@
 
           </div>
       </main>
+  </div>
+</div>
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ajoutCasSocial">
+  Launch demo modal
+</button> -->
+<!-- Modal -->
+<div class="modal fade" id="ajoutCasSocial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un cas social</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputid" class="form-label">ID</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
+            <div id="idHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Nom</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nomHelp">
+            <div id="nomHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputpremon" class="form-label">Prenom</label>
+            <input type="id" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp">
+            <div id="premonHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputemail" class="form-label">Contact</label>
+            <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="nbrschambreHelp">
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">statut</label>
+            <input type="statu" class="form-control" id="exampleInputstatut1" aria-describedby="statutHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="typebutton btn btn-primary">Ajouter</button>
+      </div>
+    </div>
   </div>
 </div>

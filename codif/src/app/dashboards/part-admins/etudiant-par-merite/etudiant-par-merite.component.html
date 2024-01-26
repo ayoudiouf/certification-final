@@ -7,19 +7,19 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text-danger ">Liste des étudiant par mérite</h1>
+          <h1 class="text">Liste des étudiant par mérite</h1>
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>N Identificaion</th>
-                  <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>Telephone </th>
-                  <th>Email</th>
-                  <th>Adress</th>
-                  <th>Action</th>
+                  <th class="tHead">ID</th>
+                  <th class="tHead">N Identificaion</th>
+                  <th class="tHead">Nom</th>
+                  <th class="tHead">Prenom</th>
+                  <th class="tHead">Telephone </th>
+                  <th class="tHead">Email</th>
+                  <th class="tHead">Adress</th>
+                  <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -31,7 +31,7 @@
                   <td>772369854</td>
                   <td>farimagmail.com</td>
                   <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -41,7 +41,7 @@
                   <td>789654225</td>
                   <td>antagmail.com</td>
                   <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>>
                 </tr>
                 <tr>
                   <td>3</td>
@@ -51,7 +51,7 @@
                   <td>772145639</td>
                   <td>pantheregmail.com</td>
                   <td>Fatick</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -61,7 +61,7 @@
                   <td>751239671</td>
                   <td>yodagmail.com</td>
                   <td>Mbour</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
                 </tr>
                 <tr>
                   <td>5</td>
@@ -71,78 +71,9 @@
                   <td>771236496</td>
                   <td>patrickgmail.com</td>
                   <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
                 </tr>
-                <tr>
-                  <td>6</td>
-                  <td>741522</td>
-                  <td>Drey</td>
-                  <td>Armel</td>
-                  <td>754129563</td>
-                  <td>armelgmail.com</td>
-                  <td>Joal</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>74822</td>
-                  <td>Faye</td>
-                  <td>françois</td>
-                  <td>774589621</td>
-                  <td>frncoigmail.com</td>
-                  <td>Mbour</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>745566</td>
-                  <td>Faye</td>
-                  <td>Michel</td>
-                  <td>michelgmail.com</td>
-                  <td>78214596</td>
-                  <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>12584</td>
-                  <td>Sylla</td>
-                  <td>Mama Nar</td>
-                  <td>mamanargmail.com</td>
-                  <td>3000</td>
-                  <td>javier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>44114</td>
-                  <td>Ndiaye</td>
-                  <td>Simon</td>
-                  <td>772589641</td>
-                  <td>simongmail.com</td>
-                  <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>2255454</td>
-                  <td>Levis</td>
-                  <td>Louis</td>
-                  <td>784125364</td>
-                  <td>levisgmail.com</td>
-                  <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>255631</td>
-                  <td>Anderson</td>
-                  <td>Zelda</td>
-                  <td>782541143</td>
-                  <td>zeldagmail.com</td>
-                  <td>Joal</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
+
               </tbody>
             </table>
 

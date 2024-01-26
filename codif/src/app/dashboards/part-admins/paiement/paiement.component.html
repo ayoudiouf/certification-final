@@ -7,18 +7,18 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text-danger">Liste des paiement</h1>
+          <h1 class="text">Liste des paiement</h1>
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Prenom</th>
-                  <th>Nom</th>
-                  <th>Mode de paiement </th>
-                  <th>Montant</th>
-                  <th>Mensuel</th>
-                  <th>Action</th>
+                  <th class="tHead">ID</th>
+                  <th class="tHead">Prenom</th>
+                  <th class="tHead">Nom</th>
+                  <th class="tHead">Mode de paiement </th>
+                  <th class="tHead">Montant</th>
+                  <th class="tHead">Mensuel</th>
+                  <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -29,7 +29,7 @@
                   <td>Wave</td>
                   <td>5000</td>
                   <td>janvier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i></span></td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -38,7 +38,7 @@
                   <td>OMoney</td>
                   <td>3000</td>
                   <td>javier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i></span></td>
                 </tr>
                 <tr>
                   <td>3</td>
@@ -47,7 +47,7 @@
                   <td>OMoney</td>
                   <td>3000</td>
                   <td>fevrier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i></span></td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -56,7 +56,7 @@
                   <td>Wave</td>
                   <td>5000</td>
                   <td>janvier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i></span></td>
                 </tr>
                 <tr>
                   <td>5</td>
@@ -65,71 +65,9 @@
                   <td>Wave</td>
                   <td>5000</td>
                   <td>fevrier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
+                  <td><span><i class="fa-solid fa-eye"></i></span></td>
                 </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Armel</td>
-                  <td>Drey</td>
-                  <td>Wave</td>
-                  <td>10000</td>
-                  <td>mars</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>François</td>
-                  <td>Faye</td>
-                  <td>OMoney</td>
-                  <td>5000</td>
-                  <td>Janvier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>Michel</td>
-                  <td>Faye</td>
-                  <td>Wave</td>
-                  <td>7000</td>
-                  <td>mars</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>Mama Nar</td>
-                  <td>Sylla</td>
-                  <td>OMoney</td>
-                  <td>3000</td>
-                  <td>javier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Simon</td>
-                  <td>Ndiaye</td>
-                  <td>OMoney</td>
-                  <td>3000</td>
-                  <td>janvier</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>Louis</td>
-                  <td>Levis</td>
-                  <td>Wave</td>
-                  <td>7000</td>
-                  <td>Mai</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>Zelda</td>
-                  <td>Anderson</td>
-                  <td>Wave</td>
-                  <td>7000</td>
-                  <td>Mai</td>
-                  <td><i class="fa-solid fa-eye"></i></td>
-                </tr>
+
               </tbody>
             </table>
 

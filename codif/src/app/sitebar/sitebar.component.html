@@ -5,49 +5,49 @@
 
       </div>
       <!-- Sidebar Navigation -->
-      <ul class="sidebar-nav">
+      <ul class="sidebar-nav ">
           <li class="sidebar-header">
-              Tools & Components
+              Admin
           </li>
-          <li class="sidebar-item">
-            <a href="/admin" class="sidebar-link collapsed" >
+          <li class="sidebar-item mb-3">
+            <a routerLink="/admin" routerLinkActive="activeMenu" class="sidebar-link collapsed text-decoration-none" >
                 <i class="fa-solid fa-sliders pe-2"></i>
                 Dashboard
             </a>
         </li>
-        <li class="sidebar-item">
-          <a routerLink="/pavion" class="sidebar-link">
+        <li class="sidebar-item mb-3">
+          <a routerLink="/pavion" routerLinkActive="activeMenu" class="sidebar-link text-decoration-none">
               <i class="fa-solid fa-list pe-2"></i>
-              Pavion
+              Pavillon
           </a>
       </li>
 
-          <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pages"
+          <li class="sidebar-item mb-3">
+              <a routerLink="#" routerLinkActive="activeMenu" class="sidebar-link collapsed text-decoration-none" data-bs-toggle="collapse" data-bs-target="#pages"
                   aria-expanded="false" aria-controls="pages">
                   <i class="fa-regular fa-user pe-2"></i>
                   Etudiants
               </a>
               <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                  <li class="sidebar-item">
-                      <a href="/etudiantparmerite" class="sidebar-link">Etudiant par mérite</a>
+                  <li class="sidebar-item mb-3">
+                      <a routerLink="/etudiantparmerite" routerLinkActive="activeMenu" class="sidebar-link text-decoration-none">Etudiant par mérite</a>
                   </li>
-                  <li class="sidebar-item">
-                      <a href="/cassocial" class="sidebar-link">Cas Social</a>
+                  <li class="sidebar-item mb-3">
+                      <a routerLink="/cassocial" routerLinkActive="activeMenu" class="sidebar-link text-decoration-none">Cas Social</a>
                   </li>
 
               </ul>
           </li>
-          <li class="sidebar-item">
-            <a routerLink="/paiement" class="sidebar-link">
+          <li class="sidebar-item mb-3">
+            <a routerLink="/paiement" routerLinkActive="activeMenu" class="sidebar-link text-decoration-none">
                 <i class="fa-regular fa-credit-card"></i>
                 Paiement
             </a>
         </li>
-          <li class="sidebar-item">
-              <a href="/utilisateur" class="sidebar-link collapsed" >
+          <li class="sidebar-item mb-3">
+              <a routerLink="/utilisateur" routerLinkActive="activeMenu" class="sidebar-link collapsed text-decoration-none" >
                   <i class="fa-regular fa-user pe-2"></i>
-                  Chef Pavion
+                  Chef Pavillon
               </a>
           </li>
       </ul>

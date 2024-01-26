@@ -6,20 +6,18 @@
       <app-header-sidebar></app-header-sidebar>
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
-          <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text-danger">Historique des reclamations</h1>
-          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
-
+          <div class="container-fluid overflow-y-scroll" style="height: 88vh; ">
+          <h1 class="text">Historique des reclamations</h1>
            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>Objet </th>
-                  <th>Message</th>
-                  <th>Action</th>
+                  <th class="tHead">ID</th>
+                  <th class="tHead">Nom</th>
+                  <th class="tHead">Prenom</th>
+                  <th class="tHead">Objet </th>
+                  <th class="tHead">Message</th>
+                  <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -29,7 +27,7 @@
                   <td>Mariane</td>
                   <td>Demande</td>
                   <td>Demande de répation de la portail du chambre 20 au pavion A </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
+                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
 
                 </tr>
                 <tr>
@@ -38,7 +36,7 @@
                   <td>Andre</td>
                   <td>Réparation</td>
                   <td>Demande de répation de la portail du chambre 40 au pavion D </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
+                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
                 </tr>
                 <tr>
                   <td>3</td>
@@ -46,7 +44,7 @@
                   <td>Abdoul</td>
                   <td>Réparation</td>
                   <td>Demande de répation de la portail du chambre 100 au pavion B </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
+                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
 
                 </tr>
                 <tr>
@@ -55,7 +53,7 @@
                   <td>Abdoul</td>
                   <td>Réparation</td>
                   <td>Demande de répation de la portail du chambre 20 au pavion H </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
+                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
 
                 </tr>
                 <tr>
@@ -64,64 +62,9 @@
                   <td>Amadou</td>
                   <td>Réparation</td>
                   <td>Demande de répation de la portail du chambre 60 au pavion A </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
+                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
                 </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Diouf</td>
-                  <td>Mamadou</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion E </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Sene</td>
-                  <td>Adrien</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion C </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>Sene</td>
-                  <td>Baldé</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion J </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>Drey</td>
-                  <td>Amir</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion A </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Sarr</td>
-                  <td>Moustapha</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion D </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>Amar</td>
-                  <td>Binta</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion F </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>Diaw</td>
-                  <td>Fanta</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion H </td>
-                  <td><i class="fa-solid fa-marker"></i></td>
-                </tr>
+
               </tbody>
             </table>
 

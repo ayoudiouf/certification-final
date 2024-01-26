@@ -1,4 +1,8 @@
-
+*{
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  transition: scroll-snap-align 5s ease-in-out;
+}
 #cercleicone{
   height: 25px;
   width: 25px;
@@ -36,7 +40,7 @@ height: 80px;
 
 }
 .navbar-nav{
-  margin-left: 20%;
+  margin-left: 28%;
 }
 /* Media query menu header */
 @media (max-width:990px){

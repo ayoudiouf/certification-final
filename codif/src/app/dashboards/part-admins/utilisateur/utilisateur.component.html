@@ -7,19 +7,19 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text-danger">Liste chef pavillon</h1>
-          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+          <h1 class="text">Liste chef pavillon</h1>
+          <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutChefPavion" style="background-color: #E68513; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>Contact</th>
-                  <th>Statut</th>
-                  <th>Action</th>
+                  <th class="tHead">ID</th>
+                  <th class="tHead">Nom</th>
+                  <th class="tHead">Prenom</th>
+                  <th class="tHead">Contact</th>
+                  <th class="tHead">Statut</th>
+                  <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,7 +30,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td><span class="badge rounded-pill text-bg-success">en lign</span>
                   </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
 
                 </tr>
                 <tr>
@@ -40,7 +41,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
                   </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>3</td>
@@ -49,7 +51,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
                   </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>4</td>
@@ -58,7 +61,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
                   </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>5</td>
@@ -67,71 +71,10 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                    <td><span class="badge rounded-pill text-bg-success">en ligne</span>
                   </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+                  >
                 </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Badji</td>
-                  <td>Cheikh</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
-                  </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Gueye</td>
-                  <td>Moussa</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><span class="badge rounded-pill text-bg-success">en ligne</span>
-                  </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>Ndiaye</td>
-                  <td>Ady</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
-                  </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>Ndiaye</td>
-                  <td>Marious</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><span class="badge rounded-pill text-bg-success">en ligne</span>
-                  </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Ndiaye</td>
-                  <td>Moustapha</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><span class="badge rounded-pill text-bg-danger">hors lign</span>
-                  </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>Gaye</td>
-                  <td>Henry</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><span class="badge rounded-pill text-bg-success">en lign</span>
-                  </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>Cissé</td>
-                  <td>Libass</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><span class="badge rounded-pill text-bg-success">en ligne</span>
-                  </td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
+
               </tbody>
             </table>
 
@@ -141,4 +84,46 @@
       </main>
   </div>
 </div>
-
+<div class="modal fade" id="ajoutChefPavion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter Chef de Pavillon </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputid" class="form-label">ID</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
+            <div id="idHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Nom</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nomHelp">
+            <div id="nomHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputpremon" class="form-label">Prenom</label>
+            <input type="id" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp">
+            <div id="premonHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputemail" class="form-label">Contact</label>
+            <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="nbrschambreHelp">
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">statut</label>
+            <input type="statu" class="form-control" id="exampleInputstatut1" aria-describedby="statutHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="typebutton btn btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>

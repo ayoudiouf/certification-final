@@ -25,6 +25,9 @@ import { CasSocialComponent } from './dashboards/part-admins/cas-social/cas-soci
 import { EtudiantParMeriteComponent } from './dashboards/part-admins/etudiant-par-merite/etudiant-par-merite.component';
 import { SidebarchefpavionComponent } from './sidebarchefpavion/sidebarchefpavion.component';
 import { SidebarchefpedagogiqueComponent } from './sidebarchefpedagogique/sidebarchefpedagogique.component';
+import { SidebaretudiantComponent } from './sidebaretudiant/sidebaretudiant.component';
+// import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/connexion.component';
+// import { InscriptionComponent } from './inscription/inscription.component';
 
 
 
@@ -46,11 +49,15 @@ import { SidebarchefpedagogiqueComponent } from './sidebarchefpedagogique/sideba
     PavionComponent,
     GestionChambreComponent,
     ReclamationComponent,
+    // ReclamationEtudiantComponent,
     EtudiantsComponent,
     CasSocialComponent,
     EtudiantParMeriteComponent,
+    
     SidebarchefpavionComponent,
-    SidebarchefpedagogiqueComponent
+    SidebarchefpedagogiqueComponent,
+    SidebaretudiantComponent
+
   ],
   imports: [
     BrowserModule,

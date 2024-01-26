@@ -26,16 +26,16 @@
 
               <ul class="info" style="list-style: none;">
                 <li>
-                  <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> Accueil</a>
+                  <a href="#" class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> Accueil</a>
                 </li>
                 <li>
-                  <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> A propos</a>
+                  <a href="#propos" class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> A propos</a>
                 </li>
                 <li>
-                  <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> Vous loger</a>
+                  <a href="#loge" class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> Vous loger</a>
                 </li>
                 <li>
-                  <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> Politique de Confidentialité</a>
+                  <a [routerLink]="['/confidentialite']"  class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> Politique de Confidentialité</a>
                 </li>
               </ul>
           </div>
@@ -43,28 +43,28 @@
       <div class="col-3 ">
           <div class="mt-4" id="footernavigate">
               <h4 class="mb-4 text-white">Nos pages</h4>
-              <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> Equipe</a><br>
-              <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> Actualite</a><br>
-              <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> Partenaires</a><br>
-              <a href="#" class="btn-link text-white text-decoration-none" href=""><i class="fas fa-angle-right text-white me-2"></i> Contact</a>
+              <a href="#equipe" class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> Equipe</a><br>
+              <a href="#actu" class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> Actualite</a><br>
+              <a href="#nospartenaire" class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> Partenaires</a><br>
+              <a href="#nouscontacter" class="btn-link text-white text-decoration-none"><i class="fas fa-angle-right text-white me-2"></i> Contact</a>
 
           </div>
       </div>
       <div class="col-3 text-white mt-4" id="email">
         <h4>Rester informer</h4>
-         <!-- Ajoutez ceci dans votre fichier footer.component.html -->
-<form>
-<div class="col-md-10 mb-2">
-<label for="mail" class="form-label">S'inscrire à la newsletter</label><br>
-<input class="form-control form-control-sm" type="text" id="mail" placeholder="Email">
-<div class="invalid-feedback">Veuillez entrer une adresse e-mail valide.</div>
-</div>
-<div class="col-md-5">
-<button class="btn form-contro text-white fw-bold" style="background-color: black;">S'inscrire</button>
-</div>
-</form>
+        <!-- Ajoutez ceci dans votre fichier footer.component.html -->
+        <form id="newsletterForm" (ngSubmit)="ngOnInit()">
+          <div class="col-md-10 mb-2">
+            <label for="mail" class="form-label">S'inscrire à la newsletter</label><br>
+            <input class="form-control form-control-sm" type="text" id="mail" placeholder="Email">
+            <div class="invalid-feedback">Veuillez entrer une adresse e-mail valide.</div>
+          </div>
+          <div class="col-md-5">
+            <button class="btn form-control text-white fw-bold" style="background-color: black;">S'inscrire</button>
+          </div>
+        </form>
+      </div>
 
-        </div>
   </div>
 <!-- </div> -->
 <!-- </div> -->

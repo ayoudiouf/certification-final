@@ -1,0 +1,14 @@
+
+  .tHead{
+    background-color: #a41034;
+    color: white;
+  }
+  span{
+    display: flex;
+    gap: 15px;
+    color: #E68531;
+  }
+  .text{
+    color: #a41034;
+  }
+  

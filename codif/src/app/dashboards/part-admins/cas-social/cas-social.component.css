@@ -1,0 +1,20 @@
+.cassocial{
+  background-color: #A41034;
+  color: white;
+}
+span{
+  display: flex;
+  gap: 15px;
+  color: #E68513;
+}
+.text{
+  color: #A41034;
+}
+button{
+  background-color: #A41034;
+  color: white;
+}
+.typebutton{
+  background-color: #E68513;
+  color: white;
+}

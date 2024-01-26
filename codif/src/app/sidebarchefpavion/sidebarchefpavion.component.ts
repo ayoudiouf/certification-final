@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebarchefpavion.component.css']
 })
 export class SidebarchefpavionComponent {
-
+  
 }

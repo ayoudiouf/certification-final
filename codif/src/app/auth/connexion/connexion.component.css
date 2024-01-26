@@ -1,0 +1,68 @@
+
+ #mainForm{
+  height: 100vh;
+  /* text-align: center; */
+  align-items: center;
+}
+.container{
+  /* margin-bottom: 500px; */
+}
+
+#imageForm{
+  background-image: url(../../../assets/actu/etudiant.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75%;
+}
+#description{
+  margin-bottom: 10px;
+}
+
+#row{
+  height: 95%;
+}
+
+select{
+  border-bottom: 3px solid #A41034;
+  border-radius: 0;
+
+}
+
+
+
+.btn-submit{
+  background-color:#A41034 ;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 0 ;
+  border: none;
+}
+
+@media screen and (max-width: 1238px) {
+  .first-form{
+    display: flex;
+    flex-direction: column;
+  }
+  #form-seconde {
+    width: 100%;
+    left: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+}
+
+input:focus, select:focus{
+  box-shadow: none !important;
+  border: 1px solid gray !important;
+  border-bottom:  3px solid #A41034 !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+label{
+  color: black !important; ;
+  font-weight: 500 !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+
+}

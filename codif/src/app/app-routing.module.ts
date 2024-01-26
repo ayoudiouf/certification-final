@@ -14,10 +14,15 @@ import { EtudiantParMeriteComponent } from './dashboards/part-admins/etudiant-pa
 import { GestionChambreComponent } from './dashboards/part-chefpavion/gestion-chambre/gestion-chambre.component';
 import { ReclamationComponent } from './dashboards/part-chefpavion/reclamation/reclamation.component';
 import { EtudiantsComponent } from './dashboards/part-chefpedagogique/etudiants/etudiants.component';
+import { PolitiqueDeConfidentialiteComponent } from './composants/politique-de-confidentialite/politique-de-confidentialite.component';
+import { SidebaretudiantComponent } from './sidebaretudiant/sidebaretudiant.component';
+import { ConnexionComponent } from './auth/connexion/connexion.component';
+import { InscriptionComponent } from './auth/inscription/inscription.component';
 
 const routes: Routes = [
   {path : 'acueil', component: AcueilComponent },
   {path : 'admin' , component: AdminComponent},
+  {path : 'confidentialite' , component: PolitiqueDeConfidentialiteComponent},
   {path : 'chefpavion', component: DashChefpavionComponent},
   {path : 'chefpedagogie', component: DashChefpedagogiqueComponent},
   {path : 'etudiant' , component: DashEtudiantComponent},
@@ -30,6 +35,11 @@ const routes: Routes = [
   {path : 'gestionchambre' , component: GestionChambreComponent},
   {path : 'reclamation' , component: ReclamationComponent},
   {path : 'listechefpedagogique' , component: EtudiantsComponent},
+  {path : 'etudiantsidebar' , component: SidebaretudiantComponent},
+  {path : 'etudiantreclamation' , component: ReclamationComponent},
+  {path : 'connexion' , component: ConnexionComponent},
+  // {path : 'inscription' , component: InscriptionComponent.},
+  {path : 'paiementetudiant' , component: PaiementComponent},
   {path : '' , redirectTo:'acueil', pathMatch:'full'}
 ];
 

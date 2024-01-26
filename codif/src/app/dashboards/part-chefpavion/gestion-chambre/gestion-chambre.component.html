@@ -7,19 +7,19 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text-danger">Liste chambre</h1>
-          <button type="button " style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+          <h1 class="titre">Liste chambre</h1>
+          <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="background-color: #E68513; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Libellé</th>
-                  <th>Type pavillon</th>
-                  <th>Nbrs Chambres</th>
-                  <th>Nbrs de lit</th>
-                  <th>Action</th>
+                  <th class="tHead">ID</th>
+                  <th class="tHead">Libellé</th>
+                  <th class="tHead">Type pavillon</th>
+                  <th class="tHead">Nbrs Chambres</th>
+                  <th class="tHead">Nbrs de lit</th>
+                  <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -29,7 +29,8 @@
                   <td>Mixte</td>
                   <td>481</td>
                   <td>5</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
 
                 </tr>
                 <tr>
@@ -38,7 +39,8 @@
                   <td>Hommes</td>
                   <td>200</td>
                   <td>3</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>3</td>
@@ -46,7 +48,8 @@
                   <td>Hommes</td>
                   <td>500</td>
                   <td>6</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>4</td>
@@ -54,7 +57,8 @@
                   <td>Femmes</td>
                   <td>150</td>
                   <td>3</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>5</td>
@@ -62,64 +66,10 @@
                   <td>Mixte</td>
                   <td>106</td>
                   <td>3</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Pavillon F</td>
-                  <td>Femmes/td>
-                  <td>210</td>
-                  <td>4</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Pavillon G</td>
-                  <td>Femmes</td>
-                  <td>140</td>
-                  <td>3</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>Pavillon H</td>
-                  <td>Mixte</td>
-                  <td>310</td>
-                  <td>4</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>Pavion I</td>
-                  <td>Mixte</td>
-                  <td>210</td>
-                  <td>3</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Pavillon J</td>
-                  <td>Hommes</td>
-                  <td>90</td>
-                  <td>2</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>Pavillon K</td>
-                  <td>Femmes</td>
-                  <td>200</td>
-                  <td>3</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>Pavillon L</td>
-                  <td>Mixte</td>
-                  <td>150</td>
-                  <td>2</td>
-                  <td><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></td>
-                </tr>
+
               </tbody>
             </table>
 
@@ -127,5 +77,22 @@
 
           </div>
       </main>
+  </div>
+</div>
+<div class="modal fade" id="ajouterChambre" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

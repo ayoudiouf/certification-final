@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-gestion-chambre',
   templateUrl: './gestion-chambre.component.html',
@@ -7,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionChambreComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
-
   ngOnInit(): void {
     const script = document.createElement('script');
     script.src = '../../../assets/js/script.js';

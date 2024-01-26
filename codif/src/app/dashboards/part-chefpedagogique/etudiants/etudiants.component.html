@@ -6,20 +6,22 @@
       <app-header-sidebar></app-header-sidebar>
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
-          <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text-danger ">Liste des étudiant par mérite</h1>
+          <div class="container-fluid overflow-y-scroll h-75" style="height: 88vh; ">
+            <h1 class="text">Liste des étudiants par mérite</h1>
+            <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #E68513; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>N Identificaion</th>
-                  <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>Contact </th>
-                  <th>Niveau d'étude</th>
-                  <th>Adress</th>
-                  <th>Action</th>
+                  <th class="tHead">ID</th>
+                  <th class="tHead">N Identificaion</th>
+                  <th class="tHead">Nom</th>
+                  <th class="tHead">Prenom</th>
+                  <th class="tHead">Contact </th>
+                  <th class="tHead">Niveau d'étude</th>
+                  <th class="tHead">Adress</th>
+                  <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -31,7 +33,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Master1</td>
                   <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>2</td>
@@ -41,7 +44,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Licence2</td>
                   <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>3</td>
@@ -51,7 +55,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Licence3</td>
                   <td>Fatick</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>4</td>
@@ -61,7 +66,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Licence1</td>
                   <td>Mbour</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
                 <tr>
                   <td>5</td>
@@ -71,77 +77,8 @@
                   <td><i class="fa-solid fa-envelope"></i></td>
                   <td>Master2</td>
                   <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>741522</td>
-                  <td>Drey</td>
-                  <td>Armel</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>Master1</td>
-                  <td>Joal</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>74822</td>
-                  <td>Faye</td>
-                  <td>françois</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>Licence2</td>
-                  <td>Mbour</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>745566</td>
-                  <td>Faye</td>
-                  <td>Michel</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>Licence1</td>
-                  <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>12584</td>
-                  <td>Sylla</td>
-                  <td>Mama Nar</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>Licence2</td>
-                  <td>javier</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>44114</td>
-                  <td>Ndiaye</td>
-                  <td>Simon</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>Licence1</td>
-                  <td>Dakar</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>2255454</td>
-                  <td>Levis</td>
-                  <td>Louis</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>Licence3/td>
-                  <td>Thies</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>255631</td>
-                  <td>Anderson</td>
-                  <td>Zelda</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>Licence2</td>
-                  <td>Joal</td>
-                  <td><i class="fa-solid fa-eye"></i><i class="fa-solid fa-marker"></i></td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
                 </tr>
               </tbody>
             </table>
@@ -152,5 +89,21 @@
       </main>
   </div>
 </div>
-
+<div class="modal fade" id="ajouterEtudiant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -3,35 +3,37 @@
     <div class="col-lg-6 "  id="imageForm">
       <!-- <img src="assets/actu/etudiant.jpg" alt="" > -->
     </div>
-    <div class=" connect col-lg-6 shadow h-75">
+    <div class=" connect col-lg-6 shadow h-10">
       <div class="d-flex justify-content-around mt-4">
         <h2 id="description">Connectez -vous ! </h2>
       </div>
-      <form action=""  class="mt-6">
+      <form [formGroup]="profileForm"  class="mt-6">
+
         <div class="mb-3" >
-          <label  class="form-label text-black ">Nom d'utilisateur/Email</label>
-          <input type="email" class="form-control w-100 " name="monChamp1" id="exampleFormControlInput1 " placeholder="nom utilisateur/email"  >
+          <label  class="form-label text-black ">Email</label>
+          <input type="email" class="form-control w-100 " formControlName="email" id="exampleFormControlInput1 " placeholder="email"  >
         </div>
 
         <div class="mb-3" >
           <label for="passwordExemple0" class="form-label text-black">Mot de passe</label>
-          <input type="password" class="form-control w-100 " name="monChamp2" id="passwordExemple0" placeholder="mot de pass" >
+          <input type="password" class="form-control w-100 " formControlName="password" id="passwordExemple0" placeholder="mot de pass" >
         </div>
-        <div class="">
+        <!-- <div class="">
           <label  class="form-label ">Rôle</label>
           <select class="form-select w-100 my-2" aria-label="Default select example">
             <option selected>Selectionner un utilisateur</option>
             <option value="1">Admin</option>
             <option value="2">Chef-Pavillon</option>
             <option value="3">Chef-Pédagogie</option>
+            <option value="3">Professeur</option>
             <option value="4">Etudiant</option>
             <option value="2">...</option>
           </select>
-        </div>
+        </div> -->
         <div class="col-12 px-0 my-3">
-          <button type="button" class="text-white w-100  btn-submit my-2">Se connecter</button>
+          <button type="button" class="text-white w-100  btn-submit my-2" (click)="connexion()">Se connecter</button>
           <a class="para text-black-50">Mot de pass oublier</a> <br>
-          <a id="btn-btn">Je n’ai pas de compte, je me connecte</a>
+          <!-- <a id="btn-btn">Je n’ai pas de compte, je me connecte</a> -->
         </div>
       </form>
     </div>

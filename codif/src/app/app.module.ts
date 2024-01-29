@@ -34,6 +34,9 @@ import { EtudiantpayeComponent } from './dashboards/part-etudiant/etudiantpaye/e
 import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
 import { ChartComponent } from './chart/chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConnexionComponent } from './auth/connexion/connexion.component';
+import { HttpClientModule } from '@angular/common/http';
 // import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/connexion.component';
 // import { InscriptionComponent } from './inscription/inscription.component';
 
@@ -72,14 +75,17 @@ import { NgApexchartsModule } from "ng-apexcharts";
     DemandereclamationComponent,
     EtudiantpayeComponent,
     ChambreComponent,
-    ChartComponent
-
+    ChartComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
-    NgApexchartsModule
+    // NgApexchartsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

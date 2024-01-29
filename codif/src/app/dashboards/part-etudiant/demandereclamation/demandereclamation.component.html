@@ -1,1 +1,154 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <app-sidebaretudiant></app-sidebaretudiant>
+  <!-- Main Component -->
+  <div class="main">
+      <app-header-sidebar></app-header-sidebar>
+      <main class="content px-3 py-2">
+          <!-- COntenue dynamique -->
+          <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
+
+            <div class="mescarte">
+              <div class="carte1">
+                <div class="container">
+                  <!-- <div class="main-title">
+                    <p class="font-weight-bold">DASHBOARD</p>
+                  </div> -->
+                  <div class="row">
+                      <div class="col-md-4 col-xl-3 ">
+                          <div class="card bg-c-blue order-card p-2">
+                              <!-- <div class="card-block"> -->
+                                  <h6 class="m-b-20">Réclamation</h6>
+                                  <h2 class="text-right"><span><i class="fa-solid fa-circle-info"></i>16</span></h2>
+                                  <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                              <!-- </div> -->
+                          </div>
+                      </div>
+
+                      <div class="col-md-4 col-xl-3">
+                          <div class="card bg-c-green order-card p-2">
+                              <!-- <div class="card-block"> -->
+                                  <h6 class="m-b-20">Pavion</h6>
+                                  <h2 class="text-right"><span><i class="fa-solid fa-building"></i>20</span></h2>
+                                  <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                              <!-- </div> -->
+                          </div>
+                      </div>
+
+                      <div class="col-md-4 col-xl-3">
+                          <div class="card bg-c-yellow order-card p-2">
+                              <!-- <div class="card-block"> -->
+                                  <h6 class="m-b-20">Chambres</h6>
+                                  <h2 class="text-right"><span><i class="fa-solid fa-house"></i>600</span></h2>
+                                  <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                              <!-- </div> -->
+                          </div>
+                      </div>
+
+                      <div class="col-md-4 col-xl-3">
+                          <div class="card bg-c-pink order-card p-2">
+                              <!-- <div class="card-block"> -->
+                                  <h6 class="m-b-20">Etudiants</h6>
+                                  <h2 class="text-right"><span><i class="fa-solid fa-user"></i>486</span></h2>
+                                  <p class="m-b-0">Completed Orders<span class="f-right">100000</span></p>
+                              <!-- </div> -->
+                          </div>
+                      </div>
+
+                      <button type="button" data-bs-toggle="modal" data-bs-target="#fairesaDemande" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px; margin-top: 20px; ">Faire une Réclamation</button>
+                      <h1 class="titre text-black text-center">Historique des Réclamations</h1>
+                      <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+
+                        <thead>
+                          <tr>
+                            <th class="tHead">ID</th>
+                            <th class="tHead">Libellé</th>
+                            <th class="tHead">statut</th>
+                            <th class="tHead">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>Demande répation </td>
+                            <td>En cours</td>
+                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
+
+
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Demande répation</td>
+
+                            <td>Terminer</td>
+                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
+
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Demande répation</td>
+
+                            <td>Terminer</td>
+                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
+
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Demande répation</td>
+
+                            <td>Terminer</td>
+                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
+
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Demande répation</td>
+                            <td>Terminer</td>
+                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
+
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+                    </div>
+
+
+              </div>
+              </div>
+            </div>
+          </div>
+      </main>
+  </div>
+</div>
+<div class="modal fade" id="fairesaDemande" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Faire une Reclamation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+          <div class="mb-3">
+            <label for="exampleInputid" class="form-label">Objet</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
+            <div id="idHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnompavion" class="form-label">Message</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nompavionHelp">
+            <div id="nompavionHelp" class="form-text"></div>
+          </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="typebutton btn ">Envoyer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 

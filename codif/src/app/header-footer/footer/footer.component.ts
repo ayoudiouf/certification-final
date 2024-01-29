@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,30 +7,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit{
   ngOnInit(): void {
-    document.addEventListener('DOMContentLoaded', () => {
-      const newsletterForm = document.getElementById('newsletterForm') as HTMLFormElement;
+  }
+  email: string = '';
+  onSubmit() {
+    if (this.isValidEmail(this.email)) {
+      Swal.fire({
+        title: 'Etes sur sûr?',
+        text: 'Vous allez envoyer votre email!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: ' Oui envoyer!',
+        cancelButtonText: 'Non,Annuler'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Code à exécuter lorsque l'utilisateur clique sur "Yes, delete it!"
+          Swal.fire(
+            'Bravo!',
+            'Envoie réussi avec succés".',
+            'success'
+          );
+          // Vous pouvez également soumettre le formulaire ici si nécessaire
+          // this.newsletterForm.submit();
+        } else if (result.isDismissed && result) {
 
-      newsletterForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        // Récupérer la valeur de l'e-mail
-        const emailInput = document.getElementById('mail') as HTMLInputElement;
-        const email = emailInput.value;
-
-        // Vérifier si l'e-mail est valide
-        if (!this.isValidEmail(email)) {
-          const invalidFeedback = document.querySelector('.invalid-feedback') as HTMLElement;
-          invalidFeedback.style.display = 'block';
-        } else {
-          // Envoyer l'e-mail à votre serveur ou effectuer d'autres actions
-          alert(`Inscription à la newsletter réussie pour ${email}`);
+          // Code à exécuter lorsque l'utilisateur clique sur "No, keep it"
+          Swal.fire(
+            'Bravo!',
+            'Votre envoie a été annuler avec succés".',
+            'success'
+          );
         }
       });
-    });
+    } else {
+      Swal.fire({
+        title: 'Email Invalid',
+        text: 'Veillez entrer votre email.',
+        icon: 'error',
+      });
+    }
   }
 
-  private isValidEmail(email: string): boolean {
-    // Utilisez une expression régulière ou une logique plus avancée pour valider l'e-mail
+  isValidEmail(email: string): boolean {
+    // Logique de validation d'e-mail basique avec une expression régulière
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }

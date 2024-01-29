@@ -13,7 +13,9 @@
     width: 100%;
   } */
 
-
+  #baniercarte span{
+    color: #A41034;
+  }
 
   div.slides-frame {
     width: 100%;
@@ -63,6 +65,7 @@
   position: relative;
   bottom: 50px;
   left: 50%;
+  width: 350px;
   /* gap: 10px; */
 }
 

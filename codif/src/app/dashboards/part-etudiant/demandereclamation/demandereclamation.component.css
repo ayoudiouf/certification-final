@@ -1,0 +1,14 @@
+.card:first-child {
+  border-left: 7px solid #E68513;
+}
+h2 span{
+  color: #E68513;
+}
+button{
+  background-color: #A41034;
+  color: white;
+}
+.typebutton{
+  background-color: #E68513;
+  color: white;
+}

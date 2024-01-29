@@ -52,18 +52,20 @@
       </div>
       <div class="col-3 text-white mt-4" id="email">
         <h4>Rester informer</h4>
-        <!-- Ajoutez ceci dans votre fichier footer.component.html -->
-        <form id="newsletterForm" (ngSubmit)="ngOnInit()">
+        <form (ngSubmit)="onSubmit()">
           <div class="col-md-10 mb-2">
             <label for="mail" class="form-label">S'inscrire à la newsletter</label><br>
-            <input class="form-control form-control-sm" type="text" id="mail" placeholder="Email">
-            <div class="invalid-feedback">Veuillez entrer une adresse e-mail valide.</div>
+            <input class="form-control form-control-sm" type="text" id="mail" placeholder="Email" [(ngModel)]="email" name="email" required>
+            <div class="invalid-feedback" *ngIf="email && !isValidEmail(email)">
+              Veuillez entrer une adresse e-mail valide.
+            </div>
           </div>
           <div class="col-md-5">
-            <button class="btn form-control text-white fw-bold" style="background-color: black;">S'inscrire</button>
+            <button class="btn form-control text-white fw-bold" style="background-color: black;" type="submit">S'inscrire</button>
           </div>
         </form>
       </div>
+
 
   </div>
 <!-- </div> -->

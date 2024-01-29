@@ -7,16 +7,16 @@
       <div class="d-flex justify-content-around mt-4">
         <h2 id="description">Connectez -vous ! </h2>
       </div>
-      <form [formGroup]="profileForm"  class="mt-6">
+      <form action="" [formGroup]="profileForm"  class="mt-6">
 
         <div class="mb-3" >
           <label  class="form-label text-black ">Email</label>
-          <input type="email" class="form-control w-100 " formControlName="email" id="exampleFormControlInput1 " placeholder="email"  >
+          <input type="email" class="form-control w-100 " name="email" formControlName="email" id="exampleFormControlInput1 " placeholder="email" [(ngModel)]="emailUtilisateur" >
         </div>
 
         <div class="mb-3" >
           <label for="passwordExemple0" class="form-label text-black">Mot de passe</label>
-          <input type="password" class="form-control w-100 " formControlName="password" id="passwordExemple0" placeholder="mot de pass" >
+          <input type="password" class="form-control w-100 " name="password" formControlName="password" id="passwordExemple0" placeholder="mot de pass" [(ngModel)]="passwordUtilisateur">
         </div>
         <!-- <div class="">
           <label  class="form-label ">Rôle</label>
@@ -31,12 +31,17 @@
           </select>
         </div> -->
         <div class="col-12 px-0 my-3">
-          <button type="button" class="text-white w-100  btn-submit my-2" (click)="connexion()">Se connecter</button>
+          <button type="submit" class="text-white w-100  btn-submit my-2" (click)="login()">Se connecter</button>
           <a class="para text-black-50">Mot de pass oublier</a> <br>
           <!-- <a id="btn-btn">Je n’ai pas de compte, je me connecte</a> -->
         </div>
+        <p>{{emailUtilisateur}}</p>
+        <p>{{passwordUtilisateur}}</p>
+
       </form>
     </div>
+
+
 
 
     <!-- <div class="col-lg-6">

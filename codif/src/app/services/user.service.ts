@@ -9,7 +9,16 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
 
- login(body:any){
-  return this.http.post('http://localhost/api/auth/login', body)
+//  login(body:any){
+//   return this.http.post('http://127.0.0.1:8000/api/auth/login', body)
+//  }
+
+ userConected(){
+  return this.http.get('http://127.0.0.1:8000/api/auth/me')
  }
+ login(user: any, onSuccess: Function) {
+  return this.http
+    .post(`${url_base}auth/login`, user)
+    .subscribe((reponse: any) => onSuccess(reponse));
+}
 }

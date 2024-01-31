@@ -1,0 +1,300 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <app-sitebar></app-sitebar>
+  <!-- Main Component -->
+  <div class="main">
+    <app-header-sidebar></app-header-sidebar>
+    <main class="content px-3 py-2">
+      <!-- COntenue dynamique -->
+      <div class="container-fluid overflow-y-scroll" style="height: 88vh">
+        <h1 class="text text-black text-center">Liste des pavillons</h1>
+        <button
+          type="button "
+          data-bs-toggle="modal"
+          data-bs-target="#ajouterPavillon"
+          style="
+            background-color: #a41034;
+            color: white;
+            width: 10%;
+            height: 40px;
+            border-radius: 10px;
+          "
+        >
+          Ajouter
+        </button>
+
+        <table
+          datatable
+          [dtOptions]="dtOptions"
+          class="row-border hover w-100 table"
+        >
+          <thead>
+            <tr>
+              <th class="tHead">ID</th>
+              <th class="tHead">Libelle</th>
+              <th class="tHead">Type pavillon</th>
+              <th class="tHead">Nombres Chambres</th>
+              <th class="tHead">Nombres Etages</th>
+              <th class="tHead">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pavillon of tabpavillon">
+              <td>{{ pavillon.id }}</td>
+              <td>{{ pavillon.libelle }}</td>
+              <td>{{ pavillon.type_pavillon }}</td>
+              <td>{{ pavillon.nombres_etages }}</td>
+              <td>{{ pavillon.nombres_chambres }}</td>
+
+              <td>
+                <span id="icon">
+                  <i
+                    class="fa-solid fa-marker"
+                    data-bs-toggle="modal"
+                    data-bs-target="#Modifier"
+                  ></i>
+                  <i
+                    class="fa-solid fa-eye"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                  ></i>
+                  <i class="fa-solid fa-trash"></i>
+                </span>
+              </td>
+
+              <!-- <td><span class="status action-icon">
+                    <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getDemandeById(demande.id)">
+                     <i class="bi bi-eye-fill"></i>  </a> -->
+
+              <!-- </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Pavillon B</td>
+                  <td>Hommes</td>
+                  <td>200</td>
+                  <td>3</td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Pavillon C</td>
+                  <td>Hommes</td>
+                  <td>500</td>
+                  <td>6</td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Pavillon D</td>
+                  <td>Femmes</td>
+                  <td>150</td>
+                  <td>3</td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Pavillon E</td>
+                  <td>Mixte</td>
+                  <td>106</td>
+                  <td>3</td>
+                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+                </tr> -->
+            </tr>
+          </tbody>
+        </table>
+      <!--  -->
+       
+      <!--  -->
+      </div>
+    </main>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="ajouterPavillon"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Ajouter un pavillon
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="" [formGroup]="profileForm">
+          <!-- <div class="mb-3">
+            <label for="exampleInputid" class="form-label">ID</label>
+            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
+            <div id="idHelp" class="form-text"></div>
+          </div> -->
+          <div class="mb-3">
+            <label for="exampleInputnompavillon" class="form-label"
+              >Nom Pavillon</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="libelle"
+              id="exampleInputId1"
+              aria-describedby="nompavillonHelp"
+              formControlName="libelle"
+            />
+            <div id="nompavillonHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputtypepavillon" class="form-label"
+              >Type Pavillon</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="types_pavillon"
+              id="exampleInputTypeChambre1"
+              aria-describedby="typepavillonHelp"
+              formControlName="type_pavillon"
+            />
+            <div id="typepavillonHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnbrschambre" class="form-label"
+              >Nbrs Chambres</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="nombres_chambres"
+              id="exampleInputnbrsChambre1"
+              aria-describedby="nbrschambreHelp"
+              formControlName="nombres_etages"
+            />
+            <div id="nbrschambreHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label"
+              >Nbrs Etages</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="nombres_etages"
+              id="exampleInputNbrsEtage1"
+              aria-describedby="nbrsetageHelp"
+              formControlName="nombres_chambres"
+            />
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">
+          Annuler
+        </button>
+        <button
+          type="button"
+          class="typebutton btn"
+          (click)="ajouterPavillon()"
+        >
+          Ajouter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal detail-->
+
+<!-- The Modal Modifier-->
+<div class="modal" id="Modifier">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier Pavillon</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="Modifier"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="exampleInputnompavillon" class="form-label"
+            >Nom Pavillon</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="libelle"
+            id="exampleInputId1"
+            aria-describedby="nompavillonHelp"
+            formControlName="libelle"
+          />
+          <div id="nompavillonHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputtypepavillon" class="form-label"
+            >Type Pavillon</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="types_pavillon"
+            id="exampleInputTypeChambre1"
+            aria-describedby="typepavillonHelp"
+            formControlName="type_pavillon"
+          />
+          <div id="typepavillonHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnbrschambre" class="form-label"
+            >Nbrs Chambres</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombres_chambres"
+            id="exampleInputnbrsChambre1"
+            aria-describedby="nbrschambreHelp"
+            formControlName="nombres_etages"
+          />
+          <div id="nbrschambreHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnbrsetage" class="form-label"
+            >Nbrs Etages</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombres_etages"
+            id="exampleInputNbrsEtage1"
+            aria-describedby="nbrsetageHelp"
+            formControlName="nombres_chambres"
+          />
+          <div id="nbrsetageHelp" class="form-text"></div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

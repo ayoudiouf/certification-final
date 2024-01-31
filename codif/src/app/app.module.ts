@@ -17,7 +17,6 @@ import { DataTablesModule } from 'angular-datatables';
 import { HeaderSidebarComponent } from './header-sidebar/header-sidebar.component';
 import { PaiementComponent } from './dashboards/part-admins/paiement/paiement.component';
 import { UtilisateurComponent } from './dashboards/part-admins/utilisateur/utilisateur.component';
-import { PavionComponent } from './dashboards/part-admins/pavillon/pavillon.component';
 import { GestionChambreComponent } from './dashboards/part-chefpavion/gestion-chambre/gestion-chambre.component';
 import { ReclamationComponent } from './dashboards/part-chefpavion/reclamation/reclamation.component';
 import { EtudiantsComponent } from './dashboards/part-chefpedagogique/etudiants/etudiants.component';
@@ -39,6 +38,7 @@ import { ConnexionComponent } from './auth/connexion/connexion.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { AuthInterceptor } from './interceptors/interceptors';
+import { PavionComponent } from './dashboards/part-admins/pavion/pavion.component';
 // import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/connexion.component';
 // import { InscriptionComponent } from './inscription/inscription.component';
 
@@ -59,7 +59,7 @@ import { AuthInterceptor } from './interceptors/interceptors';
     HeaderSidebarComponent,
     PaiementComponent,
     UtilisateurComponent,
-    PavionComponent,
+  
     GestionChambreComponent,
     AjoutNotesComponent,
     ReclamationComponent,
@@ -78,7 +78,8 @@ import { AuthInterceptor } from './interceptors/interceptors';
     EtudiantpayeComponent,
     ChambreComponent,
     ChartComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    PavionComponent
   ],
   imports: [
     BrowserModule,

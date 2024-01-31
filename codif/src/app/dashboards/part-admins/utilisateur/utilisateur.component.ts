@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscriber } from 'rxjs';
+import { UserModel } from 'src/app/models/user_model';
 import { UserService } from 'src/app/services/user.service';
-import { UserModel } from 'src/app/modeles/user_model';
+// import { UserModel } from 'src/app/modeles/user_model';
 
 @Component({
   selector: 'app-utilisateur',
@@ -85,8 +86,8 @@ export class UtilisateurComponent implements OnInit {
   listeUtilisateurs(){
     this.userService.listeUtilisateur().subscribe(
       (reponse:any) =>{
-        console.log(reponse);
-        // console.log(reponse.Utilisateurs);
+        // console.log(reponse);
+        console.log(reponse.Utilisateurs);
         this.tabUtilisateurs =  reponse.Utilisateurs;
         // let tab = reponse;
         // console.log(tab.length)

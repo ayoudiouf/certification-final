@@ -1,4 +1,4 @@
-export class pavillonModel {
+export class PavillonModel {
   id!: number;
   libelle!: string;
   type_pavillon! : string;

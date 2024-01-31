@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PavionService } from './pavillon.service';
+import { PavillonService } from './pavion.service';
 
 describe('PavionService', () => {
-  let service: PavionService;
+  let service: PavillonService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PavionService);
+    service = TestBed.inject(PavillonService);
   });
 
   it('should be created', () => {

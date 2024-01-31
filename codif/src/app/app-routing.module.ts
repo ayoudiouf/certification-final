@@ -7,7 +7,7 @@ import { DashChefpedagogiqueComponent } from './dashboards/part-chefpedagogique/
 import { DashEtudiantComponent } from './dashboards/part-etudiant/dash-etudiant/dash-etudiant.component';
 import { SitebarComponent } from './sitebar/sitebar.component';
 import { PaiementComponent } from './dashboards/part-admins/paiement/paiement.component';
-import { PavionComponent } from './dashboards/part-admins/pavion/pavion.component';
+import { PavionComponent } from './dashboards/part-admins/pavillon/pavillon.component';
 import { UtilisateurComponent } from './dashboards/part-admins/utilisateur/utilisateur.component';
 import { CasSocialComponent } from './dashboards/part-admins/cas-social/cas-social.component';
 import { EtudiantParMeriteComponent } from './dashboards/part-admins/etudiant-par-merite/etudiant-par-merite.component';

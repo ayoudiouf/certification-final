@@ -7,38 +7,43 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text text-black text-center">Liste chef pavillon</h1>
+          <h1 class="text text-black text-center">Liste des Utilisateurs</h1>
           <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutChefPavion" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
+
                   <th class="tHead">ID</th>
                   <th class="tHead">Nom</th>
                   <th class="tHead">Prenom</th>
-                  <th class="tHead">Contact</th>
-                  <th class="tHead">Statut</th>
+                  <th class="tHead">Email</th>
+                  <th class="tHead">Telephone</th>
+                  <th class="tHead">Role</th>
+                  <th class="tHead">statut</th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Ndione</td>
-                  <td>Andre</td>
-                  <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>en lign</td>
+                <tr *ngFor="let utilisateur of tabUtilisateurs">
+                  <td>{{utilisateur.id}}</td>
+                  <td>{{utilisateur.nom}}</td>
+                  <td>{{utilisateur.prenom}}</td>
+                  <td>{{utilisateur.email}}</td>
+                  <td>{{utilisateur.telephone}}</td>
+                  <td>{{utilisateur.roles_id}}</td>
+                  <td>{{utilisateur.status}}</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
-
-
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td>2</td>
                   <td>Ndiaye</td>
                   <td>Moussa</td>
+                  <td>moussagmail.com</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>hors lign</td>
+                  <td>Chef de Pedagogique</td>
+                  <td>Actif</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
                 </tr>
@@ -46,8 +51,10 @@
                   <td>3</td>
                   <td>Mouhamed</td>
                   <td>Malick</td>
+                  <td>malickgmail.com</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>hors lign</td>
+                  <td>Etudiant</td>
+                  <td>Actif</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
                 </tr>
@@ -55,8 +62,10 @@
                   <td>4</td>
                   <td>Sylla</td>
                   <td>Mactar</td>
+                  <td>matargmail.com</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>hors lign</td>
+                  <td>Chef de Pavion</td>
+                  <td>Actif</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
 
                 </tr>
@@ -64,11 +73,13 @@
                   <td>5</td>
                   <td>Barry</td>
                   <td>Ahmed</td>
+                  <td>ahedgail.com</td>
                   <td><i class="fa-solid fa-envelope"></i></td>
-                  <td>en lign</td>
+                  <td>Chef de pavion</td>
+                  <td>Actif</td>
                   <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
                   >
-                </tr>
+                </tr> -->
 
               </tbody>
             </table>
@@ -83,42 +94,60 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 " id="exampleModalLabel ">Ajouter Chef de Pavillon </h1>
+        <h1 class="modal-title fs-5 " id="exampleModalLabel ">Ajouter Role </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
+        <form action="" [formGroup]="profileForm">
+          <!-- <div class="mb-3">
             <label for="exampleInputid" class="form-label">ID</label>
             <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
             <div id="idHelp" class="form-text"></div>
-          </div>
+          </div> -->
           <div class="mb-3">
             <label for="exampleInputnom" class="form-label">Nom</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nomHelp">
+            <input type="text" name="name" class="form-control" id="exampleInputId1" aria-describedby="nomHelp" formControlName="nom">
             <div id="nomHelp" class="form-text"></div>
           </div>
           <div class="mb-3">
             <label for="exampleInputpremon" class="form-label">Prenom</label>
-            <input type="id" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp">
+            <input type="text" name="prenom" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp" formControlName="prenom">
             <div id="premonHelp" class="form-text"></div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputemail" class="form-label">Contact</label>
-            <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="nbrschambreHelp">
+            <label for="exampleInputemail" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp" formControlName="email">
             <div id="emailHelp" class="form-text"></div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputstatut" class="form-label">statut</label>
-            <input type="statu" class="form-control" id="exampleInputstatut1" aria-describedby="statutHelp">
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="exampleInputtelephone" class="form-label">Telephone</label>
+            <input type="number" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephonetHelp" formControlName="telephone">
+            <div id="telephonelHelp" class="form-text"></div>
           </div>
+           <div class="">
+          <label  class="form-label ">Rôle</label>
+          <select class="form-select w-100 my-2" aria-label="Default select example" name="roles_id" formControlName="roles_id">
+            <option selected>Selectionner un role</option>
+            <option value="2">Chef-Pavillon</option>
+            <option value="3">Chef-Pédagogie</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="typebutton btn btn-primary" (click)="ajoutUtilisateur()" >Ajouter</button>
+        </div>
         </form>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
         <button type="button" class="typebutton btn btn-primary">Ajouter</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
+<p>{{nom_utilisateur}}</p>
+<p>{{prenom_utilisateur}}</p>
+<p>{{email_utilisateur}}</p>
+<p>{{password_utilisateur}}</p>
+<p>{{roles_id_utilisateur}}</p>
+<p>{{roles_id_utilisateur}}</p>

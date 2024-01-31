@@ -54,7 +54,13 @@ export class ConnexionComponent implements OnInit {
       this.userservice.login({email:emailUser,password:passwordUser},(response:any)=>{
         // console.log(response.Results.Utilisateur.roles_id);
         // stocker notre les info de la requete dans notre localstorage
+        // console.log(response.Results.access_token);
+        console.log(response.Results.Utilisateur);
+
+
             localStorage.setItem('userOnline', JSON.stringify(response));
+            // console.log(response);
+
 
             //recuperer le userConnecter
             const userOnline = JSON.parse(
@@ -63,8 +69,14 @@ export class ConnexionComponent implements OnInit {
             if(response.Results.Utilisateur.roles_id==1){
               this.route.navigate(['/admin'])
             }
-      })
+
+      }
+
+      )
     }
     // this.userservice.login(user,)
+  }
+  me(){
+
   }
 }

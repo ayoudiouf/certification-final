@@ -6,10 +6,13 @@ import { url_base } from './api_url_service';
   providedIn: 'root'
 })
 export class PavillonService {
-  getAllPavillon() {
-   
+  PavillonService(id: any) {
+    throw new Error('Method not implemented.');
   }
-  
+  getAllPavillon() {
+
+  }
+
   constructor(private http : HttpClient) { }
 
   // userConected(){
@@ -22,13 +25,23 @@ userConnect(pav:any){
 
 }
 // La liste des pavillon
-listepavillon(){
-  return this.http.get(`${url_base}pavillons`);
-  
+  listepavillon(){
+    return this.http.get(`${url_base}pavillons`);
+
+  }
+
+   // methode pour modifier donnée ves l'api
+   editPavillon( modifpav:any, idPavion: any){
+    return this.http.put(`${url_base}pavillon/update/
+     ${idPavion}`,modifpav)
+  }
+
+  // Méthode pour supprimer un pavillon sans utiliser Observable
+deletePavillon(id: any, suppav: any) {
+  const deleteUrl = `${url_base}pavillon/delete/${id}`;
+
+  // Utilisation de HttpClient pour envoyer la requête de suppression
+  return this.http.delete(deleteUrl, { headers: suppav });
 }
-// Detail des pavillon
-detailspavillon(){
-  return this.http.get(`${url_base}pavillon/read/1`);
-  
-}
+
 }

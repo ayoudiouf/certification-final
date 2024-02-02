@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PavionComponent } from './pavillon.component';
+import { PavionComponent } from './pavion.component';
 
 describe('PavionComponent', () => {
   let component: PavionComponent;

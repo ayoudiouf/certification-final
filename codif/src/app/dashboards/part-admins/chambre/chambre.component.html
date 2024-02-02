@@ -7,31 +7,48 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text text-black text-center">Liste des paiement</h1>
+            <!-- <button
+          type="button "
+          data-bs-toggle="modal"
+          data-bs-target="#ajouterPavillon"
+          style="
+            background-color: #a41034;
+            color: white;
+            width: 10%;
+            height: 40px;
+            border-radius: 10px;
+          "
+        >
+          Ajouter listes
+        </button> -->
+          <h1 class="text text-black text-center">Liste des chambres</h1>
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
                   <th class="tHead">ID</th>
-                  <th class="tHead">Prenom</th>
-                  <th class="tHead">Nom</th>
-                  <th class="tHead">Mode de paiement </th>
-                  <th class="tHead">Montant</th>
-                  <th class="tHead">Mensuel</th>
+                  <th class="tHead">Libelle</th>
+                  <th class="tHead">Type chambres</th>
+                  <th class="tHead">Nombres limites lits </th>
+                  <th class="tHead">Pavillon_id</th>
+                  <th class="tHead">Etudiant_id</th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Farima</td>
-                  <td>Drey</td>
-                  <td>Wave</td>
-                  <td>5000</td>
-                  <td>janvier</td>
-                  <td><span><i class="fa-solid fa-eye"></i></span></td>
-                </tr>
-                <tr>
+
+                  <tr *ngFor="let chambre of tabchambre">
+                    <td>{{chambre.id }}</td>
+                    <td>{{libelle}}</td>
+                    <td>{{type_chambre}}</td>
+                    <td>{{nombres_lits}}</td>
+                    <td>{{nombres_limites}}</td>
+                    <td>{{pavillons_id}}</td>
+                    <td>{{etudiants_id}}</td>
+                  <td><span><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                    data-bs-target="#machambre"></i></span></td>
+
+                <!-- <tr>
                   <td>2</td>
                   <td>Anta</td>
                   <td>Sylla</td>
@@ -66,7 +83,7 @@
                   <td>5000</td>
                   <td>fevrier</td>
                   <td><span><i class="fa-solid fa-eye"></i></span></td>
-                </tr>
+                </tr> -->
 
               </tbody>
             </table>
@@ -77,4 +94,126 @@
       </main>
   </div>
 </div>
+<div class="modal" id="machambre">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Lister Chambres</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="Modifier"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="exampleInputnompavillon" class="form-label"
+            >libelle</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="libelle"
+            id="exampleInputId1"
+            aria-describedby="nompavillonHelp"
+            formControlName="libelle"
+          />
+          <div id="nompavillonHelp" class="form-text"></div>
+        </div>
+        div class="mb-3">
+          <label for="exampleInputnompavillon" class="form-label"
+            >type_chambre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="libelle"
+            id="exampleInputId1"
+            aria-describedby="nompavillonHelp"
+            formControlName="libelle"
+          />
+          <div id="nompavillonHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputtypepavillon" class="form-label"
+            >Type Pavillon</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="types_pavillon"
+            id="exampleInputTypeChambre1"
+            aria-describedby="typepavillonHelp"
+            formControlName="type_pavillon"
+          />
+          <div id="typepavillonHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnbrschambre" class="form-label"
+            >nombres_lits</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombres_chambres"
+            id="exampleInputnbrsChambre1"
+            aria-describedby="nbrschambreHelp"
+            formControlName="nombres_etages"
+          />
+          <div id="nbrschambreHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnbrsetage" class="form-label"
+            >nombres_limites</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombres_etages"
+            id="exampleInputNbrsEtage1"
+            aria-describedby="nbrsetageHelp"
+            formControlName="nombres_chambres"
+          />
+          <div id="nbrsetageHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnbrsetage" class="form-label"
+            >Pavillon_id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombres_etages"
+            id="exampleInputNbrsEtage1"
+            aria-describedby="nbrsetageHelp"
+            formControlName="nombres_chambres"
+          />
+          <div id="nbrsetageHelp" class="form-text"></div>
+        </div>
+        div class="mb-3">
+          <label for="exampleInputnbrsetage" class="form-label"
+            >Etudiant_id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombres_etages"
+            id="exampleInputNbrsEtage1"
+            aria-describedby="nbrsetageHelp"
+            formControlName="nombres_chambres"
+          />
+          <div id="nbrsetageHelp" class="form-text"></div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
 

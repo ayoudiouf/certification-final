@@ -1,9 +1,10 @@
 export class PavillonModel {
+  
   id!: number;
   libelle!: string;
   type_pavillon! : string;
   nombres_pavillon!: string;
-  nombres_etges!: string;
-  nombres_chambre!: string;
+  nombres_etages!: string;
+  nombres_chambres!: string;
 
 }

@@ -26,11 +26,11 @@
         <table
           datatable
           [dtOptions]="dtOptions"
-          class="row-border hover w-100 table"
-        >
+          class="row-border hover w-100 table" *ngIf="tabpavillons?.length>0">
           <thead>
             <tr>
               <th class="tHead">ID</th>
+
               <th class="tHead">Libelle</th>
               <th class="tHead">Type pavillon</th>
               <th class="tHead">Nombres Chambres</th>
@@ -39,7 +39,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let pavillon of tabpavillon">
+            <tr *ngFor="let pavillon of tabpavillons">
               <td>{{ pavillon.id }}</td>
               <td>{{ pavillon.libelle }}</td>
               <td>{{ pavillon.type_pavillon }}</td>
@@ -47,18 +47,27 @@
               <td>{{ pavillon.nombres_chambres }}</td>
 
               <td>
-                <span id="icon">
-                  <i
+                <span id="icon" >
+                  <button>
+                    <i
                     class="fa-solid fa-marker"
                     data-bs-toggle="modal"
                     data-bs-target="#Modifier"
-                  ></i>
-                  <i
+                  (click)="chargerPavillon(pavillon)" >
+                </i>
+                  </button>
+
+                  <button>
+                    <i
                     class="fa-solid fa-eye"
                     data-bs-toggle="modal"
-                    data-bs-target="#myModal"
-                  ></i>
-                  <i class="fa-solid fa-trash"></i>
+                    data-bs-target="#detail">
+                  </i>
+                  </button>
+
+                  <button>
+                    <i class="fa-solid fa-trash" (click)="deletePavillon('row')"></i>
+                  </button>
                 </span>
               </td>
 
@@ -106,19 +115,16 @@
           </tbody>
         </table>
       <!--  -->
-       
+
       <!--  -->
       </div>
     </main>
   </div>
 </div>
-<div
-  class="modal fade"
-  id="ajouterPavillon"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+
+
+<!-- Modal Ajout Pavillon -->
+<div class="modal fade" id="ajouterPavillon" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -140,14 +146,8 @@
             <div id="idHelp" class="form-text"></div>
           </div> -->
           <div class="mb-3">
-            <label for="exampleInputnompavillon" class="form-label"
-              >Nom Pavillon</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              name="libelle"
-              id="exampleInputId1"
+            <label for="exampleInputnompavillon" class="form-label">Nom Pavillon</label>
+            <input type="text" class="form-control" name="libelle"  id="exampleInputnompavillon"
               aria-describedby="nompavillonHelp"
               formControlName="libelle"
             />
@@ -214,83 +214,55 @@
 </div>
 
 <!-- The Modal detail-->
-
-<!-- The Modal Modifier-->
-<div class="modal" id="Modifier">
+<div class="modal" id="detail">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modifier Pavillon</h4>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="Modifier"
+        <h4 class="modal-title">Details Pavillon</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
         ></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
+        <form action="" [formGroup]="profileFormEdit">
+        <!-- Libelle -->
         <div class="mb-3">
-          <label for="exampleInputnompavillon" class="form-label"
-            >Nom Pavillon</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="libelle"
-            id="exampleInputId1"
-            aria-describedby="nompavillonHelp"
-            formControlName="libelle"
-          />
-          <div id="nompavillonHelp" class="form-text"></div>
+          <label for="libelleEdition1" class="form-label">Libelle</label>
+          <input type="text" class="form-control"  id="libelleEdition1" aria-describedby="nompavillonHelp2" formControlName="libelleEdition1" />
+          <div id="libelleEdition1" class="form-text"></div>
         </div>
+
+        <!-- Type Pavillon -->
         <div class="mb-3">
-          <label for="exampleInputtypepavillon" class="form-label"
-            >Type Pavillon</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="types_pavillon"
-            id="exampleInputTypeChambre1"
-            aria-describedby="typepavillonHelp"
-            formControlName="type_pavillon"
-          />
-          <div id="typepavillonHelp" class="form-text"></div>
+          <label for="libelleEditionEdition1" class="form-label">Type Pavillon</label>
+          <input type="text" class="form-control" name="types_pavillon" id="exampleInputTypeChambre" aria-describedby="typepavillonHelp" formControlName="type_pavillonEdition" [(ngModel)]="type_pavillon" />
+          <div id="libelleEditionEdition1" class="form-text"></div>
         </div>
+
+        <!-- Nbrs Chambres -->
         <div class="mb-3">
-          <label for="exampleInputnbrschambre" class="form-label"
-            >Nbrs Chambres</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="nombres_chambres"
-            id="exampleInputnbrsChambre1"
-            aria-describedby="nbrschambreHelp"
-            formControlName="nombres_etages"
-          />
-          <div id="nbrschambreHelp" class="form-text"></div>
+          <label for="nombres_chambresEdition2" class="form-label">Nbrs Chambres</label>
+          <input type="text" class="form-control" id="nombres_chambresEdition" aria-describedby="nombres_chambresEdition2" formControlName="nombres_etagesEdition2"[(ngModel)]="nombres_etages"/>
+          <div id="nombres_chambresEdition2" class="form-text"></div>
         </div>
+
+        <!-- Nbrs Etages -->
         <div class="mb-3">
-          <label for="exampleInputnbrsetage" class="form-label"
-            >Nbrs Etages</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="nombres_etages"
-            id="exampleInputNbrsEtage1"
-            aria-describedby="nbrsetageHelp"
-            formControlName="nombres_chambres"
-          />
-          <div id="nbrsetageHelp" class="form-text"></div>
+          <label for="nombres_etagesEdition1" class="form-label">Nbrs Etages</label>
+          <input type="text" class="form-control" name="nombres_etages" id="nombres_etagesEdition1" aria-describedby="nbrsetageHelp" formControlName="nombres_chambresEdition1" [(ngModel)]="nombres_chambres" />
+
+          <div id="nombres_etagesEdition" class="form-text"></div>
         </div>
+      </form>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >
+          Modifier
+        </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
           Close
         </button>
@@ -298,3 +270,62 @@
     </div>
   </div>
 </div>
+
+<!-- The Modal Modifier-->
+<div class="modal" id="Modifier" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier Pavillon</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="" [formGroup]="profileFormEdit">
+        <!-- Libelle -->
+        <div class="mb-3">
+          <label for="libelleEdition" class="form-label">Libelle</label>
+          <input type="text" class="form-control"  id="libelleEdition" aria-describedby="nompavillonHelp2" formControlName="libelleEdition" name="libelle" [(ngModel)]="libelle" />
+          <div id="libelleEdition" class="form-text"></div>
+        </div>
+
+        <!-- Type Pavillon -->
+        <div class="mb-3">
+          <label for="libelleEditionEdition" class="form-label">Type Pavillon</label>
+          <input type="text" class="form-control" name="types_pavillon" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp" formControlName="type_pavillonEdition" [(ngModel)]="type_pavillon" />
+          <div id="libelleEditionEdition" class="form-text"></div>
+        </div>
+
+        <!-- Nbrs Chambres -->
+        <div class="mb-3">
+          <label for="nombres_chambresEdition" class="form-label">Nbrs Chambres</label>
+          <input type="text" class="form-control" id="nombres_chambresEdition" aria-describedby="nombres_chambresEdition"  namme="nombres_etages" formControlName="nombres_etagesEdition"[(ngModel)]="nombres_etages"/>
+          <div id="nombres_chambresEdition" class="form-text"></div>
+        </div>
+
+        <!-- Nbrs Etages -->
+        <div class="mb-3">
+          <label for="nombres_etagesEdition" class="form-label">Nbrs Etages</label>
+          <input type="text" class="form-control" name="nombres_etages" id="nombres_etagesEdition" aria-describedby="nbrsetageHelp" formControlName="nombres_chambresEdition" [(ngModel)]="nombres_chambres" />
+
+          <div id="nombres_etagesEdition" class="form-text"></div>
+        </div>
+      </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="chargerPavillon" >
+          Modifier
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- The Modal Supprimer -->

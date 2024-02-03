@@ -46,20 +46,7 @@ export class ChambreComponent implements OnInit{
   constructor(private ChambreServices: ChambresService, private formbuilder: FormBuilder, private route: Router) {
 
   }
- 
-      // Fonction pour lister les chambres
-      pavillon(){
-        this.ChambreServices.listechambre().subscribe(
-          (reponse:any) =>{
-            // console.log("affichage chambre",reponse);
-            // console.log("affichage chambre",reponse.chambre);
-            this.tabchambre =  reponse.Pavillons;
-            console.log(this.tabchambre);
 
-
-          },
-
-        )
-      }
+      
 
 }

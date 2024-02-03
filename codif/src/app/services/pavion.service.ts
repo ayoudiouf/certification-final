@@ -36,12 +36,18 @@ userConnect(pav:any){
      ${idPavion}`,modifpav)
   }
 
-  // Méthode pour supprimer un pavillon sans utiliser Observable
-deletePavillon(id: any, suppav: any) {
-  const deleteUrl = `${url_base}pavillon/delete/${id}`;
+   // methode pour supprimer les pavillon
+   deletePavillon(suppav: any) {
+    return this.http.delete(`${url_base}pavillon/delete/{id}`,suppav)
 
-  // Utilisation de HttpClient pour envoyer la requête de suppression
-  return this.http.delete(deleteUrl, { headers: suppav });
-}
+  }
+
+  // methode pour aficher les detail
+
+  voidetail() {
+    return this.http.delete(`${url_base}pavillon/read/{id}`)
+
+  }
+
 
 }

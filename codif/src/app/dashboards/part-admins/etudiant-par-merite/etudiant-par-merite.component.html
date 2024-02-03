@@ -10,69 +10,58 @@
           <h1 class="text text-black text-center">Liste des étudiant par mérite</h1>
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
-              <thead>
+              <thead class="titre" style="background-color: #A41034;">
                 <tr>
                   <th class="tHead">ID</th>
-                  <th class="tHead">N Identificaion</th>
+                  <th class="tHead">INE</th>
                   <th class="tHead">Nom</th>
                   <th class="tHead">Prenom</th>
-                  <th class="tHead">Telephone </th>
                   <th class="tHead">Email</th>
+                  <th class="tHead">Telephone </th>
+                  <th class="tHead">Niveau_etudes </th>
+                  <th class="tHead">Filiere </th>
                   <th class="tHead">Adress</th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>1</td>
-                  <td>525669</td>
-                  <td>Drey</td>
-                  <td>Farima</td>
-                  <td>772369854</td>
-                  <td>farimagmail.com</td>
-                  <td>Dakar</td>
-                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
+                  <!-- <td>{{}}</td> -->
+                  <td>{{nom }}</td>
+                  <td>{{prenom }}</td>
+                  <td>{{email }}</td>
+                  <td>{{password }}</td>
+                  <td>{{telephone }}</td>
+                  <td>{{niveau_etudes}}</td>
+                  <td>{{filiere }}</td>
+                  <td>{{status_id }}</td>
+                  <td>{{adress }}</td>
+
+                  <td>
+                    <span id="icon" >
+                      <button>
+                        <i
+                        class="fa-solid fa-marker"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modifier"
+                     >
+                    </i>
+                      </button>
+
+                      <button>
+                        <i
+                        class="fa-solid fa-eye"
+                        data-bs-toggle="modal"
+                        data-bs-target="#detail">
+                      </i>
+                      </button>
+
+
+                    </span>
+                  </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>362214</td>
-                  <td>Sylla</td>
-                  <td>Anta</td>
-                  <td>789654225</td>
-                  <td>antagmail.com</td>
-                  <td>Dakar</td>
-                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>852363</td>
-                  <td>Seye</td>
-                  <td>Panthère</td>
-                  <td>772145639</td>
-                  <td>pantheregmail.com</td>
-                  <td>Fatick</td>
-                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>85285</td>
-                  <td>Balmaséda</td>
-                  <td>Yoda</td>
-                  <td>751239671</td>
-                  <td>yodagmail.com</td>
-                  <td>Mbour</td>
-                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>741952</td>
-                  <td>Anderson</td>
-                  <td>Patrick</td>
-                  <td>771236496</td>
-                  <td>patrickgmail.com</td>
-                  <td>Thies</td>
-                  <td><span><i class="fa-solid fa-eye"></i><i class="fa-solid fa-check-to-slot"></i></span></td>
-                </tr>
+
+
 
               </tbody>
             </table>

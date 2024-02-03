@@ -19,9 +19,10 @@
                   <th class="tHead">Nom</th>
                   <th class="tHead">Prenom</th>
                   <th class="tHead">Email</th>
+                  <!-- <th class="tHead">Password</th> -->
                   <th class="tHead">Telephone</th>
                   <th class="tHead">Role</th>
-                  <th class="tHead">statut</th>
+                  <th class="tHead">Status</th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
@@ -31,10 +32,34 @@
                   <td>{{utilisateur.nom}}</td>
                   <td>{{utilisateur.prenom}}</td>
                   <td>{{utilisateur.email}}</td>
+                  <!-- <td>{{utilisateur.password}}</td> -->
                   <td>{{utilisateur.telephone}}</td>
                   <td>{{utilisateur.roles_id}}</td>
                   <td>{{utilisateur.status}}</td>
-                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+                  <td>
+                  <span id="icon" >
+                    <button>
+                      <i
+                      class="fa-solid fa-marker"
+                      data-bs-toggle="modal"
+                      data-bs-target="#Modifier"
+                    (click)="chargerUtilisateur(utilisateur)">
+                  </i>
+                    </button>
+
+                    <button>
+                      <i
+                      class="fa-solid fa-eye"
+                      data-bs-toggle="modal"
+                      data-bs-target="#details" (click)="getUtilisateur(utilisateur)">
+                    </i>
+                    </button>
+
+                    <!-- <button>
+                      <i class="fa-solid fa-trash" (click)="deleteUtilisateur(utilisateur.id)"></i>
+                    </button> -->
+                  </span>
+                </td>
 
               </tbody>
             </table>
@@ -45,6 +70,7 @@
       </main>
   </div>
 </div>
+<!-- The Modal Ajouter-->
 <div class="modal fade" id="ajoutChefPavion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -100,9 +126,145 @@
     </div>
   </div>
 </div>
-<p>{{nom_utilisateur}}</p>
-<p>{{prenom_utilisateur}}</p>
-<p>{{email_utilisateur}}</p>
-<p>{{password_utilisateur}}</p>
-<p>{{roles_id_utilisateur}}</p>
-<p>{{roles_id_utilisateur}}</p>
+
+<!-- The Modal detail-->
+<div class="modal" id="details" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Detail Utilisateur</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="" [formGroup]="profileFormEdit">
+        <!-- Nom -->
+        <div class="mb-3">
+          <label for="nom" class="form-label">Nom:{{seletedUtilisateur.nom}}</label>
+          
+        </div>
+
+        <!-- prenom Utilisateur -->
+        <div class="mb-3">
+          <label for="prenomEdition" class="form-label">Prenom:{{seletedUtilisateur.prenom}}</label>
+
+        </div>
+
+        <!-- Email  -->
+        <div class="mb-3">
+          <label for="nombres_chambresEdition" class="form-label">Email:{{seletedUtilisateur.email}}</label>
+
+        </div>
+
+        <!-- status -->
+        <div class="mb-3">
+          <label for="statusEdition" class="form-label">Status:{{seletedUtilisateur.status}}</label>
+
+
+        </div>
+
+        <!-- Telephone -->
+        <div class="mb-3">
+          <label for="telephoneEdition" class="form-label">Telephone:{{seletedUtilisateur.telephone}}</label>
+
+
+          <div id="telephoneEdition" class="form-text"></div>
+        </div>
+
+        <!-- Roles_id -->
+        <div class="mb-3">
+          <label for="roles_idEdition" class="form-label">Roles_ID:{{seletedUtilisateur.roles_id}}</label>
+
+        </div>
+      </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="editUtilisateur()" >
+          Modifier
+        </button> -->
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal Modifier-->
+<div class="modal" id="Modifier" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier Utilisateur</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="" [formGroup]="profileFormEdit">
+        <!-- Nom -->
+        <div class="mb-3">
+          <label for="nom" class="form-label">Nom</label>
+          <input type="text" class="form-control"  id="nom" aria-describedby="nomHelp2" formControlName="nom" name="nom" [(ngModel)]="nom" />
+          <div id="nomEdition" class="form-text"></div>
+        </div>
+
+        <!-- prenom Utilisateur -->
+        <div class="mb-3">
+          <label for="prenomEdition" class="form-label">Prenom</label>
+          <input type="text" class="form-control" name="prenom" id="exampleInputprenom1" aria-describedby="prenomHelp" formControlName="prenom" [(ngModel)]="prenom" />
+          <!-- <div id="prenomEdition" class="form-text"></div> -->
+        </div>
+
+        <!-- Email  -->
+        <div class="mb-3">
+          <label for="nombres_chambresEdition" class="form-label">Email</label>
+          <input type="text" class="form-control" id="emailEdition" aria-describedby="emailEdition"  name="email" formControlName="email"[(ngModel)]="email"/>
+          <!-- <div id="emailEdition" class="form-text"></div> -->
+        </div>
+
+        <!-- status -->
+        <div class="mb-3">
+          <label for="statusEdition" class="form-label">Status</label>
+          <input type="text" class="form-control" name="status" id="statusEdition" aria-describedby="statusHelp" formControlName="status" [(ngModel)]="status" />
+
+        </div>
+
+        <!-- Telephone -->
+        <div class="mb-3">
+          <label for="telephoneEdition" class="form-label">Telephone</label>
+          <input type="text" class="form-control" name="telephone" id="telephoneEdition" aria-describedby="telephoneHelp" formControlName="telephone" [(ngModel)]="telephone" />
+
+          <div id="telephoneEdition" class="form-text"></div>
+        </div>
+
+        <!-- Roles_id -->
+        <div class="mb-3">
+          <label for="roles_idEdition" class="form-label">Roles_ID</label>
+          <input type="text" class="form-control" name="roles_id" id="roles_idEdition" aria-describedby="nbrsetageHelp" formControlName="roles_id" [(ngModel)]="roles_id" />
+
+          <!-- <div id="roles_idEdition" class="form-text"></div> -->
+        </div>
+      </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="editUtilisateur()" >
+          Modifier
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -68,6 +68,12 @@ export class ConnexionComponent implements OnInit {
             );
             if(response.Results.Utilisateur.roles_id==1){
               this.route.navigate(['/admin'])
+            }else if(response.Results.Utilisateur.roles_id==2){
+              this.route.navigate(['/chefpavion'])
+            }else if(response.Results.Utilisateur.roles_id==3){
+              this.route.navigate(['/chefpedagogique'])
+            }else if(response.Results.Utilisateur.roles_id==4){
+              this.route.navigate(['/etudiant'])
             }
 
       }

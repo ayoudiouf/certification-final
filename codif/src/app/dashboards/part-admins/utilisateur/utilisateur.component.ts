@@ -17,8 +17,10 @@ export class UtilisateurComponent implements OnInit {
   nom: any;
   prenom: any;
   email: any;
+  password: any;
   telephone: any;
   roles_id: any;
+  status: any;
 
   tabUtilisateurs: any[] = [];
 
@@ -30,10 +32,13 @@ export class UtilisateurComponent implements OnInit {
   password_utilisateur: any = "";
   telephone_utilisateur: any = "";
   roles_id_utilisateur: any = "";
+  status_utilisateur: any = "";
 
 
 
   ngOnInit(): void {
+    this.listeUtilisateurs();
+
     this.dtOptions = {
       searching: true,
       lengthChange: false,
@@ -54,6 +59,18 @@ export class UtilisateurComponent implements OnInit {
     prenom: ['', Validators.required,],
     email: ['', Validators.required,],
     password: ['testestest', Validators.required,],
+    telephone: ['', Validators.required,],
+    roles_id: ['', Validators.required,],
+    // roles: ['', Validators.required,],
+
+
+  });
+
+  profileFormEdit: FormGroup = this.formbuilder.group({
+    nom: ['', Validators.required,],
+    prenom: ['', Validators.required,],
+    email: ['', Validators.required,],
+    password: ['', Validators.required,],
     telephone: ['', Validators.required,],
     roles_id: ['', Validators.required,],
     // roles: ['', Validators.required,],
@@ -99,18 +116,50 @@ export class UtilisateurComponent implements OnInit {
     )
   }
 
+  // methode pour charger element a modifier dans formulaire
+  seletedUtilisateur: any = {};
+  utilisateurChoisi:any
+  chargerUtilisateur(use: UserModel) {
+    this.utilisateurChoisi=use.id;
+    this.nom = use.nom;
+    this.prenom = use.prenom;
+    this.email = use.email;
+    this.password = use.password;
+    this.telephone = use.telephone;
+    this.roles_id = use.roles_id;
+    this.status = use.status;
+  }
+
+  editUtilisateur() {
+
+    const userChoisi={
+    nom : this.nom,
+    prenom : this.prenom,
+    email : this.email,
+    password :this.password,
+    telephone :this.telephone,
+    status :this.status,
+
+  }
+    this.userService.editUtilisateur(userChoisi, this.utilisateurChoisi).subscribe((res: any) => {
+      console.log(res);
+    });
+    this.listeUtilisateurs();
+  }
+
+  // deleteUtilisateur(id:any) {
+  //   this.userService.deleteUtilisateur(id).subscribe((res: any) => {
+  //     console.log(res);
+  //   });
+  //   this.listeUtilisateurs();
+  // }
+
+  getUtilisateur(utilisateur: any) {
+    this.seletedUtilisateur = utilisateur;
+  }
+
 }
 
-// fonction pour lister
-// getAllUtilisateur() {
-
-//   this.Utilisateur.getAllUtilisateur().subscribe(
-//     (data) => {
-//       this.Utilisateur = data.utilisateur;
-//       // console.log(this.listeUtilisateur);
-//     }
-//   );
-// }
 
 
 

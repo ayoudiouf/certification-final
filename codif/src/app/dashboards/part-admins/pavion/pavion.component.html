@@ -53,7 +53,7 @@
                     class="fa-solid fa-marker"
                     data-bs-toggle="modal"
                     data-bs-target="#Modifier"
-                  (click)="chargerPavillon(pavillon)" >
+                  (click)="chargerPavillon(pavillon)">
                 </i>
                   </button>
 
@@ -61,12 +61,12 @@
                     <i
                     class="fa-solid fa-eye"
                     data-bs-toggle="modal"
-                    data-bs-target="#detail">
+                    data-bs-target="#detail" (click)="getPavillon(pavillon)">
                   </i>
                   </button>
 
                   <button>
-                    <i class="fa-solid fa-trash" (click)="deletePavillon('row')"></i>
+                    <i class="fa-solid fa-trash" (click)="deletePavillon(pavillon.id)"></i>
                   </button>
                 </span>
               </td>
@@ -226,33 +226,28 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action="" [formGroup]="profileFormEdit">
+        <form action="" [formGroup]="profileForm">
         <!-- Libelle -->
         <div class="mb-3">
-          <label for="libelleEdition1" class="form-label">Libelle</label>
-          <input type="text" class="form-control"  id="libelleEdition1" aria-describedby="nompavillonHelp2" formControlName="libelleEdition1" />
+          <label for="libelleEdition1" class="form-label">Libelle:{{seletedPavillon.libelle}}</label>
           <div id="libelleEdition1" class="form-text"></div>
         </div>
 
         <!-- Type Pavillon -->
         <div class="mb-3">
-          <label for="libelleEditionEdition1" class="form-label">Type Pavillon</label>
-          <input type="text" class="form-control" name="types_pavillon" id="exampleInputTypeChambre" aria-describedby="typepavillonHelp" formControlName="type_pavillonEdition" [(ngModel)]="type_pavillon" />
+          <label for="libelleEditionEdition1" class="form-label">Type Pavillon:{{seletedPavillon.type_pavillon}}</label>
           <div id="libelleEditionEdition1" class="form-text"></div>
         </div>
 
         <!-- Nbrs Chambres -->
         <div class="mb-3">
-          <label for="nombres_chambresEdition2" class="form-label">Nbrs Chambres</label>
-          <input type="text" class="form-control" id="nombres_chambresEdition" aria-describedby="nombres_chambresEdition2" formControlName="nombres_etagesEdition2"[(ngModel)]="nombres_etages"/>
+          <label for="nombres_chambresEdition2" class="form-label">Nbrs Chambres:{{seletedPavillon.nombres_chambres}}</label>
           <div id="nombres_chambresEdition2" class="form-text"></div>
         </div>
 
         <!-- Nbrs Etages -->
         <div class="mb-3">
-          <label for="nombres_etagesEdition1" class="form-label">Nbrs Etages</label>
-          <input type="text" class="form-control" name="nombres_etages" id="nombres_etagesEdition1" aria-describedby="nbrsetageHelp" formControlName="nombres_chambresEdition1" [(ngModel)]="nombres_chambres" />
-
+          <label for="nombres_etagesEdition1" class="form-label">Nbrs Etages:{{seletedPavillon.nombres_etages}}</label>
           <div id="nombres_etagesEdition" class="form-text"></div>
         </div>
       </form>
@@ -260,9 +255,6 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >
-          Modifier
-        </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
           Close
         </button>
@@ -288,21 +280,21 @@
         <!-- Libelle -->
         <div class="mb-3">
           <label for="libelleEdition" class="form-label">Libelle</label>
-          <input type="text" class="form-control"  id="libelleEdition" aria-describedby="nompavillonHelp2" formControlName="libelleEdition" name="libelle" [(ngModel)]="libelle" />
+          <input type="text" class="form-control"  id="libelleEdition" aria-describedby="nompavillonHelp2" formControlName="libelle" name="libelle" [(ngModel)]="libelle" />
           <div id="libelleEdition" class="form-text"></div>
         </div>
 
         <!-- Type Pavillon -->
         <div class="mb-3">
           <label for="libelleEditionEdition" class="form-label">Type Pavillon</label>
-          <input type="text" class="form-control" name="types_pavillon" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp" formControlName="type_pavillonEdition" [(ngModel)]="type_pavillon" />
+          <input type="text" class="form-control" name="type_pavillon" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp" formControlName="type_pavillonEdition" [(ngModel)]="type_pavillon" />
           <div id="libelleEditionEdition" class="form-text"></div>
         </div>
 
         <!-- Nbrs Chambres -->
         <div class="mb-3">
           <label for="nombres_chambresEdition" class="form-label">Nbrs Chambres</label>
-          <input type="text" class="form-control" id="nombres_chambresEdition" aria-describedby="nombres_chambresEdition"  namme="nombres_etages" formControlName="nombres_etagesEdition"[(ngModel)]="nombres_etages"/>
+          <input type="text" class="form-control" id="nombres_chambresEdition" aria-describedby="nombres_chambresEdition"  name="nombres_etages" formControlName="nombres_etagesEdition"[(ngModel)]="nombres_etages"/>
           <div id="nombres_chambresEdition" class="form-text"></div>
         </div>
 
@@ -318,7 +310,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="chargerPavillon" >
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="editerPavillon()" >
           Modifier
         </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
@@ -328,4 +320,4 @@
     </div>
   </div>
 </div>
-<!-- The Modal Supprimer -->
+

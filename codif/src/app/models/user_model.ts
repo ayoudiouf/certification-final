@@ -6,5 +6,6 @@ export class UserModel {
   password!: string;
   telephone!: string;
   roles_id!:string;
+  status!:string;
   // photo_profile?: string;
 }

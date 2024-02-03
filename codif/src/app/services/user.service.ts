@@ -33,4 +33,12 @@ listeUtilisateur(){
   return this.http
   .get(`${url_base}Utilisateurs`);
 }
+
+  // methode pour modifier donnée ves l'api
+  editUtilisateur( modifuser:any, idUser: any){
+    return this.http
+    .put(`${url_base}modifierProfil/${idUser}`,modifuser)
+
+  }
+
 }

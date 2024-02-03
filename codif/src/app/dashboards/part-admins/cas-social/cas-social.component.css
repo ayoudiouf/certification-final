@@ -5,7 +5,11 @@
 span{
   display: flex;
   gap: 15px;
-  
+
+}
+.tHead{
+  background-color: #A41034;
+  color: white;
 }
 .text{
   color: #A41034;

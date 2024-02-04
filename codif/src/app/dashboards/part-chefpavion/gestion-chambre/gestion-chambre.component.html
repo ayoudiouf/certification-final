@@ -13,73 +13,45 @@
            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
-                <tr>
+                <tr >
                   <th class="tHead">ID</th>
-                  <th class="tHead">Libellé</th>
-                  <th class="tHead">Type pavillon</th>
-                  <th class="tHead">Nbrs Chambres</th>
+                  <th class="tHead">Libelle</th>
+                  <th class="tHead">Type Chambres</th>
                   <th class="tHead">Nbrs de lit</th>
+                  <th class="tHead">Echeances</th>
+                  <th class="tHead">Nbrs de liimites</th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Pavillon A</td>
-                  <td>Mixte</td>
-                  <td>481</td>
-                  <td>5</td>
-                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
+                <tr *ngFor="let chambre of chambreData">
+                  <td>{{ chambre.id}}</td>
+                  <td>{{ chambre.libelle}}</td>
+                  <td>{{chambre.type_chambre }}</td>
+                  <td>{{chambre.nombres_lits}}</td>
+                  <td>{{chambre.echeances}}</td>
+                  <td>{{chambre.nombres_limites}}</td>
 
-
+                  <!-- "libelle": "A Chambre 2",
+                  "type_chambre": "Partagée",
+                  "nombres_lits": 2,
+                  "echeances": "1 ans",
+                  "nombres_limites": 4, -->
+                  <td><span id="icon">
+                  <button><i class="fa-solid fa-marker"></i></button>
+                  <button><i class="fa-solid fa-eye"></i></button>
+                  <button><i class="fa-solid fa-trash"></i></button>
+                </span></td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Pavillon B</td>
-                  <td>Hommes</td>
-                  <td>200</td>
-                  <td>3</td>
-                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
-
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Pavillon C</td>
-                  <td>Hommes</td>
-                  <td>500</td>
-                  <td>6</td>
-                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
-
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Pavillon D</td>
-                  <td>Femmes</td>
-                  <td>150</td>
-                  <td>3</td>
-                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
-
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Pavillon E</td>
-                  <td>Mixte</td>
-                  <td>106</td>
-                  <td>3</td>
-                  <td><span id="icon"><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i><i class="fa-solid fa-trash"></i></span></td>
-
-                </tr>
-
               </tbody>
             </table>
-
-
 
           </div>
       </main>
   </div>
 </div>
-<div class="modal fade" id="ajouterChambre" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal pour ajouter une chambre -->
+<!-- <div class="modal fade" id="ajouterChambre" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -87,38 +59,50 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="formValue">
+
           <div class="mb-3">
-            <label for="exampleInputid" class="form-label">ID</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
-            <div id="idHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnompavion" class="form-label">Nom Pavillon</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nompavionHelp">
+            <label for="exampleInputnompavion" class="form-label">Libelle</label>
+            <input type="text" formControlName="libelle" class="form-control" id="exampleInputId1" aria-describedby="nompavionHelp">
             <div id="nompavionHelp" class="form-text"></div>
           </div>
+
           <div class="mb-3">
-            <label for="exampleInputtypepavillon" class="form-label">Type Pavillon</label>
-            <input type="id" class="form-control" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp">
+            <label for="exampleInputtypepavillon" class="form-label">Type Chambre</label>
+            <input type="text" formControlName="type_chambre" class="form-control" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp">
             <div id="typepavillonHelp" class="form-text"></div>
           </div>
+
           <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label">Nbrs Chambres</label>
-            <input type="id" class="form-control" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp">
+            <label for="exampleInputnbrschambre" class="form-label"> Nombres lits</label>
+            <input type="text" formControlName="nombres_lits" class="form-control" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp">
             <div id="nbrschambreHelp" class="form-text"></div>
           </div>
+
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Nbrs Etages</label>
-            <input type="nbrsetage" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
+            <label for="exampleInputnbrsetage" class="form-label">Nombres Limites</label>
+            <input type="text" formControlName="nombres_limites" name="nombres_limites" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Pavillon_id</label>
+            <input type="text" formControlName="pavillons_id" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Etudiant_id</label>
+            <input type="text" formControlName="etudiants_id" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="typebutton btn ">Ajouter</button>
+        <button type="button" (click)="postchambre()" class="typebutton btn ">Ajouter</button>
       </div>
     </div>
   </div>
-</div>
+</div> -->

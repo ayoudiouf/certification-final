@@ -88,12 +88,13 @@ export class PavionComponent implements OnInit {
 
     // Fonction pour lister les utilisateurs
   getPavillons(){
+
     this.PavillonService.listepavillon().subscribe((reponse:any) =>{
-        this.tabpavillons =  reponse.Pavillons;
+        this.tabpavillons =  reponse.Pavillon;
         console.log(this.tabpavillons);
 
     });
-    console.log("ddddddd");
+    
   }
   // methode pour charger element a modifier dans formulaire
   seletedPavillon: any = {};

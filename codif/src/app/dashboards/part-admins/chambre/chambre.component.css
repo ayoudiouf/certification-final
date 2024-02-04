@@ -1,8 +1,25 @@
+#icon{
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 15px;
+}
 .tHead{
+  background-color: #a41034;
+  color: white;
+}
+span{
+  display: flex;
+  gap: 15px;
+
+}
+.text{color: #A41034;
+
+}
+button{
   background-color: #A41034;
   color: white;
 }
-.text{
-  color: #A41034;
+.typebutton{
+  background-color: #E68513;
+  color: white;
 }
-

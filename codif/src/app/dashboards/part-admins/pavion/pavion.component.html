@@ -9,18 +9,8 @@
       <div class="container-fluid overflow-y-scroll" style="height: 88vh">
         <h1 class="text text-black text-center">Liste des pavillons</h1>
         <button
-          type="button "
-          data-bs-toggle="modal"
-          data-bs-target="#ajouterPavillon"
-          style="
-            background-color: #a41034;
-            color: white;
-            width: 10%;
-            height: 40px;
-            border-radius: 10px;
-          "
-        >
-          Ajouter
+          type="button " data-bs-toggle="modal" data-bs-target="#ajouterPavillon" style="
+            background-color: #a41034; color: white; width: 10%; height: 40px; border-radius: 10px;" >  Ajouter
         </button>
 
         <table
@@ -280,7 +270,7 @@
         <!-- Libelle -->
         <div class="mb-3">
           <label for="libelleEdition" class="form-label">Libelle</label>
-          <input type="text" class="form-control"  id="libelleEdition" aria-describedby="nompavillonHelp2" formControlName="libelle" name="libelle" [(ngModel)]="libelle" />
+          <input type="text" class="form-control"  id="libelleEdition" aria-describedby="nompavillonHelp2" formControlName="libelleEdition" name="libelle" [(ngModel)]="libelle" />
           <div id="libelleEdition" class="form-text"></div>
         </div>
 

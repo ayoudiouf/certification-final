@@ -13,7 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const userOnline = JSON.parse(localStorage.getItem('userOnline') || '');
+    const userOnline = JSON.parse(localStorage.getItem('userOnline') || 'null');
 
     // Assurez-vous que userOnline et userOnline.authorization sont définis
     if ( userOnline && userOnline.Results.access_token) {
@@ -22,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
         setHeaders: {
           Authorization: `Bearer ${token}`,
         },
-      });
+      } );
     }
 
     return next.handle(request);

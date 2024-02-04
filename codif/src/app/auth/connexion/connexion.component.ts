@@ -55,7 +55,7 @@ export class ConnexionComponent implements OnInit {
         // console.log(response.Results.Utilisateur.roles_id);
         // stocker notre les info de la requete dans notre localstorage
         // console.log(response.Results.access_token);
-        console.log(response.Results.Utilisateur);
+        console.log(response.Results.access_token);
 
 
             localStorage.setItem('userOnline', JSON.stringify(response));

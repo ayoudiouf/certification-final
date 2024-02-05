@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CassocialService {
 
-
   EtudiantCasSocialService(id: any) {
     throw new Error('Method not implemented.');
   }
@@ -16,16 +15,16 @@ export class CassocialService {
     return this.http.get(`${url_base}listesEtudiantsCasSocial`);
   }
 
+
+
   constructor(private http : HttpClient) { }
-
-
 userConnect(pav:any){
 
   return this.http.post(`${url_base}ajoutEtudiant/CasSocial`,pav);
 
 }
 
-  
+// listesEtudiantsCasSocial
   // listeCasSocial(){
 
   // }

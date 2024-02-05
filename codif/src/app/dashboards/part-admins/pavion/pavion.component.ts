@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PavillonModel } from 'src/app/models/pavillon';
 import { PavillonService } from 'src/app/services/pavion.service';
+// import 'datatables.net';
 
 @Component({
   selector: 'app-pavillon',
@@ -30,8 +31,7 @@ export class PavionComponent implements OnInit {
   nombres_chambres_pavillon: any = "";
   tabpavillons: any;
   pavillonModel: any;
-  // pavillons: any;
-  // pavillonModel: any;
+
 
   ngOnInit(): void {
     this.getPavillons();
@@ -94,7 +94,7 @@ export class PavionComponent implements OnInit {
         console.log(this.tabpavillons);
 
     });
-    
+
   }
   // methode pour charger element a modifier dans formulaire
   seletedPavillon: any = {};
@@ -127,16 +127,6 @@ export class PavionComponent implements OnInit {
     });
     this.getPavillons();
   }
-  // datailPavillon(){
-
-  //   this.getPavillons(detailpav:any) {
-  //       this.seletedPavillon = this.pavillonChoisi;
-  //       this.PavillonService.datailPavillon(detailpav).subscribe((res: any) => {
-  //         console.log(res);
-  //       });
-  //     }
-  //   // this.getPavillons();
-  // }
 
   getPavillon(pavillon: any) {
     this.seletedPavillon = pavillon;

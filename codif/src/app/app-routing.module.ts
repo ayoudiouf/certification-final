@@ -18,8 +18,7 @@ import { PolitiqueDeConfidentialiteComponent } from './composants/politique-de-c
 import { SidebaretudiantComponent } from './sidebaretudiant/sidebaretudiant.component';
 import { ConnexionComponent } from './auth/connexion/connexion.component';
 import { InscriptionComponent } from './auth/inscription/inscription.component';
-import { AjoutNotesComponent } from './dashboards/part-professeur/ajout-notes/ajout-notes.component';
-import { DashProfesseurComponent } from './dashboards/part-professeur/dash-professeur/dash-professeur.component';
+
 import { EtudiantpayeComponent } from './dashboards/part-etudiant/etudiantpaye/etudiantpaye.component';
 import { DemandereclamationComponent } from './dashboards/part-etudiant/demandereclamation/demandereclamation.component';
 import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
@@ -44,9 +43,7 @@ const routes: Routes = [
   {path : 'etudiantsidebar' , component: SidebaretudiantComponent},
   {path : 'etudiantreclamation' , component: DemandereclamationComponent},
   {path : 'payeetudiant' , component: EtudiantpayeComponent},
-  {path : 'listenote' , component: AjoutNotesComponent},
-  {path : 'listenote' , component: AjoutNotesComponent},
-  {path : 'dashnote' , component: DashProfesseurComponent},
+  
   {path : 'listchambre' , component: ChambreComponent},
   {path : 'connexion' , component: ConnexionComponent},
   // {path : 'inscription' , component: InscriptionComponent.},

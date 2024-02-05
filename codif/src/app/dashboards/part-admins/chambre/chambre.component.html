@@ -7,20 +7,10 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-            <button
-          type="button "
-          data-bs-toggle="modal"
-          data-bs-target="#ajouterChambre"
-          style="
-            background-color: #a41034;
-            color: white;
-            width: 10%;
-            height: 40px;
-            border-radius: 10px;
-          "
-        >
+            <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="width: 20%; height: 40px; border-radius: 10px; background-color: #A41034; color: white;">
+              Ajouter Chambre
+            </button>
 
-        </button>
           <h1 class="text text-black text-center">Liste des chambres</h1>
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
@@ -31,7 +21,7 @@
                   <th class="tHead">Type chambres</th>
                   <th class="tHead">Nombres limites </th>
                   <th class="tHead">Nombres lits </th>
-                  <!-- <th class="tHead">Pavillon_id</th> -->
+                  <th class="tHead">Pavillon_id</th>
                   <!-- <th class="tHead">Etudiant_id</th> -->
                   <th class="tHead">Action</th>
                 </tr>
@@ -44,17 +34,19 @@
                     <td>{{chambre.type_chambre}}</td>
                     <td>{{chambre.nombres_lits}}</td>
                     <td>{{chambre.nombres_limites}}</td>
-                    <!-- <td>{{chambre.pavillons_id}}</td> -->
+                    <td>{{chambre.pavillons_id}}</td>
                     <!-- <td>{{chambre.etudiants_id}}</td> -->
                     <td><span id="icon">
-                      <button>
+                      <button class="info">
                         <i class="fa-solid fa-marker" data-bs-toggle="modal"
                         data-bs-target="#Modifier" (click)="chargerChambre(chambre)"></i>
                       </button>
-                      <button><i class="fa-solid fa-eye "  data-bs-toggle="modal"
+                      <button class="info"><i class="fa-solid fa-eye "  data-bs-toggle="modal"
                         data-bs-target="#details" (click)="getChambre(chambre)" ></i>
                       </button>
-                      <button><i class="fa-solid fa-trash"></i></button>
+                      <button class="info">
+                        <i class="fa-solid fa-trash" (click)="deletechambre(chambre)" ></i>
+                      </button>
                     </span></td>
                   </tr>
               </tbody>
@@ -66,7 +58,67 @@
       </main>
   </div>
 </div>
-<!-- ajouterChambre() -->
+<!-- Modal Ajouter Chambre -->
+<div class="modal" id="ajouterChambre">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Ajouter Chambre</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="profileForm">
+          <!-- Libelle -->
+          <div class="mb-3">
+            <label for="libelle" class="form-label">Libelle</label>
+            <input type="text" class="form-control" id="libelle" formControlName="libelle_chambre" />
+            <div id="libelle" class="form-text"></div>
+          </div>
+
+          <!-- Type de chambre -->
+          <div class="mb-3">
+            <label for="type_chambre" class="form-label">Type de chambre</label>
+            <input type="text" class="form-control" id="type_chambre" formControlName="type_chambre_chambre" />
+            <div id="type_chambre" class="form-text"></div>
+          </div>
+
+          <!-- Nombre de lits -->
+          <div class="mb-3">
+            <label for="nombres_lits" class="form-label">Nombre de lits</label>
+            <input type="text" class="form-control" id="nombres_lits" formControlName="nombres_lits_chambre" />
+            <div id="nombres_lits" class="form-text"></div>
+          </div>
+
+          <!-- Nombres limites -->
+          <div class="mb-3">
+            <label for="nombres_limites" class="form-label">Nombres Limites</label>
+            <input type="text" class="form-control" id="nombres_limites" formControlName="nombres_limites_chambre" />
+            <div id="nombres_limites" class="form-text"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="id_pavillon" class="form-label">id Pavillon</label>
+            <input type="text" class="form-control" id="id_pavillon" formControlName="id_pavillon_chambre" />
+            <div id="id_pavillon" class="form-text"></div>
+          </div>
+
+          <!-- ...Modal footer... -->
+          <div class="modal-footer">
+            <button type="button" (click)="ajouterChambre()" class="btn btn-danger" data-bs-dismiss="modal">
+              Ajouter
+            </button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- The Modal Modifier-->
@@ -82,41 +134,41 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action="" [formGroup]="profileForm">
+        <form action="" [formGroup]="profileFormEdite">
         <!-- Libelle -->
         <div class="mb-3">
-          <label for="libelleEdition" class="form-label">Libelle</label>
-          <input type="text" class="form-control"  id="libelleEdition" aria-describedby="nompavillonHelp2" formControlName="libelleEdition" name="libelle" [(ngModel)]="libelle" />
-          <div id="libelleEdition" class="form-text"></div>
+          <label for="libelle" class="form-label">Libelle</label>
+          <input type="text" class="form-control" id="libelle" aria-describedby="nompavillonHelp2" formControlName="libelle"  name="lobelle" [(ngModel)]="libelle"  />
+          <div id="libelle" class="form-text"></div>
         </div>
 
-        <!-- Type Pavillon -->
+        <!-- Type Chambre -->
         <div class="mb-3">
-          <label for="libelleEditionEdition" class="form-label">Type_chambre</label>
-          <input type="text" class="form-control" name="type_pavillon" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp" formControlName="type_pavillonEdition" [(ngModel)]="type_chambre" />
-          <div id="libelleEditionEdition" class="form-text"></div>
+          <label for="chambreForm" class="form-label">Type_chambres</label>
+          <input type="text" class="form-control" name="type_chambre" id="exampleInputTypeChambre1" aria-describedby="type_chambreHelp" formControlName="type_chambre" [(ngModel)]="type_chambre" />
+          <div id="chambreForm" class="form-text"></div>
         </div>
 
         <!-- Nbrs Chambres -->
         <div class="mb-3">
-          <label for="nombres_chambresEdition" class="form-label">Nbrs Chambres</label>
-          <input type="text" class="form-control" id="nombres_chambresEdition" aria-describedby="nombres_chambresEdition"  name="nombres_etages" formControlName="nombres_etagesEdition"[(ngModel)]="nombres_lits"/>
-          <div id="nombres_chambresEdition" class="form-text"></div>
+          <label for="nombres_litsForm" class="form-label">Nombre Lits</label>
+          <input type="text" class="form-control" id="nombres_litsForm" name="nombres_lits" aria-describedby="nombres_litsEditionForm"  formControlName="nombres_lits"[(ngModel)]="nombres_lits"/>
+          <div id="nombres_litsForm" class="form-text"></div>
         </div>
 
         <!-- Nbrs Etages -->
         <div class="mb-3">
-          <label for="nombres_etagesEdition" class="form-label">Nbrs Etages</label>
-          <input type="text" class="form-control" name="nombres_etages" id="nombres_etagesEdition" aria-describedby="nbrsetageHelp" formControlName="nombres_chambresEdition" [(ngModel)]="nombres_limites" />
+          <label for="nombres_etagesForm" class="form-label">Nombres Limites</label>
+          <input type="text" class="form-control" name="nombres_limites" id="nombres_limitesForm" aria-describedby="nbrsetageHelp" formControlName="nombres_limites" [(ngModel)]="nombres_limites" />
 
-          <div id="nombres_etagesEdition" class="form-text"></div>
+          <div id="nombres_etagesForm" class="form-text"></div>
         </div>
       </form>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="putChambreAdmin()" >
           Modifier
         </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">

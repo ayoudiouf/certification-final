@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CassocialService } from 'src/app/services/cassocial.service';
+import { CassocialService } from 'src/app/services/CassocialService.service';
 import { EtudiantsModel } from 'src/app/models/etudiants'
 
 @Component({
@@ -119,20 +119,37 @@ export class CasSocialComponent implements OnInit{
   }
 
     // Fonction pour lister les etudiant cas social
-    getAllEtudiantCasSocial(){
-    this.CassocialService.getAllEtudiantCasSocial().subscribe((reponse:any) =>{
-        this.cassocials =  reponse;
-        console.log(this.cassocials);
-        // console.warn(reponse, "Les infos de l4utilisqteur");
-        // console.error(this.cassocials, "Cas socialjkfhdvfghy");
+    // getAllEtudiantCasSocial() {
+    //   this.CassocialService.getAllEtudiantCasSocial().subscribe((reponse: any) => {
+    //     this.cassocials = reponse.cassocial;
+    //     // Assurez-vous que reponse contient le tableau complet
+    //     console.log(this.cassocials);
+    //   });
+    // }
 
-    },
-     err => {
-      console.log(err);
+    // getAllEtudiantCasSocial() {
+    //   this.CassocialService.getAllEtudiantCasSocial().subscribe((reponse: any) => {
+    //     if (reponse && reponse.length > 0) {
+    //       this.cassocials = reponse;
+    //       console.log(this.cassocials);
+    //     } else {
+    //       console.error("Les données sont undefined ou vides.");
+    //     }
+    //   });
+    // }
 
-     });
-    // console.log("ddddddd");
-  }
+    getAllEtudiantCasSocial() {
+      this.CassocialService.getAllEtudiantCasSocial().subscribe((reponse: any) => {
+        // console.log('la reponse du baken est ',reponse)
+
+          this.cassocials = reponse ;
+          console.log(this.cassocials);
+
+      });
+    }
+
+
+
   // methode pour charger element a modifier dans formulaire
   seletedEtudiantCasSos: any = {};
   cassocialChoisi:any

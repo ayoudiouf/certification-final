@@ -53,56 +53,96 @@ export class ChambreComponent implements OnInit{
 
   }
 
-  profileForm: FormGroup = this.formbuilder.group({
-    libelle_chambre: ['', Validators.required],
-    type_chambre_chambre: ['', Validators.required],
-    nombres_lits_chambre: ['', Validators.required],
-    nombres_limites_chambre: ['', Validators.required],
-    pavillons_id_chambre: ['', Validators.required],
-    etudiants_id_chambre: ['', Validators.required],
+  // profileForm: FormGroup = this.formbuilder.group({
+  //   libelle_chambre: ['', Validators.required],
+  //   type_chambre_chambre: ['', Validators.required],
+  //   nombres_lits_chambre: ['', Validators.required],
+  //   nombres_limites_chambre: ['', Validators.required],
+  //   pavillons_id_chambre: ['', Validators.required],
+  //   etudiants_id_chambre: ['', Validators.required],
 
 
-  });
+  // });
 
-  profileFormEdite: FormGroup = this.formbuilder.group({
-    libelle_chambre: ['', Validators.required],
-    type_chambre_chambre: ['', Validators.required],
-    nombres_lits_chambre: ['', Validators.required],
-    nombres_limites_chambre: ['', Validators.required],
-    pavillons_id_chambre: ['', Validators.required],
-    etudiants_id_chambre: ['', Validators.required],
-  });
+  // profileFormEdite: FormGroup = this.formbuilder.group({
+  //   libelle_chambre: ['', Validators.required],
+  //   type_chambre_chambre: ['', Validators.required],
+  //   nombres_lits_chambre: ['', Validators.required],
+  //   nombres_limites_chambre: ['', Validators.required],
+  //   pavillons_id_chambre: ['', Validators.required],
+  //   etudiants_id_chambre: ['', Validators.required],
+  // });
 
 
   // fonction pour ajouter
-  ajouterChambre() {
-    const chambres = new chambresModel();
-    chambres.libelle = this.libelle;
-    chambres.type_chambre = this.type_chambre;
-    chambres.nombres_lits = this.nombres_lits;
-    chambres.nombres_limites = this.nombres_limites;
-    chambres.pavillons_id = this.pavillons_id;
-    chambres.etudiants_id = this.etudiants_id;
-    chambres.libelle = this.libelle;
-    chambres.type_chambre = this.type_chambre;
-    chambres.nombres_lits = this.nombres_lits;
-    chambres.nombres_limites = this.nombres_limites;
-    chambres.pavillons_id = this.pavillons_id;
-    chambres.etudiants_id = this.etudiants_id;
+  // ajouterChambre() {
+  //   const chambres = new chambresModel();
+  //   chambres.libelle = this.libelle;
+  //   chambres.type_chambre = this.type_chambre;
+  //   chambres.nombres_lits = this.nombres_lits;
+  //   chambres.nombres_limites = this.nombres_limites;
+  //   chambres.pavillons_id = this.pavillons_id;
+  //   chambres.etudiants_id = this.etudiants_id;
+  //   chambres.libelle = this.libelle;
+  //   chambres.type_chambre = this.type_chambre;
+  //   chambres.nombres_lits = this.nombres_lits;
+  //   chambres.nombres_limites = this.nombres_limites;
+  //   chambres.pavillons_id = this.pavillons_id;
+  //   chambres.etudiants_id = this.etudiants_id;
 
 
 
-    console.log(this.profileForm.value);
-    const userOnline = JSON.parse(
-      localStorage.getItem('userOnline') || '');
-    this.ChambreServices.postchambre(this.profileForm.value).subscribe((response: any) => {
+  //   console.log(this.profileForm.value);
+  //   const userOnline = JSON.parse(
+  //     localStorage.getItem('userOnline') || '');
+  //   this.ChambreServices.postchambre(this.profileForm.value).subscribe((response: any) => {
 
-      console.log(response);
+  //     console.log(response);
 
-    });
+  //   });
 
 
-  }
+  // }
+
+  // ...
+
+profileForm: FormGroup = this.formbuilder.group({
+  libelle: ['', Validators.required],
+  type_chambre: ['', Validators.required],
+  nombres_lits: ['', Validators.required],
+  nombres_limites: ['', Validators.required],
+  pavillons_id: ['', Validators.required],
+  etudiants_id: ['', Validators.required],
+});
+
+profileFormEdite: FormGroup = this.formbuilder.group({
+  libelle: ['', Validators.required],
+  type_chambre: ['', Validators.required],
+  nombres_lits: ['', Validators.required],
+  nombres_limites: ['', Validators.required],
+  pavillons_id: ['', Validators.required],
+  etudiants_id: ['', Validators.required],
+});
+
+// ...
+
+ajouterChambre() {
+  // Utilisez les valeurs du formulaire correctes
+  const chambres = new chambresModel();
+  chambres.libelle = this.profileForm.value.libelle_chambre;
+  chambres.type_chambre = this.profileForm.value.type_chambre_chambre;
+  chambres.nombres_lits = this.profileForm.value.nombres_lits_chambre;
+  chambres.nombres_limites = this.profileForm.value.nombres_limites_chambre;
+  chambres.pavillons_id = this.profileForm.value.pavillons_id_chambre;
+  chambres.etudiants_id = this.profileForm.value.etudiants_id_chambre;
+
+  console.log(this.profileForm.value);
+  const userOnline = JSON.parse(localStorage.getItem('userOnline') || '');
+  this.ChambreServices.postchambre(chambres).subscribe((response: any) => {
+    console.log(response);
+  });
+}
+
 
 
 
@@ -121,41 +161,58 @@ export class ChambreComponent implements OnInit{
   }
 
   seletedChambre: any = {};
-  // methode pour charger element a modifier dans formulaire
-  // seletedChambre: any = {};
-  chambreChoisi:any
+  chambreChoisi: any
+
   chargerChambre(chambreEtuduant: chambresModel) {
-    this.chambreChoisi=chambreEtuduant.id;
+
+    this.chambreChoisi=chambreEtuduant;
     this.libelle = chambreEtuduant.libelle;
     this.nombres_lits = chambreEtuduant.nombres_lits;
     this.type_chambre = chambreEtuduant.type_chambre;
     this.nombres_limites = chambreEtuduant.nombres_limites;
     this.pavillons_id = chambreEtuduant.pavillons_id;
     this.etudiants_id = chambreEtuduant.etudiants_id;
+    console.log("Chambre à charger :", chambreEtuduant);
 
   }
 
-  // chargerPavillon(pav: PavillonModel) {
-  //   this.pavillonChoisi=pav.id;
-  //   this.libelle = pav.libelle;
-  //   this.nombres_chambres = pav.nombres_chambres;
-  //   this.type_pavillon = pav.type_pavillon;
-  //   this.nombres_etages = pav.nombres_etages;
-  // }
+  // chargerModal(){
+  //   this.libelle =this.userConnect.name;
+  //   this.telephone=this.userConnect.telephone;
+  //   this.numProche=this.userConnect.telephone_d_un_proche;
+  //   this.email=this.userConnect.email;
+  //   this.adresse=this.userConnect.adresse;
+  //   this.nin=this.userConnect.num_carte_d_identite;
+  //   }
 
-  // editerPavillon() {
 
-  //   const pavChoisi={
-  //   libelle : this.libelle,
-  //   type_pavillon : this.type_pavillon,
-  //   nombres_etages : this.nombres_etages,
-  //   nombres_chambres :this.nombres_chambres
-  // }
-  //   this.PavillonService.editPavillon(pavChoisi, this.pavillonChoisi).subscribe((res: any) => {
-  //     console.log(res);
-  //   });
-  //   this.getPavillons();
-  // }
+  putChambreAdmin(){
+    console.log("chambrechoisi", this.chambreChoisi.id )
+    const chambre1Choisi={
+      libelle : this.libelle,
+      nombres_lits : this.nombres_lits,
+      type_chambre : this.type_chambre ,
+      nombres_limites : this.nombres_limites,
+    }
+
+    this.ChambreServices.putChambreAdmin(this.chambreChoisi.id ,chambre1Choisi).subscribe((res: any) => {
+      console.log(res);
+    });
+  }
+
+
+  deletechambre(id: any){
+    // console.log("Deleting chambre with ID:", id);
+    this.ChambreServices.deleteChambre(id).subscribe((res: any) => {
+          // console.log(res);
+          console.warn("Delete response:", res);
+          this.getAllChambre();
+        });
+
+  }
+
+
+
   getChambre(chambre: any) {
     this.seletedChambre = chambre;
   }

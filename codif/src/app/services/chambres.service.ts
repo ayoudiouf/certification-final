@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { url_base } from './api_url_service';
 import { HttpClient } from '@angular/common/http';
+import { identifierName } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +27,19 @@ export class ChambresService {
     return this.http.put(`${url_base}chambre/update`,chambre);
   }
 
-  putChambreAdmin(chambre:any) {
-    return this.http.put(`${url_base} admin/chambre/update`,chambre);
+  putChambreAdmin( idchambre: any, chambre:any ) {
+    return this.http.put(`${url_base}admin/chambre/update/${idchambre}`,chambre);
+  }
+
+
+  deleteChambre(id: any) {
+    return this.http.delete(`${url_base}admin/chambre/delete/{id}`,id)
+
   }
 
   constructor(private http : HttpClient) { }
 
 
 }
+// admin/chambre/update/{id}
+

@@ -25,9 +25,6 @@ import { EtudiantParMeriteComponent } from './dashboards/part-admins/etudiant-pa
 import { SidebarchefpavionComponent } from './sidebarchefpavion/sidebarchefpavion.component';
 import { SidebarchefpedagogiqueComponent } from './sidebarchefpedagogique/sidebarchefpedagogique.component';
 import { SidebaretudiantComponent } from './sidebaretudiant/sidebaretudiant.component';
-import { DashProfesseurComponent } from './dashboards/part-professeur/dash-professeur/dash-professeur.component';
-import { AjoutNotesComponent } from './dashboards/part-professeur/ajout-notes/ajout-notes.component';
-import { SidebarprofesseurComponent } from './sidebarprofesseur/sidebarprofesseur.component';
 import { DemandereclamationComponent } from './dashboards/part-etudiant/demandereclamation/demandereclamation.component';
 import { EtudiantpayeComponent } from './dashboards/part-etudiant/etudiantpaye/etudiantpaye.component';
 import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
@@ -59,21 +56,15 @@ import { PavionComponent } from './dashboards/part-admins/pavion/pavion.componen
     HeaderSidebarComponent,
     PaiementComponent,
     UtilisateurComponent,
-  
     GestionChambreComponent,
-    AjoutNotesComponent,
     ReclamationComponent,
     // ReclamationEtudiantComponent,
     EtudiantsComponent,
     CasSocialComponent,
     EtudiantParMeriteComponent,
-
     SidebarchefpavionComponent,
     SidebarchefpedagogiqueComponent,
     SidebaretudiantComponent,
-    DashProfesseurComponent,
-    AjoutNotesComponent,
-    SidebarprofesseurComponent,
     DemandereclamationComponent,
     EtudiantpayeComponent,
     ChambreComponent,

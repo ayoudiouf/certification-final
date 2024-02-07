@@ -32,9 +32,13 @@
                   <td>{{chambre.echeances}}</td>
                   <td>{{chambre.nombres_limites}}</td>
                   <td><span id="icon">
-                  <button><i class="fa-solid fa-marker"></i></button>
-                  <button><i class="fa-solid fa-eye"></i></button>
-                  <button><i class="fa-solid fa-trash"></i></button>
+                  <button>
+                  <i class="fa-solid fa-marker"  data-bs-toggle="modal" data-bs-target="#Modifier" (click)="chargerChambre(chambre)" ></i>
+                  </button>
+                  <button>
+                  <i class="fa-solid fa-eye"  data-bs-toggle="modal" data-bs-target="#details" (click)="getChambre(chambre)" ></i>
+                  </button>
+
                 </span></td>
                 </tr>
               </tbody>
@@ -44,59 +48,196 @@
       </main>
   </div>
 </div>
-<!-- Modal pour ajouter une chambre -->
-<!-- <div class="modal fade" id="ajouterChambre" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- Modal Ajouter Chambre -->
+<div class="modal" id="ajouterChambre">
   <div class="modal-dialog">
     <div class="modal-content">
+      <!-- Modal Header -->
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h4 class="modal-title">Ajouter Chambre</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"></button>
       </div>
+
+      <!-- Modal body -->
       <div class="modal-body">
-        <form [formGroup]="formValue">
-
+        <form [formGroup]="profileForm">
+          <!-- Libelle -->
           <div class="mb-3">
-            <label for="exampleInputnompavion" class="form-label">Libelle</label>
-            <input type="text" formControlName="libelle" class="form-control" id="exampleInputId1" aria-describedby="nompavionHelp">
-            <div id="nompavionHelp" class="form-text"></div>
+            <label for="libelle" class="form-label">Libelle</label>
+            <input type="text" class="form-control" id="libelle" formControlName="libelle_chambre" />
+            <div id="libelle" class="form-text"></div>
           </div>
 
+          <!-- Type de chambre -->
           <div class="mb-3">
-            <label for="exampleInputtypepavillon" class="form-label">Type Chambre</label>
-            <input type="text" formControlName="type_chambre" class="form-control" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp">
-            <div id="typepavillonHelp" class="form-text"></div>
+            <label for="type_chambre" class="form-label">Type de chambre</label>
+            <input type="text" class="form-control" id="type_chambre" formControlName="type_chambre_chambre" />
+            <div id="type_chambre" class="form-text"></div>
           </div>
 
+          <!-- Nombre de lits -->
           <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label"> Nombres lits</label>
-            <input type="text" formControlName="nombres_lits" class="form-control" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp">
-            <div id="nbrschambreHelp" class="form-text"></div>
+            <label for="nombres_lits" class="form-label">Nombre de lits</label>
+            <input type="text" class="form-control" id="nombres_lits" formControlName="nombres_lits_chambre" />
+            <div id="nombres_lits" class="form-text"></div>
           </div>
 
+          <!-- Nombres limites -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Nombres Limites</label>
-            <input type="text" formControlName="nombres_limites" name="nombres_limites" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="nombres_limites" class="form-label">Nombres Limites</label>
+            <input type="text" class="form-control" id="nombres_limites" formControlName="nombres_limites_chambre" />
+            <div id="nombres_limites" class="form-text"></div>
           </div>
 
+          <!-- Nombres Pavillon id -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Pavillon_id</label>
-            <input type="text" formControlName="pavillons_id" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="id_pavillon" class="form-label">id Pavillon</label>
+            <input type="text" class="form-control" id="id_pavillon" formControlName="id_pavillon_chambre" />
+            <div id="id_pavillon" class="form-text"></div>
           </div>
 
-
+          <!-- Echeances -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Etudiant_id</label>
-            <input type="text" formControlName="etudiants_id" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="echeances" class="form-label">Echeances</label>
+            <input type="text" class="form-control" id="echeances" formControlName="echeances" />
+            <div id="echeances" class="form-text"></div>
+          </div>
+
+          <!-- ...Modal footer... -->
+          <div class="modal-footer">
+            <button type="button" (click)="postchambreChefPavillon()" class="btn btn-danger" data-bs-dismiss="modal">
+              Ajouter
+            </button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+              Close
+            </button>
           </div>
         </form>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal Modifier-->
+<div class="modal" id="Modifier" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier Chambre</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="" [formGroup]="profileFormEdite">
+        <!-- Libelle -->
+        <div class="mb-3">
+          <label for="libelle" class="form-label">Libelle</label>
+          <input type="text" class="form-control" id="libelle" aria-describedby="nompavillonHelp2" formControlName="libelle"  name="lobelle" [(ngModel)]="libelle"  />
+          <div id="libelle" class="form-text"></div>
+        </div>
+
+        <!-- Type Chambre -->
+        <div class="mb-3">
+          <label for="chambreForm" class="form-label">Type_chambres</label>
+          <input type="text" class="form-control" name="type_chambre" id="exampleInputTypeChambre1" aria-describedby="type_chambreHelp" formControlName="type_chambre" [(ngModel)]="type_chambre" />
+          <div id="chambreForm" class="form-text"></div>
+        </div>
+
+        <!-- Nbrs lits -->
+        <div class="mb-3">
+          <label for="nombres_litsForm" class="form-label">Nombre Lits</label>
+          <input type="text" class="form-control" id="nombres_litsForm" name="nombres_lits" aria-describedby="nombres_litsEditionForm"  formControlName="nombres_lits"[(ngModel)]="nombres_lits"/>
+          <div id="nombres_litsForm" class="form-text"></div>
+        </div>
+
+         <!-- Echeances -->
+         <div class="mb-3">
+          <label for="echancesForm" class="form-label">Echeances</label>
+          <input type="text" class="form-control" name="echances" id="nombres_limitesForm" aria-describedby="nbrsetageHelp" formControlName="echances" [(ngModel)]="echeances" />
+
+          <div id="echancesForm" class="form-text"></div>
+        </div>
+
+        <!-- Nbrs Limites -->
+        <div class="mb-3">
+          <label for="nombres_etagesForm" class="form-label">Nombres Limites</label>
+          <input type="text" class="form-control" name="nombres_limites" id="nombres_limitesForm" aria-describedby="nbrsetageHelp" formControlName="nombres_limites" [(ngModel)]="nombres_limites" />
+
+          <div id="nombres_etagesForm" class="form-text"></div>
+        </div>
+      </form>
+      </div>
+
+      <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
-        <button type="button" (click)="postchambre()" class="typebutton btn ">Ajouter</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="putChambre()" >
+          Modifier
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
-</div> -->
+</div>
+
+<!-- The Modal Detail Chambre -->
+<div class="modal" id="details">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Details Chambre</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="" [formGroup]="profileForm">
+        <!-- Libelle -->
+        <div class="mb-3">
+          <label for="libelleEdition1" class="form-label">Libelle:{{seletedChambre.libelle}}</label>
+          <div id="libelleEdition1" class="form-text"></div>
+        </div>
+
+        <!-- Type Pavillon -->
+        <div class="mb-3">
+          <label for="type_chambresEditionEdition1" class="form-label">Type Chambre:{{seletedChambre.ttype_chambre}}</label>
+          <div id="type_chambreEditionEdition1" class="form-text"></div>
+        </div>
+
+        <!-- Nombrebrs Limites -->
+        <div class="mb-3">
+          <label for="nombres_limitesEdition2" class="form-label">Nombres Limites:{{seletedChambre.nombres_limites}}</label>
+          <div id="nombres_limitesEdition2" class="form-text"></div>
+        </div>
+
+         <!--  Echeances -->
+         <div class="mb-3">
+          <label for="echeancesEdition2" class="form-label">Echeances: {{seletedChambre.echeances}}</label>
+          <div id="echeancesEdition2" class="form-text"></div>
+        </div>
+
+        <!-- Nombres Lits -->
+        <div class="mb-3">
+          <label for="nombres_litsEdition1" class="form-label">Nombres lits:{{seletedChambre.nombres_lits}}</label>
+          <div id="nombres_litsEdition" class="form-text"></div>
+        </div>
+      </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

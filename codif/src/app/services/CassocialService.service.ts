@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CassocialService {
 
+
   EtudiantCasSocialService(id: any) {
     throw new Error('Method not implemented.');
   }
@@ -18,16 +19,13 @@ export class CassocialService {
 
 
   constructor(private http : HttpClient) { }
-userConnect(pav:any){
+  ajouterEtudiantCasSocial(pav:any){
 
   return this.http.post(`${url_base}ajoutEtudiant/CasSocial`,pav);
 
 }
 
-// listesEtudiantsCasSocial
-  // listeCasSocial(){
 
-  // }
 
 
 //  Methode qui permet de voir les datail

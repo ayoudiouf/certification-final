@@ -559,33 +559,7 @@ body {
   margin: 5px 0 0 10px;
 }
 
-@media screen and (max-width: 1238px){
 
-#banierecarte{
- display: flex;
- flex-direction: column;
-
-}
-.info {
-  display: flex;
-  flex-direction: column;
-
-}
-.carte {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 70%;
-}
-.team{
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 80%;
-}
-.fw-bold{
-  margin-bottom: 100%;
-}
-
-}
 
 .contact img{
   width: 70%;
@@ -602,3 +576,37 @@ body {
   /* padding-top: 10px; */
 }
 
+@media screen and (max-width: 1238px){
+
+  #banierecarte{
+   display: flex;
+   flex-direction: column;
+
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+
+  }
+  .carte {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70%;
+  }
+  .team{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80%;
+  }
+  .fw-bold{
+    margin-bottom: 100%;
+  }
+
+  .cardBanner{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px
+  }
+
+  
+  }

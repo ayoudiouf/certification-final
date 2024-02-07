@@ -16,6 +16,11 @@ export class ChambresService {
 
   }
 
+  postchambreChefPavillon(chambre: any) {
+    return this.http.post(`${url_base}chambre/create` ,chambre);
+
+  }
+
   getAllChambre() {
     return this.http.get(`${url_base}admin/chambres`);
   }

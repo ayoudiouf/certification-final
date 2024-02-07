@@ -7,7 +7,7 @@ import { url_base } from './api_url_service';
 })
 export class PavillonService {
   PavillonService(id: any) {
-    throw new Error('Method not implemented.');
+  
   }
   getAllPavillon() {
 
@@ -15,9 +15,6 @@ export class PavillonService {
 
   constructor(private http : HttpClient) { }
 
-  // userConected(){
-  //   return this.http.get('http://127.0.0.1:8000/api/pavillon/crate')
-  //  }
 
 userConnect(pav:any){
 

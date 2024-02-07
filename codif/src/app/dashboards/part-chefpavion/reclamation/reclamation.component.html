@@ -7,71 +7,88 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh; ">
-          <h1 class="text">Historique des reclamations</h1>
+          <h1 class="text text-center">Historique des reclamations</h1>
            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
                   <th class="tHead">ID</th>
-                  <th class="tHead">Nom</th>
-                  <th class="tHead">Prenom</th>
-                  <th class="tHead">Objet </th>
+                  <th class="tHead">Objet</th>
                   <th class="tHead">Message</th>
+                  <th class="tHead">Chambres_id </th>
+                  <th class="tHead">Status </th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Camara</td>
-                  <td>Mariane</td>
-                  <td>Demande</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion A </td>
-                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
+                <tr *ngFor=" let reclamaton of reclamations[0]">
+                  <td>{{reclamaton.id}}</td>
+                  <td>{{reclamaton.objet}}</td>
+                  <td>{{reclamaton.message}}</td>
+                  <td>{{reclamaton.chambres_id}}</td>
+                  <td>{{reclamaton.status}}</td>
 
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Sall</td>
-                  <td>Andre</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 40 au pavion D </td>
-                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Sow</td>
-                  <td>Abdoul</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 100 au pavion B </td>
-                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
+                  <td><span>
 
+                    <button class="btn btn-danger">
+                      <i
+                      class="fa-solid fa-eye"
+                      data-bs-toggle="modal"
+                      data-bs-target="#detail" (click)="getReclamation(reclamaton)">
+                    </i>
+                    </button>
+                  </span></td>
                 </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Sow</td>
-                  <td>Abdoul</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 20 au pavion H </td>
-                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
-
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Sene</td>
-                  <td>Amadou</td>
-                  <td>Réparation</td>
-                  <td>Demande de répation de la portail du chambre 60 au pavion A </td>
-                  <td><span><i class="fa-solid fa-marker"></i><i class="fa-solid fa-eye"></i></span></td>
-                </tr>
-
               </tbody>
             </table>
-
-
-
           </div>
       </main>
   </div>
 </div>
+<!-- Details Reclamationt -->
+<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter les etudiant par odre de mérite</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
 
+          <!-- Objet -->
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Objet:{{seletedReclamation.objet}}</label>
+            <div id="nomHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+
+            <!-- Message -->
+            <label for="exampleInputpremon" class="form-label">Message:{{seletedReclamation.message}}</label>
+            <div id="premonHelp" class="form-text"></div>
+          </div>
+
+          <!-- Chambres_id -->
+          <div class="mb-3">
+            <label for="exampleInputtelephone" class="form-label">Chambres_id:{{seletedReclamation.chambres_id}}</label>
+            <div id="telephoneHelp" class="form-text"></div>
+          </div>
+
+          <!--Status -->
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">Status:{{seletedReclamation.status}}</label>
+            <div id="etudeHelp" class="form-text"></div>
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>

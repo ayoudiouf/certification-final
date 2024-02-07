@@ -76,19 +76,7 @@ export class CasSocialComponent implements OnInit{
 
   });
 
-  profileFormEdite: FormGroup = this.formbuilder.group({
-    INE: ['', Validators.required],
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required],
-    password: ['', Validators.required],
-    email: ['', Validators.required],
-    telephone: ['', Validators.required],
-    niveau_etudes: ['', Validators.required],
-    // statuts: ['', Validators.required],
-    lieu_naissance: ['', Validators.required],
-    filiere: ['', Validators.required],
-    adresse: ['', Validators.required],
-  });
+  seletedEtudiantParMerite: any;
 
 
   // fonction pour ajouter
@@ -109,7 +97,7 @@ export class CasSocialComponent implements OnInit{
     console.log(this.profileForm.value);
     const userOnline = JSON.parse(
       localStorage.getItem('userOnline') || '');
-    this.CassocialService.userConnect(this.profileForm.value).subscribe((response: any) => {
+    this.CassocialService.ajouterEtudiantCasSocial(this.profileForm.value).subscribe((response: any) => {
 
       console.log(response);
 
@@ -118,26 +106,26 @@ export class CasSocialComponent implements OnInit{
 
   }
 
-    // Fonction pour lister les etudiant cas social
-    // getAllEtudiantCasSocial() {
-    //   this.CassocialService.getAllEtudiantCasSocial().subscribe((reponse: any) => {
-    //     this.cassocials = reponse.cassocial;
-    //     // Assurez-vous que reponse contient le tableau complet
-    //     console.log(this.cassocials);
-    //   });
-    // }
+  ajouterEtudiant() {
+    const etudiants = new EtudiantsModel();
+    etudiants.nom = this.nom;
+    etudiants.prenom = this.prenom;
+    etudiants.niveau_etudes = this.niveau_etudes;
+    etudiants.telephone = this.telephone
+    etudiants.INE = this.INE
+    etudiants.adresse = this.adresse
 
-    // getAllEtudiantCasSocial() {
-    //   this.CassocialService.getAllEtudiantCasSocial().subscribe((reponse: any) => {
-    //     if (reponse && reponse.length > 0) {
-    //       this.cassocials = reponse;
-    //       console.log(this.cassocials);
-    //     } else {
-    //       console.error("Les données sont undefined ou vides.");
-    //     }
-    //   });
-    // }
+    console.log(this.profileForm.value);
+    const userOnline = JSON.parse(
+      localStorage.getItem('userOnline') || '');
+    this.CassocialService.ajouterEtudiantCasSocial(this.profileForm.value).subscribe((response: any) => {
 
+      console.log(response);
+
+    });
+    this.getAllEtudiantCasSocial();
+
+  }
     getAllEtudiantCasSocial() {
       this.CassocialService.getAllEtudiantCasSocial().subscribe((reponse: any) => {
         // console.log('la reponse du baken est ',reponse)
@@ -150,55 +138,8 @@ export class CasSocialComponent implements OnInit{
 
 
 
-  // methode pour charger element a modifier dans formulaire
-  seletedEtudiantCasSos: any = {};
-  cassocialChoisi:any
-  chargerEtudiantCasSocial(socialcas: EtudiantsModel) {
-    this.cassocialChoisi=socialcas.id;
-    this.INE = socialcas.INE;
-    this.nom = socialcas.nom;
-    this.prenom = socialcas.prenom;
-    this.email = socialcas.email;
-    // this.telephone = socialcas.telephone;
-    this.sexe = socialcas.sexe;
-    this.niveau_etudes = socialcas.niveau_etudes;
-    this.filiere = socialcas.filiere;
-    this.adresse = socialcas.adresse;
-    // this.statuts_id = socialcas.statuts_id;
-  }
-
-  // editerPavillon() {
-
-  //   const etudiantChoisi={
-  //   nom : this.nom,
-  //   prenom : this.prenom,
-  //   email : this.email,
-  //   password :this.password,
-  //   roles_id :this.roles_id,
-  //   telephone :this.telephone,
-  //   INE :this.INE,
-  //   niveau_etudes :this.niveau_etudes,
-  //   filiere :this.filiere,
-  //   adresse :this.adresse,
-
-  // }
-
-  // deletePavillon(id:any) {
-  //   this.CassocialService.deletePavillon(id).subscribe((res: any) => {
-  //     console.log(res);
-  //   });
-  //   this.getCasSocials();
-  // }
-  // datailPavillon(){
-
-  //   this.getPavillons(detailpav:any) {
-  //       this.seletedPavillon = this.pavillonChoisi;
-  //       this.PavillonService.datailPavillon(detailpav).subscribe((res: any) => {
-  //         console.log(res);
-  //       });
-  //     }
-  //   // this.getPavillons();
-  // }
-
+    GetEtudiantParMerite(pavillon: any) {
+      this.seletedEtudiantParMerite = pavillon;
+    }
 }
-// }
+

@@ -15,8 +15,6 @@
 
               <thead>
                 <tr>
-                  <!-- <th class="tHead">ID</th> -->
-                  <!-- <th class="tHead">ID</th> -->
                   <th class="tHead">Nom </th>
                   <th class="tHead">Prenom </th>
                   <th class="tHead">Email </th>
@@ -24,8 +22,7 @@
                   <th class="tHead">INE </th>
                   <th class="tHead">Niveau_etudes </th>
                   <th class="tHead">Sexe</th>_
-                  <!-- <th class="tHead">Statuts </th> -->
-                  <th class="tHead">Filiere</th>
+                  <th class="tHead">Adresse</th>_
                   <th class="tHead">Action</th>
 
                 </tr>
@@ -33,7 +30,7 @@
               <tbody>
                 <tr *ngFor="let cassocial of cassocials">
 
-                  <td>{{cassocial.id }}</td>
+                  <!-- <td>{{cassocial.id }}</td> -->
                   <td>{{cassocial.nom }}</td>
                   <td>{{cassocial.prenom }}</td>
                   <td>{{cassocial.email}}</td>
@@ -41,26 +38,18 @@
                   <td>{{cassocial.INE}}</td>
                   <td>{{cassocial.niveau_etudes}}</td>
                   <td>{{cassocial.sexe}}</td>
-                  <td>{{cassocial.filiere }}</td>
+                  <td>{{cassocial.adresse }}</td>
                   <!-- <td>{{cassocial.statuts_id }}</td> -->
                   <!-- <td>{{cassocial.adresse }}</td> -->
                   <td>
                     <span id="icon" >
+                      <!-- <button>
+                        <i class="fa-solid fa-marker" data-bs-toggle="modal"
+                        data-bs-target="#Modifier" (click)="chargerEtudiant(etudiants)" ></i>
+                      </button> -->
                       <button>
-                        <i
-                        class="fa-solid fa-marker"
-                        data-bs-toggle="modal"
-                        data-bs-target="#Modifier"
-                      >
-                    </i>
-                      </button>
-
-                      <button>
-                        <i
-                        class="fa-solid fa-eye"
-                        data-bs-toggle="modal"
-                        data-bs-target="#detail">
-                      </i>
+                        <i class="fa-solid fa-eye"  data-bs-toggle="modal"
+                        data-bs-target="#detailsEtudiants"  (click)="GetEtudiantParMerite(cassocial)"  ></i>
                       </button>
                     </span>
                   </td>
@@ -90,14 +79,7 @@
       <div class="modal-body">
         <form action="" [formGroup]="profileForm">
 
-          <div class="mb-3">
-            <label for="exampleInputINE" class="form-label">INE</label>
-            <input type="text" class="form-control" name="INE"  id="exampleInputINE"
-              aria-describedby="INEHelp"
-              formControlName="INE"
-            />
 
-          </div>
           <div class="mb-3">
             <label for="exampleInputtypenom" class="form-label"
               >Nom</label
@@ -109,6 +91,7 @@
             />
             <div id="typnomnHelp" class="form-text"></div>
           </div>
+
           <div class="mb-3">
             <label for="exampleInputnbrschambre" class="form-label"
               >Prenom</label
@@ -118,6 +101,7 @@
               formControlName="prenom"/>
             <div id="nbrschambreHelp" class="form-text"></div>
           </div>
+
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label"
               >Email</label
@@ -139,81 +123,6 @@
             />
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Niveau_Etudes</label
-            >
-            <input
-              type="text" class="form-control" name="niveau_etudes" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="niveau_etudes"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Filiere</label
-            >
-            <input
-              type="text" class="form-control" name="filiere" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="filiere"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-
-          <!-- <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >statuts</label
-            >
-            <input
-              type="text" class="form-control" name="statuts1" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="statuts1"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div> -->
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Adresse</label
-            >
-            <input
-              type="text" class="form-control" name="adresse" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="adresse"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">
-          Annuler
-        </button>
-        <button
-          type="button"
-          class="typebutton btn"
-          (click)="ajouterEtudiantCasSocial()"
-        >
-          Ajouter
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--  Modal Modifier Etudiant Cas Social -->
-<div class="modal fade" id="ajouterEtudiant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
-          Modifier un EtudiantCas Social
-        </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form action="" [formGroup]="profileFormEdite">
 
           <div class="mb-3">
             <label for="exampleInputINE" class="form-label">INE</label>
@@ -223,71 +132,6 @@
             />
 
           </div>
-          <div class="mb-3">
-            <label for="exampleInputtypenom" class="form-label"
-              >Nom</label
-            >
-            <input
-              type="text"
-              class="form-control" name="nom"
-              id="exampleInputTypeChambre1"aria-describedby="typenomHelp" formControlName="nom"
-            />
-            <div id="typnomnHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label"
-              >Prenom</label
-            >
-            <input
-              type="text" class="form-control" name="prenom" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp"
-              formControlName="prenom"/>
-            <div id="nbrschambreHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Email</label
-            >
-            <input
-              type="text" class="form-control" name="email" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="email"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Password</label
-            >
-            <input
-              type="text" class="form-control" name="password" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="password"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-
-
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Telephone</label
-            >
-            <input
-              type="text" class="form-control" name="telephone" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="telephone"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-
-
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Lieude naissance</label
-            >
-            <input
-              type="text" class="form-control" name="lieu_naissance" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="lieu_naissance"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
 
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label"
@@ -299,6 +143,7 @@
             />
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
+
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label"
               >Filiere</label
@@ -309,6 +154,19 @@
             />
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label"
+              >Sexe</label
+            >
+            <input
+              type="text" class="form-control" name="sexe" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="sexe"
+            />
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label"
               >Adresse</label
@@ -319,6 +177,7 @@
             />
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
+
         </form>
       </div>
       <div class="modal-footer">
@@ -328,10 +187,68 @@
         <button
           type="button"
           class="typebutton btn"
-          (click)="ajouterEtudiantCasSocial()"
+          (click)="ajouterEtudiant()"
         >
           Ajouter
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal detail Etudiant -->
+<div class="modal fade" id="detailsEtudiants" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter les etudiant par odre de mérite</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+          <!-- Nom -->
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Nom:{{seletedEtudiantParMerite.nom}}</label>
+            <div id="nomHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+
+            <!-- Prenom -->
+            <label for="exampleInputpremon" class="form-label">Prenom:{{seletedEtudiantParMerite.prenom}}</label>
+            <div id="premonHelp" class="form-text"></div>
+          </div>
+
+          <!-- Telephone -->
+          <div class="mb-3">
+            <label for="exampleInputtelephone" class="form-label">Telephone:{{seletedEtudiantParMerite.telephone}}</label>
+            <div id="telephoneHelp" class="form-text"></div>
+          </div>
+
+          <!--
+          Niveau Etudes -->
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">Niveau d'étude:{{seletedEtudiantParMerite.niveau_etudes}}</label>
+            <div id="etudeHelp" class="form-text"></div>
+          </div>
+
+           <!--INE  -->
+           <div class="mb-3">
+            <label for="exampleInputINE" class="form-label">INE:{{seletedEtudiantParMerite.INE}}</label>
+            <div id="INEHelp" class="form-text"></div>
+          </div>
+
+          <!-- Adress -->
+          <div class="mb-3">
+            <label for="exampleInputadresse" class="form-label">Adress:{{seletedEtudiantParMerite.adresse}}</label>
+            <div id="adresseHelp" class="form-text"></div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+
       </div>
     </div>
   </div>

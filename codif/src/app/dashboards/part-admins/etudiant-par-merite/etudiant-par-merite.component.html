@@ -25,17 +25,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let etudiantParMerite of etudiantParMerites">
                   <!-- <td>{{}}</td> -->
-                  <td>{{nom }}</td>
-                  <td>{{prenom }}</td>
-                  <td>{{email }}</td>
-                  <td>{{password }}</td>
-                  <td>{{telephone }}</td>
-                  <td>{{niveau_etudes}}</td>
-                  <td>{{filiere }}</td>
-                  <td>{{status_id }}</td>
-                  <td>{{adress }}</td>
+                  <td>{{etudiantParMerite.nom }}</td>
+                  <td>{{etudiantParMerite.prenom }}</td>
+                  <td>{{etudiantParMerite.email }}</td>
+                  <td>{{etudiantParMerite.password }}</td>
+                  <td>{{etudiantParMerite.telephone }}</td>
+                  <td>{{etudiantParMerite.niveau_etudes}}</td>
+                  <td>{{etudiantParMerite.filiere }}</td>
+                  <td>{{etudiantParMerite.status_id }}</td>
+                  <td>{{etudiantParMerite.adress }}</td>
 
                   <td>
                     <span id="icon" >

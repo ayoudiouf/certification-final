@@ -53,58 +53,7 @@ export class ChambreComponent implements OnInit{
 
   }
 
-  // profileForm: FormGroup = this.formbuilder.group({
-  //   libelle_chambre: ['', Validators.required],
-  //   type_chambre_chambre: ['', Validators.required],
-  //   nombres_lits_chambre: ['', Validators.required],
-  //   nombres_limites_chambre: ['', Validators.required],
-  //   pavillons_id_chambre: ['', Validators.required],
-  //   etudiants_id_chambre: ['', Validators.required],
 
-
-  // });
-
-  // profileFormEdite: FormGroup = this.formbuilder.group({
-  //   libelle_chambre: ['', Validators.required],
-  //   type_chambre_chambre: ['', Validators.required],
-  //   nombres_lits_chambre: ['', Validators.required],
-  //   nombres_limites_chambre: ['', Validators.required],
-  //   pavillons_id_chambre: ['', Validators.required],
-  //   etudiants_id_chambre: ['', Validators.required],
-  // });
-
-
-  // fonction pour ajouter
-  // ajouterChambre() {
-  //   const chambres = new chambresModel();
-  //   chambres.libelle = this.libelle;
-  //   chambres.type_chambre = this.type_chambre;
-  //   chambres.nombres_lits = this.nombres_lits;
-  //   chambres.nombres_limites = this.nombres_limites;
-  //   chambres.pavillons_id = this.pavillons_id;
-  //   chambres.etudiants_id = this.etudiants_id;
-  //   chambres.libelle = this.libelle;
-  //   chambres.type_chambre = this.type_chambre;
-  //   chambres.nombres_lits = this.nombres_lits;
-  //   chambres.nombres_limites = this.nombres_limites;
-  //   chambres.pavillons_id = this.pavillons_id;
-  //   chambres.etudiants_id = this.etudiants_id;
-
-
-
-  //   console.log(this.profileForm.value);
-  //   const userOnline = JSON.parse(
-  //     localStorage.getItem('userOnline') || '');
-  //   this.ChambreServices.postchambre(this.profileForm.value).subscribe((response: any) => {
-
-  //     console.log(response);
-
-  //   });
-
-
-  // }
-
-  // ...
 
 profileForm: FormGroup = this.formbuilder.group({
   libelle: ['', Validators.required],
@@ -163,7 +112,8 @@ ajouterChambre() {
   seletedChambre: any = {};
   chambreChoisi: any
 
-  chargerChambre(chambreEtuduant: chambresModel) {
+
+   chargerChambre(chambreEtuduant: chambresModel) {
 
     this.chambreChoisi=chambreEtuduant;
     this.libelle = chambreEtuduant.libelle;
@@ -173,17 +123,9 @@ ajouterChambre() {
     this.pavillons_id = chambreEtuduant.pavillons_id;
     this.etudiants_id = chambreEtuduant.etudiants_id;
     console.log("Chambre à charger :", chambreEtuduant);
+}
 
-  }
 
-  // chargerModal(){
-  //   this.libelle =this.userConnect.name;
-  //   this.telephone=this.userConnect.telephone;
-  //   this.numProche=this.userConnect.telephone_d_un_proche;
-  //   this.email=this.userConnect.email;
-  //   this.adresse=this.userConnect.adresse;
-  //   this.nin=this.userConnect.num_carte_d_identite;
-  //   }
 
 
   putChambreAdmin(){

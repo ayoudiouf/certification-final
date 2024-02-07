@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CassocialService } from 'src/app/services/CassocialService.service';
+import { EtudiantsParMeriteModel } from 'src/app/models/ListeEtudiantParMerite';
 @Component({
   selector: 'app-etudiant-par-merite',
   templateUrl: './etudiant-par-merite.component.html',
@@ -12,7 +13,7 @@ export class EtudiantParMeriteComponent implements OnInit{
 
   selectedCasSocial:any;
   dtOptions: DataTables.Settings = {};
-
+  etudiantParMerites: any;
 
   // INE = string;
   nom : any;
@@ -32,7 +33,7 @@ export class EtudiantParMeriteComponent implements OnInit{
   type_pavillon: any;
   nombres_etages: any;
   nombres_chambres: any;
-  // cassocial:casSocialModel=new casSocialModel()
+
 
 
   INE_cassocial : any ="";
@@ -49,6 +50,7 @@ export class EtudiantParMeriteComponent implements OnInit{
   filiere_cassocial : any ="";
   status_id_cassocial : any ="";
   adress_cassocial : any ="";
+  EtudiantsParMeriteModel: any;
 
   ngOnInit(): void {
     // this.getCasSocial();
@@ -62,43 +64,36 @@ export class EtudiantParMeriteComponent implements OnInit{
       }
     };
   }
-  // constructor(private CassocialService: CassocialService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
-  //   ) {
-  // }
+  constructor(private CassocialService: CassocialService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
+    ) {
+  }
 
-  // profileForm: FormGroup = this.formbuilder.group({
-  //   libelle: ['', Validators.required],
-  //   type_pavillon: ['', Validators.required],
-  //   nombres_etages: ['', Validators.required],
-  //   nombres_chambres: ['', Validators.required],
-  // });
-
-  // profileFormEdit: FormGroup = this.formbuilder.group({
-  //   libelleEdition: ['', Validators.required],
-  //   type_pavillonEdition: ['', Validators.required],
-  //   nombres_etagesEdition: ['', Validators.required],
-  //   nombres_chambresEdition: ['', Validators.required],
-  // });
 
 
   // fonction pour ajouter
   ajouterEtudiantParMerite() {
-    const cassocial = new EtudiantParMeriteComponent();
+    const cassocial = new EtudiantsParMeriteModel();
     // cassocial.INE = this.INE;
     cassocial.nom = this.nom;
     cassocial.prenom = this.prenom;
     cassocial.email = this.email
     cassocial.roles_id = this.password
     cassocial.telephone = this.password
-    // cassocial.date_naissance = this.date_naissance
     cassocial.sexe = this.sexe
     cassocial.filiere = this.filiere
     cassocial.status_id = this.status_id
-    cassocial.adress = this.adress
-
-
+    cassocial.adresse = this.adress
 
 
   }
 
+  getAllEtudiantParMerite() {
+    this.EtudiantsParMeriteModel.getAllEtudiantCasSocial().subscribe((reponse: any) => {
+      // console.log('la reponse du baken est ',reponse)
+
+        this.etudiantParMerites = reponse ;
+        console.log(this.etudiantParMerites);
+
+    });
+  }
 }

@@ -21,11 +21,11 @@ export class CassocialService {
   constructor(private http : HttpClient) { }
   ajouterEtudiantCasSocial(pav:any){
 
-  return this.http.post(`${url_base}ajoutEtudiant/CasSocial`,pav);
+  return this.http.post(`${url_base}ajoutEtudiant/CasSocial/${1}`,pav);
 
 }
 
-
+// ajoutEtudiant/CasSocial/{chambre}
 
 
 //  Methode qui permet de voir les datail

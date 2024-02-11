@@ -4,11 +4,12 @@ export class EtudiantsParMeriteModel {
   nom!: string;
   prenom!: string;
   email!: string;
+  password!: string;
   telephone!: string;
   date_naissance!: Date;
   lieu_naissance!: string;
   niveau_etudes!: string;
-  moyennes!: string;
+  moyennes!: number;
   sexe!: string;
   filiere!: string;
   statuts_id!: number;

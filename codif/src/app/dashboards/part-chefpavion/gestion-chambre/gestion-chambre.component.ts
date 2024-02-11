@@ -50,10 +50,10 @@ export class GestionChambreComponent implements OnInit{
     this.getAllChambre();
 
 
-    const script = document.createElement('script');
-    script.src = '../../../assets/js/script.js';
+    // const script = document.createElement('script');
+    // script.src = '../../../assets/js/script.js';
     // Ajustez le chemin en conséquence
-    document.body.appendChild(script);
+    // document.body.appendChild(script);
     this.dtOptions = {
       searching: true,
       lengthChange: false,
@@ -123,7 +123,7 @@ export class GestionChambreComponent implements OnInit{
 
         this.ChambresService.getAllChambreChefPavillon().subscribe((reponse:any) =>{
           console.log(reponse);
-            this.chambreData =  reponse.Chambre;
+            this.chambreData =  reponse;
         },
          );
       }

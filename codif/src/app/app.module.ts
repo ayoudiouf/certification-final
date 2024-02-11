@@ -76,6 +76,7 @@ import { PavionComponent } from './dashboards/part-admins/pavion/pavion.componen
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
+    
     // NgApexchartsModule,
     ReactiveFormsModule,
     FormsModule,

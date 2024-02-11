@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { UserModel } from '../models/user_model';
 import {  url_base } from './api_url_service';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +25,7 @@ export class UserService {
 ajoutProfil(utilisateur:any){
 
   return this.http
-  .post(`${url_base}ajoutProfil`,utilisateur)
+  .post(`${url_base}AjouterUtilisateur`,utilisateur)
 
 }
 
@@ -41,4 +42,11 @@ listeUtilisateur(){
 
   }
 
+
+ // déconnexion utilisateur
+ logout(users: any): Observable<any> {
+  return this.http.post<any>(`${url_base}auth/logout`, users);
 }
+
+}
+

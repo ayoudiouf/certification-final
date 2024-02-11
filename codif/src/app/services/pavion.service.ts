@@ -7,7 +7,7 @@ import { url_base } from './api_url_service';
 })
 export class PavillonService {
   PavillonService(id: any) {
-  
+
   }
   getAllPavillon() {
 
@@ -34,8 +34,8 @@ userConnect(pav:any){
   }
 
    // methode pour supprimer les pavillon
-   deletePavillon(suppav: any) {
-    return this.http.delete(`${url_base}pavillon/delete/{id}`,suppav)
+   deletePavillon(id: any) {
+    return this.http.delete(`${url_base}pavillon/delete/${id}`)
 
   }
 

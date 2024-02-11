@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CassocialService } from 'src/app/services/CassocialService.service';
 import { EtudiantsParMeriteModel } from 'src/app/models/ListeEtudiantParMerite';
+import { ListeEtudiantParOrdreMeriteService } from 'src/app/services/liste-etudiant-par-ordre-merite.service';
 @Component({
   selector: 'app-etudiant-par-merite',
   templateUrl: './etudiant-par-merite.component.html',
@@ -11,7 +12,7 @@ import { EtudiantsParMeriteModel } from 'src/app/models/ListeEtudiantParMerite';
 })
 export class EtudiantParMeriteComponent implements OnInit{
 
-  selectedCasSocial:any;
+  seletedEtudiantParMeriteAdmin:any;
   dtOptions: DataTables.Settings = {};
   etudiantParMerites: any;
 
@@ -19,41 +20,23 @@ export class EtudiantParMeriteComponent implements OnInit{
   nom : any;
   prenom : any;
   email : any;
-  password : any;
+  INE : any;
   roles_id : any;
   telephone : any;
-  date_naisssance : any;
-  lieu_naissance: any;
   sexe : any;
   niveau_etudes: any;
-  filiere : any;
   status_id : any;
-  adress : any;
+  adresse : any;
   libelle: string='';
   type_pavillon: any;
   nombres_etages: any;
   nombres_chambres: any;
 
 
-
-  INE_cassocial : any ="";
-  nom_cassocial : any= "";
-  prenom_cassocial : any ="";
-  email_cassocial : any ="";
-  password_cassocial : any= "";
-  roles_id_cassocial : any ="";
-  telephone_cassocial : any ="";
-  date_naisssance_cassocial : any ="";
-  lieu_naissance_cassocial: any ="";
-  sexe_cassocial : any ="";
-  niveau_etudes_cassocial : any ="";
-  filiere_cassocial : any ="";
-  status_id_cassocial : any ="";
-  adress_cassocial : any ="";
-  EtudiantsParMeriteModel: any;
-
   ngOnInit(): void {
-    // this.getCasSocial();
+
+    this.getAllEtudiantParMeriteadmin();
+
     this.dtOptions = {
       searching: true,
       lengthChange: false,
@@ -64,36 +47,92 @@ export class EtudiantParMeriteComponent implements OnInit{
       }
     };
   }
-  constructor(private CassocialService: CassocialService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
+  constructor(private etudiantpareriteService: ListeEtudiantParOrdreMeriteService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
     ) {
   }
 
+  profileForm: FormGroup = this.formbuilder.group({
+    INE: ['', Validators.required],
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required],
+    email: ['', Validators.required],
+    telephone: ['', Validators.required],
+    // INE: ['', Validators.required],
+    niveau_etudes: ['', Validators.required],
+    sexe: ['', Validators.required],
+
+    adresse: ['', Validators.required],
+
+  });
 
 
   // fonction pour ajouter
   ajouterEtudiantParMerite() {
-    const cassocial = new EtudiantsParMeriteModel();
+    const etu = new EtudiantsParMeriteModel();
     // cassocial.INE = this.INE;
-    cassocial.nom = this.nom;
-    cassocial.prenom = this.prenom;
-    cassocial.email = this.email
-    cassocial.roles_id = this.password
-    cassocial.telephone = this.password
-    cassocial.sexe = this.sexe
-    cassocial.filiere = this.filiere
-    cassocial.status_id = this.status_id
-    cassocial.adresse = this.adress
+    etu.nom = this.nom;
+    etu.prenom = this.prenom;
+    etu.email = this.email
+    etu.INE = this.INE
+    etu.telephone = this.telephone
+    etu.sexe = this.sexe
+    etu.niveau_etudes = this.niveau_etudes
+    etu.adresse = this.adresse
 
+    console.log(this.profileForm);
+    const userOnline = JSON.parse(
+      localStorage.getItem('userOnline') || '');
+    this.etudiantpareriteService.AjouterEtudiantParMerite(this.profileForm.value).subscribe((response: any) => {
 
+      console.log(response);
+
+      this.getAllEtudiantParMeriteadmin() ;
+    });
   }
-
-  getAllEtudiantParMerite() {
-    this.EtudiantsParMeriteModel.getAllEtudiantCasSocial().subscribe((reponse: any) => {
+// fonction qui permet de lister
+  getAllEtudiantParMeriteadmin() {
+    this.etudiantpareriteService.getAllEtudiantParMeriteadmin().subscribe((reponse) => {
       // console.log('la reponse du baken est ',reponse)
 
         this.etudiantParMerites = reponse ;
-        console.log(this.etudiantParMerites);
+        console.log(reponse);
 
     });
   }
+// fonction qui permet de voir les detail
+  getEtudiantParMeriteAdmin(etudiant: any) {
+    this.seletedEtudiantParMeriteAdmin = etudiant;
+  }
+
+
+// fonction qui permet de valider un etudiant
+  // validerEttudiant(id: any){
+  //   console.log("Valide etudiant with ID:", id);
+  //   this.etudiantpareriteService.validerEtudiant(id).subscribe((response: any) => {
+  //         console.log(response);
+  //         console.warn("Valider response:", res);
+  //       });
+  //       this.getAllEtudiantParMeriteadmin();
+
+  // }
+
+  validerEttudiant(id: any) {
+  // Appel du service pour valider l'étudiant en utilisant l'ID fourni
+  this.etudiantpareriteService.validerEtudiant(id)
+    .subscribe(
+      (response) => {
+        // Gérer la réponse en cas de succès
+        console.log('Étudiant validé avec succès :', response);
+        // Ajoutez ici toute autre logique de gestion
+      },
+      (error) => {
+        // Gérer l'erreur en cas d'échec
+        console.error('Erreur lors de la validation de l\'étudiant :', error);
+        // Ajoutez ici toute autre logique de gestion des erreurs
+      }
+    );
+    this.getAllEtudiantParMeriteadmin();
 }
+
+}
+

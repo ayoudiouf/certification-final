@@ -35,6 +35,7 @@ export class PavionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPavillons();
+    
 
     this.dtOptions = {
       searching: true,
@@ -47,7 +48,7 @@ export class PavionComponent implements OnInit {
     };
 
   }
-  constructor(private PavillonService: PavillonService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
+  constructor(private Pavillonservice: PavillonService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
     ) {
   }
 
@@ -77,19 +78,19 @@ export class PavionComponent implements OnInit {
     console.log(this.profileForm.value);
     const userOnline = JSON.parse(
       localStorage.getItem('userOnline') || '');
-    this.PavillonService.userConnect(this.profileForm.value).subscribe((response: any) => {
+    this.Pavillonservice.userConnect(this.profileForm.value).subscribe((response: any) => {
 
       console.log(response);
 
+      this.getPavillons();
     });
-    this.getPavillons();
 
   }
 
     // Fonction pour lister les utilisateurs
   getPavillons(){
 
-    this.PavillonService.listepavillon().subscribe((reponse:any) =>{
+    this.Pavillonservice.listepavillon().subscribe((reponse:any) =>{
         this.tabpavillons =  reponse.Pavillon;
         console.log(this.tabpavillons);
 
@@ -115,15 +116,16 @@ export class PavionComponent implements OnInit {
     nombres_etages : this.nombres_etages,
     nombres_chambres :this.nombres_chambres
   }
-    this.PavillonService.editPavillon(pavChoisi, this.pavillonChoisi).subscribe((res: any) => {
+    this.Pavillonservice.editPavillon(pavChoisi, this.pavillonChoisi).subscribe((res: any) => {
       console.log(res);
     });
     this.getPavillons();
   }
 
   deletePavillon(id:any) {
-    this.PavillonService.deletePavillon(id).subscribe((res: any) => {
-      console.log(res);
+    this.Pavillonservice.deletePavillon(id).subscribe((res: any) => {
+      console.log('la response est ',res);
+
     });
     this.getPavillons();
   }

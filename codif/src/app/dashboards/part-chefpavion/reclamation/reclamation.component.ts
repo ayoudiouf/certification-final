@@ -63,6 +63,7 @@ export class ReclamationComponent implements OnInit{
         this.reclamations = reponse;
         console.log(this.reclamations)
       });
+           this.getAllReclamation();
     }
 
 

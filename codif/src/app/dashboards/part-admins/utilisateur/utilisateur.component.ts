@@ -95,7 +95,7 @@ export class UtilisateurComponent implements OnInit {
       console.log(response);
 
     })
-
+    this.listeUtilisateurs()
   }
 
 

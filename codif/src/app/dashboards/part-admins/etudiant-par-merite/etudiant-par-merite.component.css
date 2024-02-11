@@ -6,9 +6,13 @@
   span{
     display: flex;
     gap: 15px;
-    
+
   }
   .text{
     color: #a41034;
   }
 
+  button{
+    background-color: #a41034;
+    color: white;
+  }

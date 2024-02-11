@@ -4,6 +4,8 @@ export class EtudiantsModel {
   nom!: string;
   prenom!: string;
   email!: string;
+  password!: string;
+  moyennes!: string;
   telephone!: string;
   date_naissance!: Date;
   lieu_naissance!: string;

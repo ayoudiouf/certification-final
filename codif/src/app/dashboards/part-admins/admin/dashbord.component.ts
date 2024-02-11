@@ -7,6 +7,7 @@ import { Component, ViewChild } from "@angular/core";
 })
 export class AdminComponent  {
 
+  
 }
 
 

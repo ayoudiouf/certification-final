@@ -13,7 +13,6 @@ import { EtudiantsModel } from 'src/app/models/etudiants'
 export class CasSocialComponent implements OnInit{
   CasSocialModel: any
 
-  selectedCasSocial:any;
   dtOptions: DataTables.Settings = {};
   INE: string='';
   nom: string='';
@@ -26,6 +25,7 @@ export class CasSocialComponent implements OnInit{
   adresse: any;
   statuts: any;
   lieu_naissance: any;
+  date_naissance: any;
 
   INE_cassocial: any = "";
   nom_cassocial: any = "";
@@ -33,17 +33,18 @@ export class CasSocialComponent implements OnInit{
   email_cassocial: any = "";
   password_cassocial: any = "";
   telephone_cassocial: any = "";
-  // lieu_naissance:any ="";
   sexe_cassocial: any = "";
   filiere_cassocial: any = "";
   statuts_id: any = "";
   adresse_cassocial: any = "";
+  // date_naissance: any = "";
+
   cassocials: any;
 
 
 
   ngOnInit(): void {
-    // this.getAllEtudiantCasSocial();
+
 
     this.dtOptions = {
       searching: true,
@@ -70,49 +71,52 @@ export class CasSocialComponent implements OnInit{
     telephone: ['', Validators.required],
     niveau_etudes: ['', Validators.required],
     lieu_naissance: ['', Validators.required],
+    sexe: ['', Validators.required],
     statuts_id: ['', Validators.required],
     filiere: ['', Validators.required],
     adresse: ['', Validators.required],
+    date_naissance:  ['', Validators.required],
 
   });
 
-  seletedEtudiantParMerite: any;
+  seletedEtudiantCasSocial: any;
 
 
   // fonction pour ajouter
-  ajouterEtudiantCasSocial() {
-    const cascial = new EtudiantsModel();
-    cascial.INE = this.INE;
-    cascial.nom = this.nom;
-    cascial.prenom = this.prenom;
-    cascial.email = this.email;
-    // cascial.telephone = this.telephone;
-    cascial.sexe = this.sexe;
-    cascial.filiere = this.filiere;
-    cascial.statuts_id = this.statuts_id;
-    cascial.niveau_etudes = this.niveau_etudes;
-    cascial.adresse = this.adresse;
+  // ajouterEtudiantCasSocial() {
+  //   const cascial = new EtudiantsModel();
+  //   cascial.INE = this.INE;
+  //   cascial.nom = this.nom;
+  //   cascial.prenom = this.prenom;
+  //   cascial.email = this.email;
+  //   cascial.sexe = this.sexe;
+  //   cascial.filiere = this.filiere;
+  //   cascial.statuts_id = this.statuts_id;
+  //   cascial.niveau_etudes = this.niveau_etudes;
+  //   cascial.adresse = this.adresse;
 
 
-    console.log(this.profileForm.value);
-    const userOnline = JSON.parse(
-      localStorage.getItem('userOnline') || '');
-    this.CassocialService.ajouterEtudiantCasSocial(this.profileForm.value).subscribe((response: any) => {
+  //   console.log(this.profileForm.value);
+  //   const userOnline = JSON.parse(
+  //     localStorage.getItem('userOnline') || '');
+  //   this.CassocialService.ajouterEtudiantCasSocial(this.profileForm.value).subscribe((response: any) => {
 
-      console.log(response);
+  //     console.log(response);
 
-    });
+  //   });
 
 
-  }
+  // }
 
   ajouterEtudiant() {
     const etudiants = new EtudiantsModel();
     etudiants.nom = this.nom;
     etudiants.prenom = this.prenom;
     etudiants.niveau_etudes = this.niveau_etudes;
-    etudiants.telephone = this.telephone
-    etudiants.INE = this.INE
+    etudiants.telephone = this.telephone;
+    etudiants.sexe = this.sexe;
+    etudiants.INE = this.INE;
+    etudiants.date_naissance = this.date_naissance;
     etudiants.adresse = this.adresse
 
     console.log(this.profileForm.value);
@@ -121,7 +125,6 @@ export class CasSocialComponent implements OnInit{
     this.CassocialService.ajouterEtudiantCasSocial(this.profileForm.value).subscribe((response: any) => {
 
       console.log(response);
-
     });
     this.getAllEtudiantCasSocial();
 
@@ -138,8 +141,8 @@ export class CasSocialComponent implements OnInit{
 
 
 
-    GetEtudiantParMerite(pavillon: any) {
-      this.seletedEtudiantParMerite = pavillon;
+    getEtudiantcassocial(etudiant: any) {
+      this.seletedEtudiantCasSocial = etudiant;
     }
 }
 

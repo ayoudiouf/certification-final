@@ -16,12 +16,12 @@
 
               <thead>
                 <tr>
-                  <th class="tHead">ID</th>
+                  <!-- <th class="tHead">ID</th> -->
                   <th class="tHead">Libelle</th>
                   <th class="tHead">Type chambres</th>
                   <th class="tHead">Nombres limites </th>
                   <th class="tHead">Nombres lits </th>
-                  <th class="tHead">Pavillon_id</th>
+                  <th class="tHead">Pavillon</th>
                   <!-- <th class="tHead">Etudiant_id</th> -->
                   <th class="tHead">Action</th>
                 </tr>
@@ -29,12 +29,13 @@
               <tbody>
 
                   <tr *ngFor="let chambre of tabchambres">
-                    <td>{{chambre.id }}</td>
+                    <!-- <td>{{chambre.id }}</td> -->
                     <td>{{chambre.libelle}}</td>
                     <td>{{chambre.type_chambre}}</td>
-                    <td>{{chambre.nombres_lits}}</td>
                     <td>{{chambre.nombres_limites}}</td>
-                    <td>{{chambre.pavillons_id}}</td>
+                    <td>{{chambre.nombres_lits}}</td>
+                    <!-- <td>{{chambre.status}}</td> -->
+                    <td>{{chambre.pavillon}}</td>
                     <!-- <td>{{chambre.etudiants_id}}</td> -->
                     <td><span id="icon">
                       <button class="info">
@@ -45,7 +46,7 @@
                         data-bs-target="#details" (click)="getChambre(chambre)" ></i>
                       </button>
                       <button class="info">
-                        <i class="fa-solid fa-trash" (click)="deletechambre(chambre)" ></i>
+                        <i class="fa-solid fa-trash" (click)="deletechambre(chambre.id)" ></i>
                       </button>
                     </span></td>
                   </tr>
@@ -74,35 +75,41 @@
           <!-- Libelle -->
           <div class="mb-3">
             <label for="libelle" class="form-label">Libelle</label>
-            <input type="text" class="form-control" id="libelle" formControlName="libelle_chambre" />
+            <input type="text" class="form-control" id="libelle" formControlName="libelle" [(ngModel)]="libelle" />
             <div id="libelle" class="form-text"></div>
           </div>
-
           <!-- Type de chambre -->
           <div class="mb-3">
             <label for="type_chambre" class="form-label">Type de chambre</label>
-            <input type="text" class="form-control" id="type_chambre" formControlName="type_chambre_chambre" />
+            <select name="type_chambre" id="type_chambre" [(ngModel)]="type_chambre" formControlName="type_chambre">
+                <option value="Individuelle">Individuelle</option>
+                 <option value="Partagée">Partagée</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="type_chambre" formControlName="type_chambre" [(ngModel)]="type_chambre"/> -->
             <div id="type_chambre" class="form-text"></div>
           </div>
 
-          <!-- Nombre de lits -->
+           <!-- Nombre de lits -->
           <div class="mb-3">
             <label for="nombres_lits" class="form-label">Nombre de lits</label>
-            <input type="text" class="form-control" id="nombres_lits" formControlName="nombres_lits_chambre" />
+            <input type="text" class="form-control" id="nombres_lits" formControlName="nombres_lits"  [(ngModel)]="nombres_lits"/>
             <div id="nombres_lits" class="form-text"></div>
           </div>
 
           <!-- Nombres limites -->
           <div class="mb-3">
             <label for="nombres_limites" class="form-label">Nombres Limites</label>
-            <input type="text" class="form-control" id="nombres_limites" formControlName="nombres_limites_chambre" />
+            <input type="text" class="form-control" id="nombres_limites" formControlName="nombres_limites"  [(ngModel)]="nombres_limites" />
             <div id="nombres_limites" class="form-text"></div>
           </div>
 
           <div class="mb-3">
-            <label for="id_pavillon" class="form-label">id Pavillon</label>
-            <input type="text" class="form-control" id="id_pavillon" formControlName="id_pavillon_chambre" />
-            <div id="id_pavillon" class="form-text"></div>
+            <label for="id_pavillon" class="form-label">Pavillon</label>
+            <select class="form-select" id="pavillons_id" formControlName="pavillons_id" [(ngModel)]="pavillons_id">
+              <!-- Options du menu déroulant -->
+              <option *ngFor="let pavillon of tabpavillons" [value]="pavillons_id">{{pavillon.libelle}}</option>
+              <!-- Ajoutez plus d'options au besoin -->
+            </select>
           </div>
 
           <!-- ...Modal footer... -->
@@ -138,30 +145,40 @@
         <!-- Libelle -->
         <div class="mb-3">
           <label for="libelle" class="form-label">Libelle</label>
-          <input type="text" class="form-control" id="libelle" aria-describedby="nompavillonHelp2" formControlName="libelle"  name="lobelle" [(ngModel)]="libelle"  />
+          <input type="text" class="form-control" id="libelle" aria-describedby="nompavillonHelp2" formControlName="libelle"  name="libelle" [(ngModel)]="libelle"  />
           <div id="libelle" class="form-text"></div>
         </div>
 
         <!-- Type Chambre -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label for="chambreForm" class="form-label">Type_chambres</label>
           <input type="text" class="form-control" name="type_chambre" id="exampleInputTypeChambre1" aria-describedby="type_chambreHelp" formControlName="type_chambre" [(ngModel)]="type_chambre" />
           <div id="chambreForm" class="form-text"></div>
+        </div> -->
+
+        <div class="mb-3">
+          <label for="type_chambre" class="form-label">Type de chambre</label>
+          <select name="type_chambre" id="type_chambre" [(ngModel)]="type_chambre" formControlName="type_chambre">
+              <option value="Individuelle">Individuelle</option>
+               <option value="Partagée">Partagée</option>
+          </select>
+          <!-- <input type="text" class="form-control" id="type_chambre" formControlName="type_chambre" [(ngModel)]="type_chambre"/> -->
+          <div id="type_chambre" class="form-text"></div>
         </div>
 
         <!-- Nbrs Chambres -->
         <div class="mb-3">
-          <label for="nombres_litsForm" class="form-label">Nombre Lits</label>
-          <input type="text" class="form-control" id="nombres_litsForm" name="nombres_lits" aria-describedby="nombres_litsEditionForm"  formControlName="nombres_lits"[(ngModel)]="nombres_lits"/>
-          <div id="nombres_litsForm" class="form-text"></div>
+          <label for="nombres_lits" class="form-label">Nombre Lits</label>
+          <input type="text" class="form-control" id="nombres_lits" name="nombres_lits" aria-describedby="nombres_litsEditionForm"  formControlName="nombres_lits" [(ngModel)]="nombres_lits" />
+          <div id="nombres_lits" class="form-text"></div>
         </div>
 
         <!-- Nbrs Etages -->
         <div class="mb-3">
-          <label for="nombres_etagesForm" class="form-label">Nombres Limites</label>
-          <input type="text" class="form-control" name="nombres_limites" id="nombres_limitesForm" aria-describedby="nbrsetageHelp" formControlName="nombres_limites" [(ngModel)]="nombres_limites" />
+          <label for="nombres_limites" class="form-label">Nombres Limites</label>
+          <input type="text" class="form-control" name="nombres_limites" id="nombres_limites" aria-describedby="nbrsetageHelp" formControlName="nombres_limites" [(ngModel)]="nombres_limites" />
 
-          <div id="nombres_etagesForm" class="form-text"></div>
+          <div id="nombres_limites" class="form-text"></div>
         </div>
       </form>
       </div>

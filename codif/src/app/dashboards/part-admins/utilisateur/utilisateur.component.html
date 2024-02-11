@@ -10,12 +10,12 @@
           <h1 class="text text-black text-center">Liste des Utilisateurs</h1>
           <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutChefPavion" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
-            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" >
 
               <thead>
                 <tr>
 
-                  <th class="tHead">ID</th>
+                  <!-- <th class="tHead">ID</th> -->
                   <th class="tHead">Nom</th>
                   <th class="tHead">Prenom</th>
                   <th class="tHead">Email</th>
@@ -28,24 +28,18 @@
               </thead>
               <tbody>
                 <tr *ngFor="let utilisateur of tabUtilisateurs">
-                  <td>{{utilisateur.id}}</td>
+                  <!-- <td>{{utilisateur.id}}</td> -->
                   <td>{{utilisateur.nom}}</td>
                   <td>{{utilisateur.prenom}}</td>
                   <td>{{utilisateur.email}}</td>
                   <!-- <td>{{utilisateur.password}}</td> -->
                   <td>{{utilisateur.telephone}}</td>
-                  <td>{{utilisateur.roles_id}}</td>
+                  <td>{{utilisateur.nomRole}}</td>
                   <td>{{utilisateur.status}}</td>
+
+                  <!-- <td><button type="button" class="btn btn-outline-success">{{utilisateur.status}}</button></td> -->
                   <td>
                   <span id="icon" >
-                    <button>
-                      <i
-                      class="fa-solid fa-marker"
-                      data-bs-toggle="modal"
-                      data-bs-target="#Modifier"
-                    (click)="chargerUtilisateur(utilisateur)">
-                  </i>
-                    </button>
 
                     <button>
                       <i

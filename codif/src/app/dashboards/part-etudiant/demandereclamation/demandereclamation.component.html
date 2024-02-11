@@ -15,105 +15,44 @@
                     <p class="font-weight-bold">DASHBOARD</p>
                   </div> -->
                   <div class="row">
-                      <div class="col-md-4 col-xl-3 ">
-                          <div class="card bg-c-blue order-card p-2">
-                              <!-- <div class="card-block"> -->
-                                  <h6 class="m-b-20">Réclamation</h6>
-                                  <h2 class="text-right"><span><i class="fa-solid fa-circle-info"></i>16</span></h2>
-                                  <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                              <!-- </div> -->
-                          </div>
-                      </div>
 
-                      <div class="col-md-4 col-xl-3">
-                          <div class="card bg-c-green order-card p-2">
-                              <!-- <div class="card-block"> -->
-                                  <h6 class="m-b-20">Pavion</h6>
-                                  <h2 class="text-right"><span><i class="fa-solid fa-building"></i>20</span></h2>
-                                  <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                              <!-- </div> -->
-                          </div>
-                      </div>
 
-                      <div class="col-md-4 col-xl-3">
-                          <div class="card bg-c-yellow order-card p-2">
-                              <!-- <div class="card-block"> -->
-                                  <h6 class="m-b-20">Chambres</h6>
-                                  <h2 class="text-right"><span><i class="fa-solid fa-house"></i>600</span></h2>
-                                  <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                              <!-- </div> -->
-                          </div>
-                      </div>
 
-                      <div class="col-md-4 col-xl-3">
-                          <div class="card bg-c-pink order-card p-2">
-                              <!-- <div class="card-block"> -->
-                                  <h6 class="m-b-20">Etudiants</h6>
-                                  <h2 class="text-right"><span><i class="fa-solid fa-user"></i>486</span></h2>
-                                  <p class="m-b-0">Completed Orders<span class="f-right">100000</span></p>
-                              <!-- </div> -->
-                          </div>
-                      </div>
 
-                      <button type="button" data-bs-toggle="modal" data-bs-target="#fairesaDemande" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px; margin-top: 20px; ">Faire une Réclamation</button>
+                      <button type="button" data-bs-toggle="modal" data-bs-target="#fairesaDemande" style="background-color: #A41034; color: white; width: 20%;height: 40px; border-radius: 10px; margin-top: 20px; ">Faire une Réclamation</button>
                       <h1 class="titre text-black text-center">Historique des Réclamations</h1>
                       <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
                         <thead>
                           <tr>
-                            <th class="tHead">ID</th>
-                            <th class="tHead">Libellé</th>
-                            <th class="tHead">statut</th>
+                            <th class="tHead">Objet</th>
+                            <th class="tHead">Message</th>
+                            <th class="tHead">Statut </th>
+                            <!-- <th class="tHead">Chambres</th> -->
                             <th class="tHead">Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Demande répation </td>
-                            <td>En cours</td>
-                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
+                          <tr *ngFor=" let reclamation of reclamations">
+                            <td>{{reclamation.objet}}</td>
+                            <td>{{reclamation.message}}</td>
+                            <td>{{reclamation.status}}</td>
+                            <!-- <td>{{reclamation.chambres_id}}</td> -->
 
+                            <td><span>
 
+                              <button class="btn btn-danger">
+                                <i
+                                class="fa-solid fa-eye"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detail" (click)="getDemandeReclamation(reclamation)">
+                              </i>
+                              </button>
+                            </span></td>
                           </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Demande répation</td>
-
-                            <td>Terminer</td>
-                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
-
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Demande répation</td>
-
-                            <td>Terminer</td>
-                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
-
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>Demande répation</td>
-
-                            <td>Terminer</td>
-                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
-
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>Demande répation</td>
-                            <td>Terminer</td>
-                            <td><span id="icon"><i class="fa-solid fa-eye"></i></span></td>
-
-                          </tr>
-
                         </tbody>
                       </table>
-
                     </div>
-
-
               </div>
               </div>
             </div>
@@ -121,6 +60,7 @@
       </main>
   </div>
 </div>
+<!-- Modal pour fire une reclamation -->
 <div class="modal fade" id="fairesaDemande" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -130,25 +70,95 @@
       </div>
       <div class="modal-body">
 
+        <!-- <div class="mb-3">
+          <label for="objet" class="form-label">Objet</label>
+          <select class="form-select" id="objet">
+              <option value="1">Réparation électricité chambre A3</option>
+              <option value="2">Réparation portail chambre A3</option>
+              <option value="3">Autre</option>
+          </select>
+      </div> -->
+
+      <div class="mb-3">
+        <label for="exampleInputmessage" class="form-label">Objet</label>
+        <input type="test" class="form-control" placeholder="votre objet" name="objet" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.objet">
+        <div id="nompavionHelp" class="form-text"></div>
+      </div>
+
           <div class="mb-3">
-            <label for="exampleInputid" class="form-label">Objet</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
-            <div id="idHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnompavion" class="form-label">Message</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nompavionHelp">
+            <label for="exampleInputmessage" class="form-label">Message</label>
+            <input type="test" class="form-control" name="message" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.message">
             <div id="nompavionHelp" class="form-text"></div>
           </div>
 
 
+          <!-- <div class="mb-3">
+            <label for="exampleInputid" class="form-label">Statut</label>
+            <input type="text" class="form-control" name="status" id="exampleInputId1" aria-describedby="idHelp">
+            <div id="idHelp" class="form-text"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputchambres_id" class="form-label">Chambres</label>
+            <input type="text" class="form-control" name="chambres_id" id="exampleInputId1" aria-describedby="chambres_idHelp">
+            <div id="chambres_id" class="form-text"></div>
+          </div> -->
+
+
       </div>
       <div class="modal-footer">
+        <button type="button" class="typebutton btn " (click)="FaireUneReclamation()">Envoyer</button>
         <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="typebutton btn ">Envoyer</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Details Reclamationt -->
+<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter les etudiant par odre de mérite</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+          <!-- Objet -->
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Objet:{{seletedDemandeReclamation.objet}}</label>
+            <div id="nomHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+
+            <!-- Message -->
+            <label for="exampleInputpremon" class="form-label">Message:{{seletedDemandeReclamation.message}}</label>
+            <div id="premonHelp" class="form-text"></div>
+          </div>
+
+          <!-- Chambres_id -->
+          <!-- <div class="mb-3">
+            <label for="exampleInputtelephone" class="form-label">Chambres_id:{{seletedDemandeReclamation.chambres_id}}</label>
+            <div id="telephoneHelp" class="form-text"></div>
+          </div> -->
+
+          <!-- Status -->
+          <div class="mb-3">
+            <label for="exampleInputstatut" class="form-label">Status:{{seletedDemandeReclamation.status}}</label>
+            <div id="etudeHelp" class="form-text"></div>
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -19,7 +19,7 @@
           class="row-border hover w-100 table" *ngIf="tabpavillons?.length>0">
           <thead>
             <tr>
-              <th class="tHead">ID</th>
+              <!-- <th class="tHead">ID</th> -->
 
               <th class="tHead">Libelle</th>
               <th class="tHead">Type pavillon</th>
@@ -29,8 +29,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let pavillon of tabpavillons">
-              <td>{{ pavillon.id }}</td>
+            <tr *ngFor="let pavillon of tabpavillons ">
+              <!-- <td>{{ pavillon.id }}</td> -->
               <td>{{ pavillon.libelle }}</td>
               <td>{{ pavillon.type_pavillon }}</td>
               <td>{{ pavillon.nombres_etages }}</td>
@@ -51,7 +51,7 @@
                     <i
                     class="fa-solid fa-eye"
                     data-bs-toggle="modal"
-                    data-bs-target="#detail" (click)="getPavillon(pavillon)">
+                    data-bs-target="#detail" (click)="getPavillon(pavillon.id)">
                   </i>
                   </button>
 
@@ -99,7 +99,8 @@
             />
             <div id="nompavillonHelp" class="form-text"></div>
           </div>
-          <div class="mb-3">
+          <!-- Type pavillon -->
+          <!-- <div class="mb-3">
             <label for="exampleInputtypepavillon" class="form-label"
               >Type Pavillon</label
             >
@@ -112,7 +113,18 @@
               formControlName="type_pavillon"
             />
             <div id="typepavillonHelp" class="form-text"></div>
+          </div> -->
+          <div class="mb-3">
+            <label for="type_pavillon" class="form-label">Type_pavillon</label>
+            <select name="type_chambre" id="type_chambre" [(ngModel)]="type_pavillon" formControlName="type_pavillon">
+                <option value="Homme">Homme</option>
+                 <option value="Femme">Femme</option>
+                 <option value="Mixte">Mixte</option>
+            </select>
+            <div id="type_pavillon" class="form-text"></div>
           </div>
+
+          <!-- Nobre Chambre -->
           <div class="mb-3">
             <label for="exampleInputnbrschambre" class="form-label"
               >Nbrs Chambres</label

@@ -15,20 +15,22 @@ export class EtudiantsComponent  implements OnInit{
 
   nom:any;
   prenom:any;
+  email:any;
+  password:any;
   niveau_etudes:any;
+  moyennes:any;
   telephone:any;
+  sexe:any;
+  filiere:any;
   INE:any;
   adresse:any;
-
-  // nom:any ;
-  // prenom:any;
-  // niveau_etudes:any;
-  // telephone:any;
-  // INE:any;
-  // adresse:any;
+  lieu_naissance:any;
+  date_naissance:any;
 
   etudiantsparmerites: any[] = [];
-  seletedEtudiantParMerite: any;
+
+  seletedEtudiantChefPeda: any;
+
   ListeEtudiantParOrdreMeriteService: any;
 
   ngOnInit(): void {
@@ -56,8 +58,14 @@ export class EtudiantsComponent  implements OnInit{
     prenom: ['', Validators.required],
     niveau_etudes: ['', Validators.required],
     telephone: ['', Validators.required],
+    sexe: ['', Validators.required],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    moyennes: ['', Validators.required],
+    filiere: ['', Validators.required],
     INE: ['', Validators.required],
     adresse: ['', Validators.required],
+    lieu_naissance: ['', Validators.required],
   });
 
   profileFormEdite: FormGroup = this.formbuilder.group({
@@ -65,8 +73,14 @@ export class EtudiantsComponent  implements OnInit{
     prenom: ['', Validators.required],
     niveau_etudes: ['', Validators.required],
     telephone: ['', Validators.required],
+    sexe: ['', Validators.required],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    moyennes: ['', Validators.required],
+    filiere: ['', Validators.required],
     INE: ['', Validators.required],
     adresse: ['', Validators.required],
+    lieu_naissance: ['', Validators.required],
   });
 
   //  fonction pour ajouter
@@ -75,19 +89,25 @@ export class EtudiantsComponent  implements OnInit{
     etudiants.nom = this.nom;
     etudiants.prenom = this.prenom;
     etudiants.niveau_etudes = this.niveau_etudes;
-    etudiants.telephone = this.telephone
-    etudiants.INE = this.INE
-    etudiants.adresse = this.adresse
+    etudiants.telephone = this.telephone;
+    etudiants.INE = this.INE;
+    etudiants.sexe = this.sexe;
+    etudiants.password = this.password;
+    etudiants.email = this.email;
+    etudiants.moyennes = this.moyennes;
+    etudiants.filiere = this.filiere;
+    etudiants.lieu_naissance = this.lieu_naissance;
+    etudiants.date_naissance = this.date_naissance;
 
     console.log(this.profileForm.value);
     const userOnline = JSON.parse(
       localStorage.getItem('userOnline') || '');
-    this.ListeEtudiantParOrdreMeriteService.etudiants(this.profileForm.value).subscribe((response: any) => {
+    this.listeEtudiantParOrdreMeriteService.AjouterEtudiantchefPedagogique(this.profileForm.value).subscribe((response: any) => {
 
       console.log(response);
 
+      this.getAllEtudiantParMerite();
     });
-    this.getAllEtudiantParMerite();
 
   }
 
@@ -122,7 +142,7 @@ export class EtudiantsComponent  implements OnInit{
 
 
 
- putEtutudiant(){
+EditEtutudiant(){
    console.log("chambrechoisi", this.etudiantChoisi.id )
    const etudiant1Choisi={
      nom : this.nom,
@@ -142,8 +162,8 @@ export class EtudiantsComponent  implements OnInit{
 
 
 
-  GetEtudiantParMerite(pavillon: any) {
-    this.seletedEtudiantParMerite = pavillon;
+  getEtudiantParMerite(etu: any) {
+    this.seletedEtudiantChefPeda = etu;
   }
 
 }

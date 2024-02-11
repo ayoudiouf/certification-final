@@ -12,17 +12,17 @@
 
               <thead>
                 <tr>
-                  <th class="tHead">ID</th>
+                  <!-- <th class="tHead">ID</th> -->
                   <th class="tHead">Objet</th>
                   <th class="tHead">Message</th>
-                  <th class="tHead">Chambres_id </th>
-                  <th class="tHead">Status </th>
+                  <th class="tHead">Chambres </th>
+                  <th class="tHead">Traitement </th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor=" let reclamaton of reclamations[0]">
-                  <td>{{reclamaton.id}}</td>
+                  <!-- <td>{{reclamaton.id}}</td> -->
                   <td>{{reclamaton.objet}}</td>
                   <td>{{reclamaton.message}}</td>
                   <td>{{reclamaton.chambres_id}}</td>
@@ -30,7 +30,7 @@
 
                   <td><span>
 
-                    <button class="btn btn-danger">
+                    <button >
                       <i
                       class="fa-solid fa-eye"
                       data-bs-toggle="modal"

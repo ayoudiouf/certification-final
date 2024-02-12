@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-connexion',
@@ -27,28 +28,43 @@ export class ConnexionComponent implements OnInit {
     password: ['', Validators.required,],
 
   });
-  //   profileForm = new FormGroup({
-  //     email: new FormControl(''),
-  //     password: new FormControl(''),
-  //   });
-  // connexion() {
-  //   this.userservice.login(this.profileForm.value).subscribe(
-  //     (connect: any) => {
-  //       console.log(connect.access_token, 'tokken');
 
-  //       if (connect.access_token) {
-  //         const u = this.userservice.userConected();
-  //         console.log(u, 'user');
-
-  //       }
-  //     })
-  // }
 
   login(){
     let emailUser= this.emailUtilisateur;
     let passwordUser =this.passwordUtilisateur;
     if(emailUser =="" || passwordUser==""){
-      console.log("veuillez remplir les champs");
+      // console.log("veuillez remplir les champs");
+      Swal.fire({
+        title: 'Champs requis',
+        text: 'Veuillez remplir tous les champs obligatoires.',
+        icon: 'error',
+      });
+      return;
+
+
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: 'Vous allez envoyer votre email!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Oui, envoyer!',
+      cancelButtonText: 'Non, annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Bravo!',
+          'Envoi réussi avec succès.',
+          'success'
+        );
+      } else {
+        Swal.fire(
+          'Annulé!',
+          'Votre envoi a été annulé avec succès.',
+          'info'
+        );
+      }
+    });
     }else{
       // console.log("votre mail est :",emailUser, "et votre password est :",passwordUser);
       this.userservice.login({email:emailUser,password:passwordUser},(response:any)=>{

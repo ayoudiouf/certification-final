@@ -7,214 +7,106 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text">Payer ma Chambre</h1>
-
-          <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-lg-0 mb-3">
-                    <div class="card p-3">
-                        <div class="img-box">
-                            <img src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="">
+            <div class="d-flex justify-content-around ">
+            <div class="detail">
+              <h1 class="text-center">Detail Etudiant</h1>
+              <p>INE:<span>N023620212</span></p>
+              <p>Date et lieu Naissance: <span>12/02/2000 à Dakar</span></p>
+              <p>Adresse: <span>Dakar</span></p>
+              <p>Telephone: <span>772589874</span></p>
+              <p>Email: <span>maria@gmail.com</span></p>
+              <p>Pavillon: <span>A</span></p>
+              <p>Chambre: <span>12</span></p>
+              <p>Type Chambre: <span>Partagées</span></p>
+            </div>
+            <div class="card card-outline-secondary">
+            <h1 class="text">Payer ma Chambre</h1>
+            <div class="card-body">
+                <h3 class="text-center">Payment</h3>
+                <hr>
+                <div class="alert alert-info p-2 pb-3">
+                    <a class="close font-weight-normal initialism" data-dismiss="alert" href="#"><samp>×</samp></a>
+                    CVC code is required.
+                </div>
+                <form class="form" role="form" autocomplete="off">
+                    <div class="form-group">
+                        <label for="cc_name">Nom et Prenom</label>
+                        <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*" title="First and last name" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Numéro de carte</label>
+                        <input type="text" class="form-control" autocomplete="off" maxlength="20" pattern="\d{16}" title="Credit card number" required="">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-12">Date d'expiration</label>
+                        <div class="col-md-4">
+                            <select class="form-control" name="cc_exp_mo" size="0">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                            </select>
                         </div>
-                        <div class="number">
-                            <label class="fw-bold" for="">**** **** **** 1060</label>
+                        <div class="col-md-4">
+                            <select class="form-control" name="cc_exp_yr" size="0">
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                            </select>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
-                            <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required="" placeholder="CVC">
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-lg-0 mb-3">
-                    <div class="card p-3">
-                        <div class="img-box">
-                            <img src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
-                                alt="">
-                        </div>
-                        <div class="number">
-                            <label class="fw-bold">**** **** **** 1060</label>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
-                            <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                    <div class="form-group row">
+                        <label class="col-md-12">Montant</label>
+                    </div>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Fcfa</span></div>
+                            <input type="text" class="form-control text-right" id="exampleInputAmount" >
+                            <div class="input-group-append"></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-lg-0 mb-3">
-                    <div class="card p-3">
-                        <div class="img-box">
-                            <img src="https://www.freepnglogos.com/uploads/discover-png-logo/credit-cards-discover-png-logo-4.png"
-                                alt="">
-                        </div>
-                        <div class="number">
-                            <label class="fw-bold">**** **** **** 1060</label>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
-                            <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                    <div class="form-group row">
+                        <label class="col-md-12">Moyen de paiement</label>
+                        <div class="col-md-12">
+                            <select class="form-control" name="payment_method">
+                                <option value="credit_card">Carte de crédit</option>
+                                <option value="orange_money">Orange Money</option>
+                                <option value="wave">Wave</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 mt-4">
-                    <div class="card p-3">
-                        <p class="mb-0 fw-bold h4">Payment Methods</p>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card p-3">
-                        <div class="card-body border p-0">
-                            <p>
-                                <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between"
-                                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
-                                    aria-controls="collapseExample">
-                                    <span class="fw-bold">PayPal</span>
-                                    <span class="fab fa-cc-paypal">
-                                    </span>
-                                </a>
-                            </p>
-                            <div class="collapse p-3 pt-0" id="collapseExample">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <p class="h4 mb-0">Summary</p>
-                                        <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Name of
-                                                product</span></p>
-                                        <p class="mb-0"><span class="fw-bold">Price:</span><span
-                                                class="c-green">:$452.90</span></p>
-                                        <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
-                                            nihil neque
-                                            quisquam aut
-                                            repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab
-                                            quis,
-                                            iste harum ipsum hic, nemo qui!</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <hr>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <button type="reset" class="btn btn-default btn-lg btn-block">Annuler</button>
                         </div>
-                        <div class="card-body border p-0">
-                            <p>
-                                <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
-                                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
-                                    aria-controls="collapseExample">
-                                    <span class="fw-bold">Credit Card</span>
-                                    <span class="">
-                                        <span class="fab fa-cc-amex"></span>
-                                        <span class="fab fa-cc-mastercard"></span>
-                                        <span class="fab fa-cc-discover"></span>
-                                    </span>
-                                </a>
-                            </p>
-                            <div class="collapse show p-3 pt-0" id="collapseExample">
-                                <div class="row">
-                                    <div class="col-lg-5 mb-lg-0 mb-3">
-                                        <p class="h4 mb-0">Summary</p>
-                                        <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Name of
-                                                product</span>
-                                        </p>
-                                        <p class="mb-0">
-                                            <span class="fw-bold">Price:</span>
-                                            <span class="c-green">:$452.90</span>
-                                        </p>
-                                        <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
-                                            nihil neque
-                                            quisquam aut
-                                            repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab
-                                            quis,
-                                            iste harum ipsum hic, nemo qui!</p>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <form action="" class="form">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form__div">
-                                                        <input type="text" class="form-control" placeholder=" ">
-                                                        <label for="" class="form__label">Card Number</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-6">
-                                                    <div class="form__div">
-                                                        <input type="text" class="form-control" placeholder=" ">
-                                                        <label for="" class="form__label">MM / yy</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-6">
-                                                    <div class="form__div">
-                                                        <input type="password" class="form-control" placeholder=" ">
-                                                        <label for="" class="form__label">cvv code</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form__div">
-                                                        <input type="text" class="form-control" placeholder=" ">
-                                                        <label for="" class="form__label">name on the card</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="btn btn-primary w-100">Sumbit</div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-success btn-lg btn-block">Valider</button>
                         </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <div class="btn btn-primary payment">
-                        Make Payment
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+      </div>
+        </div>
 
-
-          </div>
       </main>
   </div>
 </div>
-<div class="modal fade" id="ajouterPavion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un pavillon</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="exampleInputid" class="form-label">ID</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
-            <div id="idHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnompavion" class="form-label">Nom </label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="nompavionHelp">
-            <div id="nompavionHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputtypepavillon" class="form-label">Prenom</label>
-            <input type="id" class="form-control" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp">
-            <div id="typepavillonHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label">Filière</label>
-            <input type="id" class="form-control" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp">
-            <div id="nbrschambreHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Notes</label>
-            <input type="nbrsetage" class="form-control" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp">
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="typebutton btn ">Ajouter</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 

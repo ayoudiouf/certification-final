@@ -66,6 +66,7 @@ export class EtudiantsComponent  implements OnInit{
     INE: ['', Validators.required],
     adresse: ['', Validators.required],
     lieu_naissance: ['', Validators.required],
+    date_naissance: ['', Validators.required],
   });
 
   profileFormEdite: FormGroup = this.formbuilder.group({
@@ -81,6 +82,7 @@ export class EtudiantsComponent  implements OnInit{
     INE: ['', Validators.required],
     adresse: ['', Validators.required],
     lieu_naissance: ['', Validators.required],
+    date_naissance: ['', Validators.required],
   });
 
   //  fonction pour ajouter

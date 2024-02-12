@@ -40,15 +40,6 @@
 
                   <td>
                     <span id="icon" >
-                      <!-- <button>
-                        <i
-                        class="fa-solid fa-marker"
-                        data-bs-toggle="modal"
-                        data-bs-target="#ModifierEtudiant"
-                      (click)="chargerEtuidants(etudiantParMerite)">
-                    </i>
-                      </button> -->
-
                       <button>
                         <i
                         class="fa-solid fa-eye"
@@ -56,10 +47,9 @@
                         data-bs-target="#detailsEtudiants" (click)="getEtudiantParMeriteAdmin(etudiantParMerite)">
                       </i>
                       </button>
-                      <button (click)="validerEttudiant(etudiantParMerite.id)">
+                      <button  (click)="validerEttudiant(etudiantParMerite.id)">
                         <i class="fa-solid fa-square-check"></i>
                       </button>
-
                     </span>
                   </td>
                 </tr>
@@ -88,103 +78,69 @@
       <div class="modal-body">
         <form action="" >
 
-
+          <!-- Nom -->
           <div class="mb-3">
-            <label for="exampleInputtypenom" class="form-label"
-              >Nom</label
-            >
-            <input
-              type="text"
-              class="form-control" name="nom"
-              id="exampleInputTypeChambre1"aria-describedby="typenomHelp" formControlName="nom"
-            />
+            <label for="exampleInputtypenom" class="form-label">Nom</label>
+            <input type="text" class="form-control" name="nom" id="exampleInputTypeChambre1"aria-describedby="typenomHelp" formControlName="nom"/>
             <div id="typnomnHelp" class="form-text"></div>
           </div>
 
+           <!-- Prenom -->
           <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label"
-              >Prenom</label
-            >
-            <input
-              type="text" class="form-control" name="prenom" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp"
+            <label for="exampleInputnbrschambre" class="form-label">Prenom</label>
+            <input type="text" class="form-control" name="prenom" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp"
               formControlName="prenom"/>
             <div id="nbrschambreHelp" class="form-text"></div>
           </div>
 
+           <!-- Email -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Email</label
-            >
-            <input
-              type="text" class="form-control" name="email" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="email"
-            />
+            <label for="exampleInputnbrsetage" class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="email"/>
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
 
+           <!-- Telephone -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Telephone</label
-            >
-            <input
-              type="text" class="form-control" name="telephon" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="telephone"
-            />
+            <label for="exampleInputnbrsetage" class="form-label">Telephone</label>
+            <input type="text" class="form-control" name="telephon" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="telephone"/>
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
 
+           <!-- INE -->
           <div class="mb-3">
             <label for="exampleInputINE" class="form-label">INE</label>
-            <input type="text" class="form-control" name="INE"  id="exampleInputINE"
-              aria-describedby="INEHelp"
-              formControlName="INE"
-            />
-
+            <input type="text" class="form-control" name="INE"  id="exampleInputINE" aria-describedby="INEHelp" formControlName="INE"/>
           </div>
 
+           <!-- Niveau_Etudes -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Niveau_Etudes</label
-            >
-            <input
-              type="text" class="form-control" name="niveau_etudes" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="niveau_etudes"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="exampleInputnbrsetage" class="form-label">Niveau_Etudes</label>
+            <input type="text" class="form-control" name="niveau_etudes" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="niveau_etudes"/>
           </div>
 
+          <!-- Filiere -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Filiere</label
-            >
-            <input
-              type="text" class="form-control" name="filiere" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="filiere"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="exampleInputnbrsetage" class="form-label">Filiere</label>
+            <input type="text" class="form-control" name="filiere" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="filiere" />
           </div>
 
-
+          <!-- Sexe -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Sexe</label
-            >
-            <input
-              type="text" class="form-control" name="sexe" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="sexe"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="exampleInputnbrsetage" class="form-label">Sexe</label>
+            <input type="text" class="form-control" name="sexe" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="sexe"/>
           </div>
 
+          <!-- Adresse -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Adresse</label
-            >
-            <input
-              type="text" class="form-control" name="adresse" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="adresse"
-            />
-            <div id="nbrsetageHelp" class="form-text"></div>
+            <label for="exampleInputnbrsetage" class="form-label">Adresse</label>
+              <input type="text" class="form-control" name="adresse" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="adresse"/>
           </div>
 
         </form>
@@ -210,43 +166,51 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="" >
 
           <!-- Nom -->
           <div class="mb-3">
-            <label for="exampleInputnom" class="form-label">Nom:{{seletedEtudiantParMeriteAdmin.nom}}</label>
-            <div id="nomHelp" class="form-text"></div>
+            <label for="exampleInputtypenom" class="form-label">Nom: {{seletedEtudiantParMeriteAdmin.nom}}</label>
           </div>
+
+           <!-- Prenom -->
           <div class="mb-3">
-
-            <!-- Prenom -->
-            <label for="exampleInputpremon" class="form-label">Prenom:{{seletedEtudiantParMeriteAdmin.prenom}}</label>
-            <div id="premonHelp" class="form-text"></div>
+            <label for="exampleInputnbrschambre" class="form-label">Prenom: {{seletedEtudiantParMeriteAdmin.prenom}}</label>
           </div>
 
-          <!-- Telephone -->
+           <!-- Email -->
           <div class="mb-3">
-            <label for="exampleInputtelephone" class="form-label">Telephone:{{seletedEtudiantParMeriteAdmin.telephone}}</label>
-            <div id="telephoneHelp" class="form-text"></div>
+            <label for="exampleInputnbrsetage" class="form-label">Email: {{seletedEtudiantParMeriteAdmin.email}}</label>
           </div>
 
-          <!--
-          Niveau Etudes -->
+           <!-- Telephone -->
           <div class="mb-3">
-            <label for="exampleInputstatut" class="form-label">Niveau d'étude:{{seletedEtudiantParMeriteAdmin.niveau_etudes}}</label>
-            <div id="etudeHelp" class="form-text"></div>
+            <label for="exampleInputnbrsetage" class="form-label">Telephone: {{seletedEtudiantParMeriteAdmin.telephone}}</label>
           </div>
 
-           <!--INE  -->
-           <div class="mb-3">
-            <label for="exampleInputINE" class="form-label">INE:{{seletedEtudiantParMeriteAdmin.INE}}</label>
-            <div id="INEHelp" class="form-text"></div>
-          </div>
-
-          <!-- Adress -->
+           <!-- INE -->
           <div class="mb-3">
-            <label for="exampleInputadresse" class="form-label">Adress:{{seletedEtudiantParMeriteAdmin.adresse}}</label>
-            <div id="adresseHelp" class="form-text"></div>
+            <label for="exampleInputINE" class="form-label">INE: {{seletedEtudiantParMeriteAdmin.INE}}</label>
+          </div>
+
+           <!-- Niveau_Etudes -->
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Niveau_Etudes: {{seletedEtudiantParMeriteAdmin.niveau_etudes}}</label>
+          </div>
+
+          <!-- Filiere -->
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Filiere: {{seletedEtudiantParMeriteAdmin.filiere}}</label>
+          </div>
+
+          <!-- Sexe -->
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Sexe: {{seletedEtudiantParMeriteAdmin.sexe}}</label>
+          </div>
+
+          <!-- Adresse -->
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Adresse: {{seletedEtudiantParMeriteAdmin.adresse}}</label>
           </div>
 
         </form>

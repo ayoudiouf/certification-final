@@ -65,6 +65,20 @@ export class EtudiantParMeriteComponent implements OnInit{
 
   });
 
+  profileFormEdit: FormGroup = this.formbuilder.group({
+    INE: ['', Validators.required],
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required],
+    email: ['', Validators.required],
+    telephone: ['', Validators.required],
+    // INE: ['', Validators.required],
+    niveau_etudes: ['', Validators.required],
+    sexe: ['', Validators.required],
+
+    adresse: ['', Validators.required],
+
+  });
+
 
   // fonction pour ajouter
   ajouterEtudiantParMerite() {
@@ -106,33 +120,37 @@ export class EtudiantParMeriteComponent implements OnInit{
 
 
 // fonction qui permet de valider un etudiant
-  // validerEttudiant(id: any){
-  //   console.log("Valide etudiant with ID:", id);
-  //   this.etudiantpareriteService.validerEtudiant(id).subscribe((response: any) => {
-  //         console.log(response);
-  //         console.warn("Valider response:", res);
-  //       });
-  //       this.getAllEtudiantParMeriteadmin();
-
-  // }
-
-  validerEttudiant(id: any) {
-  // Appel du service pour valider l'étudiant en utilisant l'ID fourni
-  this.etudiantpareriteService.validerEtudiant(id)
-    .subscribe(
-      (response) => {
-        // Gérer la réponse en cas de succès
-        console.log('Étudiant validé avec succès :', response);
-        // Ajoutez ici toute autre logique de gestion
-      },
-      (error) => {
-        // Gérer l'erreur en cas d'échec
-        console.error('Erreur lors de la validation de l\'étudiant :', error);
-        // Ajoutez ici toute autre logique de gestion des erreurs
-      }
-    );
-    this.getAllEtudiantParMeriteadmin();
+validerEttudiant(id: any) {
+  if (id) {
+      console.log("Valide étudiant avec l'ID:", id);
+      this.etudiantpareriteService.validerEtudiant(id).subscribe((response: any) => {
+          console.log(response);
+          this.etudiantParMerites = response;
+      });
+      this.getAllEtudiantParMeriteadmin();
+  } else {
+      console.error("ID de l'étudiant non défini");
+  }
 }
+
+
+//   validerEttudiant(id: any) {
+//   Appel du service pour valider l'étudiant en utilisant l'ID fourni
+//   this.etudiantpareriteService.validerEtudiant(id)
+//     .subscribe(
+//       (response) => {
+//         Gérer la réponse en cas de succès
+//         console.log('Étudiant validé avec succès :', response);
+//         Ajoutez ici toute autre logique de gestion
+//       },
+//       (error) => {
+//         Gérer l'erreur en cas d'échec
+//         console.error('Erreur lors de la validation de l\'étudiant :', error);
+//         Ajoutez ici toute autre logique de gestion des erreurs
+//       }
+//     );
+//     this.getAllEtudiantParMeriteadmin();
+// }
 
 }
 

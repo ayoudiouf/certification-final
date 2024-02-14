@@ -10,7 +10,7 @@
             <h1 class="text text-black text-center">Liste des étudiants par mérite</h1>
             <button type="button " data-bs-toggle="modal"  data-bs-target="#ajouterEtudiant" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
-            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="etudiantsparmerites.length >0">
 
               <thead>
                 <tr>
@@ -32,7 +32,7 @@
                   <td>{{etudiants.telephone}}</td>
                   <td>{{etudiants.INE}}</td>
                   <td>{{etudiants.adresse}}</td>
-          
+
                   <td><span id="icon">
                     <button>
                       <i class="fa-solid fa-eye"  data-bs-toggle="modal"
@@ -43,6 +43,26 @@
 
               </tbody>
             </table>
+
+            <table *ngIf="etudiantsparmerites.length <0">
+              <thead>
+                  <tr>
+                      <th>nom</th>
+                      <th>prenom</th>
+                      <th>niveau_etudes</th>
+                      <th>telephone</th>
+                      <th>INE</th>
+                      <th>adresse</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td colspan="7">Aucune donnée disponible au niveau du tableau</td>
+                  </tr>
+              </tbody>
+            </table>
+
           </div>
       </main>
   </div>
@@ -242,7 +262,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"> les etudiant par odre de mérite</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Détail etudiant par odre de mérite</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

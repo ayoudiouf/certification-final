@@ -24,21 +24,19 @@ export class UserService {
 }
 ajoutProfil(utilisateur:any){
 
-  return this.http
-  .post(`${url_base}AjouterUtilisateur`,utilisateur)
+  return this.http.post(`${url_base}AjouterUtilisateur`,utilisateur)
 
 }
 
 // La liste des utilisateurs
 listeUtilisateur(){
-  return this.http
-  .get(`${url_base}Utilisateurs`);
+  return this.http.get(`${url_base}Utilisateurs`);
 }
 
   // methode pour modifier donnée ves l'api
-  editUtilisateur( modifuser:any, idUser: any){
+  editUtilisateur( id:any, modifuser: any){
     return this.http
-    .put(`${url_base}modifierProfil/${idUser}`,modifuser)
+.put(`${url_base}modifierProfil/${id}`,modifuser)
 
   }
 

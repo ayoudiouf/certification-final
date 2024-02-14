@@ -3,6 +3,9 @@
   padding: 0;
   }
 
+  input{
+    height: 50px;
+  }
 
   .imgloge img{
     margin-left: 20%;
@@ -54,10 +57,13 @@
 
 #baniercarte{
   box-shadow: 0px 4px 8px #A41034;
+  justify-content: center;
+  align-items: center;
   position: relative;
   bottom: 50px;
-  left: 50%;
   width: 350px;
+  margin: auto;
+  left: 52%;
   /* gap: 10px; */
 }
 
@@ -160,11 +166,10 @@ button{
 .cardBanner{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  position: relative;
-  margin-left: 15%;
-  right: 15%;
+  /* position: relative; */
+
   gap: 50px
-  /* margin-left: 10%; */
+
 
 }
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
@@ -519,10 +524,10 @@ width: 100%;
 .form{
   background-color: white;
   box-shadow: 0px 3px 4px#A41034;
-  width: 78%;
+  width: 65%;
   /* height: 100%; */
   margin-right: 10%;
-  padding-bottom: 54px;
+  padding-bottom: 16px;
 
 }
 .partener{
@@ -537,17 +542,19 @@ width: 100%;
   #banierecarte{
    display: flex;
    flex-direction: column;
+  }
 
+  .imgloge img{
+    margin: auto;
+    width: 100%;
   }
   .info {
     display: flex;
     flex-direction: column;
     /* margin: 0 auto; */
     /* margin-bottom: 10%; */
-
   }
   .info {
-
     margin: 0 auto;
     width: 100%;
 
@@ -613,11 +620,7 @@ width: 100%;
   }
 
   #baniercarte{
-    box-shadow: 0px 4px 8px #A41034;
-    position: relative;
     bottom: 50px;
-    left: 30%;
-    right: 50%;
     width: 350px;
     gap: 10px;
   }
@@ -629,7 +632,7 @@ width: 100%;
   .cardBanner{
     display: grid;
     grid-template-columns: 1fr;
-    /* margin-right: 50%; */
+    right: 50%;
   }
   .contact{
     display: flex;
@@ -648,15 +651,29 @@ width: 100%;
     width: 100%;
   }
 
-
-
   div.slides-frame {
     margin: auto;
+    }
+    .slides img{
+      margin: auto;
     }
 
     .slide{
       display: flex;
     }
 
+    .content {
 
+      display: flex;
+
+      flex-direction: column;
+      height: 100%;
+      margin-bottom: 30px;
+
+      span {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.2rem;
+      }
+    }
   }

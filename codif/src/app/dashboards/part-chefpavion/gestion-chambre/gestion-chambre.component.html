@@ -10,7 +10,7 @@
           <h1 class="titre text-black text-center">Liste chambres</h1>
           <!-- <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button> -->
 
-           <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+           <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="chambreData.length >0">
 
               <thead>
                 <tr >
@@ -43,6 +43,24 @@
 
                 </span></td>
                 </tr>
+              </tbody>
+            </table>
+
+            <table *ngIf="chambreData.length <0">
+              <thead>
+                  <tr>
+                      <th>Libelle</th>
+                      <th>type_chambre</th>
+                      <th>nombres_limites</th>
+                      <th>nombres_lits</th>
+                      <th>pavillon</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td colspan="7">Aucune donnée disponible au niveau du tableau</td>
+                  </tr>
               </tbody>
             </table>
 

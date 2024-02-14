@@ -22,6 +22,7 @@ import { InscriptionComponent } from './auth/inscription/inscription.component';
 import { EtudiantpayeComponent } from './dashboards/part-etudiant/etudiantpaye/etudiantpaye.component';
 import { DemandereclamationComponent } from './dashboards/part-etudiant/demandereclamation/demandereclamation.component';
 import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
 
 const routes: Routes = [
   {path : 'acueil', component: AcueilComponent },
@@ -43,12 +44,14 @@ const routes: Routes = [
   {path : 'etudiantsidebar' , component: SidebaretudiantComponent},
   {path : 'etudiantreclamation' , component: DemandereclamationComponent},
   {path : 'payeetudiant' , component: EtudiantpayeComponent},
-  
+  // { path: 'FairePayement', component: PaiementComponent },
+
   {path : 'listchambre' , component: ChambreComponent},
   {path : 'connexion' , component: ConnexionComponent},
   // {path : 'inscription' , component: InscriptionComponent.},
   {path : 'paiementetudiant' , component: PaiementComponent},
-  {path : '' , redirectTo:'acueil', pathMatch:'full'}
+  {path : '' , redirectTo:'acueil', pathMatch:'full'},
+  { path: '**', component: MaintenanceComponent },
 ];
 
 @NgModule({

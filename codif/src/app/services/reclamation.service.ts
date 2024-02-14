@@ -19,7 +19,7 @@ export class ReclamationService {
 
   }
 
-    // La liste des Rclamation
+    // La liste des Rclamation chefpavillon
     getAllReclamationetudiant():Observable<any>{
       return this.http.get<any>(`${url_base}historiquesReclamations`);
 

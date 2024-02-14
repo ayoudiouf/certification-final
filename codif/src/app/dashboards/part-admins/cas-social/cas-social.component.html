@@ -11,7 +11,8 @@
           <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
 
-            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table " >
+            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table ">
+              <!-- *ngIf="cassocials.length >0" -->
 
               <thead>
                 <tr>
@@ -56,6 +57,28 @@
                 </tr>
               </tbody>
             </table>
+
+            <!-- <table *ngIf="cassocials.length <0">
+              <thead>
+                  <tr>
+                      <th>nom</th>
+                      <th>prenom</th>
+                      <th>email</th>
+                      <th>telephone</th>
+                      <th>INE</th>
+                      <th>niveau_etudes</th>
+                      <th>sexe</th>
+                      <th>adresse</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td colspan="7">Aucune donnée disponible au niveau du tableau</td>
+                  </tr>
+              </tbody>
+            </table> -->
+
           </div>
       </main>
   </div>

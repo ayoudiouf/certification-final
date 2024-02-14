@@ -11,6 +11,7 @@ export class ChambresService {
   ChambreService(value: any) {
     throw new Error('Method not implemented.');
   }
+  // listerDesReclamations
 // Url qui ajoute les chambre
   postchambre(chambre: any) {
     return this.http.post(`${url_base}admin/chambre/create/${1}` ,chambre);

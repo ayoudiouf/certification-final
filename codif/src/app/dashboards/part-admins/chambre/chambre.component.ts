@@ -69,7 +69,7 @@ profileForm: FormGroup = this.formbuilder.group({
   nombres_lits: ['', Validators.required],
   nombres_limites: ['', Validators.required],
   pavillons_id: ['', Validators.required],
- 
+
 });
 
 profileFormEdite: FormGroup = this.formbuilder.group({
@@ -99,8 +99,6 @@ ajouterChambre() {
     console.log(response);
   });
 }
-
-
 
 
     // Fonction pour lister les etudiant Chambre

@@ -16,5 +16,15 @@
     font-weight: bold;
     font-size: 18px;
   }
+  @media screen and (max-width: 1238px){
+
+    #iconecocialfooter i {
+      /* display: flex;
+     flex-direction: column; */
+
+     display: block;
+     /* flex-direction: column; */
+    }
+  }
 
 

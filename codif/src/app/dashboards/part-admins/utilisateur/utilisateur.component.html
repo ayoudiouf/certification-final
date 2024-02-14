@@ -10,7 +10,7 @@
           <h1 class="text text-black text-center">Liste des Utilisateurs</h1>
           <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutChefPavion" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
 
-            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" >
+            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="tabUtilisateurs.length >0">
 
               <thead>
                 <tr>
@@ -50,7 +50,9 @@
                     </button>
 
                     <!-- <button>
-                      <i class="fa-solid fa-trash" (click)="deleteUtilisateur(utilisateur.id)"></i>
+                      <i
+                      class="fa-solid fa-marker" data-bs-toggle="modal" data-bs-target="#Modifier"
+                    (click)="chargerUtilisateur(utilisateur)"></i>
                     </button> -->
                   </span>
                 </td>
@@ -58,7 +60,24 @@
               </tbody>
             </table>
 
+            <table *ngIf="tabUtilisateurs.length <0">
+              <thead>
+                  <tr>
+                      <th>nom</th>
+                      <th>prenom</th>
+                      <th>email</th>
+                      <th>telephone</th>
+                      <th>nomRole</th>
+                      <th>status</th>
 
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td colspan="7">Aucune donnée disponible au niveau du tableau</td>
+                  </tr>
+              </tbody>
+            </table>
 
           </div>
       </main>
@@ -74,11 +93,7 @@
       </div>
       <div class="modal-body">
         <form action="" [formGroup]="profileForm">
-          <!-- <div class="mb-3">
-            <label for="exampleInputid" class="form-label">ID</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
-            <div id="idHelp" class="form-text"></div>
-          </div> -->
+
           <div class="mb-3">
             <label for="exampleInputnom" class="form-label">Nom</label>
             <input type="text" name="name" class="form-control" id="exampleInputId1" aria-describedby="nomHelp" formControlName="nom">
@@ -96,17 +111,30 @@
           </div>
           <div class="mb-3">
             <label for="exampleInputtelephone" class="form-label">Telephone</label>
-            <input type="number" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephonetHelp" formControlName="telephone">
+            <input type="text" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephonetHelp" formControlName="telephone">
             <div id="telephonelHelp" class="form-text"></div>
           </div>
-           <div class="">
+           <!-- <div class="">
           <label  class="form-label ">Rôle</label>
-          <select class="form-select w-100 my-2" aria-label="Default select example" name="roles_id" formControlName="roles_id">
-            <option selected>Selectionner un role</option>
-            <option value="2">Chef-Pavillon</option>
-            <option value="3">Chef-Pédagogie</option>
-          </select>
-        </div>
+          <input type="texte" name="nomRole" class="form-control" id="exampleInputnomRole" aria-describedby="nomRoletHelp" formControlName="nomRole">
+          <select name="nomRole" id="nomRole"  formControlName="nomRole">
+            <option value="chefPavillon">chefPavillon</option>
+             <option value="chefPedagogique">chefPedagogique</option>
+        </select>
+        </div> -->
+
+
+          <!-- status -->
+          <!-- <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <input type="texte" name="status" class="form-control" id="exampleInputstatus" aria-describedby="statustHelp" formControlName="status">
+
+            <select name="status" id="status"  formControlName="status">
+                <option value="Actif">Actif</option>
+                 <option value="Inactif">Inactif</option>
+            </select>
+            <div id="status" class="form-text"></div>
+          </div> -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
           <button type="button" class="typebutton btn btn-primary" (click)="ajoutUtilisateur()" >Ajouter</button>
@@ -225,27 +253,22 @@
         </div>
 
         <!-- status -->
-        <div class="mb-3">
-          <label for="statusEdition" class="form-label">Status</label>
-          <input type="text" class="form-control" name="status" id="statusEdition" aria-describedby="statusHelp" formControlName="status" [(ngModel)]="status" />
-
-        </div>
+        <!-- <div class="mb-3">
+          <label for="status" class="form-label">Status</label>
+          <select name="status" id="status" [(ngModel)]="status" formControlName="status">
+              <option value="Actif">Actif</option>
+               <option value="Inactif">Inactif</option>
+          </select>
+          <div id="status" class="form-text"></div>
+        </div> -->
 
         <!-- Telephone -->
         <div class="mb-3">
           <label for="telephoneEdition" class="form-label">Telephone</label>
           <input type="text" class="form-control" name="telephone" id="telephoneEdition" aria-describedby="telephoneHelp" formControlName="telephone" [(ngModel)]="telephone" />
-
           <div id="telephoneEdition" class="form-text"></div>
         </div>
 
-        <!-- Roles_id -->
-        <div class="mb-3">
-          <label for="roles_idEdition" class="form-label">Roles_ID</label>
-          <input type="text" class="form-control" name="roles_id" id="roles_idEdition" aria-describedby="nbrsetageHelp" formControlName="roles_id" [(ngModel)]="roles_id" />
-
-          <!-- <div id="roles_idEdition" class="form-text"></div> -->
-        </div>
       </form>
       </div>
 

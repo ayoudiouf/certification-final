@@ -8,104 +8,14 @@
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
             <div class="d-flex justify-content-around ">
-            <div class="detail">
-              <h1 class="text-center">Detail Etudiant</h1>
-              <p>INE:<span>N023620212</span></p>
-              <p>Date et lieu Naissance: <span>12/02/2000 à Dakar</span></p>
-              <p>Adresse: <span>Dakar</span></p>
-              <p>Telephone: <span>772589874</span></p>
-              <p>Email: <span>maria@gmail.com</span></p>
-              <p>Pavillon: <span>A</span></p>
-              <p>Chambre: <span>12</span></p>
-              <p>Type Chambre: <span>Partagées</span></p>
-            </div>
-            <div class="card card-outline-secondary">
             <h1 class="text">Payer ma Chambre</h1>
-            <div class="card-body">
-                <h3 class="text-center">Payment</h3>
-                <hr>
-                <div class="alert alert-info p-2 pb-3">
-                    <a class="close font-weight-normal initialism" data-dismiss="alert" href="#"><samp>×</samp></a>
-                    CVC code is required.
-                </div>
-                <form class="form" role="form" autocomplete="off">
-                    <div class="form-group">
-                        <label for="cc_name">Nom et Prenom</label>
-                        <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*" title="First and last name" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label>Numéro de carte</label>
-                        <input type="text" class="form-control" autocomplete="off" maxlength="20" pattern="\d{16}" title="Credit card number" required="">
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-12">Date d'expiration</label>
-                        <div class="col-md-4">
-                            <select class="form-control" name="cc_exp_mo" size="0">
-                                <option value="01">01</option>
-                                <option value="02">02</option>
-                                  <option value="03">03</option>
-                                  <option value="04">04</option>
-                                  <option value="05">05</option>
-                                  <option value="06">06</option>
-                                  <option value="07">07</option>
-                                  <option value="08">08</option>
-                                  <option value="09">09</option>
-                                  <option value="10">10</option>
-                                  <option value="11">11</option>
-                                  <option value="12">12</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-control" name="cc_exp_yr" size="0">
-                                <option>2018</option>
-                                <option>2019</option>
-                                <option>2020</option>
-                                <option>2021</option>
-                                <option>2022</option>
-                                <option>2023</option>
-                                <option>2024</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required="" placeholder="CVC">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-12">Montant</label>
-                    </div>
-                    <div class="form-inline">
-                        <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text">Fcfa</span></div>
-                            <input type="text" class="form-control text-right" id="exampleInputAmount" >
-                            <div class="input-group-append"></div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-12">Moyen de paiement</label>
-                        <div class="col-md-12">
-                            <select class="form-control" name="payment_method">
-                                <option value="credit_card">Carte de crédit</option>
-                                <option value="orange_money">Orange Money</option>
-                                <option value="wave">Wave</option>
-                            </select>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group row">
-                        <div class="col-md-6">
-                            <button type="reset" class="btn btn-default btn-lg btn-block">Annuler</button>
-                        </div>
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-success btn-lg btn-block">Valider</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-      </div>
-        </div>
+           </div>
+          <button type="button w-25" class="btn btn-success btn-lg btn-block" (click)="payer()">Valider</button>
+         </div>
 
-      </main>
+
+
+  </main>
   </div>
 </div>
 

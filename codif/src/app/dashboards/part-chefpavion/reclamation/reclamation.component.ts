@@ -57,11 +57,10 @@ export class ReclamationComponent implements OnInit{
 
     // });
 
-    getAllReclamation() {
-      this.reclamationService.getAllReclamation().subscribe((reponse: any) => {
-        // console.log('la reponse du backend est ', reponse);
+    getAllReclamation() { this.reclamationService.getAllReclamation().subscribe((reponse: any) => {
+      // console.log('la reponse du backend est ', reponse);
         this.reclamations = reponse;
-        console.log(this.reclamations)
+        console.log("wouyyyyyyyyy",this.reclamations)
       });
            this.getAllReclamation();
     }

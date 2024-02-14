@@ -13,32 +13,24 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UtilisateurComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-
   nom: any;
   prenom: any;
   email: any;
   password: any;
   telephone: any;
-  roles_id: any;
   status: any;
 
   tabUtilisateurs: any[] = [];
-
-
 
   nom_utilisateur: any = "";
   prenom_utilisateur: any = "";
   email_utilisateur: any = "";
   password_utilisateur: any = "";
   telephone_utilisateur: any = "";
-  roles_id_utilisateur: any = "";
   status_utilisateur: any = "";
-
-
 
   ngOnInit(): void {
     this.listeUtilisateurs();
-
     this.dtOptions = {
       searching: true,
       lengthChange: false,
@@ -52,18 +44,15 @@ export class UtilisateurComponent implements OnInit {
     this.listeUtilisateurs();
   }
   constructor(private userService: UserService, private formbuilder: FormBuilder, private route: Router) {
-
   }
+
   profileForm: FormGroup = this.formbuilder.group({
     nom: ['', Validators.required,],
     prenom: ['', Validators.required,],
     email: ['', Validators.required,],
-    password: ['testestest', Validators.required,],
+    password: ['', Validators.required,],
     telephone: ['', Validators.required,],
-    roles_id: ['', Validators.required,],
-    // roles: ['', Validators.required,],
-
-
+    status: ['', Validators.required,],
   });
 
   profileFormEdit: FormGroup = this.formbuilder.group({
@@ -72,11 +61,9 @@ export class UtilisateurComponent implements OnInit {
     email: ['', Validators.required,],
     password: ['', Validators.required,],
     telephone: ['', Validators.required,],
-    roles_id: ['', Validators.required,],
-    // roles: ['', Validators.required,],
-
-
+    status: ['', Validators.required,],
   });
+
   // fonction pour ajouter
   ajoutUtilisateur() {
     const utilisateur = new UserModel();
@@ -85,15 +72,13 @@ export class UtilisateurComponent implements OnInit {
     utilisateur.email = this.email_utilisateur;
     utilisateur.password = this.password_utilisateur
     utilisateur.telephone = this.telephone_utilisateur
-    utilisateur.roles_id = this.roles_id_utilisateur
+    utilisateur.status = this.status_utilisateur
 
     console.log(this.profileForm.value);
     const userOnline = JSON.parse(
       localStorage.getItem('userOnline') || '');
     this.userService.ajoutProfil(this.profileForm.value).subscribe((response) => {
-
       console.log(response);
-
     })
     this.listeUtilisateurs()
   }
@@ -126,7 +111,6 @@ export class UtilisateurComponent implements OnInit {
     this.email = use.email;
     this.password = use.password;
     this.telephone = use.telephone;
-    this.roles_id = use.roles_id;
     this.status = use.status;
   }
 
@@ -146,13 +130,6 @@ export class UtilisateurComponent implements OnInit {
     });
     this.listeUtilisateurs();
   }
-
-  // deleteUtilisateur(id:any) {
-  //   this.userService.deleteUtilisateur(id).subscribe((res: any) => {
-  //     console.log(res);
-  //   });
-  //   this.listeUtilisateurs();
-  // }
 
   getUtilisateur(utilisateur: any) {
     this.seletedUtilisateur = utilisateur;

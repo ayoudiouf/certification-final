@@ -36,6 +36,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { AuthInterceptor } from './interceptors/interceptors';
 import { PavionComponent } from './dashboards/part-admins/pavion/pavion.component';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
 // import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/connexion.component';
 // import { InscriptionComponent } from './inscription/inscription.component';
 
@@ -70,13 +71,16 @@ import { PavionComponent } from './dashboards/part-admins/pavion/pavion.componen
     ChambreComponent,
     ChartComponent,
     ConnexionComponent,
-    PavionComponent
+    PavionComponent,
+    MaintenanceComponent
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
-    
+
     // NgApexchartsModule,
     ReactiveFormsModule,
     FormsModule,

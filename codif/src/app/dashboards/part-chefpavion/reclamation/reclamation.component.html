@@ -2,31 +2,35 @@
   <!-- Sidebar -->
   <app-sidebarchefpavion></app-sidebarchefpavion>
   <!-- Main Component -->
-  <div class="main ">
+  <div class="main">
       <app-header-sidebar></app-header-sidebar>
+      <form action="/search"  method="get">
+        <p>Recherche :<input type="text" id="search" name="q" [(ngModel)]="searchUtulisateur" (input)="getArticlesPage"  placeholder="Rechercher..."></p>
+
+        <!-- <input type="submit" value="Rechercher"> -->
+      </form>
+
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
-          <div class="container-fluid overflow-y-scroll" style="height: 88vh; ">
+          <!-- <div class="container-fluid overflow-y-scroll" style="height: 88vh; ">
           <h1 class="text text-center">Historique des reclamations</h1>
            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
 
               <thead>
                 <tr>
-                  <!-- <th class="tHead">ID</th> -->
-                  <!-- <th class="tHead">Chambres </th> -->
+
                   <th class="tHead">Objet</th>
                   <th class="tHead">Message</th>
                   <th class="tHead">Traitement </th>
                   <th class="tHead">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody *ngIf="reclamations">
                 <tr *ngFor=" let reclamaton of reclamations">
                   <td>{{reclamaton.objet}}</td>
                   <td>{{reclamaton.message}}</td>
                   <td>{{reclamaton.status}}</td>
-                  <!-- <td>{{reclamaton.chambres_id}}</td> -->
-                  <!-- <td>{{reclamaton.id}}</td> -->
+
 
                   <td><span>
 
@@ -41,10 +45,57 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> -->
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th class="tHead">ID</th>
+                <th class="tHead">Objet</th>
+                <th class="tHead">Message</th>
+                <th class="tHead">Traitement</th>
+                <th class="tHead">Action</th>
+
+                <!-- Ajoutez d'autres colonnes au besoin -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let reclamation of getArticlesPage()">
+                <td>{{ reclamation.id }}</td>
+                <td>{{ reclamation.objet }}</td>
+                <td>{{ reclamation.message }}</td>
+                <td>{{ reclamation.status }}</td>
+                <td><span>
+
+                  <button >
+                    <i
+                    class="fa-solid fa-eye"
+                    data-bs-toggle="modal"
+                    data-bs-target="#detail" (click)="getReclamation(reclamation)">
+                  </i>
+                  </button>
+                </span></td>
+                <!-- Ajoutez d'autres cellules au besoin -->
+              </tr>
+            </tbody>
+          </table>
+
       </main>
+
+      <div class="d-flex flex-wrap justify-content-center my-5" >
+        <button class="btn pagiColor me-2" [disabled]="pageActuelle === 1" (click)="pageActuelle = pageActuelle - 1">
+          Précédent
+        </button>
+        <button class="btn pagiColor  ms-2 " *ngFor="let page of pages" (click)="pageActuelle = page">
+          {{ page }}
+        </button>
+        <button class="btn pagiColor  ms-2 " [disabled]="pageActuelle === totalPages" (click)="pageActuelle = pageActuelle + 1">
+          Suivant
+        </button>
+      </div>
   </div>
 </div>
+<!-- pagination -->
+
 <!-- Details Reclamationt -->
 <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

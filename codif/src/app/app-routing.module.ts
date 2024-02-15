@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, mapToCanActivate } from '@angular/router';
 import { AdminComponent } from './dashboards/part-admins/admin/dashbord.component';
 import { AcueilComponent } from './composants/acueil/acueil.component';
 import { DashChefpavionComponent } from './dashboards/part-chefpavion/dash-chefpavion/dash-chefpavion.component';
@@ -23,15 +23,19 @@ import { EtudiantpayeComponent } from './dashboards/part-etudiant/etudiantpaye/e
 import { DemandereclamationComponent } from './dashboards/part-etudiant/demandereclamation/demandereclamation.component';
 import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
+import { AuthGuard } from './guards/guard-route.guard';
 
 const routes: Routes = [
-  {path : 'acueil', component: AcueilComponent },
-  {path : 'admin' , component: AdminComponent},
+  // CanActivate:[/login];
+  // canActivate: [AuthGuard]
+
+  {path : 'acueil', component: AcueilComponent},
+  {path : 'admin' , component: AdminComponent, canActivate: [AuthGuard]},
   {path : 'confidentialite' , component: PolitiqueDeConfidentialiteComponent},
-  {path : 'chefpavion', component: DashChefpavionComponent},
+  {path : 'chefpavion', component: DashChefpavionComponent, canActivate: [AuthGuard]},
   // {path : 'admin', component: AdminComponent},
-  {path : 'chefpedagogique', component: DashChefpedagogiqueComponent},
-  {path : 'etudiant' , component: DashEtudiantComponent},
+  {path : 'chefpedagogique', component: DashChefpedagogiqueComponent, canActivate: [AuthGuard]},
+  {path : 'etudiant' , component: DashEtudiantComponent, canActivate: [AuthGuard]},
   {path : 'sidebar' , component: SitebarComponent},
   {path : 'paiement' , component: PaiementComponent},
   {path : 'pavion' , component: PavionComponent},
@@ -46,12 +50,12 @@ const routes: Routes = [
   {path : 'payeetudiant' , component: EtudiantpayeComponent},
   // { path: 'FairePayement', component: PaiementComponent },
 
-  {path : 'listchambre' , component: ChambreComponent},
-  {path : 'connexion' , component: ConnexionComponent},
+  {path : 'listchambre' , component: ChambreComponent,},
+  {path : 'connexion' , component: ConnexionComponent,},
   // {path : 'inscription' , component: InscriptionComponent.},
   {path : 'paiementetudiant' , component: PaiementComponent},
   {path : '' , redirectTo:'acueil', pathMatch:'full'},
-  { path: '**', component: MaintenanceComponent },
+  // { path: '**', component: MaintenanceComponent },
 ];
 
 @NgModule({

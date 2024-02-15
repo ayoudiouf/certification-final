@@ -56,7 +56,13 @@
                   Utilisateurs
               </a>
           </li>
+          <li class="sidebar-item mb-3">
+            <a routerLink="/connexion" routerLinkActive="activeMenu" class="sidebar-link text-decoration-none">
+              <i (click)="logout()"  class="fa-solid fa-right-from-bracket"></i>
+                Deconnexion
+            </a>
+        </li>
       </ul>
-      <div class="m-lg-4 mb-3 text-white"><i (click)="logout()"  class="fa-solid fa-right-from-bracket"></i></div>
+      <!-- <div class="m-lg-4 mb-3 text-white"><i (click)="logout()"  class="fa-solid fa-right-from-bracket"></i>Déconnexion</div> -->
   </div>
 </aside>

@@ -124,8 +124,8 @@ ajouterChambre() {
     // if(chambreEtuduant && chambreEtuduant.id)
     // {
 
-      this.id = chambreEtuduant.id;
       // this.libelle = chambreEtuduant.libelle;
+      this.id = chambreEtuduant.id;
       this.libelle = chambreEtuduant.libelle;
       this.nombres_lits = chambreEtuduant.nombres_lits;
       this.type_chambre = chambreEtuduant.type_chambre;

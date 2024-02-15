@@ -11,9 +11,9 @@ import { ReclamationService } from 'src/app/services/reclamation.service';
   styleUrls: ['./reclamation.component.css']
 })
 export class ReclamationComponent implements OnInit{
-  dtOptions: DataTables.Settings = {};
-
+  // dtOptions: DataTables.Settings = {};
   reclamations: any[] = [];
+  // reclamations: any[] = [];
   ReclamationModel: any;
   seletedReclamation: any;
   // ReclamationService: any;
@@ -24,24 +24,23 @@ export class ReclamationComponent implements OnInit{
 
   // this.getAllReclmation()
 
-  ngOnInit(): void {
-    this.getAllReclamation()
+  // ngOnInit(): void {
+  //   this.getAllReclamation()
     // this.getAllReclamations()
 
     // const script = document.createElement('script');
     // script.src = '../../../assets/js/script.js';
     // Ajustez le chemin en conséquence
     // document.body.appendChild(script);
-    this.dtOptions = {
-      searching: true,
-      lengthChange: false,
-      paging: true,
-      info: false,
-      language: {
-        url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json'
-      }
-    };
-  }
+    // this.dtOptions = {
+    //   searching: true,
+    //   lengthChange: false,
+    //   paging: true, info: false,
+    //   language: {
+    //     url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json'
+    //   }
+    // };
+  // }
 
   // getAllReclamation() {
   //   this.reclamationService.getAllReclamation().subscribe((reponse: any) => {
@@ -57,12 +56,44 @@ export class ReclamationComponent implements OnInit{
 
     // });
 
-    getAllReclamation() { this.reclamationService.getAllReclamation().subscribe((reponse: any) => {
-      // console.log('la reponse du backend est ', reponse);
-        this.reclamations = reponse;
-        console.log("wouyyyyyyyyy",this.reclamations)
-      });
-           this.getAllReclamation();
+    // pagination   utulisateurTrouve :
+    reclamationTrouve :any []=[];
+     searchUtulisateur : string = "";
+     getArticlesPage(): any[] {
+       const indexDebut = (this.pageActuelle - 1) * this.articlesParPage;
+       const indexFin = indexDebut + this.articlesParPage;
+       this.reclamationTrouve = this.reclamations.filter((element :{objet : string; message : string})=>
+       element.objet.toLowerCase().includes(this.searchUtulisateur.toLowerCase()) ||
+       element.message.toLowerCase().includes(this.searchUtulisateur.toLowerCase())
+       );
+     return this.reclamationTrouve.slice(indexDebut, indexFin);
+     }
+     // Méthode pour générer la liste des pages
+       get pages(): number[] {
+       const totalPages = Math.ceil(this. reclamations.length / this.articlesParPage);
+       return Array(totalPages).fill(0).map((_, index) => index + 1);
+       }
+     // Méthode pour obtenir le nombre total de pages
+      get totalPages(): number {
+      return Math.ceil(this. reclamations.length / this.articlesParPage);
+     }
+// Attribut pour la pagination
+   articlesParPage = 4;
+    // Nombre d'articles par page
+   pageActuelle = 1;
+   // Page actuelle
+
+    ngOnInit() {
+      this.getAllReclamation();
+    }
+
+    getAllReclamation() {
+      this.reclamationService.getAllReclamation().subscribe((response: any) => {
+        console.log('la reponse du backend est ', response);
+        this.reclamations = response['Reclamation: '];
+        // Mettez à jour votre variable avec les données de réponse appropriées
+        console.log("wouyyyyyyyyy", this.reclamations);
+      });
     }
 
 

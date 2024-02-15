@@ -17,10 +17,10 @@ export class UserService {
  userConected(){
   return this.http.get('http://127.0.0.1:8000/api/auth/me')
  }
- login(user: any, onSuccess: Function) {
+ login(user: any, onSuccess: Function, onError: Function) {
   return this.http
     .post(`${url_base}auth/login`, user)
-    .subscribe((reponse: any) => onSuccess(reponse));
+    .subscribe((reponse: any) => onSuccess(reponse), (err:any) => onError(err));
 }
 ajoutProfil(utilisateur:any){
 
@@ -44,6 +44,16 @@ listeUtilisateur(){
  // déconnexion utilisateur
  logout(users: any): Observable<any> {
   return this.http.post<any>(`${url_base}auth/logout`, users);
+}
+
+
+getToken(): string | null {
+  return localStorage.getItem('userOnline');
+}
+
+// Is connected pour vérifier s'il est toujours connecté
+isLoggedIn(): boolean {
+  return this.getToken() !== null;
 }
 
 }

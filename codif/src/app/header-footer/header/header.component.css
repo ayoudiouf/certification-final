@@ -35,27 +35,22 @@ height: 80px;
   font-weight: bold;
   font-size: 18px;
 
-
 }
 
 .Menu{
   background-color: white;
   width: 100%;
-}
-.navbar{
-  /* backdrop-filter: blur(50px); */
 
 }
+
 .navbar-nav{
   margin-left: 28%;
 }
 
-/* Styles pour le dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -71,7 +66,6 @@ height: 80px;
     display: block;
 }
 
-/* Styles pour le lien Connexion */
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -93,5 +87,7 @@ height: 80px;
   #logomenu1 img{
     display: none;
     }
+
 }
+
 

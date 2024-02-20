@@ -46,7 +46,8 @@
               </tbody>
             </table>
           </div> -->
-          <table class="table mt-3">
+          <div class="table-responsive d-grid">
+          <table class="table mt-3 ">
             <thead>
               <tr>
                 <th class="tHead">ID</th>
@@ -66,6 +67,10 @@
                 <td>{{ reclamation.status }}</td>
                 <td><span>
 
+                  <button>
+                    <i class="fa-solid fa-ban" (click)="changeEtat(reclamation.id)" style="cursor: pointer;"></i>
+                  </button>
+
                   <button >
                     <i
                     class="fa-solid fa-eye"
@@ -73,12 +78,16 @@
                     data-bs-target="#detail" (click)="getReclamation(reclamation)">
                   </i>
                   </button>
+
+                  <button>
+                    <i class="fa-solid fa-trash" (click)="deleteReclamationChefPavillon(reclamation.id)"></i>
+                  </button>
                 </span></td>
                 <!-- Ajoutez d'autres cellules au besoin -->
               </tr>
             </tbody>
           </table>
-
+        </div>
       </main>
 
       <div class="d-flex flex-wrap justify-content-center my-5" >
@@ -117,12 +126,6 @@
             <!-- Message -->
             <label for="exampleInputpremon" class="form-label">Message:{{seletedReclamation.message}}</label>
             <div id="premonHelp" class="form-text"></div>
-          </div>
-
-          <!-- Chambres_id -->
-          <div class="mb-3">
-            <label for="exampleInputtelephone" class="form-label">Chambres_id:{{seletedReclamation.chambres_id}}</label>
-            <div id="telephoneHelp" class="form-text"></div>
           </div>
 
           <!--Status -->

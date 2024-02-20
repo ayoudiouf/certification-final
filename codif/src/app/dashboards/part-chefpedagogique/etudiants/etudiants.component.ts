@@ -98,7 +98,7 @@ export class EtudiantsComponent  implements OnInit{
     etudiants.email = this.email;
     etudiants.moyennes = this.moyennes;
     etudiants.filiere = this.filiere;
-    etudiants.lieu_naissance = this.lieu_naissance;
+    etudiants.lieu_naissance = this.lieu_naissance; 
     etudiants.date_naissance = this.date_naissance;
 
     console.log(this.profileForm.value);

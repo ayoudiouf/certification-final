@@ -8,12 +8,12 @@
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
           <h1 class="text text-black text-center">Liste des étudiant cas social</h1>
-          <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+          <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #A41034; color: white; width: 15%;height: 40px; border-radius: 10px;">Ajouter</button>
+
 
 
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table ">
               <!-- *ngIf="cassocials.length >0" -->
-
               <thead>
                 <tr>
                   <th class="tHead">Nom </th>
@@ -57,6 +57,7 @@
                 </tr>
               </tbody>
             </table>
+
 
             <!-- <table *ngIf="cassocials.length <0">
               <thead>
@@ -103,84 +104,76 @@
         <form action="" [formGroup]="profileForm">
 
 
+          <!-- nom -->
           <div class="mb-3">
-            <label for="exampleInputtypenom" class="form-label"
-              >Nom</label
-            >
-            <input
-              type="text"
-              class="form-control" name="nom"
-              id="exampleInputTypeChambre1"aria-describedby="typenomHelp" formControlName="nom"
-            />
+            <label for="exampleInputtypenom" class="form-label" >Nom</label>
+            <input type="text" class="form-control" name="nom" id="exampleInputTypeChambre1"
+            aria-describedby="typenomHelp" formControlName="nom" (input)="verifMessagenomFunction()"/>
+            <p class="text-danger">{{verifMessagenom}}
             <div id="typnomnHelp" class="form-text"></div>
           </div>
 
+           <!-- prenom -->
           <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label"
-              >Prenom</label
-            >
+            <label for="exampleInputnbrschambre" class="form-label">Prenom</label>
             <input
               type="text" class="form-control" name="prenom" id="exampleInputnbrsChambre1" aria-describedby="nbrschambreHelp"
-              formControlName="prenom"/>
-            <div id="nbrschambreHelp" class="form-text"></div>
+              formControlName="prenom" (input)="verifMessageprenomFunction()"/>
+              <div id="nbrschambreHelp" class="form-text"></div>
+              <p class="text-danger">{{verifMessageprenom}}</p>
           </div>
 
+          <!-- Email -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Email</label
-            >
-            <input
-              type="text" class="form-control" name="email" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="email"
-            />
+            <label for="exampleInputnbrsetage" class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
+              formControlName="email" (input)="verifEmailFunction()"/>
             <div id="nbrsetageHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessageEmail}}</p>
           </div>
 
+          <!-- Telephone -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Telephone</label
-            >
+            <label for="exampleInputnbrsetage" class="form-label" >Telephone</label >
             <input
               type="text" class="form-control" name="telephone" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="telephone"
-            />
+              formControlName="telephone" (input)="verifMessagetelephoneFunction()"/>
+              <p class="text-danger">{{verifMessageistelephoneValid}}</p>
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
 
+          <!-- INE -->
           <div class="mb-3">
             <label for="exampleInputINE" class="form-label">INE</label>
             <input type="text" class="form-control" name="INE"  id="exampleInputINE"
-              aria-describedby="INEHelp"
-              formControlName="INE"
-            />
-
+              aria-describedby="INEHelp" formControlName="INE" (input)="verifMessageINEFunction()"/>
+              <p class="text-danger">{{verifMessageINE}}</p>
           </div>
 
+          <!-- Niveau Etudes -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Niveau_Etudes</label
-            >
+            <label for="exampleInputnbrsetage" class="form-label">Niveau_Etudes</label >
             <input
               type="text" class="form-control" name="niveau_etudes" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="niveau_etudes"
-            />
+              formControlName="niveau_etudes" (input)="verifMessageNiveauEtudesFunction()"/>
+              <p class="text-danger">{{verifMessageNiveauEtudes}}</p>
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
 
+          <!-- Filiere -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Filiere</label
-            >
+            <label for="exampleInputnbrsetage" class="form-label" >Filiere</label>
             <input
               type="text" class="form-control" name="filiere" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="filiere"
-            />
+              formControlName="filiere" (input)="verifMessagefiliereFunction()"/>
+              <p class="text-danger">{{verifMessageFiliere}}</p>
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
 
+          <!-- Sexe -->
           <div class="mb-3">
             <label for="sexe" class="form-label">Sexe</label>
-            <select name="type_chambre" id="type_chambre" [(ngModel)]="sexe" formControlName="sexe">
+            <select name="type_chambre" id="type_chambre" [(ngModel)]="sexe" formControlName="sexe" >
                 <option value="Homme">Homme</option>
                  <option value="Femme">Femme</option>
                  <!-- <option value="Mixte">Mixte</option> -->
@@ -199,50 +192,44 @@
             <div id="nbrsetageHelp" class="form-text"></div>
           </div> -->
 
+          <!-- Adresse -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Adresse</label
-            >
+            <label for="exampleInputnbrsetage" class="form-label" >Adresse</label >
             <input
               type="text" class="form-control" name="adresse" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="adresse"
-            />
+              formControlName="adresse" (input)="verifMessageAdresseFunction()"/>
+              <p class="text-danger">{{verifMessageAdresse}}</p>
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
 
+          <!-- Password -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Password</label
-            >
+            <label for="exampleInputnbrsetage" class="form-label" >Password</label>
             <input
               type="text" class="form-control" name="password" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="password"
-            />
+              formControlName="password" (input)="verifMessagePasswordFunction()"/>
             <div id="nbrsetageHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessagePassword}}</p>
           </div>
 
           <!-- Lieu Naissance -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Lieu Naissance</label
-            >
+            <label for="exampleInputnbrsetage" class="form-label" >Lieu Naissance</label>
             <input
               type="text" class="form-control" name="lieu_naissance" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="lieu_naissance"
-            />
+              formControlName="lieu_naissance" (input)="verifMessageLieudeNaissanceFunction()"/>
             <div id="nbrsetageHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessageLieuDeNaissance}}</p>
           </div>
 
           <!-- Date Naissance -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Date Naissance</label
-            >
+            <label for="exampleInputnbrsetage" class="form-label">Date Naissance</label >
             <input
               type="text" class="form-control" name="date_naissance" id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp"
-              formControlName="date_naissance"
-            />
+              formControlName="date_naissance" (input)="verifMessageDatedeNaissanceFunction()"/>
             <div id="nbrsetageHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessageDatedeNaissance}}</p>
           </div>
 
         </form>

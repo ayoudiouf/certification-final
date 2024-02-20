@@ -92,8 +92,9 @@
           <!-- Libelle -->
           <div class="mb-3">
             <label for="libelle" class="form-label">Libelle</label>
-            <input type="text" class="form-control" id="libelle" formControlName="libelle" [(ngModel)]="libelle" />
+            <input type="text" class="form-control" id="libelle" formControlName="libelle" [(ngModel)]="libelle" (input)="verifMessagelibelleFunction()"/>
             <div id="libelle" class="form-text"></div>
+            <p class="text-danger">{{verifMessagelibelle}}</p>
           </div>
           <!-- Type de chambre -->
           <div class="mb-3">
@@ -109,24 +110,27 @@
            <!-- Nombre de lits -->
           <div class="mb-3">
             <label for="nombres_lits" class="form-label">Nombre de lits</label>
-            <input type="text" class="form-control" id="nombres_lits" formControlName="nombres_lits"  [(ngModel)]="nombres_lits"/>
+            <input type="text" class="form-control" id="nombres_lits" formControlName="nombres_lits"  [(ngModel)]="nombres_lits" (input)="verifMessagenombres_litsFunction()"/>
             <div id="nombres_lits" class="form-text"></div>
+            <p class="text-danger">{{verifMessageisnombres_litsValid}}</p>
           </div>
 
           <!-- Nombres limites -->
           <div class="mb-3">
             <label for="nombres_limites" class="form-label">Nombres Limites</label>
-            <input type="text" class="form-control" id="nombres_limites" formControlName="nombres_limites"  [(ngModel)]="nombres_limites" />
+            <input type="text" class="form-control" id="nombres_limites" formControlName="nombres_limites"  [(ngModel)]="nombres_limites" (input)="verifMessagenombres_limitesFunction()"/>
             <div id="nombres_limites" class="form-text"></div>
+            <p class="text-danger">{{verifMessagenombres_limites}}</p>
           </div>
 
           <div class="mb-3">
             <label for="id_pavillon" class="form-label">Pavillon</label>
-            <select class="form-select" id="pavillons_id" formControlName="pavillons_id" [(ngModel)]="pavillons_id">
+            <select class="form-select" id="pavillons_id" formControlName="pavillons_id" [(ngModel)]="pavillons_id" >
               <!-- Options du menu déroulant -->
               <option *ngFor="let pavillon of tabpavillons" [value]="pavillons_id">{{pavillon.libelle}}</option>
               <!-- Ajoutez plus d'options au besoin -->
             </select>
+            <!-- <p class="text-danger">{{verifMessagepavillons_id}}</p> -->
           </div>
 
           <!-- ...Modal footer... -->

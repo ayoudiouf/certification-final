@@ -41,14 +41,14 @@
                             <!-- <td>{{reclamation.chambres_id}}</td> -->
 
                             <td><span>
-
-                              <button class="btn btn-danger">
-                                <i
-                                class="fa-solid fa-eye"
-                                data-bs-toggle="modal"
-                                data-bs-target="#detail" (click)="getDemandeReclamation(reclamation)">
-                              </i>
-                              </button>
+                              <div  class="d-flex gap-2">
+                                <button>
+                                  <i class="fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#detail" (click)="getDemandeReclamation(reclamation)"></i>
+                                </button>
+                                <button >
+                                  <i class="fa-solid fa-trash" (click)="deleteReclamationChefEtudiant(reclamation.id)"></i>
+                                </button>
+                            </div>
                             </span></td>
                           </tr>
                         </tbody>

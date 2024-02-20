@@ -14,6 +14,45 @@ import { PavillonService } from 'src/app/services/pavion.service';
 export class PavionComponent implements OnInit {
   [x: string]: any;
 
+// Les variables de la vérification
+  islibelleValid:boolean = false;
+  verifMessagelibelle: string = "";
+
+  isnombres_chambresValid:boolean = false;
+  verifMessagenombres_chambres: string = "";
+
+  isnombres_etagesValid:boolean = false;
+  verifMessageisnombres_etagesValid: string = "";
+
+  verifMessagelibelleFunction(){
+    if(!this.libelle){
+      this.islibelleValid = false;
+      this.verifMessagelibelle = "Le mot de passe est obligatoire"
+    } else{
+      this.islibelleValid = true;
+      this.verifMessagelibelle = "";
+    }
+  }
+
+  verifMessagenombres_chambresFunction(){
+    if(!this.nombres_chambres){
+      this.isnombres_chambresValid = false;
+      this.verifMessagenombres_chambres = "Le mot de passe est obligatoire"
+    } else{
+      this.isnombres_chambresValid = true;
+      this.verifMessagenombres_chambres = "";
+    }
+  }
+
+  verifMessageisnombres_etagesValidFunction(){
+    if(!this.nombres_etages){
+      this.isnombres_etagesValid = false;
+      this.verifMessageisnombres_etagesValid = "Le mot de passe est obligatoire"
+    } else{
+      this.isnombres_etagesValid = true;
+      this.verifMessageisnombres_etagesValid = "";
+    }
+  }
 
   selectedPavillon:any;
   dtOptions: DataTables.Settings = {};
@@ -35,7 +74,7 @@ export class PavionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPavillons();
-    
+
 
     this.dtOptions = {
       searching: true,
@@ -48,8 +87,8 @@ export class PavionComponent implements OnInit {
     };
 
   }
-  constructor(private Pavillonservice: PavillonService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
-    ) {
+  constructor(private Pavillonservice: PavillonService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient){
+
   }
 
   profileForm: FormGroup = this.formbuilder.group({

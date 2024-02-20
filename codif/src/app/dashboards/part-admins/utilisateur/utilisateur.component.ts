@@ -46,6 +46,73 @@ export class UtilisateurComponent implements OnInit {
   constructor(private userService: UserService, private formbuilder: FormBuilder, private route: Router) {
   }
 
+   // Les variables de la vérification
+   isnomValid:boolean = false;
+   verifMessagenom: string = "";
+
+
+   isprenomValid:boolean = false;
+   verifMessageprenom: string = "";
+
+   isEmailValid:boolean = false;
+   verifMessageEmail: string = "";
+
+
+   validateEmail(email: string): boolean {
+     const emailRegex=/^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
+     return emailRegex.test(email);
+   }
+
+   istelephoneValid:boolean = false;
+   verifMessageistelephoneValid: string = "";
+
+   verifEmailFunction(){
+    this.isEmailValid = this.validateEmail(this.email);
+    if(!this.email){
+      this.verifMessageEmail = "L'email est obligatoire"
+    }else if(!this.isEmailValid){
+      this.verifMessageEmail = "Le format de l'email est incorrect";
+    } else{
+        this.verifMessageEmail = "";
+        this.isEmailValid = true;
+      }
+  }
+
+   verifMessagenomFunction(){
+
+    if(this.nom===""){
+      this.isnomValid= false;
+    }
+     if(!this.nom){
+       this.isnomValid = false;
+       this.verifMessagenom = "Le nom est obligatoire"
+     } else{
+       this.isnomValid = true;
+       this.verifMessagenom = "";
+     }
+
+   }
+
+   verifMessageprenomFunction(){
+     if(!this.prenom){
+       this.isprenomValid = false;
+       this.verifMessageprenom = "Le prenom est obligatoire"
+     } else{
+       this.isprenomValid = true;
+       this.verifMessageprenom = "";
+     }
+   }
+
+   verifMessagetelephoneFunction(){
+     if(!this.telephone){
+       this.istelephoneValid = false;
+       this.verifMessageistelephoneValid = "Le numero telephone est obligatoire"
+     } else{
+       this.istelephoneValid = true;
+       this.verifMessageistelephoneValid = "";
+     }
+   }
+
   profileForm: FormGroup = this.formbuilder.group({
     nom: ['', Validators.required,],
     prenom: ['', Validators.required,],
@@ -85,17 +152,17 @@ export class UtilisateurComponent implements OnInit {
 
 
   // Fonction pour lister les utilisateurs
-  listeUtilisateurs(){
+  listeUtilisateurs() {
     this.userService.listeUtilisateur().subscribe(
-      (reponse:any) =>{
+      (reponse: any) => {
         // console.log(reponse);
         console.log(reponse.Utilisateurs);
-        this.tabUtilisateurs =  reponse.Utilisateurs;
+        this.tabUtilisateurs = reponse.Utilisateurs;
         // let tab = reponse;
         // console.log(tab.length)
 
       },
-      (err) =>{
+      (err) => {
         console.log(err);
       }
     )
@@ -103,9 +170,9 @@ export class UtilisateurComponent implements OnInit {
 
   // methode pour charger element a modifier dans formulaire
   seletedUtilisateur: any = {};
-  utilisateurChoisi:any
+  utilisateurChoisi: any
   chargerUtilisateur(use: UserModel) {
-    this.utilisateurChoisi=use.id;
+    this.utilisateurChoisi = use.id;
     this.nom = use.nom;
     this.prenom = use.prenom;
     this.email = use.email;
@@ -116,15 +183,15 @@ export class UtilisateurComponent implements OnInit {
 
   editUtilisateur() {
 
-    const userChoisi={
-    nom : this.nom,
-    prenom : this.prenom,
-    email : this.email,
-    password :this.password,
-    telephone :this.telephone,
-    status :this.status,
+    const userChoisi = {
+      nom: this.nom,
+      prenom: this.prenom,
+      email: this.email,
+      password: this.password,
+      telephone: this.telephone,
+      status: this.status,
 
-  }
+    }
     this.userService.editUtilisateur(userChoisi, this.utilisateurChoisi).subscribe((res: any) => {
       console.log(res);
     });
@@ -133,6 +200,27 @@ export class UtilisateurComponent implements OnInit {
 
   getUtilisateur(utilisateur: any) {
     this.seletedUtilisateur = utilisateur;
+  }
+
+   // La méthode qui permet de changer l'état d'un Utilisateur
+  changeEtat(id: number) {
+
+    const utilisateur =  this.tabUtilisateurs.find((elt: any) => elt.id == id);
+
+    console.log(utilisateur);
+
+    const data = {
+      status: utilisateur.status == "Actif" ? "Inactif" : "Actif"
+    }
+    this.userService.editUtilisateur(id, data).subscribe(
+      (response) =>{
+        console.log(response);
+
+    this.listeUtilisateurs();
+
+
+      }
+    )
   }
 
 }

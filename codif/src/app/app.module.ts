@@ -37,6 +37,8 @@ import { UserService } from './services/user.service';
 import { AuthInterceptor } from './interceptors/interceptors';
 import { PavionComponent } from './dashboards/part-admins/pavion/pavion.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
+import { authGuard } from './auth.guard';
+import { AuthGuard } from './gards/guard-route.guard';
 // import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/cnnexion.component';
 // import { InscriptionComponent } from './inscription/inscription.component';
 

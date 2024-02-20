@@ -23,7 +23,7 @@ import { EtudiantpayeComponent } from './dashboards/part-etudiant/etudiantpaye/e
 import { DemandereclamationComponent } from './dashboards/part-etudiant/demandereclamation/demandereclamation.component';
 import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
-import { AuthGuard } from './guards/guard-route.guard';
+import { AuthGuard } from './gards/guard-route.guard';
 
 const routes: Routes = [
   // CanActivate:[/login];
@@ -31,29 +31,29 @@ const routes: Routes = [
 
   {path : 'acueil', component: AcueilComponent},
   {path : 'admin' , component: AdminComponent, canActivate: [AuthGuard]},
-  {path : 'confidentialite' , component: PolitiqueDeConfidentialiteComponent},
+  {path : 'confidentialite' , component: PolitiqueDeConfidentialiteComponent, canActivate: [AuthGuard]},
   {path : 'chefpavion', component: DashChefpavionComponent, canActivate: [AuthGuard]},
   // {path : 'admin', component: AdminComponent},
   {path : 'chefpedagogique', component: DashChefpedagogiqueComponent, canActivate: [AuthGuard]},
   {path : 'etudiant' , component: DashEtudiantComponent, canActivate: [AuthGuard]},
   {path : 'sidebar' , component: SitebarComponent},
-  {path : 'paiement' , component: PaiementComponent},
-  {path : 'pavion' , component: PavionComponent},
-  {path : 'utilisateur' , component: UtilisateurComponent},
-  {path : 'etudiantparmerite' , component: EtudiantParMeriteComponent},
-  {path : 'cassocial' , component: CasSocialComponent},
+  {path : 'paiement' , component: PaiementComponent, canActivate: [AuthGuard]},
+  {path : 'pavion' , component: PavionComponent, canActivate: [AuthGuard]},
+  {path : 'utilisateur' , component: UtilisateurComponent, canActivate: [AuthGuard]},
+  {path : 'etudiantparmerite' , component: EtudiantParMeriteComponent, canActivate: [AuthGuard]},
+  {path : 'cassocial' , component: CasSocialComponent, canActivate: [AuthGuard]},
   {path : 'gestionchambre' , component: GestionChambreComponent},
   {path : 'reclamation' , component: ReclamationComponent},
-  {path : 'listechefpedagogique' , component: EtudiantsComponent},
+  {path : 'listechefpedagogique' , component: EtudiantsComponent, canActivate: [AuthGuard]},
   {path : 'etudiantsidebar' , component: SidebaretudiantComponent},
-  {path : 'etudiantreclamation' , component: DemandereclamationComponent},
-  {path : 'payeetudiant' , component: EtudiantpayeComponent},
+  {path : 'etudiantreclamation' , component: DemandereclamationComponent, canActivate: [AuthGuard]},
+  {path : 'payeetudiant' , component: EtudiantpayeComponent, canActivate: [AuthGuard]},
   // { path: 'FairePayement', component: PaiementComponent },
 
-  {path : 'listchambre' , component: ChambreComponent,},
-  {path : 'connexion' , component: ConnexionComponent,},
+  {path : 'listchambre' , component: ChambreComponent, canActivate: [AuthGuard]},
+  {path : 'connexion' , component: ConnexionComponent},
   // {path : 'inscription' , component: InscriptionComponent.},
-  {path : 'paiementetudiant' , component: PaiementComponent},
+  {path : 'paiementetudiant' , component: PaiementComponent, canActivate: [AuthGuard]},
   {path : '' , redirectTo:'acueil', pathMatch:'full'},
   // { path: '**', component: MaintenanceComponent },
 ];

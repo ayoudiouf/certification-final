@@ -44,27 +44,33 @@ export class ConnexionComponent implements OnInit {
     const emailRegex=/^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
     return emailRegex.test(email);
   }
-verifEmailFunction(){
+  verifEmailFunction(){
     this.isEmailValid = this.validateEmail(this.emailUtilisateur);
     if(!this.emailUtilisateur){
-      this.verifMessageEmail = "L'email est obligatoire"
-    }else if(!this.isEmailValid){
+      this.verifMessageEmail = "";
+    } else if(!this.isEmailValid){
       this.verifMessageEmail = "Le format de l'email est incorrect";
     } else{
         this.verifMessageEmail = "";
         this.isEmailValid = true;
-      }
-  }
+    }
+}
 
-  verifPasswordFunction(){
+verifPasswordFunction(){
     if(!this.passwordUtilisateur){
       this.isPasswordValid = false;
-      this.verifMessagePassword = "Le mot de passe est obligatoire"
-    } else{
+      this.verifMessagePassword = "Le mot de passe est obligatoire";
+    }
+
+    else{
       this.isPasswordValid = true;
       this.verifMessagePassword = "";
     }
-  }
+}
+
+
+
+
   login(){
     this.verifEmailFunction();
     this.verifPasswordFunction();

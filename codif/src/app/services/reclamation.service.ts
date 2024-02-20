@@ -50,7 +50,27 @@ export class ReclamationService {
 
   }
 
+   // Faire d'une reclamaton
 
+  editReclamation( id:any, modifuser: any){
+    return this.http
+.put(`${url_base}traiterReclamation/${id}`,modifuser)
+
+  }
+
+
+   // methode pour supprimer les Reclamation chef Pavillon
+   deleteReclamationChefPavillon(id: any) {
+    return this.http.delete(`${url_base}chefpavillon/SupprimerReclamation/delete/${id}`)
+
+  }
+
+
+   // methode pour supprimer les Reclamation chef Etudiant
+   deleteReclamationChefEtudiant(id: any) {
+    return this.http.delete(`${url_base}SupprimerReclamation/delete/${id}`)
+
+  }
 
 }
 

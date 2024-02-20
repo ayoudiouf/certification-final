@@ -124,44 +124,20 @@ throw new Error('Method not implemented.');
 
 // fonction qui permet de valider un etudiant
 validerEttudiant(id: any) {
-  if (id) {
-      console.log("Valide étudiant avec l'ID:", id);
-      this.etudiantpareriteService.validerEtudiant(id).subscribe((response: any) => {
-          console.log(response);
-          this.etudiantParMerites = response;
-      });
-      this.getAllEtudiantParMeriteadmin();
-  } else {
-      console.error("ID de l'étudiant non défini");
-  }
-// }
+  // if (id) {
+  //     console.log("Valide étudiant avec l'ID:", id);
+  //     this.etudiantpareriteService.validerEtudiant(id).subscribe((response: any) => {
+  //         console.log(response);
+  //         this.etudiantParMerites = response;
+  //     });
+  //     this.getAllEtudiantParMeriteadmin();
+  // } else {
+  //     console.error("ID de l'étudiant non défini");
+  // }
+  this.etudiantpareriteService.validerEtudiant(id).subscribe((respons)=>{
+    console.log("est validi oui!!!!", respons);
+  })
 
-
-// selectAll(event: any) {
-//   const isChecked = event.target.checked;
-//   this.etudiantParMerites.forEach((etudiant: any) => {
-//     etudiant.selected = isChecked;
-//   });
-// }
-
-// Appel à votre méthode de validation avec les IDs sélectionnés
-// validerEttudiants() {
-//   const selectedEtudiants = this.etudiantParMerites.filter((etudiant: any) => etudiant.selected);
-//   const ids = selectedEtudiants.map((etudiant: any) => etudiant.id);
-// }
-
-// selectAll(event: any) {
-//   const isChecked = event.target.checked;
-//   this.etudiantParMerites.forEach((etudiant: any) => {
-//     etudiant.selected = isChecked;
-//   });
-// }
-
-// validerEttudiants() {
-//   const selectedEtudiants = this.etudiantParMerites.filter((etudiant: any) => etudiant.selected);
-//   const ids = selectedEtudiants.map((etudiant: any) => etudiant.id);
-//   Appel à votre méthode de validation avec les IDs sélectionnés
-// }
 
 }
 }

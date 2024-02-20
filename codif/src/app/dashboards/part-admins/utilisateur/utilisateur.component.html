@@ -48,7 +48,9 @@
                       data-bs-target="#details" (click)="getUtilisateur(utilisateur)">
                     </i>
                     </button>
-
+                    <button>
+                    <i class="fa-solid fa-ban" (click)="changeEtat(utilisateur.id)" style="cursor: pointer;"></i>
+                  </button>
                     <!-- <button>
                       <i
                       class="fa-solid fa-marker" data-bs-toggle="modal" data-bs-target="#Modifier"
@@ -94,25 +96,33 @@
       <div class="modal-body">
         <form action="" [formGroup]="profileForm">
 
+           <!-- nom -->
           <div class="mb-3">
             <label for="exampleInputnom" class="form-label">Nom</label>
-            <input type="text" name="name" class="form-control" id="exampleInputId1" aria-describedby="nomHelp" formControlName="nom">
+            <input type="text" name="name" class="form-control" id="exampleInputId1" aria-describedby="nomHelp" formControlName="nom" (input)="verifMessagenomFunction()">
             <div id="nomHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessagenom}}</p>
           </div>
+
+          <!-- prenom -->
           <div class="mb-3">
             <label for="exampleInputpremon" class="form-label">Prenom</label>
-            <input type="text" name="prenom" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp" formControlName="prenom">
+            <input type="text" name="prenom" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp" formControlName="prenom" (input)="verifMessageprenomFunction()">
             <div id="premonHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessageprenom}}</p>
           </div>
           <div class="mb-3">
             <label for="exampleInputemail" class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp" formControlName="email">
+            <input type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp" formControlName="email" (input)="verifEmailFunction()">
             <div id="emailHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessageEmail}}</p>
           </div>
           <div class="mb-3">
             <label for="exampleInputtelephone" class="form-label">Telephone</label>
-            <input type="text" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephonetHelp" formControlName="telephone">
+            <input type="text" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephonetHelp" formControlName="telephone" (input)="verifMessagetelephoneFunction()">
             <div id="telephonelHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessageistelephoneValid}}</p>
+
           </div>
            <!-- <div class="">
           <label  class="form-label ">Rôle</label>

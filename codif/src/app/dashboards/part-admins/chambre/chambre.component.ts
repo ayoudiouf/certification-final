@@ -61,6 +61,49 @@ export class ChambreComponent implements OnInit{
 
   }
 
+  // Les variables de la vérification
+  islibelleValid:boolean = false;
+  verifMessagelibelle: string = "";
+
+  isnombres_litsValid:boolean = false;
+  verifMessageisnombres_litsValid: string = "";
+
+  isnombres_limitesValid:boolean = false;
+  verifMessagenombres_limites: string = "";
+
+  verifMessagelibelleFunction(){
+    if(!this.libelle){
+      this.islibelleValid = false;
+      this.verifMessagelibelle = "Le mot de passe est obligatoire"
+    } else{
+      this.islibelleValid = true;
+      this.verifMessagelibelle = "";
+    }
+    // fonction qui afface le message d'erreur
+    // if (this.libelle=="") {
+    //   this.verifMessagelibelle="";
+    // }
+  }
+
+  verifMessagenombres_limitesFunction(){
+    if(!this.nombres_limites){
+      this.isnombres_limitesValid = false;
+      this.verifMessagenombres_limites = "Le mot de passe est obligatoire"
+    } else{
+      this.isnombres_limitesValid = true;
+      this.verifMessagenombres_limites = "";
+    }
+  }
+
+  verifMessagenombres_litsFunction(){
+    if(!this.nombres_lits){
+      this.isnombres_litsValid = false;
+      this.verifMessageisnombres_litsValid = "Le mot de passe est obligatoire"
+    } else{
+      this.isnombres_litsValid = true;
+      this.verifMessageisnombres_litsValid = "";
+    }
+  }
 
 
 profileForm: FormGroup = this.formbuilder.group({

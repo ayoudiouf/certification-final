@@ -6,6 +6,39 @@
   input{
     height: 50px;
   }
+  .loginpage{
+    background-color: #A41034;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 20px;
+  }
+  .partener {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .partener img {
+    width: 100px;
+    height: auto;
+    margin: 0 10px;
+    animation: rotate 5s linear infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 
   .imgloge img{
     margin-left: 20%;
@@ -16,7 +49,10 @@
 
   #baniercarte span{
     color: #A41034;
+    width: 40px;
+    font-size: large;
   }
+
 
   div.slides-frame {
     width: 100%;
@@ -57,15 +93,15 @@
 
 #baniercarte{
   box-shadow: 0px 4px 8px #A41034;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
   position: relative;
   bottom: 50px;
-  width: 350px;
-  margin: auto;
-  left: 52%;
-  /* gap: 10px; */
+
 }
+
+/* *{
+  border: 1px black solid;
+} */
 
  /*header banner */
  .carousel-item{
@@ -138,6 +174,9 @@
   text-align: center;
   align-items: center;
 }
+/* texte p{
+  margin-top: 20px;
+} */
 
 .info{
 
@@ -152,11 +191,14 @@ p{
 }
 .textpara{
   position: relative;
-  right: 70px;
-  top: 70px;
-  width: 60%;
-  /* border-top: #A41034; */
+  right: 75px;
+  top: 120px;
+  height: 10%;
+  box-shadow: 0px 4px 5px #A41034;
   text-align: center;
+  height: 250px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 button{
   background-color: #A41034;
@@ -167,11 +209,10 @@ button{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   /* position: relative; */
-
+  /* border: 2px solid blueviolet; */
   gap: 50px
-
-
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
 * {
   margin: 0;
@@ -500,12 +541,6 @@ body {
   font-weight: bold;
 }
 
-/* .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img {
-  margin: 5px 10px 0 0;
-}
-.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img.pull-right {
-  margin: 5px 0 0 10px;
-} */
 
 .contact{
 display: flex;
@@ -530,12 +565,7 @@ width: 100%;
   padding-bottom: 16px;
 
 }
-.partener{
-  display: flex;
-  gap: 25px;
-  margin-left: 20%;
-   margin-top: -20px;
-}
+
 
 @media screen and (max-width: 1238px){
 
@@ -624,6 +654,8 @@ width: 100%;
     width: 350px;
     gap: 10px;
   }
+
+
   #propos img{
     margin: auto;
     width: 100%;

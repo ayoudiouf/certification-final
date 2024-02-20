@@ -21,41 +21,6 @@ export class ReclamationComponent implements OnInit{
   constructor(private reclamationService: ReclamationService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient){
 
   }
-
-  // this.getAllReclmation()
-
-  // ngOnInit(): void {
-  //   this.getAllReclamation()
-    // this.getAllReclamations()
-
-    // const script = document.createElement('script');
-    // script.src = '../../../assets/js/script.js';
-    // Ajustez le chemin en conséquence
-    // document.body.appendChild(script);
-    // this.dtOptions = {
-    //   searching: true,
-    //   lengthChange: false,
-    //   paging: true, info: false,
-    //   language: {
-    //     url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json'
-    //   }
-    // };
-  // }
-
-  // getAllReclamation() {
-  //   this.reclamationService.getAllReclamation().subscribe((reponse: any) => {
-  //     console.log('la reponse du baken est ',reponse)
-  //     this.reclamations = reponse;
-      // console.log("je suis reclamation",reponse);
-      // console.log("je suis reclamation",this.reclamations);
-
-
-      // Utiliser la méthode concat pour fusionner tous les sous-arrays en un seul tableau
-    // this.reclamations = [].concat(reponse);
-    // console.log(this.reclamations);
-
-    // });
-
     // pagination   utulisateurTrouve :
     reclamationTrouve :any []=[];
      searchUtulisateur : string = "";
@@ -87,6 +52,7 @@ export class ReclamationComponent implements OnInit{
       this.getAllReclamation();
     }
 
+    // La methode qui permet de lister les réclamtions
     getAllReclamation() {
       this.reclamationService.getAllReclamation().subscribe((response: any) => {
         console.log('la reponse du backend est ', response);
@@ -98,9 +64,35 @@ export class ReclamationComponent implements OnInit{
 
 
 
-
+// La méthode qui permet de lire les details d'une réclamation
   getReclamation(pavillon: any) {
     this.seletedReclamation = pavillon;
+  }
+
+  // La méthode qui permet de changer l'état d'une réclamation
+  changeEtat(id: number) {
+    const reclamation =  this.reclamationTrouve.find((elt: any) => elt.id == id);
+    // console.log(reclamation);
+    const data = {
+      status: reclamation.status == "Ouvert" ? "Traité" : "Ouvert"
+    }
+    this.reclamationService.editReclamation(id, data).subscribe(
+      (response) =>{
+        console.log(response);
+
+    this.getAllReclamation();
+
+
+      }
+    )
+  }
+
+  deleteReclamationChefPavillon(id:any) {
+    this.reclamationService.deleteReclamationChefPavillon(id).subscribe((res: any) => {
+      console.log('la response est ',res);
+
+    });
+    this.getAllReclamation();
   }
   }
 

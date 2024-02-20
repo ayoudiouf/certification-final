@@ -86,34 +86,17 @@
       </div>
       <div class="modal-body">
         <form action="" [formGroup]="profileForm">
-          <!-- <div class="mb-3">
-            <label for="exampleInputid" class="form-label">ID</label>
-            <input type="id" class="form-control" id="exampleInputId1" aria-describedby="idHelp">
-            <div id="idHelp" class="form-text"></div>
-          </div> -->
+
+           <!-- Nom Pavillon -->
           <div class="mb-3">
             <label for="exampleInputnompavillon" class="form-label">Nom Pavillon</label>
             <input type="text" class="form-control" name="libelle"  id="exampleInputnompavillon"
-              aria-describedby="nompavillonHelp"
-              formControlName="libelle"
-            />
-            <div id="nompavillonHelp" class="form-text"></div>
+              aria-describedby="nompavillonHelp" formControlName="libelle" (input)="verifMessagelibelleFunction()"/>
+              <p class="text-danger">{{verifMessagelibelle}}</p>
+              <!-- <div *ngIf="!islibelleValid() && islibelleDirty" class="invalid-feedback">Format libelle invalide</div> -->
           </div>
-          <!-- Type pavillon -->
-          <!-- <div class="mb-3">
-            <label for="exampleInputtypepavillon" class="form-label"
-              >Type Pavillon</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              name="types_pavillon"
-              id="exampleInputTypeChambre1"
-              aria-describedby="typepavillonHelp"
-              formControlName="type_pavillon"
-            />
-            <div id="typepavillonHelp" class="form-text"></div>
-          </div> -->
+
+           <!-- Type Pavillon -->
           <div class="mb-3">
             <label for="type_pavillon" class="form-label">Type_pavillon</label>
             <select name="type_chambre" id="type_chambre" [(ngModel)]="type_pavillon" formControlName="type_pavillon">
@@ -126,46 +109,29 @@
 
           <!-- Nobre Chambre -->
           <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label"
-              >Nbrs Chambres</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              name="nombres_chambres"
-              id="exampleInputnbrsChambre1"
-              aria-describedby="nbrschambreHelp"
-              formControlName="nombres_etages"
-            />
-            <div id="nbrschambreHelp" class="form-text"></div>
+            <label for="exampleInputnbrschambre" class="form-label">Nbrs Chambres</label>
+            <input type="text" class="form-control" name="nombres_chambres" id="exampleInputnbrsChambre1"
+             aria-describedby="nbrschambreHelp" formControlName="nombres_etages" (input)="verifMessagenombres_chambresFunction()"/>
+             <p class="text-danger">{{verifMessagenombres_chambres}}</p>
+             <!-- <div *ngIf="!isnombres_chambresValid() && isnombres_chambresDirty" class="invalid-feedback">Format nombres_chambres invalide</div> -->
+            <!-- <div id="nbrschambreHelp" class="form-text"></div> -->
           </div>
+          <!-- Nobre Etages -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label"
-              >Nbrs Etages</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              name="nombres_etages"
-              id="exampleInputNbrsEtage1"
-              aria-describedby="nbrsetageHelp"
-              formControlName="nombres_chambres"
-            />
+            <label for="exampleInputnbrsetage" class="form-label" >Nbrs Etages</label>
+            <input type="text" class="form-control" name="nombres_etages"
+              id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp" formControlName="nombres_chambres" (input)="verifMessageisnombres_etagesValidFunction()"/>
             <div id="nbrsetageHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessageisnombres_etagesValid}}</p>
+            <!-- <div *ngIf="!isnombres_etagesValid() && isnombres_etagesDirty" class="invalid-feedback">Format nombres_etages invalide</div> -->
+
           </div>
+
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">
-          Annuler
-        </button>
-        <button
-          type="button"
-          class="typebutton btn"
-          (click)="ajouterPavillon()"
-        >
-          Ajouter
-        </button>
+        <button type="button" class="btn" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="typebutton btn" (click)="ajouterPavillon()">Ajouter</button>
       </div>
     </div>
   </div>

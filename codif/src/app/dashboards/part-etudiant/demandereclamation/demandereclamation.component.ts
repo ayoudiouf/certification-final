@@ -82,6 +82,16 @@ this.newObjet ={
 
 
 }
+
+
+deleteReclamationChefEtudiant(id:any) {
+  this.reclamationService.deleteReclamationChefEtudiant(id).subscribe((res: any) => {
+    console.log('la response est ',res);
+
+  });
+  this.getAllReclamationetudiant();
+}
+
 getDemandeReclamation(demande: any) {
   this.seletedDemandeReclamation = demande;
   }

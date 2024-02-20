@@ -22,3 +22,11 @@ p{
   margin-left: 60%;
   margin-top: 30px;
 }
+@media screen and (max-width: 1238px){
+  table-responsive{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  }
+

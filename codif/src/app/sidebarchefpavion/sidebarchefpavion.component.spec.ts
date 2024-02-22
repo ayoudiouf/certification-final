@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarchefpavionComponent } from './sidebarchefpavion.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('SidebarchefpavionComponent', () => {
   let component: SidebarchefpavionComponent;
@@ -8,7 +9,7 @@ describe('SidebarchefpavionComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarchefpavionComponent]
+      declarations: [SidebarchefpavionComponent, HttpClientModule]
     });
     fixture = TestBed.createComponent(SidebarchefpavionComponent);
     component = fixture.componentInstance;

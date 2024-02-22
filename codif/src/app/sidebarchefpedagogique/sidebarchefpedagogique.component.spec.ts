@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarchefpedagogiqueComponent } from './sidebarchefpedagogique.component';
+import { UserService } from '../services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('SidebarchefpedagogiqueComponent', () => {
   let component: SidebarchefpedagogiqueComponent;
@@ -8,9 +10,9 @@ describe('SidebarchefpedagogiqueComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarchefpedagogiqueComponent]
+      declarations: [SidebarchefpedagogiqueComponent, HttpClientModule, UserService]
     });
-    fixture = TestBed.createComponent(SidebarchefpedagogiqueComponent);
+    fixture = TestBed.createComponent(SidebarchefpedagogiqueComponent );
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

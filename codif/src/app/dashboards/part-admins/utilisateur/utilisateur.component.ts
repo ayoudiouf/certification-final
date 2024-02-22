@@ -70,26 +70,33 @@ export class UtilisateurComponent implements OnInit {
     this.isEmailValid = this.validateEmail(this.email);
     if(!this.email){
       this.verifMessageEmail = "L'email est obligatoire"
-    }else if(!this.isEmailValid){
+    }
+    if(!this.isEmailValid){
       this.verifMessageEmail = "Le format de l'email est incorrect";
-    } else{
-        this.verifMessageEmail = "";
-        this.isEmailValid = true;
-      }
+    }
+    // else{
+    //     this.verifMessageEmail = "";
+    //     this.isEmailValid = true;
+    //   }
+    if (this.email || this.isEmailValid) {
+      this.verifMessageEmail = "";
+      this.isEmailValid = true;
+    }
   }
+
 
    verifMessagenomFunction(){
 
-    if(this.nom===""){
-      this.isnomValid= false;
+    // if(this.nom===""){
+    //   this.isnomValid= false;
+    // }
+    if(!this.nom){
+      this.isnomValid = false;
+      this.verifMessagenom = "Le nom est obligatoire";
+    } else {
+      this.isnomValid = true;
+      this.verifMessagenom = "";
     }
-     if(!this.nom){
-       this.isnomValid = false;
-       this.verifMessagenom = "Le nom est obligatoire"
-     } else{
-       this.isnomValid = true;
-       this.verifMessagenom = "";
-     }
 
    }
 
@@ -97,8 +104,13 @@ export class UtilisateurComponent implements OnInit {
      if(!this.prenom){
        this.isprenomValid = false;
        this.verifMessageprenom = "Le prenom est obligatoire"
-     } else{
-       this.isprenomValid = true;
+     }
+    //   else{
+    //    this.isprenomValid = true;
+    //    this.verifMessageprenom = "";
+    //  }
+     if (this.prenom) {
+      this.isprenomValid = true;
        this.verifMessageprenom = "";
      }
    }
@@ -107,10 +119,16 @@ export class UtilisateurComponent implements OnInit {
      if(!this.telephone){
        this.istelephoneValid = false;
        this.verifMessageistelephoneValid = "Le numero telephone est obligatoire"
-     } else{
-       this.istelephoneValid = true;
+     }
+    //  else{
+    //   this.istelephoneValid = true;
+    //   this.verifMessageistelephoneValid = "";
+    // }
+     if (this.telephone) {
+      this.istelephoneValid = true;
        this.verifMessageistelephoneValid = "";
      }
+
    }
 
   profileForm: FormGroup = this.formbuilder.group({

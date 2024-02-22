@@ -16,6 +16,10 @@
     padding-bottom: 10px;
     padding-top: 10px;
     margin-left: 20px;
+    position: relative;
+    bottom: 30px;
+    /* margin-bottom: 50px; */
+
   }
   .partener {
     display: flex;
@@ -49,8 +53,8 @@
 
   #baniercarte span{
     color: #A41034;
-    width: 40px;
-    font-size: large;
+    width: 50;
+    font-size: 25px;
   }
 
 
@@ -182,6 +186,10 @@
 
   width: 70%;
   margin-left: 20%;
+}
+
+.icon i{
+  width: 50px;
 }
 .info img{
   height: 500px
@@ -589,24 +597,33 @@ width: 100%;
     width: 100%;
 
   }
+  
   .loge{
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 50px;
+    /* position: relative;
+    top: 30px; */
   }
   .loge img{
    margin-right: 500px;
 
   }
+
+  /* .loginpage{
+   margin-bottom: 20px;
+
+  } */
+
   #propos{
     display: flex;
    flex-direction: column;
     justify-content: center;
-    width: 100%;
     /* margin-left: 12%;
     margin-bottom: 30px; */
   }
+
   .container{
     margin-top: 30% ;
   }
@@ -623,6 +640,7 @@ width: 100%;
    width: 100%;
    text-align: center;
    align-items: center;
+   height: 50%;
    /* width: 100%; */
   }
   .etudiant{
@@ -634,19 +652,20 @@ width: 100%;
     height: 50px;
 
   }
-  /* .equipe{
-    margin-top: 100%;
-  } */
+
+  #actu{
+    margin-top: 30px;
+  }
   .partener{
     display: flex;
     flex-direction: column;
     margin: auto;
-    /* margin-bottom: 20%; */
+    margin-top: 10%;
   }
   .team{
     display: flex;
     flex-direction: column;
-    margin-top: 30%;
+    margin-top: 80%;
   }
 
   #baniercarte{

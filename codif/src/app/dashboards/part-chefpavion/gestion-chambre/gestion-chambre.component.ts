@@ -30,7 +30,7 @@ export class GestionChambreComponent implements OnInit{
   nombres_lits: any;
   type_chambre: any;
   nombres_limites: any;
-  echeances: any;
+  // echeances: any;
 
   constructor(private  ChambresService: ChambresService, private formbuilder: FormBuilder) {
 
@@ -42,9 +42,9 @@ export class GestionChambreComponent implements OnInit{
       libelle : [''],
       type_pavillon : [''],
       nombres_Chambres : [''],
-      echeances :[''],
+      // echeances :[''],
       nombres_lits : [''],
-      pavillons_id : [''],
+      // pavillons_id : [''],
       etudiants_id : [''],
     })
     this.getAllChambre();
@@ -71,8 +71,8 @@ export class GestionChambreComponent implements OnInit{
     type_chambre: ['', Validators.required],
     nombres_lits: ['', Validators.required],
     nombres_limites: ['', Validators.required],
-    echeances : ['', Validators.required],
-    pavillons_id: ['', Validators.required],
+    // echeances : ['', Validators.required],
+    // pavillons_id: ['', Validators.required],
     etudiants_id: ['', Validators.required],
   });
 
@@ -81,8 +81,8 @@ export class GestionChambreComponent implements OnInit{
     type_chambre: ['', Validators.required],
     nombres_lits: ['', Validators.required],
     nombres_limites: ['', Validators.required],
-    echeances: ['', Validators.required],
-    pavillons_id: ['', Validators.required],
+    // echeances: ['', Validators.required],
+    // pavillons_id: ['', Validators.required],
     etudiants_id: ['', Validators.required],
   });
 
@@ -91,8 +91,8 @@ export class GestionChambreComponent implements OnInit{
     this.chambModel.nombres_limites = this.formValue.value.nombres_limites;
     this.chambModel.type_chambre = this.formValue.value.type_chambre;
     this.chambModel.nombres_lits = this.formValue.value.nombres_lits;
-    this.chambModel.echeances = this.formValue.value.echeances;
-    this.chambModel.pavillons_id = this.formValue.value.pavillons_id;
+    // this.chambModel.echeances = this.formValue.value.echeances;
+    // this.chambModel.pavillons_id = this.formValue.value.pavillons_id;
     this.chambModel.etudiants_id = this.formValue.value.etudiants_id;
 
     this.ChambresService.postchambreChefPavillon(this.chambModel).subscribe(res=>{
@@ -112,7 +112,7 @@ export class GestionChambreComponent implements OnInit{
     this.nombres_lits = chambreEtuduant.nombres_lits;
     this.type_chambre = chambreEtuduant.type_chambre;
     this.nombres_limites = chambreEtuduant.nombres_limites;
-    this.echeances = chambreEtuduant.nombres_limites;
+    // this.echeances = chambreEtuduant.nombres_limites;
     // this.pavillons_id = chambreEtuduant.echeances;
     // this.etudiants_id = chambreEtuduant.etudiants_id;
     console.log("Chambre à charger :", chambreEtuduant);
@@ -134,7 +134,7 @@ export class GestionChambreComponent implements OnInit{
       libelle : this.libelle,
       nombres_lits : this.nombres_lits,
       type_chambre : this.type_chambre ,
-      echeances: this.echeances ,
+      // echeances: this.echeances ,
       nombres_limites : this.nombres_limites,
     }
 

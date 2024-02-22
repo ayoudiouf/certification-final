@@ -5,7 +5,7 @@ export class chambresModel {
   nombres_lits!: string;
   nombres_limites!: string;
   echeances!: string;
-  pavillons_id!: string;
+  pavillons_id!: number;
   etudiants_id!: string;
 
 }

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SitebarComponent } from './sitebar.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('SitebarComponent', () => {
   let component: SitebarComponent;
@@ -8,7 +9,7 @@ describe('SitebarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SitebarComponent]
+      declarations: [SitebarComponent, HttpClientModule]
     });
     fixture = TestBed.createComponent(SitebarComponent);
     component = fixture.componentInstance;

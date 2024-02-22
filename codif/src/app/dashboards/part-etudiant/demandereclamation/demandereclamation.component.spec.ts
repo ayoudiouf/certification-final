@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DemandereclamationComponent } from './demandereclamation.component';
+import { HttpClient } from '@angular/common/http';
 
 describe('DemandereclamationComponent', () => {
   let component: DemandereclamationComponent;
@@ -8,7 +9,7 @@ describe('DemandereclamationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DemandereclamationComponent]
+      declarations: [DemandereclamationComponent, HttpClient]
     });
     fixture = TestBed.createComponent(DemandereclamationComponent);
     component = fixture.componentInstance;

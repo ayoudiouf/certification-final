@@ -13,6 +13,7 @@ import { PavillonService } from 'src/app/services/pavion.service';
 })
 export class PavionComponent implements OnInit {
   [x: string]: any;
+  // nameRegex=/^[a-zA-Z][a-zA-Z -]{1,100}$/;
 
 // Les variables de la vérification
   islibelleValid:boolean = false;
@@ -25,19 +26,30 @@ export class PavionComponent implements OnInit {
   verifMessageisnombres_etagesValid: string = "";
 
   verifMessagelibelleFunction(){
+    this.islibelleValid = false;
+    if (this.libelle=='') {
+      this.verifMessagelibelle='';
+    }
     if(!this.libelle){
-      this.islibelleValid = false;
-      this.verifMessagelibelle = "Le mot de passe est obligatoire"
-    } else{
+      // this.islibelleValid = false
+      this.verifMessagelibelle = "Le nom du libelle est obligatoire"
+    }
+
+    if (this.libelle) {
       this.islibelleValid = true;
       this.verifMessagelibelle = "";
     }
+    // else{
+    //   this.islibelleValid = true;
+    //   this.verifMessagelibelle = "";
+    // }
+
   }
 
   verifMessagenombres_chambresFunction(){
     if(!this.nombres_chambres){
       this.isnombres_chambresValid = false;
-      this.verifMessagenombres_chambres = "Le mot de passe est obligatoire"
+      this.verifMessagenombres_chambres = "Le champ est obligatoire"
     } else{
       this.isnombres_chambresValid = true;
       this.verifMessagenombres_chambres = "";
@@ -47,7 +59,7 @@ export class PavionComponent implements OnInit {
   verifMessageisnombres_etagesValidFunction(){
     if(!this.nombres_etages){
       this.isnombres_etagesValid = false;
-      this.verifMessageisnombres_etagesValid = "Le mot de passe est obligatoire"
+      this.verifMessageisnombres_etagesValid = "Le champ est obligatoire"
     } else{
       this.isnombres_etagesValid = true;
       this.verifMessageisnombres_etagesValid = "";

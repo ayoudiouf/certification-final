@@ -79,10 +79,6 @@ export class ChambreComponent implements OnInit{
       this.islibelleValid = true;
       this.verifMessagelibelle = "";
     }
-    // fonction qui afface le message d'erreur
-    // if (this.libelle=="") {
-    //   this.verifMessagelibelle="";
-    // }
   }
 
   verifMessagenombres_limitesFunction(){

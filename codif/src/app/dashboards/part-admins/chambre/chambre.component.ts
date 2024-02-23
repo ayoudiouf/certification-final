@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { chambresModel } from 'src/app/models/chambres';
 import { ChambresService } from 'src/app/services/chambres.service';
 import { PavillonService } from 'src/app/services/pavion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-chambre',
@@ -16,8 +17,8 @@ export class ChambreComponent implements OnInit{
   id : string ="";
   libelle: string = "";
   type_chambre : string ="";
-  nombres_lits: string ="";
-  nombres_limites:  string ="";
+  nombres_lits: any ="";
+  nombres_limites:  any ="";
   pavillons_id: string = "";
   etudiants_id: string = "";
 
@@ -40,7 +41,7 @@ export class ChambreComponent implements OnInit{
   ngOnInit(): void {
 
     this.getAllChambre();
-    this.getPavillons();
+    // this.getPavillons();
 
     this.dtOptions = {
       searching: true,
@@ -71,11 +72,16 @@ export class ChambreComponent implements OnInit{
   isnombres_limitesValid:boolean = false;
   verifMessagenombres_limites: string = "";
 
+  NomPattern1 = /^[a-zA-Z ]+$/;
   verifMessagelibelleFunction(){
     if(!this.libelle){
       this.islibelleValid = false;
-      this.verifMessagelibelle = "Le mot de passe est obligatoire"
-    } else{
+      this.verifMessagelibelle = "Le libelle est obligatoire"
+    }
+    else if (!this.libelle.match(this.NomPattern1)) {
+      this.verifMessagelibelle = 'Donner une libelle valide';
+    }
+     else{
       this.islibelleValid = true;
       this.verifMessagelibelle = "";
     }
@@ -84,8 +90,12 @@ export class ChambreComponent implements OnInit{
   verifMessagenombres_limitesFunction(){
     if(!this.nombres_limites){
       this.isnombres_limitesValid = false;
-      this.verifMessagenombres_limites = "Le mot de passe est obligatoire"
-    } else{
+      this.verifMessagenombres_limites = "Le champ est obligatoire"
+    }
+    else if (isNaN(this.nombres_limites)) {
+      this.nombres_limites = 'Le nombres_limites est doit etre un numerique';
+    }
+    else{
       this.isnombres_limitesValid = true;
       this.verifMessagenombres_limites = "";
     }
@@ -94,8 +104,12 @@ export class ChambreComponent implements OnInit{
   verifMessagenombres_litsFunction(){
     if(!this.nombres_lits){
       this.isnombres_litsValid = false;
-      this.verifMessageisnombres_litsValid = "Le mot de passe est obligatoire"
-    } else{
+      this.verifMessageisnombres_litsValid = "Le champ est obligatoire"
+    }
+    else if (isNaN(this.nombres_lits)) {
+      this.verifMessageisnombres_litsValid = 'Le nombres_lits est doit etre un numerique';
+    }
+    else{
       this.isnombres_litsValid = true;
       this.verifMessageisnombres_litsValid = "";
     }
@@ -142,19 +156,14 @@ ajouterChambre() {
 
     // Fonction pour lister les etudiant Chambre
     getAllChambre(){
-
     this.ChambreServices.getAllChambre().subscribe((reponse:any) =>{
       this.tabchambres =  reponse;
       console.log("neekkk", this. tabchambres);
-
-
     },
-
-     );
-    // console.log("ddddddd");
+    );
   }
 
-  seletedChambre: any = {};
+  // seletedChambre: any = {};
   chambreChoisi: any;
   // lilibelleUse:string
 
@@ -194,37 +203,52 @@ ajouterChambre() {
   }
 
 
-  deletechambre(id: any){
-    // console.log("Deleting chambre with ID:", id);
-    this.ChambreServices.deleteChambre(id).subscribe((res: any) => {
-          // console.log(res);
-          console.warn("Delete response:", res);
-        });
-        this.getAllChambre();
+  // deletechambre(id: any){
+  //   console.log("Deleting chambre with ID:", id);
+  //   this.ChambreServices.deleteChambre(id).subscribe((res: any) => {
+  //         console.log(res);
+  //         console.warn("Delete response:", res);
+  //       });
+  //       this.getAllChambre();
 
-  }
-
-  // deletePavillon(id:any) {
-  //   this.Pavillonservice.deletePavillon(id).subscribe((res: any) => {
-  //     console.log('la response est ',res);
-
-  //   });
-  //   this.getPavillons();
   // }
 
-  getChambre(chambre: any) {
-    this.seletedChambre = chambre;
+  deletechambre(id: any) {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Vous ne pourrez pas revenir en arrière !',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si l'utilisateur confirme la suppression
+        this.ChambreServices.deleteChambre(id).subscribe((res: any) => {
+          console.log(res);
+       // console.warn("Delete response:", res);
+        });
+        this.getAllChambre();
+      }
+    });
   }
 
+
+  // getChambre(chambre: any) {
+  //   this.seletedChambre = chambre;
+  // }
+
     // Fonction pour lister les utilisateurs
-    getPavillons(){
+    // getPavillons(){
 
-      this.Pavillonservice.listepavillon().subscribe((reponse:any) =>{
-          this.tabpavillons =  reponse.Pavillon;
-          console.log(this.tabpavillons);
+    //   this.Pavillonservice.listepavillon().subscribe((reponse:any) =>{
+    //       this.tabpavillons =  reponse.Pavillon;
+    //       console.log(this.tabpavillons);
 
-      });
+    //   });
 
-    }
+    // }
 
 }

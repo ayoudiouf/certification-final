@@ -71,13 +71,10 @@
                     <i class="fa-solid fa-ban" (click)="changeEtat(reclamation.id)" style="cursor: pointer;"></i>
                   </button>
 
-                  <button >
-                    <i
-                    class="fa-solid fa-eye"
-                    data-bs-toggle="modal"
-                    data-bs-target="#detail" (click)="getReclamation(reclamation)">
-                  </i>
-                  </button>
+                  <!-- <button >
+                    <i class="fa-solid fa-eye" data-bs-toggle="modal"
+                    data-bs-target="#detail" (click)="getReclamation(reclamation)"></i>
+                  </button> -->
 
                   <button>
                     <i class="fa-solid fa-trash" (click)="deleteReclamationChefPavillon(reclamation.id)"></i>
@@ -106,7 +103,7 @@
 <!-- pagination -->
 
 <!-- Details Reclamationt -->
-<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -116,19 +113,19 @@
       <div class="modal-body">
         <form>
 
-          <!-- Objet -->
+
           <div class="mb-3">
             <label for="exampleInputnom" class="form-label">Objet:{{seletedReclamation.objet}}</label>
             <div id="nomHelp" class="form-text"></div>
           </div>
           <div class="mb-3">
 
-            <!-- Message -->
+
             <label for="exampleInputpremon" class="form-label">Message:{{seletedReclamation.message}}</label>
             <div id="premonHelp" class="form-text"></div>
           </div>
 
-          <!--Status -->
+
           <div class="mb-3">
             <label for="exampleInputstatut" class="form-label">Status:{{seletedReclamation.status}}</label>
             <div id="etudeHelp" class="form-text"></div>
@@ -145,4 +142,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

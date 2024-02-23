@@ -53,6 +53,220 @@ export class EtudiantsComponent  implements OnInit{
 
   }
 
+     // Les variables de la vérification
+  isnomValid:boolean = false;
+  verifMessagenom: string = "";
+
+  isprenomvalid:boolean = false;
+  verifMessageisprenom: string = "";
+
+  istelephoneValid:boolean = false;
+  verifMessagetelephone: string = "";
+
+  isemailvalid:boolean = false;
+  verifMessageisemail: string = "";
+
+  ispasswordValid:boolean = false;
+  verifMessagepassword: string = "";
+
+  isniveau_etudesValid:boolean = false;
+  verifMessageniveau_etudes: string = "";
+
+  ismoyennesValid:boolean = false;
+  verifMessagemoyennes: string = "";
+
+  islieu_naissanceValid:boolean = false;
+  verifMessagelieu_naissance: string = "";
+
+  isfiliereValid:boolean = false;
+  verifMessagefiliere: string = "";
+
+  isdate_naissanceValid:boolean = false;
+  verifMessagedate_naissance: string = "";
+
+  isINEValid:boolean = false;
+  verifMessageINE: string = "";
+
+  isadresseValid:boolean = false;
+  verifMessageadresse: string = "";
+
+  // fonction qui verifie le nom
+
+  NomPattern1 = /^[a-zA-Z ]+$/;
+  verifMessagenomFunction(){
+    if(!this.nom){
+      this.isnomValid = false;
+      this.verifMessagenom = "Le nom est obligatoire"
+    }
+    else if (!this.nom.match(this.NomPattern1)) {
+      this.verifMessagenom = 'Donner un nom valide';
+    }
+    else{
+      this.isnomValid = true;
+      this.verifMessagenom = "";
+    }
+  }
+
+  // fonction qui verifie le prenom
+  verifMessageprenomFunction(){
+    if(!this.prenom){
+      this.isprenomvalid = false;
+      this.verifMessageisprenom = "Le prenom est obligatoire"
+    }
+    else if (!this.prenom.match(this.NomPattern1)) {
+      this.verifMessageisprenom = 'Donner un prenom valide';
+    }
+
+    else{
+      this.isprenomvalid = true;
+      this.verifMessageisprenom = "";
+    }
+  }
+
+  // fonction qui verifie le Numero telephone
+  verifMessagetelephoneFunction(){
+    if(!this.telephone){
+      this.istelephoneValid = false;
+      this.verifMessagetelephone = "Le Numéro telephone est obligatoire"
+    } else if (isNaN(this.telephone)) {
+      this.verifMessagetelephone = 'Le contact est doit etre un numerique';
+    }else{
+      this.istelephoneValid = true;
+      this.verifMessagetelephone = "";
+    }
+
+  }
+
+  // fonction qui verifie le niveau d'etude
+  verifMessageniveau_etudesFunction(){
+    if (!this.niveau_etudes) {
+      this.isniveau_etudesValid = false;
+      this.verifMessageniveau_etudes = "Le niveau_etudes est obligatoire"
+    }
+    else if (!this.niveau_etudes.match(this.NomPattern1)) {
+      this.verifMessageniveau_etudes = 'Donner un nom valide';
+    }
+     else {
+      this.isniveau_etudesValid = true;
+      this.verifMessageniveau_etudes = "";
+    }
+  }
+
+  // fonction qui verifie l'email
+  verifMessageemailFunction(){
+    if (!this.email) {
+      this.isemailvalid = false;
+      this.verifMessageisemail = "L'email est obligatoire"
+    }
+    else if (!this.email.match(this.NomPattern1)) {
+      this.verifMessageisemail = 'Donner un email valide';
+    }
+    else {
+      this.isemailvalid = true;
+      this.verifMessageisemail = "";
+    }
+  }
+
+  // fonction qui verifie le password
+  verifMessagepasswordFunction(){
+    if (!this.password) {
+      this.ispasswordValid = false;
+      this.verifMessagepassword = "Le password est obligatoire"
+    }
+    else if (!this.password.match(this.NomPattern1)) {
+      this.verifMessagepassword = 'Donner un password valide';
+    }
+
+    else {
+      this.ispasswordValid = true;
+      this.verifMessagepassword = "";
+    }
+  }
+
+   // fonction qui verifie la filiere
+   verifMessagefiliereFunction(){
+    if (!this.filiere) {
+      this.isfiliereValid = false;
+      this.verifMessagefiliere = "La filiere est obligatoire"
+    }
+    else if (!this.filiere.match(this.NomPattern1)) {
+      this.verifMessagefiliere = 'Donner un nom valide';
+    }
+
+    else {
+      this.isfiliereValid = true;
+      this.verifMessagefiliere = "";
+    }
+  }
+
+  // fonction qui verifie la moyenne
+  verifMessagemoyennesFunction(){
+    if (!this.moyennes) {
+      this.ismoyennesValid = false;
+      this.verifMessagemoyennes = "La moyennes est obligatoire"
+    }
+    else if (isNaN(this.moyennes)) {
+      this.verifMessagemoyennes = 'La moyenne est doit etre un numerique';
+    }
+    else {
+      this.ismoyennesValid = true;
+      this.verifMessagemoyennes = "";
+    }
+  }
+// fonction qui verifie la date de naissance
+  verifMessagedate_naissanceFunction(){
+    if (!this.date_naissance) {
+      this.isdate_naissanceValid = false;
+      this.verifMessagedate_naissance = "La date_naissance est obligatoire"
+    } else {
+      this.isdate_naissanceValid = true;
+      this.verifMessagedate_naissance = "";
+    }
+  }
+
+  verifMessagelieu_naissanceFunction(){
+    if (!this.lieu_naissance) {
+      this.islieu_naissanceValid = false;
+      this.verifMessagelieu_naissance = "Le lieu_naissance est obligatoire"
+    }
+    else if (!this.lieu_naissance.match(this.NomPattern1)) {
+      this.verifMessagelieu_naissance = 'Donner un lieu_naissance valide';
+    }
+    else {
+      this.islieu_naissanceValid = true;
+      this.verifMessagelieu_naissance = "";
+    }
+  }
+
+  verifMessageINEFunction(){
+    if (!this.INE) {
+      this.isINEValid = false;
+      this.verifMessageINE = "Le INE est obligatoire"
+    }
+    // else if (isNaN(this.INE)) {
+    //   this.verifMessageINE = 'Le INE est doit etre un numerique';
+    // }
+    else {
+      this.isINEValid = true;
+      this.verifMessageINE = "";
+    }
+  }
+
+  verifMessageadresseFunction(){
+    if (!this.adresse) {
+      this.isadresseValid = false;
+      this.verifMessageadresse = "L'adresse est obligatoire"
+    }
+    else if (!this.adresse.match(this.NomPattern1)) {
+      this.verifMessageadresse = 'Donner une adresse valide';
+    }
+     else {
+      this.isadresseValid = true;
+      this.verifMessageadresse = "";
+    }
+  }
+
+
   profileForm: FormGroup = this.formbuilder.group({
     nom: ['', Validators.required],
     prenom: ['', Validators.required],
@@ -98,7 +312,7 @@ export class EtudiantsComponent  implements OnInit{
     etudiants.email = this.email;
     etudiants.moyennes = this.moyennes;
     etudiants.filiere = this.filiere;
-    etudiants.lieu_naissance = this.lieu_naissance; 
+    etudiants.lieu_naissance = this.lieu_naissance;
     etudiants.date_naissance = this.date_naissance;
 
     console.log(this.profileForm.value);
@@ -161,11 +375,9 @@ EditEtutudiant(){
  }
 
 
-
-
-
   getEtudiantParMerite(etu: any) {
     this.seletedEtudiantChefPeda = etu;
   }
+
 
 }

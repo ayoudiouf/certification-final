@@ -1,0 +1,99 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <app-sidebarresponsable></app-sidebarresponsable>
+  <!-- Main Component -->
+  <div class="main">
+      <app-header-sidebar></app-header-sidebar>
+      <form action="/search"  method="get">
+        <p>Recherche :<input type="text" id="search" name="q" placeholder="Rechercher..."></p>
+
+        <!-- <input type="submit" value="Rechercher"> -->
+      </form>
+
+      <main class="content px-3 py-2">
+          <!-- COntenue dynamique -->
+          <!-- <div class="container-fluid overflow-y-scroll" style="height: 88vh; ">
+          <h1 class="text text-center">Historique des reclamations</h1>
+           <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+
+              <thead>
+                <tr>
+
+                  <th class="tHead">Objet</th>
+                  <th class="tHead">Message</th>
+                  <th class="tHead">Traitement </th>
+                  <th class="tHead">Action</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="reclamations">
+                <tr *ngFor=" let reclamaton of reclamations">
+                  <td>{{reclamaton.objet}}</td>
+                  <td>{{reclamaton.message}}</td>
+                  <td>{{reclamaton.status}}</td>
+
+
+                  <td><span>
+
+                    <button >
+                      <i
+                      class="fa-solid fa-eye"
+                      data-bs-toggle="modal"
+                      data-bs-target="#detail" (click)="getReclamation(reclamaton)">
+                    </i>
+                    </button>
+                  </span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+          <div class="table-responsive d-grid">
+          <table class="table mt-3 ">
+            <thead>
+              <tr>
+                <th class="tHead">nom</th>
+                <th class="tHead">prenom</th>
+                <!-- <th>niveau_etudes</th> -->
+                <th class="tHead">telephone</th>
+                <th class="tHead">INE</th>
+                <th class="tHead">adresse</th>
+                <th class="tHead">action</th>
+
+                <!-- Ajoutez d'autres colonnes au besoin -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <td>xcvbn,</td>
+                <td>dfghjk</td>
+                <td>dfghjre</td>
+                <td>dfghjk</td>
+                <td>dfghjk</td>
+                <td>dfghjk</td>
+                <!-- <td><span>
+
+                  <button>
+                    <i class="fa-solid fa-ban" (click)="changeEtat(reclamation.id)" style="cursor: pointer;"></i>
+                  </button>
+
+                  <button >
+                    <i
+                    class="fa-solid fa-eye"
+                    data-bs-toggle="modal"
+                    data-bs-target="#detail" (click)="getReclamation(reclamation)">
+                  </i>
+                  </button>
+
+                  <button>
+                    <i class="fa-solid fa-trash" (click)="deleteReclamationChefPavillon(reclamation.id)"></i>
+                  </button>
+                </span></td> -->
+                <!-- Ajoutez d'autres cellules au besoin -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+
+  </div>
+</div>

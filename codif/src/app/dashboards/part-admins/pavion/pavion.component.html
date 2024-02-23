@@ -39,22 +39,9 @@
               <td>
                 <span id="icon" >
                   <button>
-                    <i
-                    class="fa-solid fa-marker"
-                    data-bs-toggle="modal"
-                    data-bs-target="#Modifier"
-                  (click)="chargerPavillon(pavillon)">
-                </i>
+                    <i class="fa-solid fa-marker" data-bs-toggle="modal" data-bs-target="#Modifier"
+                  (click)="chargerPavillon(pavillon)"></i>
                   </button>
-
-                  <button>
-                    <i
-                    class="fa-solid fa-eye"
-                    data-bs-toggle="modal"
-                    data-bs-target="#detail" (click)="getPavillon(pavillon.id)">
-                  </i>
-                  </button>
-
                   <button>
                     <i class="fa-solid fa-trash" (click)="deletePavillon(pavillon.id)"></i>
                   </button>
@@ -77,12 +64,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">
           Ajouter un pavillon
         </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form action="" [formGroup]="profileForm">
@@ -91,9 +73,9 @@
           <div class="mb-3">
             <label for="exampleInputnompavillon" class="form-label">Nom Pavillon</label>
             <input type="text" class="form-control" name="libelle"  id="exampleInputnompavillon"
-              aria-describedby="nompavillonHelp" formControlName="libelle" />
-              <!-- <p class="text-danger">{{verifMessagelibelle}}</p> -->
-              <!-- <div *ngIf="!islibelleValid() && islibelleDirty" class="invalid-feedback">Format libelle invalide</div> -->
+              aria-describedby="nompavillonHelp" formControlName="libelle" (input)="verifMessagelibelleFunction()"/>
+              <p class="text-danger" *ngIf="!islibelleValid">{{verifMessagelibelle}}</p>
+              <p class="text-success" *ngIf="islibelleValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
            <!-- Type Pavillon -->
@@ -109,79 +91,29 @@
 
           <!-- Nobre Chambre -->
           <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label">Nbrs Chambres</label>
-            <input type="text" class="form-control" name="nombres_chambres" id="exampleInputnbrsChambre1"
-             aria-describedby="nbrschambreHelp" formControlName="nombres_etages" />
-             <!-- <p class="text-danger">{{verifMessagenombres_chambres}}</p> -->
-             <!-- <div *ngIf="!isnombres_chambresValid() && isnombres_chambresDirty" class="invalid-feedback">Format nombres_chambres invalide</div> -->
-            <!-- <div id="nbrschambreHelp" class="form-text"></div> -->
+            <label for="exampleInputnbrschambre" class="form-label">Nombres Chambres</label>
+             <select name="type_chambre" id="type_chambre" [(ngModel)]="nombres_chambres" formControlName="nombres_chambres">
+              <option value="200">200</option>
+               <option value="400">400</option>
+               <option value="500">500</option>
+               <option value="600">600</option>
+          </select>
           </div>
           <!-- Nobre Etages -->
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label" >Nbrs Etages</label>
-            <input type="text" class="form-control" name="nombres_etages"
-              id="exampleInputNbrsEtage1" aria-describedby="nbrsetageHelp" formControlName="nombres_chambres" />
-            <div id="nbrsetageHelp" class="form-text"></div>
-            <!-- <p class="text-danger">{{verifMessageisnombres_etagesValid}}</p> -->
-            <!-- <div *ngIf="!isnombres_etagesValid() && isnombres_etagesDirty" class="invalid-feedback">Format nombres_etages invalide</div> -->
-
+            <select name="number" id="type_chambre" [(ngModel)]="nombres_etages" formControlName="nombres_etages">
+              <option value="2">2</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+          </select>
           </div>
 
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="typebutton btn" (click)="ajouterPavillon()">Ajouter</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- The Modal detail-->
-<div class="modal" id="detail">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Details Pavillon</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
-        ></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form action="" [formGroup]="profileForm">
-        <!-- Libelle -->
-        <div class="mb-3">
-          <label for="libelleEdition1" class="form-label">Libelle:{{seletedPavillon.libelle}}</label>
-          <div id="libelleEdition1" class="form-text"></div>
-        </div>
-
-        <!-- Type Pavillon -->
-        <div class="mb-3">
-          <label for="libelleEditionEdition1" class="form-label">Type Pavillon:{{seletedPavillon.type_pavillon}}</label>
-          <div id="libelleEditionEdition1" class="form-text"></div>
-        </div>
-
-        <!-- Nbrs Chambres -->
-        <div class="mb-3">
-          <label for="nombres_chambresEdition2" class="form-label">Nbrs Chambres:{{seletedPavillon.nombres_chambres}}</label>
-          <div id="nombres_chambresEdition2" class="form-text"></div>
-        </div>
-
-        <!-- Nbrs Etages -->
-        <div class="mb-3">
-          <label for="nombres_etagesEdition1" class="form-label">Nbrs Etages:{{seletedPavillon.nombres_etages}}</label>
-          <div id="nombres_etagesEdition" class="form-text"></div>
-        </div>
-      </form>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-          Close
-        </button>
+        <button type="button" class="typebutton btn"  (click)="ajouterPavillon()">Ajouter</button>
       </div>
     </div>
   </div>

@@ -81,72 +81,93 @@
           <!-- Nom -->
           <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="libelle" formControlName="nom" [(ngModel)]="nom" />
+            <input type="text" class="form-control" id="libelle" formControlName="nom" [(ngModel)]="nom" (input)="verifMessagenomFunction()"/>
             <div id="nom" class="form-text"></div>
+            <p class="text-danger" *ngIf="!isnomValid">{{verifMessagenom}}</p>
+            <p class="text-success" *ngIf="isnomValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
             <!-- Prenom -->
             <div class="mb-3">
               <label for="prenom" class="form-label">Prenom</label>
-              <input type="text" class="form-control" id="prenom" formControlName="prenom" [(ngModel)]="prenom" />
+              <input type="text" class="form-control" id="prenom" formControlName="prenom" [(ngModel)]="prenom" (input)="verifMessageprenomFunction()"/>
               <div id="prenom" class="form-text"></div>
+              <p class="text-danger"*ngIf="!isprenomvalid">{{verifMessageisprenom}}</p>
+              <p class="text-success"*ngIf="isprenomvalid"><i class="fa-solid fa-check"></i>exact</p>
             </div>
 
           <!-- Telephone -->
           <div class="mb-3">
             <label for="telephone" class="form-label">Telephone</label>
-            <input type="text" class="form-control" id="telephone" formControlName="telephone" [(ngModel)]="telephone" />
+            <input type="text" class="form-control" id="telephone" formControlName="telephone" [(ngModel)]="telephone" (input)="verifMessagetelephoneFunction()"/>
             <div id="telephone" class="form-text"></div>
+            <p class="text-danger" *ngIf="!istelephoneValid">{{verifMessagetelephone}}</p>
+            <p class="text-success"*ngIf="istelephoneValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
           <!-- Email-->
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" formControlName="email" [(ngModel)]="email" />
+            <input type="text" class="form-control" id="email" formControlName="email" [(ngModel)]="email" (input)="verifMessageemailFunction()"/>
             <div id="email" class="form-text"></div>
+            <p class="text-danger"*ngIf="!isemailvalid">{{verifMessageisemail}}</p>
+            <p class="text-success"*ngIf="isemailvalid"><i class="fa-solid fa-check"></i>exact</p>
+
           </div>
 
           <!-- Password -->
 
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="password" />
+            <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="password" (input)="verifMessagepasswordFunction()"/>
             <div id="password" class="form-text"></div>
+            <p class="text-danger"*ngIf="!ispasswordValid">{{verifMessagepassword}}</p>
+            <p class="text-success"*ngIf="ispasswordValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
            <!-- Filiere -->
            <div class="mb-3">
             <label for="filiere" class="form-label">Filiere</label>
-            <input type="text" class="form-control" id="filiere" formControlName="filiere" [(ngModel)]="filiere" />
+            <input type="text" class="form-control" id="filiere" formControlName="filiere" [(ngModel)]="filiere" (input)="verifMessagefiliereFunction()"/>
             <div id="filiere" class="form-text"></div>
+            <p class="text-danger" *ngIf="!isfiliereValid">{{verifMessagefiliere}}</p>
+            <p class="text-success"*ngIf="isfiliereValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
           <!-- Niveau Etudes -->
           <div class="mb-3">
           <label for="niveau_etude" class="form-label">Niveau Etudes</label>
-          <input type="text" class="form-control" id="niveau_etudes" formControlName="niveau_etudes" [(ngModel)]="niveau_etudes" />
+          <input type="text" class="form-control" id="niveau_etudes" formControlName="niveau_etudes" [(ngModel)]="niveau_etudes" (input)="verifMessageniveau_etudesFunction()"/>
           <div id="niveau_etudes" class="form-text"></div>
+          <p class="text-danger"*ngIf="isniveau_etudesValid">{{verifMessageniveau_etudes}}</p>
+          <p class="text-success"*ngIf="isniveau_etudesValid"><i class="fa-solid fa-check"></i>exact</p>
         </div>
 
           <!-- Moyennes -->
           <div class="mb-3">
             <label for="note" class="form-label">Moyennes</label>
-            <input type="text" class="form-control" id="moyennes" formControlName="moyennes" [(ngModel)]="moyennes" />
+            <input type="text" class="form-control" id="moyennes" formControlName="moyennes" [(ngModel)]="moyennes" (input)="verifMessagemoyennesFunction()"/>
             <div id="moyennes" class="form-text"></div>
+            <!-- <p class="text-danger">{{verifMessagemoyennes}}</p> -->
+            <p class="text-danger" *ngIf="!ismoyennesValid">{{verifMessagemoyennes}}</p>
+            <p class="text-success"*ngIf="ismoyennesValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
            <!-- Lieu-Naissance -->
            <div class="mb-3">
             <label for="lieu_naissance" class="form-label">Lieu Naissance</label>
-            <input type="text" class="form-control" id="lieu_naissance" formControlName="lieu_naissance" [(ngModel)]="lieu_naissance" />
+            <input type="text" class="form-control" id="lieu_naissance" formControlName="lieu_naissance" [(ngModel)]="lieu_naissance" (input)="verifMessagelieu_naissanceFunction()"/>
             <div id="lieu_naissance" class="form-text"></div>
+            <p class="text-danger"*ngIf="!islieu_naissanceValid">{{verifMessagelieu_naissance}}</p>
+            <p class="text-success"*ngIf="islieu_naissanceValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
            <!-- Date-Naissance -->
            <div class="mb-3">
             <label for="date_naissance" class="form-label">Date Naissance</label>
-            <input type="date" class="form-control" name="date_naissance" id="date_naissance" formControlName="date_naissance" [(ngModel)]="date_naissance" />
+            <input type="date" class="form-control" name="date_naissance" id="date_naissance" formControlName="date_naissance" [(ngModel)]="date_naissance" (input)="verifMessagedate_naissanceFunction()"/>
             <div id="date_naissance" class="form-text"></div>
+            <p class="text-danger">{{verifMessagedate_naissance}}</p>
           </div>
            <!-- Sexe -->
           <div class="mb-3">
@@ -161,15 +182,19 @@
            <!--INE  -->
            <div class="mb-3">
             <label for="INE" class="form-label">INE</label>
-            <input type="text" class="form-control" id="INE" formControlName="INE" [(ngModel)]="INE" />
+            <input type="text" class="form-control" id="INE" formControlName="INE" [(ngModel)]="INE" (input)="verifMessageINEFunction()"/>
             <div id="INE" class="form-text"></div>
+            <p class="text-danger"*ngIf="isINEValid">{{verifMessageINE}}</p>
+            <p class="text-success"*ngIf="isINEValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
           <!-- Adresse -->
           <div class="mb-3">
             <label for="adresse" class="form-label">Adresse</label>
-            <input type="text" class="form-control" id="adresse" formControlName="adresse" [(ngModel)]="adresse" />
+            <input type="text" class="form-control" id="adresse" formControlName="adresse" [(ngModel)]="adresse" (input)="verifMessageadresseFunction()"/>
             <div id="adresse" class="form-text"></div>
+            <p class="text-danger"*ngIf="isadresseValid">{{verifMessageadresse}}</p>
+            <p class="text-success"*ngIf="isadresseValid"><i class="fa-solid fa-check"></i>exact</p>
           </div>
 
         </form>

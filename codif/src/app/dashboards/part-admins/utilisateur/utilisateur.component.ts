@@ -45,96 +45,64 @@ export class UtilisateurComponent implements OnInit {
   }
   constructor(private userService: UserService, private formbuilder: FormBuilder, private route: Router) {
   }
+  // Les variables de la vérification
+  isnomValid:boolean = false;
+  verifMessagenom: string = "";
 
-   // Les variables de la vérification
-   isnomValid:boolean = false;
-   verifMessagenom: string = "";
+  isprenomvalid:boolean = false;
+  verifMessageisprenom: string = "";
 
+  istelephoneValid:boolean = false;
+  verifMessagetelephone: string = "";
 
-   isprenomValid:boolean = false;
-   verifMessageprenom: string = "";
+  isemailvalid:boolean = false;
+  verifMessageisemail: string = "";
 
-   isEmailValid:boolean = false;
-   verifMessageEmail: string = "";
-
-
-   validateEmail(email: string): boolean {
-     const emailRegex=/^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
-     return emailRegex.test(email);
-   }
-
-   istelephoneValid:boolean = false;
-   verifMessageistelephoneValid: string = "";
-
-   verifEmailFunction(){
-    this.isEmailValid = this.validateEmail(this.email);
-    if(!this.email){
-      this.verifMessageEmail = "L'email est obligatoire"
-    }
-    if(!this.isEmailValid){
-      this.verifMessageEmail = "Le format de l'email est incorrect";
-    }
-    // else{
-    //     this.verifMessageEmail = "";
-    //     this.isEmailValid = true;
-    //   }
-    if (this.email || this.isEmailValid) {
-      this.verifMessageEmail = "";
-      this.isEmailValid = true;
-    }
-  }
-
-
-   verifMessagenomFunction(){
-
-    // if(this.nom===""){
-    //   this.isnomValid= false;
-    // }
+  verifMessagenomFunction(){
     if(!this.nom){
       this.isnomValid = false;
-      this.verifMessagenom = "Le nom est obligatoire";
-    } else {
+      this.verifMessagenom = "Le nom est obligatoire"
+    } else{
       this.isnomValid = true;
       this.verifMessagenom = "";
     }
+  }
 
-   }
+  verifMessageprenomFunction(){
+    if(!this.prenom){
+      this.isprenomvalid = false;
+      this.verifMessageisprenom = "Le prenom est obligatoire"
+    } else{
+      this.isprenomvalid = true;
+      this.verifMessageisprenom = "";
+    }
+  }
 
-   verifMessageprenomFunction(){
-     if(!this.prenom){
-       this.isprenomValid = false;
-       this.verifMessageprenom = "Le prenom est obligatoire"
-     }
-    //   else{
-    //    this.isprenomValid = true;
-    //    this.verifMessageprenom = "";
-    //  }
-     if (this.prenom) {
-      this.isprenomValid = true;
-       this.verifMessageprenom = "";
-     }
-   }
-
-   verifMessagetelephoneFunction(){
-     if(!this.telephone){
-       this.istelephoneValid = false;
-       this.verifMessageistelephoneValid = "Le numero telephone est obligatoire"
-     }
-    //  else{
-    //   this.istelephoneValid = true;
-    //   this.verifMessageistelephoneValid = "";
-    // }
-     if (this.telephone) {
+  verifMessagetelephoneFunction(){
+    if(!this.telephone){
+      this.istelephoneValid = false;
+      this.verifMessagetelephone = "Le Numéro telephone est obligatoire"
+    } else{
       this.istelephoneValid = true;
-       this.verifMessageistelephoneValid = "";
-     }
+      this.verifMessagetelephone = "";
+    }
 
-   }
+  }
+
+  verifMessageemailFunction(){
+    if (!this.email) {
+      this.isemailvalid = false;
+      this.verifMessageisemail = "L'email est obligatoire"
+    } else {
+      this.isemailvalid = true;
+      this.verifMessageisemail = "";
+    }
+  }
 
   profileForm: FormGroup = this.formbuilder.group({
-    nom: ['', Validators.required,],
+    nom: ['', Validators.required,Validators.minLength(2)],
     prenom: ['', Validators.required,],
-    email: ['', Validators.required,],
+    email: ['', Validators.required,Validators.email],
     password: ['', Validators.required,],
     telephone: ['', Validators.required,],
     status: ['', Validators.required,],

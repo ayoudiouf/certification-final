@@ -46,14 +46,15 @@ export class ConnexionComponent implements OnInit {
   }
   verifEmailFunction(){
     this.isEmailValid = this.validateEmail(this.emailUtilisateur);
-    // if(!this.emailUtilisateur){
-    //   this.verifMessageEmail = "";
-    // } else if(!this.isEmailValid){
-    //   this.verifMessageEmail = "Le format de l'email est incorrect";
-    // } else{
-    //     this.verifMessageEmail = "";
-    //     this.isEmailValid = true;
-    // }
+    if(!this.emailUtilisateur){
+      this.verifMessageEmail = "";
+    } else if(!this.isEmailValid){
+      this.verifMessageEmail = "Le format de l'email est incorrect";
+    } else{
+        this.verifMessageEmail = "";
+        this.isEmailValid = true;
+    }
+
     if (!this.emailUtilisateur) {
       this.verifMessageEmail = "";
     }
@@ -76,10 +77,6 @@ verifPasswordFunction(){
       this.isPasswordValid = true;
     }
 
-    // else{
-    //   this.verifMessagePassword = "";
-    //   this.isPasswordValid = true;
-    // }
 }
 
 

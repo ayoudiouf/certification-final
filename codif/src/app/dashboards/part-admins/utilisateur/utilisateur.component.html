@@ -41,21 +41,15 @@
                   <td>
                   <span id="icon" >
 
-                    <button>
-                      <i
-                      class="fa-solid fa-eye"
-                      data-bs-toggle="modal"
-                      data-bs-target="#details" (click)="getUtilisateur(utilisateur)">
-                    </i>
-                    </button>
+                    <!-- <button> <i class="fa-solid fa-eye"
+                      data-bs-toggle="modal" data-bs-target="#details" (click)="getUtilisateur(utilisateur)"></i>
+                    </button> -->
                     <button>
                     <i class="fa-solid fa-ban" (click)="changeEtat(utilisateur.id)" style="cursor: pointer;"></i>
                   </button>
                     <!-- <button>
-                      <i
-                      class="fa-solid fa-marker" data-bs-toggle="modal" data-bs-target="#Modifier"
-                    (click)="chargerUtilisateur(utilisateur)"></i>
-                    </button> -->
+                      <i class="fa-solid fa-marker" data-bs-toggle="modal" data-bs-target="#Modifier"
+                    (click)="chargerUtilisateur(utilisateur)"></i></button> -->
                   </span>
                 </td>
 
@@ -109,42 +103,34 @@
             <label for="exampleInputpremon" class="form-label">Prenom</label>
             <input type="text" name="prenom" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp" formControlName="prenom" (input)="verifMessageprenomFunction()">
             <div id="premonHelp" class="form-text"></div>
-            <p class="text-danger">{{verifMessageprenom}}</p>
+            <p class="text-danger">{{verifMessageisprenom}}</p>
           </div>
+
+          <!-- email -->
           <div class="mb-3">
             <label for="exampleInputemail" class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp" formControlName="email" (input)="verifEmailFunction()">
+            <input type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp" formControlName="email" (input)="verifMessageemailFunction()">
             <div id="emailHelp" class="form-text"></div>
-            <p class="text-danger">{{verifMessageEmail}}</p>
+            <!-- <p class="text-danger">{{emailValidate}}</p> -->
           </div>
+
+           <!-- email -->
+           <div class="mb-3">
+            <label for="exampleInputpassword" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputpassword1" aria-describedby="passwordHelp" formControlName="password" (input)="verifMessageemailFunction()">
+            <div id="passwordHelp" class="form-text"></div>
+            <!-- <p class="text-danger">{{verifMessageisemail}}</p> -->
+          </div>
+
+          <!-- telephone -->
           <div class="mb-3">
             <label for="exampleInputtelephone" class="form-label">Telephone</label>
             <input type="text" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephonetHelp" formControlName="telephone" (input)="verifMessagetelephoneFunction()">
             <div id="telephonelHelp" class="form-text"></div>
-            <p class="text-danger">{{verifMessageistelephoneValid}}</p>
+            <p class="text-danger">{{verifMessagetelephone}}</p>
 
           </div>
-           <!-- <div class="">
-          <label  class="form-label ">Rôle</label>
-          <input type="texte" name="nomRole" class="form-control" id="exampleInputnomRole" aria-describedby="nomRoletHelp" formControlName="nomRole">
-          <select name="nomRole" id="nomRole"  formControlName="nomRole">
-            <option value="chefPavillon">chefPavillon</option>
-             <option value="chefPedagogique">chefPedagogique</option>
-        </select>
-        </div> -->
 
-
-          <!-- status -->
-          <!-- <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <input type="texte" name="status" class="form-control" id="exampleInputstatus" aria-describedby="statustHelp" formControlName="status">
-
-            <select name="status" id="status"  formControlName="status">
-                <option value="Actif">Actif</option>
-                 <option value="Inactif">Inactif</option>
-            </select>
-            <div id="status" class="form-text"></div>
-          </div> -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
           <button type="button" class="typebutton btn btn-primary" (click)="ajoutUtilisateur()" >Ajouter</button>
@@ -159,73 +145,6 @@
   </div>
 </div>
 
-<!-- The Modal detail-->
-<div class="modal" id="details" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Detail Utilisateur</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
-        ></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form action="" [formGroup]="profileFormEdit">
-        <!-- Nom -->
-        <div class="mb-3">
-          <label for="nom" class="form-label">Nom:{{seletedUtilisateur.nom}}</label>
-
-        </div>
-
-        <!-- prenom Utilisateur -->
-        <div class="mb-3">
-          <label for="prenomEdition" class="form-label">Prenom:{{seletedUtilisateur.prenom}}</label>
-
-        </div>
-
-        <!-- Email  -->
-        <div class="mb-3">
-          <label for="nombres_chambresEdition" class="form-label">Email:{{seletedUtilisateur.email}}</label>
-
-        </div>
-
-        <!-- status -->
-        <div class="mb-3">
-          <label for="statusEdition" class="form-label">Status:{{seletedUtilisateur.status}}</label>
-
-
-        </div>
-
-        <!-- Telephone -->
-        <div class="mb-3">
-          <label for="telephoneEdition" class="form-label">Telephone:{{seletedUtilisateur.telephone}}</label>
-
-
-          <div id="telephoneEdition" class="form-text"></div>
-        </div>
-
-        <!-- Roles_id -->
-        <div class="mb-3">
-          <label for="roles_idEdition" class="form-label">Roles_ID:{{seletedUtilisateur.roles_id}}</label>
-
-        </div>
-      </form>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="editUtilisateur()" >
-          Modifier
-        </button> -->
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- The Modal Modifier-->
 <div class="modal" id="Modifier" >

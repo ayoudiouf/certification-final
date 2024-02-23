@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { ReclamationModel } from 'src/app/models/reclamation';
 import { ReclamationService } from 'src/app/services/reclamation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-demandereclamation',
@@ -27,8 +28,34 @@ export class DemandereclamationComponent implements OnInit{
 
   constructor(private reclamationService: ReclamationService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient){
 
-    // this.getAllReclamationetudiant()
   }
+  // Les variables de la vérification
+  isobjetValid:boolean = false;
+  verifMessageobjet: string = "";
+
+  ismessageValid:boolean = false;
+  verifMessagemessage: string = "";
+
+  verifMessageobjetFunction(){
+    if(!this.objet){
+      this.isobjetValid = false;
+      this.verifMessageobjet = "Le objet est obligatoire"
+    } else{
+      this.isobjetValid = true;
+      this.verifMessageobjet= "";
+    }
+  }
+
+  verifMessagemessageFunction(){
+    if(!this.message){
+      this.ismessageValid = false;
+      this.verifMessagemessage = "Le message est obligatoire"
+    } else{
+      this.ismessageValid = true;
+      this.verifMessagemessage= "";
+    }
+  }
+
   dtOptions: DataTables.Settings = {};
   ngOnInit(): void {
     // const script = document.createElement('script');
@@ -84,15 +111,36 @@ this.newObjet ={
 }
 
 
-deleteReclamationChefEtudiant(id:any) {
-  this.reclamationService.deleteReclamationChefEtudiant(id).subscribe((res: any) => {
-    console.log('la response est ',res);
+// deleteReclamationChefEtudiant(id:any) {
+//   this.reclamationService.deleteReclamationChefEtudiant(id).subscribe((res: any) => {
+//     console.log('la response est ',res);
+//   });
+//   this.getAllReclamationetudiant();
+// }
 
+deleteReclamationChefEtudiant(id: any) {
+  Swal.fire({
+    title: 'Êtes-vous sûr ?',
+    text: 'Vous ne pourrez pas revenir en arrière !',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Oui, supprimer !',
+    cancelButtonText: 'Annuler'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Si l'utilisateur confirme la suppression
+      this.reclamationService.deleteReclamationChefEtudiant(id).subscribe((res: any) => {
+        console.log('la response est ',res);
+     // console.warn("Delete response:", res);
+      });
+      this.getAllReclamationetudiant();
+    }
   });
-  this.getAllReclamationetudiant();
 }
 
-getDemandeReclamation(demande: any) {
-  this.seletedDemandeReclamation = demande;
-  }
+// getDemandeReclamation(demande: any) {
+//   this.seletedDemandeReclamation = demande;
+//   }
 }

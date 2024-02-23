@@ -24,6 +24,8 @@ import { DemandereclamationComponent } from './dashboards/part-etudiant/demander
 import { ChambreComponent } from './dashboards/part-admins/chambre/chambre.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { AuthGuard } from './gards/guard-route.guard';
+import { DashResponsableComponent } from './dashboards/part-responsable/dash-responsable/dash-responsable.component';
+import { EtudiantcassocialComponent } from './dashboards/part-responsable/etudiantcassocial/etudiantcassocial.component';
 
 const routes: Routes = [
   // CanActivate:[/login];
@@ -39,20 +41,20 @@ const routes: Routes = [
   {path : 'sidebar' , component: SitebarComponent},
   {path : 'paiement' , component: PaiementComponent, canActivate: [AuthGuard]},
   {path : 'pavion' , component: PavionComponent, canActivate: [AuthGuard]},
-  {path : 'utilisateur' , component: UtilisateurComponent, canActivate: [AuthGuard]},
-  {path : 'etudiantparmerite' , component: EtudiantParMeriteComponent, canActivate: [AuthGuard]},
+  {path : 'utilisateur' , component: UtilisateurComponent},
+  {path : 'etudiantparmerite' , component: EtudiantParMeriteComponent},
   {path : 'cassocial' , component: CasSocialComponent, canActivate: [AuthGuard]},
   {path : 'gestionchambre' , component: GestionChambreComponent},
   {path : 'reclamation' , component: ReclamationComponent},
   {path : 'listechefpedagogique' , component: EtudiantsComponent, canActivate: [AuthGuard]},
   {path : 'etudiantsidebar' , component: SidebaretudiantComponent},
-  {path : 'etudiantreclamation' , component: DemandereclamationComponent, canActivate: [AuthGuard]},
-  {path : 'payeetudiant' , component: EtudiantpayeComponent, canActivate: [AuthGuard]},
-  // { path: 'FairePayement', component: PaiementComponent },
+  {path : 'etudiantreclamation' , component: DemandereclamationComponent},
+  {path : 'payeetudiant' , component: EtudiantpayeComponent},
+  { path: 'dahresponsable', component: DashResponsableComponent },
 
   {path : 'listchambre' , component: ChambreComponent, canActivate: [AuthGuard]},
   {path : 'connexion' , component: ConnexionComponent},
-  // {path : 'inscription' , component: InscriptionComponent.},
+  {path : 'listeEtudiantCasSos' , component: EtudiantcassocialComponent},
   {path : 'paiementetudiant' , component: PaiementComponent, canActivate: [AuthGuard]},
   {path : '' , redirectTo:'acueil', pathMatch:'full'},
   // { path: '**', component: MaintenanceComponent },

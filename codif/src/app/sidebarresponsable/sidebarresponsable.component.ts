@@ -1,0 +1,50 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { UserService } from '../services/user.service';
+
+@Component({
+  selector: 'app-sidebarresponsable',
+  templateUrl: './sidebarresponsable.component.html',
+  styleUrls: ['./sidebarresponsable.component.css']
+})
+export class SidebarresponsableComponent {
+
+  constructor(private userService: UserService, private router:Router){
+
+  }
+
+  logout(){
+    let admin = {
+      email: "admin@gmail.com",
+      password: "admin123@"
+    };
+
+    Swal.fire({
+      title: "Êtes-vous sûr de vouloir vous déconnecter ?",
+      text: "Vous ne pourrez pas revenir en arrière !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FA7436",
+      cancelButtonColor: "#FA0436",
+      confirmButtonText: "Oui, me déconnecter"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.logout(admin).subscribe(
+          (response:any) => {
+            console.log(response);
+            localStorage.removeItem('userOnline');
+            console.log(response);
+            this.router.navigate(['/acueil']);
+          })
+        Swal.fire({
+          title: "Déconnexion!",
+          text: "Vous vous etes déconnecté avec succés",
+          icon: "success"
+        });
+      }
+    });
+
+  }
+
+}

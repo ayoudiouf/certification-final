@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReclamationModel } from 'src/app/models/reclamation';
 import { ReclamationService } from 'src/app/services/reclamation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reclamation',
@@ -65,9 +66,9 @@ export class ReclamationComponent implements OnInit{
 
 
 // La méthode qui permet de lire les details d'une réclamation
-  getReclamation(pavillon: any) {
-    this.seletedReclamation = pavillon;
-  }
+  // getReclamation(pavillon: any) {
+  //   this.seletedReclamation = pavillon;
+  // }
 
   // La méthode qui permet de changer l'état d'une réclamation
   changeEtat(id: number) {
@@ -87,33 +88,39 @@ export class ReclamationComponent implements OnInit{
     )
   }
 
-  deleteReclamationChefPavillon(id:any) {
-    this.reclamationService.deleteReclamationChefPavillon(id).subscribe((res: any) => {
-      console.log('la response est ',res);
+  // deleteReclamationChefPavillon(id:any) {
+  //   this.reclamationService.deleteReclamationChefPavillon(id).subscribe((res: any) => {
+  //     console.log('la response est ',res);
 
+  //   });
+  //   this.getAllReclamation();
+  // }
+
+  deleteReclamationChefPavillon(id: any) {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Vous ne pourrez pas revenir en arrière !',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si l'utilisateur confirme la suppression
+        this.reclamationService.deleteReclamationChefPavillon(id).subscribe((res: any) => {
+          console.log('la response est ',res);
+       // console.warn("Delete response:", res);
+        });
+        this.getAllReclamation();
+      }
     });
-    this.getAllReclamation();
-  }
   }
 
+  }
 
 
-
-  // getAllReclamations() {
-  //   this.reclamationService.getAllReclamation().subscribe((reponse: any) => {
-  //     // console.log('la reponse du baken est ',reponse)
-  //     if ([reponse][0] ['Array'].length != 0) {
-  //       this.reclamations = [reponse][0] ['Array'];
-  //       console.log('je suis une reclamation' ,this.reclamations);
-  //     }
-  //     },
-  //     (error) => {
-  //       console.error('Erreur lors de la récupération des briefs', error);
-  //     }
-  //   );
-
-
-  //   };
 
 
 

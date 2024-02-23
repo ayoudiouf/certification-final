@@ -45,12 +45,12 @@
 
                   <td>
                     <span id="icon" >
-                      <button>
+                      <!-- <button>
                         <i
                         class="fa-solid fa-eye" data-bs-toggle="modal"
                         data-bs-target="#detailsEtudiants" (click)="getEtudiantParMeriteAdmin(etudiantParMerite)">
                       </i>
-                      </button>
+                      </button> -->
                       <button>
                         <i class="fa-solid fa-square-check" (click)="validerEttudiant(etudiantParMerite.id)">
                         </i>
@@ -69,7 +69,7 @@
               </tbody>
             </table>
 
-            <!-- <table *ngIf="etudiantParMerites.length <0">
+            <table *ngIf="etudiantParMerites.length <0">
               <thead>
                   <tr>
                       <th>nom</th>
@@ -87,7 +87,7 @@
                       <td colspan="7">Aucune donnée disponible au niveau du tableau</td>
                   </tr>
               </tbody>
-            </table> -->
+            </table>
           </div>
       </main>
   </div>
@@ -190,68 +190,4 @@
   </div>
 </div>
 
-<!-- modal detail Etudiant -->
-<div class="modal fade" id="detailsEtudiants" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Détail etudiant par odre de mérite</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="" >
 
-          <!-- Nom -->
-          <div class="mb-3">
-            <label for="exampleInputtypenom" class="form-label">Nom: {{seletedEtudiantParMeriteAdmin.nom}}</label>
-          </div>
-
-           <!-- Prenom -->
-          <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label">Prenom: {{seletedEtudiantParMeriteAdmin.prenom}}</label>
-          </div>
-
-           <!-- Email -->
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Email: {{seletedEtudiantParMeriteAdmin.email}}</label>
-          </div>
-
-           <!-- Telephone -->
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Telephone: {{seletedEtudiantParMeriteAdmin.telephone}}</label>
-          </div>
-
-           <!-- INE -->
-          <div class="mb-3">
-            <label for="exampleInputINE" class="form-label">INE: {{seletedEtudiantParMeriteAdmin.INE}}</label>
-          </div>
-
-           <!-- Niveau_Etudes -->
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Niveau_Etudes: {{seletedEtudiantParMeriteAdmin.niveau_etudes}}</label>
-          </div>
-
-          <!-- Filiere -->
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Filiere: {{seletedEtudiantParMeriteAdmin.filiere}}</label>
-          </div>
-
-          <!-- Sexe -->
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Sexe: {{seletedEtudiantParMeriteAdmin.sexe}}</label>
-          </div>
-
-          <!-- Adresse -->
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Adresse: {{seletedEtudiantParMeriteAdmin.adresse}}</label>
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button  " class="btn btn-danger" data-bs-dismiss="modal">close</button>
-
-      </div>
-    </div>
-  </div>
-</div>

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PavillonModel } from 'src/app/models/pavillon';
 import { PavillonService } from 'src/app/services/pavion.service';
+import Swal from 'sweetalert2';
 // import 'datatables.net';
 
 @Component({
@@ -12,76 +13,24 @@ import { PavillonService } from 'src/app/services/pavion.service';
   styleUrls: ['./pavillon.component.css']
 })
 export class PavionComponent implements OnInit {
-  [x: string]: any;
-  // nameRegex=/^[a-zA-Z][a-zA-Z -]{1,100}$/;
-
-// Les variables de la vérification
-  islibelleValid:boolean = false;
-  verifMessagelibelle: string = "";
-
-  isnombres_chambresValid:boolean = false;
-  verifMessagenombres_chambres: string = "";
-
-  isnombres_etagesValid:boolean = false;
-  verifMessageisnombres_etagesValid: string = "";
-
-  verifMessagelibelleFunction(){
-    this.islibelleValid = false;
-    if (this.libelle=='') {
-      this.verifMessagelibelle='';
-    }
-    if(!this.libelle){
-      // this.islibelleValid = false
-      this.verifMessagelibelle = "Le nom du libelle est obligatoire"
-    }
-
-    if (this.libelle) {
-      this.islibelleValid = true;
-      this.verifMessagelibelle = "";
-    }
-    // else{
-    //   this.islibelleValid = true;
-    //   this.verifMessagelibelle = "";
-    // }
-
-  }
-
-  verifMessagenombres_chambresFunction(){
-    if(!this.nombres_chambres){
-      this.isnombres_chambresValid = false;
-      this.verifMessagenombres_chambres = "Le champ est obligatoire"
-    } else{
-      this.isnombres_chambresValid = true;
-      this.verifMessagenombres_chambres = "";
-    }
-  }
-
-  verifMessageisnombres_etagesValidFunction(){
-    if(!this.nombres_etages){
-      this.isnombres_etagesValid = false;
-      this.verifMessageisnombres_etagesValid = "Le champ est obligatoire"
-    } else{
-      this.isnombres_etagesValid = true;
-      this.verifMessageisnombres_etagesValid = "";
-    }
-  }
+  // [x: string]: any;
+  dtOptions: DataTables.Settings = {};
 
   selectedPavillon:any;
-  dtOptions: DataTables.Settings = {};
-  libelle: string='';
+  libelle: any;
   type_pavillon: any;
   nombres_etages: any;
   nombres_chambres: any;
   pavillons:PavillonModel=new PavillonModel()
-
-
-
-  libelle_pavillon: any = "";
-  type_pavillon_pavillon: any = "";
-  nombres_etages_pavillon: any = "";
-  nombres_chambres_pavillon: any = "";
   tabpavillons: any;
   pavillonModel: any;
+
+
+
+  // libelle_pavillon: any = "";
+  // type_pavillon_pavillon: any = "";
+  // nombres_etages_pavillon: any = "";
+  // nombres_chambres_pavillon: any = "";
 
 
   ngOnInit(): void {
@@ -103,6 +52,27 @@ export class PavionComponent implements OnInit {
 
   }
 
+  // Les variables de la vérification
+  islibelleValid:boolean = false;
+  verifMessagelibelle: string = "";
+
+  NomPattern1 = /^[a-zA-Z ]+$/;
+
+  verifMessagelibelleFunction(){
+    if(!this.libelle){
+      this.islibelleValid = false;
+      this.verifMessagelibelle = "Le libelle est obligatoire"
+    }
+    else if (!this.libelle.match(this.NomPattern1)) {
+      this.verifMessagelibelle = 'Donner un libelle valide';
+    }
+
+    else{
+      this.islibelleValid = true;
+      this.verifMessagelibelle = "";
+    }
+  }
+
   profileForm: FormGroup = this.formbuilder.group({
     libelle: ['', Validators.required],
     type_pavillon: ['', Validators.required],
@@ -121,7 +91,7 @@ export class PavionComponent implements OnInit {
   // fonction pour ajouter
   ajouterPavillon() {
     const pavillon = new PavillonModel();
-    pavillon.libelle = this.libelle_pavillon;
+    pavillon.libelle = this.libelle;
     pavillon.type_pavillon = this.type_pavillon;
     pavillon.nombres_etages = this.nombres_etages;
     pavillon.nombres_chambres = this.nombres_chambres
@@ -173,17 +143,46 @@ export class PavionComponent implements OnInit {
     this.getPavillons();
   }
 
-  deletePavillon(id:any) {
-    this.Pavillonservice.deletePavillon(id).subscribe((res: any) => {
-      console.log('la response est ',res);
+  // deletePavillon(id:any) {
+  //   this.Pavillonservice.deletePavillon(id).subscribe((res: any) => {
+  //     console.log('la response est ',res);
 
+  //   });
+  //   this.getPavillons();
+  // }
+  // deletePavillon(id: any) {
+  //   const confirmation = window.confirm("Êtes-vous sûr de vouloir supprimer ce pavillon ?");
+  //   if (confirmation) {
+  //     this.Pavillonservice.deletePavillon(id).subscribe((res: any) => {
+  //       console.log('la response est ',res);
+  //       // Mettre à jour ou traiter toute autre logique après la suppression
+  //     });
+  //     this.getPavillons();
+  //   }
+  // }
+
+  deletePavillon(id: any) {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Vous ne pourrez pas revenir en arrière !',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si l'utilisateur confirme la suppression
+        this.Pavillonservice.deletePavillon(id).subscribe((res: any) => {
+          console.log('la response est ',res);
+          // Mettre à jour ou traiter toute autre logique après la suppression
+        });
+        this.getPavillons();
+      }
     });
-    this.getPavillons();
   }
 
-  getPavillon(pavillon: any) {
-    this.seletedPavillon = pavillon;
-  }
 
 
 }

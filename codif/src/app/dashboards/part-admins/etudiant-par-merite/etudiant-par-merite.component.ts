@@ -37,7 +37,6 @@ throw new Error('Method not implemented.');
 
 
   ngOnInit(): void {
-
     this.getAllEtudiantParMeriteadmin();
 
     this.dtOptions = {
@@ -117,9 +116,9 @@ throw new Error('Method not implemented.');
     });
   }
 // fonction qui permet de voir les detail
-  getEtudiantParMeriteAdmin(etudiant: any) {
-    this.seletedEtudiantParMeriteAdmin = etudiant;
-  }
+  // getEtudiantParMeriteAdmin(etudiant: any) {
+  //   this.seletedEtudiantParMeriteAdmin = etudiant;
+  // }
 
 
 // fonction qui permet de valider un etudiant

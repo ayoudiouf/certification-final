@@ -21,8 +21,8 @@
 
                       <button type="button" data-bs-toggle="modal" data-bs-target="#fairesaDemande" style="background-color: #A41034; color: white; width: 20%;height: 40px; border-radius: 10px; margin-top: 20px; ">Faire une Réclamation</button>
                       <h1 class="titre text-black text-center">Historique des Réclamations</h1>
-                      <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
-                        <!-- *ngIf="reclamations.length >0" -->
+                      <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table"*ngIf="reclamations.length >0">
+
 
                         <thead>
                           <tr>
@@ -42,9 +42,9 @@
 
                             <td><span>
                               <div  class="d-flex gap-2">
-                                <button>
+                                <!-- <button>
                                   <i class="fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#detail" (click)="getDemandeReclamation(reclamation)"></i>
-                                </button>
+                                </button> -->
                                 <button >
                                   <i class="fa-solid fa-trash" (click)="deleteReclamationChefEtudiant(reclamation.id)"></i>
                                 </button>
@@ -87,40 +87,21 @@
       </div>
       <div class="modal-body">
 
-        <!-- <div class="mb-3">
-          <label for="objet" class="form-label">Objet</label>
-          <select class="form-select" id="objet">
-              <option value="1">Réparation électricité chambre A3</option>
-              <option value="2">Réparation portail chambre A3</option>
-              <option value="3">Autre</option>
-          </select>
-      </div> -->
-
+        <!-- bojet -->
       <div class="mb-3">
         <label for="exampleInputmessage" class="form-label">Objet</label>
-        <input type="test" class="form-control" placeholder="votre objet" name="objet" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.objet">
+        <input type="test" class="form-control" placeholder="votre objet" name="objet" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.objet" (input)="verifMessageobjetFunction()">
         <div id="nompavionHelp" class="form-text"></div>
+        <p class="text-danger">{{verifMessageobjet}}</p>
       </div>
 
+      <!-- message -->
           <div class="mb-3">
             <label for="exampleInputmessage" class="form-label">Message</label>
-            <input type="test" class="form-control" name="message" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.message">
+            <input type="test" class="form-control" name="message" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.message" (input)="verifMessagemessageFunction()">
             <div id="nompavionHelp" class="form-text"></div>
+            <p class="text-danger">{{verifMessagemessage}}</p>
           </div>
-
-
-          <!-- <div class="mb-3">
-            <label for="exampleInputid" class="form-label">Statut</label>
-            <input type="text" class="form-control" name="status" id="exampleInputId1" aria-describedby="idHelp">
-            <div id="idHelp" class="form-text"></div>
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleInputchambres_id" class="form-label">Chambres</label>
-            <input type="text" class="form-control" name="chambres_id" id="exampleInputId1" aria-describedby="chambres_idHelp">
-            <div id="chambres_id" class="form-text"></div>
-          </div> -->
-
 
       </div>
       <div class="modal-footer">
@@ -131,51 +112,5 @@
   </div>
 </div>
 
-<!-- Details Reclamationt -->
-<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter les etudiant par odre de mérite</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
 
-          <!-- Objet -->
-          <div class="mb-3">
-            <label for="exampleInputnom" class="form-label">Objet:{{seletedDemandeReclamation.objet}}</label>
-            <div id="nomHelp" class="form-text"></div>
-          </div>
-          <div class="mb-3">
-
-            <!-- Message -->
-            <label for="exampleInputpremon" class="form-label">Message:{{seletedDemandeReclamation.message}}</label>
-            <div id="premonHelp" class="form-text"></div>
-          </div>
-
-          <!-- Chambres_id -->
-          <!-- <div class="mb-3">
-            <label for="exampleInputtelephone" class="form-label">Chambres_id:{{seletedDemandeReclamation.chambres_id}}</label>
-            <div id="telephoneHelp" class="form-text"></div>
-          </div> -->
-
-          <!-- Status -->
-          <div class="mb-3">
-            <label for="exampleInputstatut" class="form-label">Status:{{seletedDemandeReclamation.status}}</label>
-            <div id="etudeHelp" class="form-text"></div>
-          </div>
-
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-          Close
-        </button>
-
-      </div>
-    </div>
-  </div>
-</div>
 

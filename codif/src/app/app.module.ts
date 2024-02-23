@@ -39,6 +39,10 @@ import { PavionComponent } from './dashboards/part-admins/pavion/pavion.componen
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { authGuard } from './auth.guard';
 import { AuthGuard } from './gards/guard-route.guard';
+import { SidebarresponsableComponent } from './sidebarresponsable/sidebarresponsable.component';
+// import { PartResponsableComponent } from './dashResponsable/part-responsable/part-responsable.component';
+import { EtudiantcassocialComponent } from './dashboards/part-responsable/etudiantcassocial/etudiantcassocial.component';
+import { DashResponsableComponent } from './dashboards/part-responsable/dash-responsable/dash-responsable.component';
 // import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/cnnexion.component';
 // import { InscriptionComponent } from './inscription/inscription.component';
 
@@ -75,6 +79,10 @@ import { AuthGuard } from './gards/guard-route.guard';
     ConnexionComponent,
     PavionComponent,
     MaintenanceComponent,
+    SidebarresponsableComponent,
+    // PartResponsableComponent,
+    EtudiantcassocialComponent,
+    DashResponsableComponent,
 
   ],
   imports: [

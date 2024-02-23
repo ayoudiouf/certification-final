@@ -1,0 +1,41 @@
+<aside id="sidebar" class="border border-1  h-100" style="background-color: #A41034;">
+  <div class="h-100">
+      <div class="sidebar-logo container">
+          <a href="#"><img src="https://i.pinimg.com/474x/e3/36/7b/e3367b39f28523af81d2f35949a4775d.jpg" alt=""></a>
+      </div>
+      <!-- Sidebar Navigation -->
+      <ul class="sidebar-nav">
+          <li class="sidebar-header mb-3">
+              Responsable
+          </li>
+          <li class="sidebar-item mb-3">
+            <a routerLink="/dahresponsable" routerLinkActive="activeMenu" class="sidebar-link collapsed text-decoration-none" >
+                <i class="fa-solid fa-sliders pe-2"></i>
+                Dashboard
+            </a>
+        </li>
+
+
+          <li class="sidebar-item mb-3">
+              <a routerLink="/listeEtudiantCasSos" routerLinkActive="activeMenu" class="sidebar-link collapsed text-decoration-none" >
+                  <i class="fa-regular fa-user pe-2"></i>
+                  <!-- <i class="fa-solid fa-warehouse-full"></i> -->
+                  Etudiant Cas Social
+              </a>
+          </li>
+
+
+      </ul>
+      <li class="sidebar-item mb-3">
+        <a routerLink="/connexion" routerLinkActive="activeMenu" class="sidebar-link text-decoration-none">
+          <i (click)="logout()"  class="fa-solid fa-right-from-bracket"></i>
+            Deconnexion
+        </a>
+    </li>
+      <!-- <div><i class="fa-solid fa-right-from-bracket"></i></div> -->
+      <!-- <div class="m-lg-4 mb-3 text-white"><i (click)="logout()"  class="fa-solid fa-right-from-bracket"></i>Déconnexion</div> -->
+  </div>
+</aside>
+
+
+

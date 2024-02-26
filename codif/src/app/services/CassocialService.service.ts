@@ -13,15 +13,22 @@ export class CassocialService {
 
   // La liste des EtudiantCasSocial
   getAllEtudiantCasSocial() {
-    return this.http.get(`${url_base}listesEtudiantsCasSocial`);
+    return this.http.get(`${url_base}admin/listesEtudiantsCasSocial`);
   }
 
-
+  getdelegueAllEtudiantCasSocial() {
+    return this.http.get(`${url_base}delegues/listesEtudiantsCasSocial`);
+  }
 
   constructor(private http : HttpClient) { }
   ajouterEtudiantCasSocial(pav:any){
 
-  return this.http.post(`${url_base}ajoutEtudiant/CasSocial/${1}`,pav);
+  return this.http.post(`${url_base}ajoutEtudiant/CasSocial`,pav);
+
+}
+
+validerEtudiant(id: any){
+  return this.http.put(`${url_base}ValiderEtudiant/update/${id}`, {});
 
 }
 

@@ -7,10 +7,10 @@
     <main class="content px-3 py-2">
       <!-- COntenue dynamique -->
       <div class="container-fluid overflow-y-scroll" style="height: 88vh">
-        <h1 class="text text-black text-center">Liste des pavillons</h1>
+        <h1 class="text text-black text-center">#Liste des pavillons</h1>
         <button
-          type="button " data-bs-toggle="modal" data-bs-target="#ajouterPavillon" style="
-            background-color: #a41034; color: white; width: 10%; height: 40px; border-radius: 10px;" >  Ajouter
+          type="button" data-bs-toggle="modal" data-bs-target="#ajouterPavillon" style="
+            background-color: #a41034; color: white; width: 10%; height: 40px; border-radius: 10px; margin-top: 20px;" >  Ajouter
         </button>
 
         <table
@@ -67,21 +67,19 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" [formGroup]="profileForm">
+        <!-- <form action=""> -->
 
            <!-- Nom Pavillon -->
           <div class="mb-3">
-            <label for="exampleInputnompavillon" class="form-label">Nom Pavillon</label>
-            <input type="text" class="form-control" name="libelle"  id="exampleInputnompavillon"
-              aria-describedby="nompavillonHelp" formControlName="libelle" (input)="verifMessagelibelleFunction()"/>
-              <p class="text-danger" *ngIf="!islibelleValid">{{verifMessagelibelle}}</p>
-              <p class="text-success" *ngIf="islibelleValid"><i class="fa-solid fa-check"></i>exact</p>
+            <label for="exampleInputnompavillon" class="form-label">Nom Pavillon<span class="span_validate" id="validationLibelle"></span></label>
+            <input type="text" class="form-control" name="libelle" [(ngModel)]="libelle"  (input)="libelleValidate()"/>
+
           </div>
 
            <!-- Type Pavillon -->
           <div class="mb-3">
-            <label for="type_pavillon" class="form-label">Type_pavillon</label>
-            <select name="type_chambre" id="type_chambre" [(ngModel)]="type_pavillon" formControlName="type_pavillon">
+            <label for="type_pavillon" class="form-label">Type_pavillon<span class="span_validate" id="validationTypepavillon"></span></label>
+            <select class="form-control" name="type_chambre" id="type_chambre" [(ngModel)]="type_pavillon" (input)="pavillonValidate()">
                 <option value="Homme">Homme</option>
                  <option value="Femme">Femme</option>
                  <option value="Mixte">Mixte</option>
@@ -89,31 +87,28 @@
             <div id="type_pavillon" class="form-text"></div>
           </div>
 
-          <!-- Nobre Chambre -->
+          <!-- Nombre Chambre -->
           <div class="mb-3">
-            <label for="exampleInputnbrschambre" class="form-label">Nombres Chambres</label>
-             <select name="type_chambre" id="type_chambre" [(ngModel)]="nombres_chambres" formControlName="nombres_chambres">
-              <option value="200">200</option>
-               <option value="400">400</option>
-               <option value="500">500</option>
-               <option value="600">600</option>
-          </select>
+            <label for="exampleInputnbrschambre" class="form-label">Nombres Chambres<span class="span_validate" id="validationNombrechambre"></span></label>
+             <input class="form-control" name="type_chambre" id="type_chambre" [(ngModel)]="nombres_chambres" (input)="nombrechambreValidate()">
+
           </div>
           <!-- Nobre Etages -->
           <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label" >Nbrs Etages</label>
-            <select name="number" id="type_chambre" [(ngModel)]="nombres_etages" formControlName="nombres_etages">
+            <label for="exampleInputnbrsetage" class="form-label" >Nombres Etages<span class="span_validate" id="validationNombreEtage"></span></label>
+            <select class="form-control" name="number" id="type_chambre" [(ngModel)]="nombres_etages" (input)="nombreetagesValidate()">
               <option value="2">2</option>
+              <option value="2">3</option>
                <option value="4">4</option>
                <option value="5">5</option>
           </select>
           </div>
 
-        </form>
+        <!-- </form> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="typebutton btn"  (click)="ajouterPavillon()">Ajouter</button>
+        <button type="button" class="typebutton btn"  (click)="ajouterPavillon()"[disabled]="truthyTab.length<3">Ajouter</button>
       </div>
     </div>
   </div>
@@ -125,52 +120,52 @@
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modifier Pavillon</h4>
+        <h4 class="modal-title">Modification Pavillon</h4>
         <button type="button" class="btn-close" data-bs-dismiss="Modifier"
         ></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action="" [formGroup]="profileFormEdit">
+        <!-- <form action=""> -->
         <!-- Libelle -->
         <div class="mb-3">
-          <label for="libelleEdition" class="form-label">Libelle</label>
-          <input type="text" class="form-control"  id="libelleEdition" aria-describedby="nompavillonHelp2" formControlName="libelleEdition" name="libelle" [(ngModel)]="libelle" />
+          <label for="libelleEdition" class="form-label">Libelle<span class="span_validate" id="validationLibelle"></span></label>
+          <input type="text" class="form-control"  id="libelleEdition" name="libelle" [(ngModel)]="libelle" (input)="libelleValidate()"/>
           <div id="libelleEdition" class="form-text"></div>
         </div>
 
         <!-- Type Pavillon -->
         <div class="mb-3">
-          <label for="libelleEditionEdition" class="form-label">Type Pavillon</label>
-          <input type="text" class="form-control" name="type_pavillon" id="exampleInputTypeChambre1" aria-describedby="typepavillonHelp" formControlName="type_pavillonEdition" [(ngModel)]="type_pavillon" />
+          <label for="libelleEditionEdition" class="form-label">Type Pavillon<span class="span_validate" id="validationTypepavillon"></span></label>
+          <input type="text" class="form-control" name="type_pavillon" id="exampleInputTypeChambre1" [(ngModel)]="type_pavillon" (input)="pavillonValidate()" />
           <div id="libelleEditionEdition" class="form-text"></div>
         </div>
 
         <!-- Nbrs Chambres -->
         <div class="mb-3">
-          <label for="nombres_chambresEdition" class="form-label">Nbrs Chambres</label>
-          <input type="text" class="form-control" id="nombres_chambresEdition" aria-describedby="nombres_chambresEdition"  name="nombres_etages" formControlName="nombres_etagesEdition"[(ngModel)]="nombres_etages"/>
+          <label for="nombres_chambresEdition" class="form-label">Nombres Chambres<span class="span_validate" id="validationNombrechambre"></span></label>
+          <input type="text" class="form-control" id="nombres_chambresEdition"  name="nombres_etages"[(ngModel)]="nombres_etages" (input)="nombrechambreValidate()"/>
           <div id="nombres_chambresEdition" class="form-text"></div>
         </div>
 
         <!-- Nbrs Etages -->
         <div class="mb-3">
-          <label for="nombres_etagesEdition" class="form-label">Nbrs Etages</label>
-          <input type="text" class="form-control" name="nombres_etages" id="nombres_etagesEdition" aria-describedby="nbrsetageHelp" formControlName="nombres_chambresEdition" [(ngModel)]="nombres_chambres" />
+          <label for="nombres_etagesEdition" class="form-label">Nombres Etages<span class="span_validate" id="validationNombreEtage"></span></label>
+          <input type="text" class="form-control" name="nombres_etages" id="nombres_etagesEdition"   [(ngModel)]="nombres_chambres" (input)="nombreetagesValidate()"/>
 
           <div id="nombres_etagesEdition" class="form-text"></div>
         </div>
-      </form>
+      <!-- </form> -->
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="editerPavillon()" >
+        <button type="button" class="btn warning" data-bs-dismiss="modal" (click)="editerPavillon()" >
           Modifier
         </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-          Close
+          Annuler
         </button>
       </div>
     </div>

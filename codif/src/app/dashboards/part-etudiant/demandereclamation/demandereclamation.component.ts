@@ -24,36 +24,11 @@ export class DemandereclamationComponent implements OnInit{
   ReclamationModel: any;
   seletedDemandeReclamation: any;
   // ReclamationService: any;
+  public truthyTab: any[] = [];
 
 
   constructor(private reclamationService: ReclamationService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient){
 
-  }
-  // Les variables de la vérification
-  isobjetValid:boolean = false;
-  verifMessageobjet: string = "";
-
-  ismessageValid:boolean = false;
-  verifMessagemessage: string = "";
-
-  verifMessageobjetFunction(){
-    if(!this.objet){
-      this.isobjetValid = false;
-      this.verifMessageobjet = "Le objet est obligatoire"
-    } else{
-      this.isobjetValid = true;
-      this.verifMessageobjet= "";
-    }
-  }
-
-  verifMessagemessageFunction(){
-    if(!this.message){
-      this.ismessageValid = false;
-      this.verifMessagemessage = "Le message est obligatoire"
-    } else{
-      this.ismessageValid = true;
-      this.verifMessagemessage= "";
-    }
   }
 
   dtOptions: DataTables.Settings = {};
@@ -83,7 +58,7 @@ getAllReclamationetudiant() {
 }
 
 formrecla : any = {
-  objet :"",
+  objet :  "",
   message : "",
 }
 
@@ -94,7 +69,7 @@ newObjet : any= {
  FaireUneReclamation() {
   console.log("voir donneee", this.formrecla);
 
-this.newObjet ={
+   this.newObjet ={
   objet : this.formrecla.objet,
   message : this.formrecla.message
 }
@@ -143,4 +118,53 @@ deleteReclamationChefEtudiant(id: any) {
 // getDemandeReclamation(demande: any) {
 //   this.seletedDemandeReclamation = demande;
 //   }
+
+objetValidate() {
+  let validationPrenom = document.getElementById('validationObjet');
+  const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+  if (nomPrenomRegex.test(this.objet)) {
+    // console.log(nomPrenomRegex.test(this.prenom));
+    validationPrenom!.innerHTML = 'Valide';
+    validationPrenom!.classList.remove('error');
+    validationPrenom!.classList.add('success');
+    if (this.truthyTab.find((value: any) => value.objet == true) == undefined) {
+      this.truthyTab.push({ objet: true });
+    }
+  } else {
+    // console.log(nomPrenomRegex.test(this.prenom));
+    validationPrenom!.innerHTML = 'Invalide';
+    validationPrenom!.classList.remove('success');
+    validationPrenom!.classList.add('error');
+    if (this.truthyTab.find((value: any) => value.objet == true) != undefined) {
+      this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.objet == true), 1);
+    }
+  }
+  if (this.objet == "") {
+    validationPrenom!.innerHTML = "";
+  }
+}
+messageValidate() {
+  let validationPrenom = document.getElementById('validationMessage');
+  const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+  if (nomPrenomRegex.test(this.message)) {
+    // console.log(nomPrenomRegex.test(this.prenom));
+    validationPrenom!.innerHTML = 'Valide';
+    validationPrenom!.classList.remove('error');
+    validationPrenom!.classList.add('success');
+    if (this.truthyTab.find((value: any) => value.message == true) == undefined) {
+      this.truthyTab.push({ message: true });
+    }
+  } else {
+    // console.log(nomPrenomRegex.test(this.prenom));
+    validationPrenom!.innerHTML = 'Invalide';
+    validationPrenom!.classList.remove('success');
+    validationPrenom!.classList.add('error');
+    if (this.truthyTab.find((value: any) => value.message == true) != undefined) {
+      this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.message == true), 1);
+    }
+  }
+  if (this.message == "") {
+    validationPrenom!.innerHTML = "";
+  }
+}
 }

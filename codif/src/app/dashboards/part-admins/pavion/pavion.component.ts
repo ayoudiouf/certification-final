@@ -15,22 +15,24 @@ import Swal from 'sweetalert2';
 export class PavionComponent implements OnInit {
   // [x: string]: any;
   dtOptions: DataTables.Settings = {};
+  public truthyTab: any[] = [];
 
   selectedPavillon:any;
   libelle: any;
   type_pavillon: any;
   nombres_etages: any;
   nombres_chambres: any;
-  pavillons:PavillonModel=new PavillonModel()
   tabpavillons: any;
   pavillonModel: any;
 
+  pavillons:PavillonModel=new PavillonModel()
 
 
   // libelle_pavillon: any = "";
   // type_pavillon_pavillon: any = "";
   // nombres_etages_pavillon: any = "";
   // nombres_chambres_pavillon: any = "";
+
 
 
   ngOnInit(): void {
@@ -52,26 +54,8 @@ export class PavionComponent implements OnInit {
 
   }
 
-  // Les variables de la vérification
-  islibelleValid:boolean = false;
-  verifMessagelibelle: string = "";
 
-  NomPattern1 = /^[a-zA-Z ]+$/;
 
-  verifMessagelibelleFunction(){
-    if(!this.libelle){
-      this.islibelleValid = false;
-      this.verifMessagelibelle = "Le libelle est obligatoire"
-    }
-    else if (!this.libelle.match(this.NomPattern1)) {
-      this.verifMessagelibelle = 'Donner un libelle valide';
-    }
-
-    else{
-      this.islibelleValid = true;
-      this.verifMessagelibelle = "";
-    }
-  }
 
   profileForm: FormGroup = this.formbuilder.group({
     libelle: ['', Validators.required],
@@ -91,10 +75,19 @@ export class PavionComponent implements OnInit {
   // fonction pour ajouter
   ajouterPavillon() {
     const pavillon = new PavillonModel();
-    pavillon.libelle = this.libelle;
-    pavillon.type_pavillon = this.type_pavillon;
-    pavillon.nombres_etages = this.nombres_etages;
-    pavillon.nombres_chambres = this.nombres_chambres
+    // pavillon.libelle = this.libelle;
+    // pavillon.type_pavillon = this.type_pavillon;
+    // pavillon.nombres_etages = this.nombres_etages;
+    // pavillon.nombres_chambres = this.nombres_chambres
+
+    let donne = {
+      libelle: this.libelle,
+      type_pavillon: this.type_pavillon,
+      nombres_etages: this.nombres_etages,
+      // nombres_etages: this.nombres_etages,
+      nombres_chambres: this.nombres_chambres,
+
+    }
 
     console.log(this.profileForm.value);
     const userOnline = JSON.parse(
@@ -183,7 +176,112 @@ export class PavionComponent implements OnInit {
     });
   }
 
+  libelleValidate() {
+    let validationLibelle = document.getElementById('validationLibelle');
 
+    const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+    if (nomPrenomRegex.test(this.libelle)) {
+      // console.log(nomPrenomRegex.test(this.nom));
+      validationLibelle!.innerHTML = 'valide';
+      validationLibelle!.classList.remove('error');
+      validationLibelle!.classList.add('success');
+      if (this.truthyTab.find((value: any) => value.libelle == true) == undefined) {
+        this.truthyTab.push({ libelle: true });
+      }
+
+    } else {
+      // console.log(nomPrenomRegex.test(this.nom));
+      validationLibelle!.innerHTML = 'invalide';
+      validationLibelle!.classList.remove('success');
+      validationLibelle!.classList.add('error');
+      if (this.truthyTab.find((value: any) => value.libelle == true) != undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.libelle == true), 1);
+      }
+    }
+    if (this.libelle == "") {
+      validationLibelle!.innerHTML = "";
+    }
+  }
+
+
+
+  nombreetagesValidate() {
+    let validationPrenom = document.getElementById('validationNombreEtage');
+    const nomPrenomRegex = /^[0-9]$/;
+    if (nomPrenomRegex.test(this.nombres_etages)) {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value:any)=>value.nombres_etages==true)==undefined) {
+        this.truthyTab.push({nombres_etages:true});
+      }
+
+    } else {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value:any)=>value.nombres_etages==true)!=undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.nombres_etages==true),1);
+      }
+    }
+    if (this.nombres_etages=="") {
+      validationPrenom!.innerHTML="";
+    }
+  }
+
+  pavillonValidate() {
+    let validationPrenom = document.getElementById('validationNombrechambre');
+    const nomPrenomRegex = /^[0-9]$/;
+    if (nomPrenomRegex.test(this.nombres_chambres)) {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value:any)=>value.nombres_chambres==true)==undefined) {
+        this.truthyTab.push({nombres_chambres:true});
+      }
+
+    } else {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value:any)=>value.nombres_chambres==true)!=undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.nombres_chambres==true),1);
+      }
+    }
+    if (this.nombres_chambres=="") {
+      validationPrenom!.innerHTML="";
+    }
+  }
+
+  nombrechambreValidate() {
+    let validationPrenom = document.getElementById('validationNombrechambre');
+    const nomPrenomRegex = /^[0-9]+[0-9]$/;
+    if (nomPrenomRegex.test(this.nombres_chambres)) {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value:any)=>value.nombres_chambres==true)==undefined) {
+        this.truthyTab.push({nombres_chambres:true});
+      }
+
+    } else {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value:any)=>value.nombres_chambres==true)!=undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.nombres_chambres==true),1);
+      }
+    }
+    if (this.nombres_chambres=="") {
+      validationPrenom!.innerHTML="";
+    }
+  }
 
 }
 

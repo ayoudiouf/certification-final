@@ -16,11 +16,8 @@
                   </div> -->
                   <div class="row">
 
-
-
-
+                    <h1 class="titre text-black text-center">Historique des Réclamations</h1>
                       <button type="button" data-bs-toggle="modal" data-bs-target="#fairesaDemande" style="background-color: #A41034; color: white; width: 20%;height: 40px; border-radius: 10px; margin-top: 20px; ">Faire une Réclamation</button>
-                      <h1 class="titre text-black text-center">Historique des Réclamations</h1>
                       <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table"*ngIf="reclamations.length >0">
 
 
@@ -89,23 +86,23 @@
 
         <!-- bojet -->
       <div class="mb-3">
-        <label for="exampleInputmessage" class="form-label">Objet</label>
-        <input type="test" class="form-control" placeholder="votre objet" name="objet" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.objet" (input)="verifMessageobjetFunction()">
-        <div id="nompavionHelp" class="form-text"></div>
-        <p class="text-danger">{{verifMessageobjet}}</p>
+        <label for="exampleInputmessage" class="form-label">Objet<span class="span_validate" id="validationObjet"></span></label>
+        <input type="text" class="form-control"  name="objet"  (input)="objetValidate()" [(ngModel)]="objet">
+
+
       </div>
 
       <!-- message -->
           <div class="mb-3">
-            <label for="exampleInputmessage" class="form-label">Message</label>
-            <input type="test" class="form-control" name="message" id="exampleInputId1" aria-describedby="nompavionHelp" [(ngModel)]="formrecla.message" (input)="verifMessagemessageFunction()">
-            <div id="nompavionHelp" class="form-text"></div>
-            <p class="text-danger">{{verifMessagemessage}}</p>
+            <label for="exampleInputmessage" class="form-label">Message<span class="span_validate" id="validationMessage"></span></label>
+            <input type="text" class="form-control" name="message" (input)="messageValidate()" [(ngModel)]="message">
+
+
           </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="typebutton btn " (click)="FaireUneReclamation()">Envoyer</button>
+        <button type="button" class="typebutton btn " (click)="FaireUneReclamation()"[disabled]="truthyTab.length<2">Envoyer</button>
         <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
       </div>
     </div>

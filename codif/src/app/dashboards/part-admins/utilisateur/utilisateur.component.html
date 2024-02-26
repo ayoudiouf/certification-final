@@ -9,6 +9,12 @@
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
           <h1 class="text text-black text-center">Liste des Utilisateurs</h1>
           <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutChefPavion" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
+          <!-- <div class="mb-3">
+            <label for="exampleInputemail" class="form-label">Email <span class="span_validate" id="validationEmail"></span></label>
+            <input type="email"  (input)="emailValidate()" [(ngModel)]="email_utilisateur">
+            <div id="emailHelp" class="form-text"></div>
+
+          </div> -->
 
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="tabUtilisateurs.length >0">
 
@@ -35,21 +41,24 @@
                   <!-- <td>{{utilisateur.password}}</td> -->
                   <td>{{utilisateur.telephone}}</td>
                   <td>{{utilisateur.nomRole}}</td>
-                  <td>{{utilisateur.status}}</td>
+                  <!-- <td>{{utilisateur.status}}</td> -->
+                  <td>  <span [ngClass]="{'actif-status': utilisateur.status === 'Actif', 'inactif-status': utilisateur.status === 'Inactif'}">{{ utilisateur.status }}</span></td>
 
                   <!-- <td><button type="button" class="btn btn-outline-success">{{utilisateur.status}}</button></td> -->
                   <td>
                   <span id="icon" >
 
-                    <!-- <button> <i class="fa-solid fa-eye"
-                      data-bs-toggle="modal" data-bs-target="#details" (click)="getUtilisateur(utilisateur)"></i>
-                    </button> -->
-                    <button>
-                    <i class="fa-solid fa-ban" (click)="changeEtat(utilisateur.id)" style="cursor: pointer;"></i>
-                  </button>
                     <!-- <button>
-                      <i class="fa-solid fa-marker" data-bs-toggle="modal" data-bs-target="#Modifier"
-                    (click)="chargerUtilisateur(utilisateur)"></i></button> -->
+                    <i class="fa-solid fa-ban" (click)="changeEtat(utilisateur.id)" style="cursor: pointer;"></i>
+                  </button> -->
+                  <button>
+                    <i class="fa-solid fa-ban" (click)="changeEtat(utilisateur.id)" style="cursor: pointer;"></i>
+
+                </button>
+
+
+
+
                   </span>
                 </td>
 
@@ -88,54 +97,52 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" [formGroup]="profileForm">
+        <!-- <form action="" > -->
 
            <!-- nom -->
           <div class="mb-3">
-            <label for="exampleInputnom" class="form-label">Nom</label>
-            <input type="text" name="name" class="form-control" id="exampleInputId1" aria-describedby="nomHelp" formControlName="nom" (input)="verifMessagenomFunction()">
-            <div id="nomHelp" class="form-text"></div>
-            <p class="text-danger">{{verifMessagenom}}</p>
+            <label for="exampleInputnom" class="form-label">Nom <span class="span_validate" id="validationNom"></span></label>
+            <input type="text" name="name" class="form-control" (input)="nomValidate()" [(ngModel)]="nom_utilisateur">
+            <!-- <div id="nomHelp" class="form-text"></div> -->
+
           </div>
 
           <!-- prenom -->
           <div class="mb-3">
-            <label for="exampleInputpremon" class="form-label">Prenom</label>
-            <input type="text" name="prenom" class="form-control" id="exampleInputPrenom1" aria-describedby="premonHelp" formControlName="prenom" (input)="verifMessageprenomFunction()">
-            <div id="premonHelp" class="form-text"></div>
-            <p class="text-danger">{{verifMessageisprenom}}</p>
+            <label for="exampleInputpremon" class="form-label">Prenom <span class="span_validate" id="validationPrenom"></span></label>
+            <input type="text" name="prenom" class="form-control" (input)="prenomValidate()" [(ngModel)]="prenom_utilisateur">
+            <!-- <div id="premonHelp" class="form-text"></div> -->
           </div>
 
           <!-- email -->
           <div class="mb-3">
-            <label for="exampleInputemail" class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp" formControlName="email" (input)="verifMessageemailFunction()">
-            <div id="emailHelp" class="form-text"></div>
-            <!-- <p class="text-danger">{{emailValidate}}</p> -->
+            <label for="exampleInputemail" class="form-label">Email <span class="span_validate" id="validationEmail"></span></label>
+            <input type="email"  class="form-control" (input)="emailValidate()" [(ngModel)]="email_utilisateur">
+            <!-- <div id="emailHelp" class="form-text"></div> -->
+
           </div>
 
            <!-- email -->
            <div class="mb-3">
-            <label for="exampleInputpassword" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputpassword1" aria-describedby="passwordHelp" formControlName="password" (input)="verifMessageemailFunction()">
-            <div id="passwordHelp" class="form-text"></div>
-            <!-- <p class="text-danger">{{verifMessageisemail}}</p> -->
+            <label for="exampleInputpassword" class="form-label">Password <span class="span_validate" id="validationPassword"></span></label>
+            <input type="password" name="password" class="form-control" [(ngModel)]="password_utilisateur" (input)="passeValidate()">
+            <!-- <div id="passwordHelp" class="form-text"></div> -->
+
           </div>
 
           <!-- telephone -->
           <div class="mb-3">
-            <label for="exampleInputtelephone" class="form-label">Telephone</label>
-            <input type="text" name="telephone" class="form-control" id="exampleInputtelephone" aria-describedby="telephonetHelp" formControlName="telephone" (input)="verifMessagetelephoneFunction()">
-            <div id="telephonelHelp" class="form-text"></div>
-            <p class="text-danger">{{verifMessagetelephone}}</p>
+            <label for="exampleInputtelephone" class="form-label">Telephone <span class="span_validate" id="validationTelephone"></span></label>
+            <input type="text" name="telephone" class="form-control" (input)="telephoneValidate()" [(ngModel)]="telephone_utilisateur">
+            <!-- <div id="telephonelHelp" class="form-text"></div> -->
 
           </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="typebutton btn btn-primary" (click)="ajoutUtilisateur()" >Ajouter</button>
+          <button type="button" class="typebutton btn btn-warning" (click)="ajoutUtilisateur()" [disabled]="truthyTab.length<5">Ajouter</button>
         </div>
-        </form>
+        <!-- </form> -->
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -159,7 +166,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form action="" [formGroup]="profileFormEdit">
+        <!-- <form action="" [formGroup]="profileFormEdit"> -->
         <!-- Nom -->
         <div class="mb-3">
           <label for="nom" class="form-label">Nom</label>
@@ -198,12 +205,12 @@
           <div id="telephoneEdition" class="form-text"></div>
         </div>
 
-      </form>
+      <!-- </form> -->
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="editUtilisateur()" >
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="editUtilisateur()" >
           Modifier
         </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">

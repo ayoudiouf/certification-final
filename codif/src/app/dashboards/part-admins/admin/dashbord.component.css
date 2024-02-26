@@ -33,7 +33,9 @@
 }
 h2 span{
   color: #E68513;
+
 }
+
 .card:first-child {
   border-left: 7px solid #E68513;
 }

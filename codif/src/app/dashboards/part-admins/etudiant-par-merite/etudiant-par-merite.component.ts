@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CassocialService } from 'src/app/services/CassocialService.service';
 import { EtudiantsParMeriteModel } from 'src/app/models/ListeEtudiantParMerite';
 import { ListeEtudiantParOrdreMeriteService } from 'src/app/services/liste-etudiant-par-ordre-merite.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-etudiant-par-merite',
   templateUrl: './etudiant-par-merite.component.html',
@@ -115,29 +116,43 @@ throw new Error('Method not implemented.');
 
     });
   }
-// fonction qui permet de voir les detail
-  // getEtudiantParMeriteAdmin(etudiant: any) {
-  //   this.seletedEtudiantParMeriteAdmin = etudiant;
-  // }
+
 
 
 // fonction qui permet de valider un etudiant
-validerEttudiant(id: any) {
-  // if (id) {
-  //     console.log("Valide étudiant avec l'ID:", id);
-  //     this.etudiantpareriteService.validerEtudiant(id).subscribe((response: any) => {
-  //         console.log(response);
-  //         this.etudiantParMerites = response;
-  //     });
-  //     this.getAllEtudiantParMeriteadmin();
-  // } else {
-  //     console.error("ID de l'étudiant non défini");
-  // }
-  this.etudiantpareriteService.validerEtudiant(id).subscribe((respons)=>{
-    console.log("est validi oui!!!!", respons);
-  })
+// validerEttudiant(id: any) {
+
+//   this.etudiantpareriteService.validerEtudiant(id).subscribe((respons)=>{
+//     console.log("est validi oui!!!!", respons);
+//   })
+// }
 
 
+
+validerEtudiant(id: any) {
+  this.etudiantpareriteService.validerEtudiant(id).subscribe(
+    (respons) => {
+      console.log("est validé oui!!!!", respons);
+      // Afficher une alerte SweetAlert pour indiquer que l'étudiant a été validé avec succès
+      Swal.fire({
+        icon: 'success',
+        title: 'Étudiant Validé!',
+        text: 'L\'étudiant a été validé avec succès.',
+      });
+    },
+    (error) => {
+      console.error("Une erreur s'est produite lors de la validation de l'étudiant", error);
+      // Afficher une alerte SweetAlert pour indiquer qu'une erreur s'est produite
+      Swal.fire({
+        icon: 'error',
+        title: 'Erreur',
+        // text: 'Une erreur s\'est produite lors de la validation de l\'étudiant. Veuillez réessayer plus tard.',
+        text: 'Désolé l\'étudiant a été déjà valider. Veuillez réessayer plus tard.',
+      });
+    }
+  );
 }
+
+
 }
 

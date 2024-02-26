@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReclamationModel } from 'src/app/models/reclamation';
@@ -19,7 +19,7 @@ export class ReclamationComponent implements OnInit{
   seletedReclamation: any;
   // ReclamationService: any;
 
-  constructor(private reclamationService: ReclamationService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient){
+  constructor(private reclamationService: ReclamationService, private formbuilder: FormBuilder, private route: Router, private renderer: Renderer2, private http: HttpClient){
 
   }
     // pagination   utulisateurTrouve :
@@ -74,12 +74,15 @@ export class ReclamationComponent implements OnInit{
   changeEtat(id: number) {
     const reclamation =  this.reclamationTrouve.find((elt: any) => elt.id == id);
     // console.log(reclamation);
+    const newStatus = reclamation.status === "Ouvert" ? "Traité" : "Ouvert";
     const data = {
-      status: reclamation.status == "Ouvert" ? "Traité" : "Ouvert"
-    }
+      status: newStatus
+    };;
+    // reclamation.status == "Ouvert" ? "Traité" : "Ouvert"
     this.reclamationService.editReclamation(id, data).subscribe(
       (response) =>{
         console.log(response);
+        this.updateIconClass(id, newStatus);
 
     this.getAllReclamation();
 
@@ -87,6 +90,15 @@ export class ReclamationComponent implements OnInit{
       }
     )
   }
+  updateIconClass(id: number, newStatus: string) {
+    const iconElement = document.getElementById(`icon-${id}`);
+    if (iconElement) {
+        // Supprimer toutes les classes existantes
+        iconElement.classList.remove("Ouvert", "Traité");
+        // Ajouter la classe correspondante au nouvel état
+        iconElement.classList.add(newStatus.toLowerCase());
+    }
+}
 
   // deleteReclamationChefPavillon(id:any) {
   //   this.reclamationService.deleteReclamationChefPavillon(id).subscribe((res: any) => {

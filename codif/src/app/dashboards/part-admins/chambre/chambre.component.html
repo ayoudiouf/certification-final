@@ -7,11 +7,15 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-            <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="width: 20%; height: 40px; border-radius: 10px; background-color: #A41034; color: white;">
-              Ajouter Chambre
-            </button>
 
-          <h1 class="text text-black text-center">Liste des chambres</h1>
+          <h1 class="text text-black text-center">#Liste des chambres</h1>
+          <!-- <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="width: 20%; height: 40px; border-radius: 10px; background-color: #A41034; color: white;">
+            Ajouter
+          </button> -->
+          <button
+          type="button" data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="
+            background-color: #a41034; color: white; width: 10%; height: 40px; border-radius: 10px; margin-top: 20px;" >  Ajouter
+        </button>
             <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="tabchambres.length >0">
 
               <thead>
@@ -88,19 +92,17 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form [formGroup]="profileForm">
+        <!-- <form > -->
           <!-- Libelle -->
           <div class="mb-3">
-            <label for="libelle" class="form-label">Libelle</label>
-            <input type="text" class="form-control" id="libelle" formControlName="libelle" [(ngModel)]="libelle" (input)="verifMessagelibelleFunction()"/>
-            <div id="libelle" class="form-text"></div>
-            <p class="text-danger" *ngIf="!islibelleValid">{{verifMessagelibelle}}</p>
-            <p class="text-success" *ngIf="islibelleValid" ><i class="fa-solid fa-check"></i>exact</p>
+            <label for="libelle" class="form-label">Libelle<span class="span_validate" id="validationLibelle"></span></label>
+            <input type="text" class="form-control" id="libelle"  [(ngModel)]="libelle" (input)="libelleValidate()"/>
+
           </div>
           <!-- Type de chambre -->
           <div class="mb-3">
             <label for="type_chambre" class="form-label">Type de chambre</label>
-            <select name="type_chambre" id="type_chambre" [(ngModel)]="type_chambre" formControlName="type_chambre">
+            <select name="type_chambre" class="form-control"  id="type_chambre" [(ngModel)]="type_chambre" formControlName="type_chambre">
                 <option value="Individuelle">Individuelle</option>
                  <option value="Partagée">Partagée</option>
             </select>
@@ -110,23 +112,20 @@
 
            <!-- Nombre de lits -->
           <div class="mb-3">
-            <label for="nombres_lits" class="form-label">Nombre de lits</label>
-            <input type="text" class="form-control" id="nombres_lits" formControlName="nombres_lits"  [(ngModel)]="nombres_lits" (input)="verifMessagenombres_litsFunction()"/>
-            <div id="nombres_lits" class="form-text"></div>
-            <p class="text-danger" *ngIf="isnombres_litsValid">{{verifMessageisnombres_litsValid}}</p>
-            <p class="text-success" *ngIf="isnombres_litsValid" ><i class="fa-solid fa-check"></i>exact</p>
+            <label for="nombres_lits" class="form-label">Nombre de lits<span class="span_validate" id="validationNombrelits"></span></label>
+            <input type="text" class="form-control" id="nombres_lits"  [(ngModel)]="nombres_lits" (input)="nombres_litsValidate()"/>
+
 
           </div>
 
           <!-- Nombres limites -->
           <div class="mb-3">
-            <label for="nombres_limites" class="form-label">Nombres Limites</label>
-            <input type="text" class="form-control" id="nombres_limites" formControlName="nombres_limites"  [(ngModel)]="nombres_limites" (input)="verifMessagenombres_limitesFunction()"/>
-            <!-- <div id="nombres_limites" class="form-text"></div> -->
-            <p class="text-danger" *ngIf="isnombres_limitesValid">{{verifMessagenombres_limites}}</p>
-            <p class="text-success" *ngIf="isnombres_limitesValid" ><i class="fa-solid fa-check"></i>exact</p>
+            <label for="nombres_limites" class="form-label">Nombres Limites<span class="span_validate" id="validationNombrelimites"></span></label>
+            <input type="text" class="form-control" id="nombres_limites"  [(ngModel)]="nombres_limites" (input)="nombres_limitesValidate()"/>
+
           </div>
 
+          <!-- Pavillon -->
           <div class="mb-3">
             <label for="id_pavillon" class="form-label">Pavillon</label>
             <select class="form-select" id="pavillons_id" formControlName="pavillons_id" [(ngModel)]="pavillons_id" >
@@ -138,14 +137,14 @@
 
           <!-- ...Modal footer... -->
           <div class="modal-footer">
-            <button type="button" (click)="ajouterChambre()" class="btn btn-danger" data-bs-dismiss="modal">
+            <button type="button" (click)="ajouterChambre()" class="typebutton btn btn-warning" data-bs-dismiss="modal"[disabled]="truthyTab.length<3">
               Ajouter
             </button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-              Close
+              Annuler
             </button>
           </div>
-        </form>
+        <!-- </form> -->
       </div>
     </div>
   </div>
@@ -206,7 +205,7 @@
           Modifier
         </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-          Close
+          Annuler
         </button>
       </div>
     </div>

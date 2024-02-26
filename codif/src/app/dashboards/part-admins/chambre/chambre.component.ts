@@ -37,6 +37,7 @@ export class ChambreComponent implements OnInit{
 
   chambre: any;
   tabpavillons: any;
+  public truthyTab: any[] = [];
 
   ngOnInit(): void {
 
@@ -63,57 +64,57 @@ export class ChambreComponent implements OnInit{
   }
 
   // Les variables de la vérification
-  islibelleValid:boolean = false;
-  verifMessagelibelle: string = "";
+  // islibelleValid:boolean = false;
+  // verifMessagelibelle: string = "";
 
-  isnombres_litsValid:boolean = false;
-  verifMessageisnombres_litsValid: string = "";
+  // isnombres_litsValid:boolean = false;
+  // verifMessageisnombres_litsValid: string = "";
 
-  isnombres_limitesValid:boolean = false;
-  verifMessagenombres_limites: string = "";
+  // isnombres_limitesValid:boolean = false;
+  // verifMessagenombres_limites: string = "";
 
-  NomPattern1 = /^[a-zA-Z ]+$/;
-  verifMessagelibelleFunction(){
-    if(!this.libelle){
-      this.islibelleValid = false;
-      this.verifMessagelibelle = "Le libelle est obligatoire"
-    }
-    else if (!this.libelle.match(this.NomPattern1)) {
-      this.verifMessagelibelle = 'Donner une libelle valide';
-    }
-     else{
-      this.islibelleValid = true;
-      this.verifMessagelibelle = "";
-    }
-  }
+  // NomPattern1 = /^[a-zA-Z ]+$/;
+  // verifMessagelibelleFunction(){
+  //   if(!this.libelle){
+  //     this.islibelleValid = false;
+  //     this.verifMessagelibelle = "Le libelle est obligatoire"
+  //   }
+  //   else if (!this.libelle.match(this.NomPattern1)) {
+  //     this.verifMessagelibelle = 'Donner une libelle valide';
+  //   }
+  //    else{
+  //     this.islibelleValid = true;
+  //     this.verifMessagelibelle = "";
+  //   }
+  // }
 
-  verifMessagenombres_limitesFunction(){
-    if(!this.nombres_limites){
-      this.isnombres_limitesValid = false;
-      this.verifMessagenombres_limites = "Le champ est obligatoire"
-    }
-    else if (isNaN(this.nombres_limites)) {
-      this.nombres_limites = 'Le nombres_limites est doit etre un numerique';
-    }
-    else{
-      this.isnombres_limitesValid = true;
-      this.verifMessagenombres_limites = "";
-    }
-  }
+  // verifMessagenombres_limitesFunction(){
+  //   if(!this.nombres_limites){
+  //     this.isnombres_limitesValid = false;
+  //     this.verifMessagenombres_limites = "Le champ est obligatoire"
+  //   }
+  //   else if (isNaN(this.nombres_limites)) {
+  //     this.nombres_limites = 'Le nombres_limites est doit etre un numerique';
+  //   }
+  //   else{
+  //     this.isnombres_limitesValid = true;
+  //     this.verifMessagenombres_limites = "";
+  //   }
+  // }
 
-  verifMessagenombres_litsFunction(){
-    if(!this.nombres_lits){
-      this.isnombres_litsValid = false;
-      this.verifMessageisnombres_litsValid = "Le champ est obligatoire"
-    }
-    else if (isNaN(this.nombres_lits)) {
-      this.verifMessageisnombres_litsValid = 'Le nombres_lits est doit etre un numerique';
-    }
-    else{
-      this.isnombres_litsValid = true;
-      this.verifMessageisnombres_litsValid = "";
-    }
-  }
+  // verifMessagenombres_litsFunction(){
+  //   if(!this.nombres_lits){
+  //     this.isnombres_litsValid = false;
+  //     this.verifMessageisnombres_litsValid = "Le champ est obligatoire"
+  //   }
+  //   else if (isNaN(this.nombres_lits)) {
+  //     this.verifMessageisnombres_litsValid = 'Le nombres_lits est doit etre un numerique';
+  //   }
+  //   else{
+  //     this.isnombres_litsValid = true;
+  //     this.verifMessageisnombres_litsValid = "";
+  //   }
+  // }
 
 
 profileForm: FormGroup = this.formbuilder.group({
@@ -236,19 +237,81 @@ ajouterChambre() {
   }
 
 
-  // getChambre(chambre: any) {
-  //   this.seletedChambre = chambre;
-  // }
+  libelleValidate() {
+    let validationPrenom = document.getElementById('validationLibelle');
+    const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+    if (nomPrenomRegex.test(this.libelle)) {
+      // console.log(nomPrenomRegex.test(this.prenom));
+      validationPrenom!.innerHTML = 'valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value: any) => value.libelle == true) == undefined) {
+        this.truthyTab.push({ libelle: true });
+      }
+    } else {
+      // console.log(nomPrenomRegex.test(this.prenom));
+      validationPrenom!.innerHTML = 'invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value: any) => value.libelle == true) != undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.libelle == true), 1);
+      }
+    }
+    if (this.libelle == "") {
+      validationPrenom!.innerHTML = "";
+    }
+  }
 
-    // Fonction pour lister les utilisateurs
-    // getPavillons(){
+  nombres_limitesValidate() {
+    let validationPrenom = document.getElementById('validationNombrelimites');
+    const nomPrenomRegex = /^[0-9]$/;
+    if (nomPrenomRegex.test(this.nombres_limites)) {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value:any)=>value.nombres_limites==true)==undefined) {
+        this.truthyTab.push({nombres_limites:true});
+      }
 
-    //   this.Pavillonservice.listepavillon().subscribe((reponse:any) =>{
-    //       this.tabpavillons =  reponse.Pavillon;
-    //       console.log(this.tabpavillons);
+    } else {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value:any)=>value.nombres_limites==true)!=undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.nombres_limites==true),1);
+      }
+    }
+    if (this.nombres_limites=="") {
+      validationPrenom!.innerHTML="";
+    }
+  }
 
-    //   });
+  nombres_litsValidate() {
+    let validationPrenom = document.getElementById('validationNombrelits');
+    const nomPrenomRegex = /^[0-9]$/;
+    if (nomPrenomRegex.test(this.nombres_lits)) {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value:any)=>value.nombres_lits==true)==undefined) {
+        this.truthyTab.push({nombres_lits:true});
+      }
 
-    // }
+    } else {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'Invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value:any)=>value.nombres_lits==true)!=undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.nombres_lits==true),1);
+      }
+    }
+    if (this.nombres_lits=="") {
+      validationPrenom!.innerHTML="";
+    }
+  }
 
 }

@@ -22,6 +22,13 @@ p{
   margin-left: 60%;
   margin-top: 30px;
 }
+.Traité-status {
+  color: green; /* Couleur pour le statut "Actif" */
+}
+
+.Ouvert-status {
+  color: red; /* Couleur pour le statut "Inactif" */
+}
 @media screen and (max-width: 1238px){
   table-responsive{
     display: grid;

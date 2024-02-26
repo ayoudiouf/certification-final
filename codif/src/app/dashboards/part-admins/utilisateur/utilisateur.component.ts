@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscriber } from 'rxjs';
@@ -13,12 +13,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UtilisateurComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  nom: any;
-  prenom: any;
-  email: any;
-  password: any;
-  telephone: any;
-  status: any;
+  nom: any = "";
+  prenom: any = "";
+  email: any = "";
+  password: any = "";
+  telephone: any = "";
+  status: any = "";
 
   tabUtilisateurs: any[] = [];
 
@@ -28,6 +28,8 @@ export class UtilisateurComponent implements OnInit {
   password_utilisateur: any = "";
   telephone_utilisateur: any = "";
   status_utilisateur: any = "";
+  // tab for validations
+  public truthyTab: any[] = [];
 
   ngOnInit(): void {
     this.listeUtilisateurs();
@@ -42,67 +44,16 @@ export class UtilisateurComponent implements OnInit {
     };
 
     this.listeUtilisateurs();
+    // etatCouleur: string;
   }
-  constructor(private userService: UserService, private formbuilder: FormBuilder, private route: Router) {
-  }
-  // Les variables de la vérification
-  isnomValid:boolean = false;
-  verifMessagenom: string = "";
-
-  isprenomvalid:boolean = false;
-  verifMessageisprenom: string = "";
-
-  istelephoneValid:boolean = false;
-  verifMessagetelephone: string = "";
-
-  isemailvalid:boolean = false;
-  verifMessageisemail: string = "";
-
-  verifMessagenomFunction(){
-    if(!this.nom){
-      this.isnomValid = false;
-      this.verifMessagenom = "Le nom est obligatoire"
-    } else{
-      this.isnomValid = true;
-      this.verifMessagenom = "";
-    }
+  constructor(private userService: UserService, private formbuilder: FormBuilder, private route: Router, private renderer: Renderer2) {
   }
 
-  verifMessageprenomFunction(){
-    if(!this.prenom){
-      this.isprenomvalid = false;
-      this.verifMessageisprenom = "Le prenom est obligatoire"
-    } else{
-      this.isprenomvalid = true;
-      this.verifMessageisprenom = "";
-    }
-  }
-
-  verifMessagetelephoneFunction(){
-    if(!this.telephone){
-      this.istelephoneValid = false;
-      this.verifMessagetelephone = "Le Numéro telephone est obligatoire"
-    } else{
-      this.istelephoneValid = true;
-      this.verifMessagetelephone = "";
-    }
-
-  }
-
-  verifMessageemailFunction(){
-    if (!this.email) {
-      this.isemailvalid = false;
-      this.verifMessageisemail = "L'email est obligatoire"
-    } else {
-      this.isemailvalid = true;
-      this.verifMessageisemail = "";
-    }
-  }
 
   profileForm: FormGroup = this.formbuilder.group({
-    nom: ['', Validators.required,Validators.minLength(2)],
+    nom: ['', Validators.required, Validators.minLength(2)],
     prenom: ['', Validators.required,],
-    email: ['', Validators.required,Validators.email],
+    email: ['', Validators.required, Validators.email],
     password: ['', Validators.required,],
     telephone: ['', Validators.required,],
     status: ['', Validators.required,],
@@ -119,18 +70,27 @@ export class UtilisateurComponent implements OnInit {
 
   // fonction pour ajouter
   ajoutUtilisateur() {
-    const utilisateur = new UserModel();
-    utilisateur.nom = this.nom_utilisateur;
-    utilisateur.prenom = this.prenom_utilisateur;
-    utilisateur.email = this.email_utilisateur;
-    utilisateur.password = this.password_utilisateur
-    utilisateur.telephone = this.telephone_utilisateur
-    utilisateur.status = this.status_utilisateur
+    // const utilisateur = new UserModel();
+    // utilisateur.nom = this.nom_utilisateur;
+    // utilisateur.prenom = this.prenom_utilisateur;
+    // utilisateur.email = this.email_utilisateur;
+    // utilisateur.password = this.password_utilisateur
+    // utilisateur.telephone = this.telephone_utilisateur
+    // utilisateur.status = this.status_utilisateur
 
-    console.log(this.profileForm.value);
+    let donne = {
+      nom: this.nom_utilisateur,
+      prenom: this.prenom_utilisateur,
+      email: this.email_utilisateur,
+      password: this.password_utilisateur,
+      telephone: this.telephone_utilisateur,
+      status: this.status_utilisateur,
+    }
+
+    console.log(donne);
     const userOnline = JSON.parse(
       localStorage.getItem('userOnline') || '');
-    this.userService.ajoutProfil(this.profileForm.value).subscribe((response) => {
+    this.userService.ajoutProfil(donne).subscribe((response) => {
       console.log(response);
     })
     this.listeUtilisateurs()
@@ -188,27 +148,219 @@ export class UtilisateurComponent implements OnInit {
     this.seletedUtilisateur = utilisateur;
   }
 
-   // La méthode qui permet de changer l'état d'un Utilisateur
+  // La méthode qui permet de changer l'état d'un Utilisateur
+  // changeEtat(id: number) {
+
+  //   const utilisateur = this.tabUtilisateurs.find((elt: any) => elt.id == id);
+
+  //   console.log(utilisateur);
+
+  //   const data = {
+  //     status: utilisateur.status == "Actif" ? "Inactif" : "Actif"
+  //   }
+  //   this.userService.editUtilisateur(id, data).subscribe(
+  //     (response) => {
+  //       console.log(response);
+
+  //       this.listeUtilisateurs();
+
+
+  //     }
+  //   )
+  // }
+
+  // changeEtat(id: number) {
+  //   const utilisateur = this.tabUtilisateurs.find((elt: any) => elt.id === id);
+
+  //   const newStatus = utilisateur.status === "Actif" ? "Inactif" : "Actif";
+
+  //   const data = {
+  //     status: newStatus
+  //   };
+
+  //   this.userService.editUtilisateur(id, data).subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //       this.listeUtilisateurs();
+  //     }
+  //   );
+
+  //   Ajouter ou supprimer des classes CSS en fonction du nouvel état
+  //   const iconElement = document.getElementById(`icon-${id}`);
+  //   if (iconElement) {
+  //     iconElement.classList.remove("active", "inactive");
+  //     iconElement.classList.add(newStatus.toLowerCase());
+  //   }
+  // }
+
+
   changeEtat(id: number) {
+    const utilisateur = this.tabUtilisateurs.find((elt: any) => elt.id === id);
 
-    const utilisateur =  this.tabUtilisateurs.find((elt: any) => elt.id == id);
-
-    console.log(utilisateur);
+    const newStatus = utilisateur.status === "Actif" ? "Inactif" : "Actif";
 
     const data = {
-      status: utilisateur.status == "Actif" ? "Inactif" : "Actif"
-    }
+        status: newStatus
+    };
+
     this.userService.editUtilisateur(id, data).subscribe(
-      (response) =>{
-        console.log(response);
+        (response) => {
+            console.log(response);
+            this.listeUtilisateurs();
+            // Appel de la méthode pour mettre à jour la classe CSS de l'icône
+            this.updateIconClass(id, newStatus);
+        }
+    );
+}
 
-    this.listeUtilisateurs();
+updateIconClass(id: number, newStatus: string) {
+    const iconElement = document.getElementById(`icon-${id}`);
+    if (iconElement) {
+        // Supprimer toutes les classes existantes
+        iconElement.classList.remove("actif", "inactif");
+        // Ajouter la classe correspondante au nouvel état
+        iconElement.classList.add(newStatus.toLowerCase());
+    }
+}
 
+  // validations
 
+  emailValidate() {
+    console.warn(this.email_utilisateur);
+    let validationEmail = document.getElementById('validationEmail');
+    const emailRegexGegin = /^[a-zA-Z]+[.a-z0-9]+@[a-z]+[.]{1}[a-z]{2,}$/;
+    // const emailRegexEnd = /^[a-z]{2,}$/;
+    // this.emailError = emailRegexGegin.test(this.email);
+    if (emailRegexGegin.test(this.email_utilisateur)) {
+      // console.log(emailRegexGegin.test(this.email));
+      validationEmail!.innerHTML = 'valide';
+      validationEmail!.classList.remove('error');
+      validationEmail!.classList.add('success');
+      if (this.truthyTab.find((value: any) => value.email_utilisateur == true) == undefined) {
+        this.truthyTab.push({ email_utilisateur: true });
       }
-    )
+      console.log(this.truthyTab);
+    } else {
+      // console.log(emailRegexGegin.test(this.email));
+      validationEmail!.innerHTML = 'invalide';
+      validationEmail!.classList.remove('success');
+      validationEmail!.classList.add('error');
+      if (this.truthyTab.find((value: any) => value.email_utilisateur == true) != undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.email_utilisateur == true), 1);
+      }
+
+    }
+    if (this.email_utilisateur == "") {
+      validationEmail!.innerHTML = "";
+    }
+    // console.log(this.truthyTab);
   }
 
+  nomValidate() {
+    let validationNom = document.getElementById('validationNom');
+
+    const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+    if (nomPrenomRegex.test(this.nom_utilisateur)) {
+      // console.log(nomPrenomRegex.test(this.nom));
+      validationNom!.innerHTML = 'valide';
+      validationNom!.classList.remove('error');
+      validationNom!.classList.add('success');
+      if (this.truthyTab.find((value: any) => value.nom_utilisateur == true) == undefined) {
+        this.truthyTab.push({ nom_utilisateur: true });
+      }
+
+    } else {
+      // console.log(nomPrenomRegex.test(this.nom));
+      validationNom!.innerHTML = 'invalide';
+      validationNom!.classList.remove('success');
+      validationNom!.classList.add('error');
+      if (this.truthyTab.find((value: any) => value.nom_utilisateur == true) != undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.nom_utilisateur == true), 1);
+      }
+    }
+    if (this.nom_utilisateur == "") {
+      validationNom!.innerHTML = "";
+    }
+  }
+  prenomValidate() {
+    let validationPrenom = document.getElementById('validationPrenom');
+    const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+    if (nomPrenomRegex.test(this.prenom_utilisateur)) {
+      // console.log(nomPrenomRegex.test(this.prenom));
+      validationPrenom!.innerHTML = 'valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value: any) => value.prenom_utilisateur == true) == undefined) {
+        this.truthyTab.push({ prenom_utilisateur: true });
+      }
+    } else {
+      // console.log(nomPrenomRegex.test(this.prenom));
+      validationPrenom!.innerHTML = 'invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value: any) => value.prenom_utilisateur == true) != undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.prenom_utilisateur == true), 1);
+      }
+    }
+    if (this.prenom_utilisateur == "") {
+      validationPrenom!.innerHTML = "";
+    }
+  }
+
+  telephoneValidate() {
+    let validationPrenom = document.getElementById('validationTelephone');
+    const nomPrenomRegex = /^(77|76|75|78|33)[0-9]{7}$/;
+    if (nomPrenomRegex.test(this.telephone_utilisateur)) {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value:any)=>value.telephone_utilisateur==true)==undefined) {
+        this.truthyTab.push({telephone_utilisateur:true});
+      }
+
+    } else {
+      // console.log(nomPrenomRegex.test(this.numero));
+      validationPrenom!.innerHTML = 'invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value:any)=>value.telephone_utilisateur==true)!=undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.telephone_utilisateur==true),1);
+      }
+    }
+    if (this.telephone_utilisateur=="") {
+      validationPrenom!.innerHTML="";
+    }
+  }
+
+
+  passeValidate() {
+    let validationPrenom = document.getElementById('validationPassword');
+    const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9-@_&]{7,}$/;
+    if (nomPrenomRegex.test(this.password_utilisateur)) {
+      // console.log(nomPrenomRegex.test(this.pass));
+      validationPrenom!.innerHTML = 'valide';
+      validationPrenom!.classList.remove('error');
+      validationPrenom!.classList.add('success');
+      if (this.truthyTab.find((value:any)=>value.password_utilisateur==true)==undefined) {
+        this.truthyTab.push({password_utilisateur:true});
+      }
+
+    } else {
+      // console.log(nomPrenomRegex.test(this.pass));
+      validationPrenom!.innerHTML = 'invalide';
+      validationPrenom!.classList.remove('success');
+      validationPrenom!.classList.add('error');
+      if (this.truthyTab.find((value:any)=>value.password_utilisateur==true)!=undefined) {
+        this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.password_utilisateur==true),1);
+      }
+    }
+    if (this.password_utilisateur=="") {
+      validationPrenom!.innerHTML="";
+    }
+    // console.log(this.truthyTab);
+    // console.log(this.truthyTab.length);
+  }
 }
 
 

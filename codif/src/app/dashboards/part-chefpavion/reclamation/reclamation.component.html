@@ -52,7 +52,7 @@
               <tr>
                 <th class="tHead">ID</th>
                 <th class="tHead">Objet</th>
-                <th class="tHead">Message</th>
+                <th class="tHead">Messages</th>
                 <th class="tHead">Traitement</th>
                 <th class="tHead">Action</th>
 
@@ -64,7 +64,8 @@
                 <td>{{ reclamation.id }}</td>
                 <td>{{ reclamation.objet }}</td>
                 <td>{{ reclamation.message }}</td>
-                <td>{{ reclamation.status }}</td>
+                <!-- <td>{{ reclamation.status }}</td> -->
+                <td>  <span [ngClass]="{'Traité-status': reclamation.status === 'Traité', 'Ouvert-status': reclamation.status === 'Ouvert'}">{{ reclamation.status }}</span></td>
                 <td><span>
 
                   <button>

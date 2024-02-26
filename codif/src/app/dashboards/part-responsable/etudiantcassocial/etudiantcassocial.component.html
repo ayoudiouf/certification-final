@@ -4,8 +4,13 @@
   <!-- Main Component -->
   <div class="main">
       <app-header-sidebar></app-header-sidebar>
-      <form action="/search"  method="get">
+      <h1 class="text text-black text-center">Liste des étudiant Cas Social</h1>
+      <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #A41034; color: white; width: 15%;height: 40px; border-radius: 10px;">Ajouter</button>
+      <!-- <form action="/search"  method="get">
         <p>Recherche :<input type="text" id="search" name="q" placeholder="Rechercher..."></p>
+      </form> -->
+      <form action="/search"  method="get">
+        <p>Recherche :<input type="text" id="search" name="q" [(ngModel)]="searchCassocial" (input)="getArticlesPage"  placeholder="Rechercher..."></p>
 
         <!-- <input type="submit" value="Rechercher"> -->
       </form>
@@ -50,43 +55,36 @@
           <table class="table mt-3 ">
             <thead>
               <tr>
-                <th class="tHead">nom</th>
-                <th class="tHead">prenom</th>
-                <!-- <th>niveau_etudes</th> -->
-                <th class="tHead">telephone</th>
-                <th class="tHead">INE</th>
-                <th class="tHead">adresse</th>
-                <th class="tHead">action</th>
+                <!-- <th class="tHead">ID</th> -->
+                <th class="tHead">Nom </th>
+                  <th class="tHead">Prenom </th>
+                  <th class="tHead">Email </th>
+                  <th class="tHead">Telephone </th>
+                  <th class="tHead">INE </th>
+                  <th class="tHead">Niveau_etudes </th>
+                  <th class="tHead">Sexe</th>
+                  <th class="tHead">Adresse</th>
+                  <!-- <th class="tHead">Action</th> -->
 
                 <!-- Ajoutez d'autres colonnes au besoin -->
               </tr>
             </thead>
             <tbody>
               <tr >
-                <td>xcvbn,</td>
-                <td>dfghjk</td>
-                <td>dfghjre</td>
-                <td>dfghjk</td>
-                <td>dfghjk</td>
-                <td>dfghjk</td>
-                <!-- <td><span>
+                <tr *ngFor="let cassocial of getArticlesPage()">
+                  <!-- <td>{{cassocial.id }}</td> -->
+                  <td>{{cassocial.nom }}</td>
+                  <td>{{cassocial.prenom }}</td>
+                  <td>{{cassocial.email}}</td>
+                  <td>{{cassocial.telephone }}</td>
+                  <td>{{cassocial.INE}}</td>
+                  <td>{{cassocial.niveau_etudes}}</td>
+                  <td>{{cassocial.sexe}}</td>
+                  <td>{{cassocial.adresse }}</td>
 
-                  <button>
-                    <i class="fa-solid fa-ban" (click)="changeEtat(reclamation.id)" style="cursor: pointer;"></i>
-                  </button>
+                <td><span>
 
-                  <button >
-                    <i
-                    class="fa-solid fa-eye"
-                    data-bs-toggle="modal"
-                    data-bs-target="#detail" (click)="getReclamation(reclamation)">
-                  </i>
-                  </button>
-
-                  <button>
-                    <i class="fa-solid fa-trash" (click)="deleteReclamationChefPavillon(reclamation.id)"></i>
-                  </button>
-                </span></td> -->
+                </span></td>
                 <!-- Ajoutez d'autres cellules au besoin -->
               </tr>
             </tbody>
@@ -94,6 +92,167 @@
         </div>
       </main>
 
+      <div class="d-flex flex-wrap justify-content-center my-5" >
+        <button class="btn pagiColor me-2" [disabled]="pageActuelle === 1" (click)="pageActuelle = pageActuelle - 1">
+          Précédent
+        </button>
+        <button class="btn pagiColor  ms-2 " *ngFor="let page of pages" (click)="pageActuelle = page">
+          {{ page }}
+        </button>
+        <button class="btn pagiColor  ms-2 " [disabled]="pageActuelle === totalPages" (click)="pageActuelle = pageActuelle + 1">
+          Suivant
+        </button>
+      </div>
 
+  </div>
+</div>
+<!-- Modal Ajout Etudiant Cas Social -->
+<div class="modal fade" id="ajouterEtudiant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Ajouter un EtudiantCas Social
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="" >
+
+
+          <div class="mb-3">
+            <label for="exampleInputtypenom" class="form-label" >Nom<span class="span_validate" id="validationNom"></span></label>
+            <input type="name" class="form-control" name="nom"(input)="nomValidate()"[(ngModel)]="nom"/>
+
+            <div id="typnomnHelp" class="form-text"></div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrschambre" class="form-label">Prenom<span class="span_validate" id="validationPrenom"></span></label>
+            <input
+              type="text" class="form-control" name="prenom"  (input)="prenomValidate()"[(ngModel)]="prenom"/>
+              <div id="nbrschambreHelp" class="form-text"></div>
+
+          </div>
+
+             <!-- email -->
+             <div class="mb-3">
+              <label for="exampleInputemail" class="form-label">Email <span class="span_validate" id="validationEmail"></span></label>
+              <input type="email"  class="form-control"  name="email" (input)="emailValidate()" [(ngModel)]="email">
+              <!-- <div id="emailHelp" class="form-text"></div> -->
+
+            </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label" >Telephone<span class="span_validate" id="validationTelephone"></span></label >
+            <input
+              type="text" class="form-control" name="telephone"  (input)="telephoneValidate()"[(ngModel)]="telephone"/>
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputINE" class="form-label">INE<span class="span_validate" id="validationINE"></span></label>
+            <input type="text" class="form-control" name="INE"  (input)="INEValidate()"[(ngModel)]="INE"/>
+
+          </div>
+<span class="span_validate" id="validationNiveauetudes"></span>
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Niveau_Etudes</label >
+            <input type="text" class="form-control" name="niveau_etudes"  (input)="niveau_etudesValidate()"[(ngModel)]="niveau_etudes"/>
+
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label" >Filiere<span class="span_validate" id="validationFiliere"></span></label>
+            <input type="text" class="form-control" name="filiere"  (input)="filiereValidate()"[(ngModel)]="filiere"/>
+
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
+
+          <!-- <div class="mb-3">
+            <label for="sexe" class="form-label">Sexe</label>
+            <select name="sexe" id="sexe"  name="sexe" [(ngModel)]="sexe" formControlName="sexe" >
+                <option value="Homme">Homme</option>
+                 <option value="Femme">Femme</option>
+
+            </select>
+            <div id="sexe" class="form-text"></div>
+          </div> -->
+           <!-- Sexe -->
+           <div class="mb-3">
+            <label for="sexe" class="form-label">sexe</label>
+            <select name="sexe" id="sexe" [(ngModel)]="sexe" >
+                <option value="Homme">Homme</option>
+                 <option value="Femme">Femme</option>
+
+            </select>
+            <div id="sexe" class="form-text"></div>
+          </div>
+
+
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label" >Adresse<span class="span_validate" id="validationAdresse"></span></label >
+            <input
+              type="text" class="form-control" name="adresse"  (input)="adresseValidate()"[(ngModel)]="adresse"/>
+
+            <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label" >Password<span class="span_validate" id="validationPassword"></span></label>
+            <input
+              type="password" class="form-control" name="password" (input)="passwordValidate()"[(ngModel)]="password"/>
+            <!-- <div id="nbrsetageHelp" class="form-text"></div> -->
+
+          </div>
+          <!-- <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label" >Chambre</label>
+            <input
+              type="text" class="form-control" name="chambre-id" id="exampleInputchambre1" aria-describedby="chambreHelp"
+              formControlName="chambre-id"/>
+            <div id="nbrsetageHelp" class="form-text"></div>
+
+          </div> -->
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label" >Lieu Naissance<span class="span_validate" id="validationLieunaissance"></span></label>
+            <input
+              type="text" class="form-control" name="lieu_naissance"  (input)="lieu_naissanceValidate()"[(ngModel)]="lieu_naissance"/>
+            <div id="nbrsetageHelp" class="form-text"></div>
+
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label">Date Naissance<span class="span_validate" id="validationDatenaissance"></span></label >
+            <input
+              type="date" class="form-control" name="date_naissance"  (input)="dateValidate()"[(ngModel)]="date_naissance"/>
+            <div id="nbrsetageHelp" class="form-text"></div>
+
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">  Annuler</button>
+        <button type="button" class="typebutton btn btn-warning text-white" (click)="ajouterEtudiant()" [disabled]="truthyTab.length<10" > Ajouter </button>
+      </div>
+    </div>
   </div>
 </div>

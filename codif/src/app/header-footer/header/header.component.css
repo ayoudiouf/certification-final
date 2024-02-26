@@ -37,6 +37,9 @@ height: 80px;
   font-size: 18px;
 
 }
+*{
+  border: 1px black solid;
+}
 
 .Menu{
   background-color: white;
@@ -88,7 +91,12 @@ height: 80px;
   #logomenu1 img{
     display: none;
     }
-
+    #navigation{
+      width: 100%;
+    }
+    .Menu{
+     
+    }
 }
 
 

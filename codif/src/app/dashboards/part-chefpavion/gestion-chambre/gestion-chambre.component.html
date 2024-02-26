@@ -7,7 +7,7 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="titre text-black text-center">Liste chambres</h1>
+          <h1 class="titre text-black text-center">#Liste chambres</h1>
           <!-- <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterChambre" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button> -->
 
            <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="chambreData.length >0">
@@ -16,12 +16,12 @@
                 <tr >
                   <!-- <th class="tHead">ID</th> -->
                   <th class="tHead">Libelle</th>
-                  <th class="tHead">Pavillon</th>
+                  <th class="tHead">Pavillons</th>
                   <th class="tHead">Type Chambres</th>
-                  <th class="tHead">Nombre de lit</th>
+                  <th class="tHead">Nombre de lits</th>
                   <!-- <th class="tHead">Echeances</th> -->
                   <th class="tHead">Nombre de liimites</th>
-                  <th class="tHead">Action</th>
+                  <!-- <th class="tHead">Action</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -33,15 +33,14 @@
                   <td>{{chambre.nombres_lits}}</td>
                   <!-- <td>{{chambre.echeances}}</td> -->
                   <td>{{chambre.nombres_limites}}</td>
-                  <td><span id="icon">
+
                   <!-- <button>
                   <i class="fa-solid fa-marker"  data-bs-toggle="modal" data-bs-target="#Modifier" (click)="chargerChambre(chambre)" ></i>
                   </button> -->
-                  <button>
+                  <!-- <button>
                   <i class="fa-solid fa-eye"  data-bs-toggle="modal" data-bs-target="#details" (click)="getChambre(chambre)" ></i>
-                  </button>
+                  </button> -->
 
-                </span></td>
                 </tr>
               </tbody>
             </table>
@@ -217,58 +216,3 @@
   </div>
 </div>
 
-<!-- The Modal Detail Chambre -->
-<div class="modal" id="details">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Details Chambre</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="Modifier"
-        ></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form action="" [formGroup]="profileForm">
-        <!-- Libelle -->
-        <div class="mb-3">
-          <label for="libelleEdition1" class="form-label">Libelle:{{seletedChambre.libelle}}</label>
-          <div id="libelleEdition1" class="form-text"></div>
-        </div>
-
-        <!-- Type Pavillon -->
-        <div class="mb-3">
-          <label for="type_chambresEditionEdition1" class="form-label">Type Chambre:{{seletedChambre.ttype_chambre}}</label>
-          <div id="type_chambreEditionEdition1" class="form-text"></div>
-        </div>
-
-        <!-- Nombrebrs Limites -->
-        <div class="mb-3">
-          <label for="nombres_limitesEdition2" class="form-label">Nombres Limites:{{seletedChambre.nombres_limites}}</label>
-          <div id="nombres_limitesEdition2" class="form-text"></div>
-        </div>
-
-         <!--  Echeances -->
-         <!-- <div class="mb-3">
-          <label for="echeancesEdition2" class="form-label">Echeances: {{seletedChambre.echeances}}</label>
-          <div id="echeancesEdition2" class="form-text"></div>
-        </div> -->
-
-        <!-- Nombres Lits -->
-        <div class="mb-3">
-          <label for="nombres_litsEdition1" class="form-label">Nombres lits:{{seletedChambre.nombres_lits}}</label>
-          <div id="nombres_litsEdition" class="form-text"></div>
-        </div>
-      </form>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-</div>

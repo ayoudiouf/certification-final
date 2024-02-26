@@ -97,10 +97,8 @@
 
 #baniercarte{
   box-shadow: 0px 4px 8px #A41034;
-  /* justify-content: center; */
   position: relative;
   bottom: 50px;
-
 }
 
 /* *{
@@ -553,14 +551,12 @@ body {
 .contact{
 display: flex;
 margin: auto;
-/* text-align: center; */
 align-items: center;
 width: 100%;
 }
 
 .contact img{
   width: 80%;
-  /* height: 50%; */
   margin-left: 20%;
   margin-top: -5%;
 }
@@ -568,7 +564,6 @@ width: 100%;
   background-color: white;
   box-shadow: 0px 3px 4px#A41034;
   width: 65%;
-  /* height: 100%; */
   margin-right: 10%;
   padding-bottom: 16px;
 
@@ -589,46 +584,35 @@ width: 100%;
   .info {
     display: flex;
     flex-direction: column;
-    /* margin: 0 auto; */
-    /* margin-bottom: 10%; */
   }
   .info {
     margin: 0 auto;
     width: 100%;
 
   }
-  
+
   .loge{
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-top: 50px;
-    /* position: relative;
-    top: 30px; */
   }
   .loge img{
    margin-right: 500px;
 
   }
 
-  /* .loginpage{
-   margin-bottom: 20px;
-
-  } */
-
   #propos{
     display: flex;
    flex-direction: column;
     justify-content: center;
-    /* margin-left: 12%;
-    margin-bottom: 30px; */
   }
 
   .container{
     margin-top: 30% ;
   }
   .texte{
-    /* margin: auto; */
+
     width: 100%;
     margin-bottom: 80px;
     text-align: center;
@@ -641,16 +625,14 @@ width: 100%;
    text-align: center;
    align-items: center;
    height: 50%;
-   /* width: 100%; */
+
   }
   .etudiant{
-    /* margin-left: 50px; */
     text-align: center;
     align-items: center;
     margin: auto;
     margin-bottom: 50%;
     height: 50px;
-
   }
 
   #actu{

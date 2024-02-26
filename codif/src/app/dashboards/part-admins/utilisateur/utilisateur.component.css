@@ -18,3 +18,30 @@ button{
   background-color: #E68513;
   color: white;
 }
+
+
+/* validation */
+span.span_validate
+{
+  font-size: 12px;
+  display: none;
+  transition: ease 1.5s;
+}
+
+.error
+{
+  display: inline-block !important;
+  color: red !important;
+}
+.success
+{
+  display: inline-block !important;
+  color: rgb(45, 194, 77) !important;
+}
+.actif-status {
+  color: green; /* Couleur pour le statut "Actif" */
+}
+
+.inactif-status {
+  color: red; /* Couleur pour le statut "Inactif" */
+}

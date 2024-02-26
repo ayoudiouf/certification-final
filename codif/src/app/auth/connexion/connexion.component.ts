@@ -147,6 +147,8 @@ verifPasswordFunction(){
             this.route.navigate(['/chefpedagogique'])
           }else if(response.Results.Utilisateur.roles_id==4){
             this.route.navigate(['/etudiant'])
+          }else if(response.Results.Utilisateur.roles_id==5){
+            this.route.navigate(['/dahresponsable'])
           }
 
         },

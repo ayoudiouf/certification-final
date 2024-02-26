@@ -53,7 +53,14 @@ getToken(): string | null {
 
 // Is connected pour vérifier s'il est toujours connecté
 isLoggedIn(): boolean {
-  return this.getToken() !== null;
+  if (localStorage.getItem('userOnline')==null || localStorage.getItem('userOnline')==undefined) {
+    return false;
+
+  }else{
+
+    return true ;
+  }
+  // return this.getToken() !== null;
 }
 
 }

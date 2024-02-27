@@ -13,9 +13,9 @@ import Swal from 'sweetalert2';
 })
 export class ConnexionComponent implements OnInit {
 
-  emailUtilisateur :string="";
-  passwordUtilisateur: string="";
-
+  email_utilisateur :string="";
+  password_utilisateur: string="";
+  public truthyTab: any[] = [];
 
   ngOnInit(): void {
 
@@ -34,94 +34,118 @@ export class ConnexionComponent implements OnInit {
   });
 
   // Les variables de la vérification
-  isEmailValid:boolean = false;
-  verifMessageEmail: string = "";
+//   isEmailValid:boolean = false;
+//   verifMessageEmail: string = "";
 
-  isPasswordValid:boolean = false;
-  verifMessagePassword: string = "";
+//   isPasswordValid:boolean = false;
+//   verifMessagePassword: string = "";
 
-  validateEmail(email: string): boolean {
-    const emailRegex=/^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
-    return emailRegex.test(email);
+//   validateEmail(email: string): boolean {
+//     const emailRegex=/^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
+//     return emailRegex.test(email);
+//   }
+//   verifEmailFunction(){
+//     this.isEmailValid = this.validateEmail(this.emailUtilisateur);
+//     if(!this.emailUtilisateur){
+//       this.verifMessageEmail = "";
+//     } else if(!this.isEmailValid){
+//       this.verifMessageEmail = "Le format de l'email est incorrect";
+//     } else{
+//         this.verifMessageEmail = "";
+//         this.isEmailValid = true;
+//     }
+
+//     if (!this.emailUtilisateur) {
+//       this.verifMessageEmail = "";
+//     }
+//     if (!this.isEmailValid) {
+//       this.verifMessageEmail = "Le format de l'email est incorrect";
+//     }
+//     if (this.emailUtilisateur || this.isEmailValid) {
+//       this.verifMessageEmail = "";
+//       this.isEmailValid = true;
+//     }
+// }
+
+// verifPasswordFunction(){
+//     if(!this.passwordUtilisateur){
+//       this.isPasswordValid = false;
+//       this.verifMessagePassword = "Le mot de passe est obligatoire";
+//     }
+//     if (this.passwordUtilisateur) {
+//       this.verifMessagePassword = "";
+//       this.isPasswordValid = true;
+//     }
+
+// }
+
+emailValidate() {
+  console.warn(this.email_utilisateur);
+  let validationEmail = document.getElementById('validationEmail');
+  const emailRegexGegin = /^[a-zA-Z]+[.a-z0-9]+@[a-z]+[.]{1}[a-z]{2,}$/;
+  // const emailRegexEnd = /^[a-z]{2,}$/;
+  // this.emailError = emailRegexGegin.test(this.email);
+  if (emailRegexGegin.test(this.email_utilisateur)) {
+    // console.log(emailRegexGegin.test(this.email));
+    validationEmail!.innerHTML = 'valide';
+    validationEmail!.classList.remove('error');
+    validationEmail!.classList.add('success');
+    if (this.truthyTab.find((value: any) => value.email_utilisateur == true) == undefined) {
+      this.truthyTab.push({ email_utilisateur: true });
+    }
+    console.log(this.truthyTab);
+  } else {
+    // console.log(emailRegexGegin.test(this.email));
+    validationEmail!.innerHTML = 'invalide';
+    validationEmail!.classList.remove('success');
+    validationEmail!.classList.add('error');
+    if (this.truthyTab.find((value: any) => value.email_utilisateur == true) != undefined) {
+      this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.email_utilisateur == true), 1);
+    }
+
   }
-  verifEmailFunction(){
-    this.isEmailValid = this.validateEmail(this.emailUtilisateur);
-    if(!this.emailUtilisateur){
-      this.verifMessageEmail = "";
-    } else if(!this.isEmailValid){
-      this.verifMessageEmail = "Le format de l'email est incorrect";
-    } else{
-        this.verifMessageEmail = "";
-        this.isEmailValid = true;
-    }
-
-    if (!this.emailUtilisateur) {
-      this.verifMessageEmail = "";
-    }
-    if (!this.isEmailValid) {
-      this.verifMessageEmail = "Le format de l'email est incorrect";
-    }
-    if (this.emailUtilisateur || this.isEmailValid) {
-      this.verifMessageEmail = "";
-      this.isEmailValid = true;
-    }
+  if (this.email_utilisateur == "") {
+    validationEmail!.innerHTML = "";
+  }
+  // console.log(this.truthyTab);
 }
-
-verifPasswordFunction(){
-    if(!this.passwordUtilisateur){
-      this.isPasswordValid = false;
-      this.verifMessagePassword = "Le mot de passe est obligatoire";
+passeValidate() {
+  let validationPrenom = document.getElementById('validationPassword');
+  const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9-@_&]{7,}$/;
+  if (nomPrenomRegex.test(this.password_utilisateur)) {
+    // console.log(nomPrenomRegex.test(this.pass));
+    validationPrenom!.innerHTML = 'Valide';
+    validationPrenom!.classList.remove('error');
+    validationPrenom!.classList.add('success');
+    if (this.truthyTab.find((value:any)=>value.password_utilisateur==true)==undefined) {
+      this.truthyTab.push({password_utilisateur:true});
     }
-    if (this.passwordUtilisateur) {
-      this.verifMessagePassword = "";
-      this.isPasswordValid = true;
-    }
 
+  } else {
+    // console.log(nomPrenomRegex.test(this.pass));
+    validationPrenom!.innerHTML = 'Invalide';
+    validationPrenom!.classList.remove('success');
+    validationPrenom!.classList.add('error');
+    if (this.truthyTab.find((value:any)=>value.password_utilisateur==true)!=undefined) {
+      this.truthyTab.splice(this.truthyTab.findIndex((value:any)=>value.password_utilisateur==true),1);
+    }
+  }
+  if (this.password_utilisateur=="") {
+    validationPrenom!.innerHTML="";
+  }
+  // console.log(this.truthyTab);
+  // console.log(this.truthyTab.length);
 }
-
-
 
 
   login(){
-    this.verifEmailFunction();
-    this.verifPasswordFunction();
-    let emailUser= this.emailUtilisateur;
-    let passwordUser =this.passwordUtilisateur;
-    // if(emailUser =="" || passwordUser==""){
-    //   // console.log("veuillez remplir les champs");
-    //   Swal.fire({
-    //     title: 'Champs requis',
-    //     text: 'Veuillez remplir tous les champs obligatoires.',
-    //     icon: 'error',
-    //   });
-    //   return;
+    // this.emailValidate();
+    // this.passeValidate();
+    let emailUser= this.email_utilisateur;
+    let passwordUser =this.password_utilisateur;
 
 
-    // Swal.fire({
-    //   confirmButtonText: 'Oui, envoyer!',
-    //   cancelButtonText: 'Non, annuler'
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     Swal.fire(
-    //       'Bravo!',
-    //       'Envoi réussi avec succès.',
-    //       'success'
-    //     );
-    //   } else {
-    //     Swal.fire(
-    //       'Annulé!',
-    //       'Votre envoi a été annulé avec succès.',
-    //       'info'
-    //     );
-    //   }
-    // });
-    // // }
-    //   title: 'Êtes-vous sûr?',
-    //   text: 'Vous allez envoyer votre email!',
-    //   icon: 'warning',
-    //   showCancelButton: true,
-
-    if (this.isEmailValid && this.isPasswordValid){
+    if (this.truthyTab.length>=2){
       // console.log("votre mail est :",emailUser, "et votre password est :",passwordUser);
       this.userservice.login({email:emailUser,password:passwordUser},
         (response:any)=>{
@@ -153,7 +177,7 @@ verifPasswordFunction(){
 
         },
         (err:any) =>{
-          this.verifMessageEmail = this.verifMessagePassword = "Email ou mot de passe incorrect"
+          // this.verifMessageEmail = this.verifMessagePassword = "Email ou mot de passe incorrect"
         }
       )
     }
@@ -162,4 +186,6 @@ verifPasswordFunction(){
   me(){
 
   }
+
+
 }

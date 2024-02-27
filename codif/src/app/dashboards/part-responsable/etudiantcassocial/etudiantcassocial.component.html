@@ -5,10 +5,11 @@
   <div class="main">
       <app-header-sidebar></app-header-sidebar>
       <h1 class="text text-black text-center">Liste des étudiant Cas Social</h1>
-      <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #A41034; color: white; width: 15%;height: 40px; border-radius: 10px;">Ajouter</button>
-      <!-- <form action="/search"  method="get">
-        <p>Recherche :<input type="text" id="search" name="q" placeholder="Rechercher..."></p>
-      </form> -->
+      <!-- <button type="button " data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="background-color: #A41034; color: white; width: 15%;height: 40px; border-radius: 10px; top: -20px;">Ajouter</button> -->
+      <button
+          type="button" data-bs-toggle="modal" data-bs-target="#ajouterEtudiant" style="
+            background-color: #a41034; color: white; width: 10%; height: 40px; border-radius: 10px; margin-top: 20px; margin-left: 20px;" >  Ajouter
+        </button>
       <form action="/search"  method="get">
         <p>Recherche :<input type="text" id="search" name="q" [(ngModel)]="searchCassocial" (input)="getArticlesPage"  placeholder="Rechercher..."></p>
 
@@ -59,9 +60,9 @@
                 <th class="tHead">Nom </th>
                   <th class="tHead">Prenom </th>
                   <th class="tHead">Email </th>
-                  <th class="tHead">Telephone </th>
+                  <th class="tHead">Téléphone </th>
                   <th class="tHead">INE </th>
-                  <th class="tHead">Niveau_etudes </th>
+                  <th class="tHead">Niveau d'Etudes </th>
                   <th class="tHead">Sexe</th>
                   <th class="tHead">Adresse</th>
                   <!-- <th class="tHead">Action</th> -->
@@ -124,113 +125,69 @@
       <div class="modal-body">
         <form action="" >
 
-
-          <div class="mb-3">
+          <div class="d-flex g-5">
+          <!-- prenom -->
+          <div class="mb-3 me-2">
             <label for="exampleInputtypenom" class="form-label" >Nom<span class="span_validate" id="validationNom"></span></label>
             <input type="name" class="form-control" name="nom"(input)="nomValidate()"[(ngModel)]="nom"/>
 
             <div id="typnomnHelp" class="form-text"></div>
           </div>
 
-
+          <!-- prenom -->
           <div class="mb-3">
             <label for="exampleInputnbrschambre" class="form-label">Prenom<span class="span_validate" id="validationPrenom"></span></label>
             <input
               type="text" class="form-control" name="prenom"  (input)="prenomValidate()"[(ngModel)]="prenom"/>
               <div id="nbrschambreHelp" class="form-text"></div>
-
           </div>
+        </div>
 
+          <div class="d-flex">
              <!-- email -->
-             <div class="mb-3">
+             <div class="mb-3 me-2">
               <label for="exampleInputemail" class="form-label">Email <span class="span_validate" id="validationEmail"></span></label>
               <input type="email"  class="form-control"  name="email" (input)="emailValidate()" [(ngModel)]="email">
               <!-- <div id="emailHelp" class="form-text"></div> -->
 
             </div>
 
-
+            <!-- telephone -->
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label" >Telephone<span class="span_validate" id="validationTelephone"></span></label >
             <input
               type="text" class="form-control" name="telephone"  (input)="telephoneValidate()"[(ngModel)]="telephone"/>
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
+        </div>
 
-
-          <div class="mb-3">
+          <div class="d-flex">
+            <!-- INE -->
+          <div class="mb-3 me-2">
             <label for="exampleInputINE" class="form-label">INE<span class="span_validate" id="validationINE"></span></label>
             <input type="text" class="form-control" name="INE"  (input)="INEValidate()"[(ngModel)]="INE"/>
-
           </div>
-<span class="span_validate" id="validationNiveauetudes"></span>
 
+          <!-- niveau etude -->
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label">Niveau_Etudes</label >
             <input type="text" class="form-control" name="niveau_etudes"  (input)="niveau_etudesValidate()"[(ngModel)]="niveau_etudes"/>
 
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
+        </div>
 
-
-          <div class="mb-3">
+          <div class="d-flex">
+          <!-- filiere -->
+          <div class="mb-3 me-2">
             <label for="exampleInputnbrsetage" class="form-label" >Filiere<span class="span_validate" id="validationFiliere"></span></label>
             <input type="text" class="form-control" name="filiere"  (input)="filiereValidate()"[(ngModel)]="filiere"/>
 
             <div id="nbrsetageHelp" class="form-text"></div>
           </div>
 
-
-          <!-- <div class="mb-3">
-            <label for="sexe" class="form-label">Sexe</label>
-            <select name="sexe" id="sexe"  name="sexe" [(ngModel)]="sexe" formControlName="sexe" >
-                <option value="Homme">Homme</option>
-                 <option value="Femme">Femme</option>
-
-            </select>
-            <div id="sexe" class="form-text"></div>
-          </div> -->
-           <!-- Sexe -->
+           <!-- lieu naissance -->
            <div class="mb-3">
-            <label for="sexe" class="form-label">sexe</label>
-            <select name="sexe" id="sexe" [(ngModel)]="sexe" >
-                <option value="Homme">Homme</option>
-                 <option value="Femme">Femme</option>
-
-            </select>
-            <div id="sexe" class="form-text"></div>
-          </div>
-
-
-
-
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label" >Adresse<span class="span_validate" id="validationAdresse"></span></label >
-            <input
-              type="text" class="form-control" name="adresse"  (input)="adresseValidate()"[(ngModel)]="adresse"/>
-
-            <div id="nbrsetageHelp" class="form-text"></div>
-          </div>
-
-
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label" >Password<span class="span_validate" id="validationPassword"></span></label>
-            <input
-              type="password" class="form-control" name="password" (input)="passwordValidate()"[(ngModel)]="password"/>
-            <!-- <div id="nbrsetageHelp" class="form-text"></div> -->
-
-          </div>
-          <!-- <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label" >Chambre</label>
-            <input
-              type="text" class="form-control" name="chambre-id" id="exampleInputchambre1" aria-describedby="chambreHelp"
-              formControlName="chambre-id"/>
-            <div id="nbrsetageHelp" class="form-text"></div>
-
-          </div> -->
-
-
-          <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label" >Lieu Naissance<span class="span_validate" id="validationLieunaissance"></span></label>
             <input
               type="text" class="form-control" name="lieu_naissance"  (input)="lieu_naissanceValidate()"[(ngModel)]="lieu_naissance"/>
@@ -238,12 +195,47 @@
 
           </div>
 
+        </div>
 
-          <div class="mb-3">
-            <label for="exampleInputnbrsetage" class="form-label">Date Naissance<span class="span_validate" id="validationDatenaissance"></span></label >
+        <div class="d-flex">
+           <!-- adresse -->
+          <div class="mb-3 me-2">
+            <label for="exampleInputnbrsetage" class="form-label" >Adresse<span class="span_validate" id="validationAdresse"></span></label >
             <input
-              type="date" class="form-control" name="date_naissance"  (input)="dateValidate()"[(ngModel)]="date_naissance"/>
+              type="text" class="form-control" name="adresse"  (input)="adresseValidate()"[(ngModel)]="adresse"/>
+
             <div id="nbrsetageHelp" class="form-text"></div>
+          </div>
+
+          <!-- password -->
+          <div class="mb-3">
+            <label for="exampleInputnbrsetage" class="form-label" >Password<span class="span_validate" id="validationPassword"></span></label>
+            <input
+              type="password" class="form-control" name="password" (input)="passwordValidate()"[(ngModel)]="password"/>
+            <!-- <div id="nbrsetageHelp" class="form-text"></div> -->
+          </div>
+        </div>
+
+
+        <div class="d-flex">
+        <!-- date naissance -->
+        <div class="mb-3 w-50 me-2">
+          <label for="exampleInputnbrsetage" class="form-label">Date Naissance<span class="span_validate" id="validationDatenaissance"></span></label >
+          <input
+            type="date" class="form-control" name="date_naissance"  (input)="dateValidate()"[(ngModel)]="date_naissance"/>
+          <div id="nbrsetageHelp" class="form-text"></div>
+        </div>
+
+          <!-- sexe -->
+          <div class="mb-3 w-50">
+            <label for="sexe" class="form-label">sexe</label>
+            <select name="sexe" class="form-control" id="sexe" [(ngModel)]="sexe" >
+                <option value="Homme">Homme</option>
+                 <option value="Femme">Femme</option>
+
+            </select>
+            <div id="sexe" class="form-text"></div>
+          </div>
 
           </div>
 

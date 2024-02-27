@@ -43,6 +43,10 @@ import { SidebarresponsableComponent } from './sidebarresponsable/sidebarrespons
 // import { PartResponsableComponent } from './dashResponsable/part-responsable/part-responsable.component';
 import { EtudiantcassocialComponent } from './dashboards/part-responsable/etudiantcassocial/etudiantcassocial.component';
 import { DashResponsableComponent } from './dashboards/part-responsable/dash-responsable/dash-responsable.component';
+import { RoleComponent } from './dashboards/part-admins/role/role.component';
+import { BeneficiaireComponent } from './dashboards/part-admins/beneficiaire/beneficiaire.component';
+
+
 // import { ConnexionComponent } from './dashboards/part-admins/admin/auth/connexion/cnnexion.component';
 // import { InscriptionComponent } from './inscription/inscription.component';
 
@@ -83,6 +87,10 @@ import { DashResponsableComponent } from './dashboards/part-responsable/dash-res
     // PartResponsableComponent,
     EtudiantcassocialComponent,
     DashResponsableComponent,
+    RoleComponent,
+
+    BeneficiaireComponent
+
 
   ],
   imports: [

@@ -78,7 +78,7 @@ export class EtudiantcassocialComponent implements OnInit{
     articlesParPage = 6;
      // Nombre d'articles par page
     pageActuelle = 1;
-    // Page actuelle
+    // Page actuelle                                  
 
 
 

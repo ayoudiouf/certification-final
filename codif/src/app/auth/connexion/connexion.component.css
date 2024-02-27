@@ -35,8 +35,53 @@ select{
   border-radius: 0;
 
 }
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  padding-right: 40px; /* Ajoutez de l'espace à droite pour l'icône */
+  background-size: 20px; /* Taille de votre icône */
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
+}
+
+.toggle-button {
+  position: absolute;
+  top: 50%;
+  right: 5px; /* Ajustez la valeur selon vos besoins */
+  transform: translateY(-50%);
+  z-index: 2;
+}
 
 
+/* validation */
+span.span_validate
+{
+  font-size: 12px;
+  display: none;
+  transition: ease 1.5s;
+}
+
+.error
+{
+  display: inline-block !important;
+  color: red !important;
+}
+.success
+{
+  display: inline-block !important;
+  color: rgb(45, 194, 77) !important;
+}
+.actif-status {
+  color: green; /* Couleur pour le statut "Actif" */
+
+}
+
+.inactif-status {
+  color: red; /* Couleur pour le statut "Inactif" */
+}
 
 .btn-submit{
   background-color:#A41034 ;

@@ -21,6 +21,7 @@
                   <th class="tHead">Niveau_etudes </th>
                   <th class="tHead">Sexe</th>_
                   <th class="tHead">Adresse</th>_
+                  <th class="tHead">Etat</th>_
                   <th class="tHead">Action</th>
 
                 </tr>
@@ -35,11 +36,16 @@
                   <td>{{cassocial.niveau_etudes}}</td>
                   <td>{{cassocial.sexe}}</td>
                   <td>{{cassocial.adresse }}</td>
+                  <td>{{cassocial.Etat }}</td>
 
                   <td>
                     <span id="icon" >
+                      <button *ngIf="cassocial.Etat == 'Validé'" disabled style="cursor: not-allowed; background-color: green;">
+                        <i class="fa-solid fa-square-check" (click)="validerEtudiant(cassocial.id)">
+                        </i>
+                      </button>
 
-                      <button>
+                      <button *ngIf="cassocial.Etat != 'Validé'">
                         <i class="fa-solid fa-square-check" (click)="validerEtudiant(cassocial.id)">
                         </i>
                       </button>

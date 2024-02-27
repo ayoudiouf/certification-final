@@ -128,7 +128,7 @@
           <!-- Pavillon -->
           <div class="mb-3">
             <label for="id_pavillon" class="form-label">Pavillon</label>
-            <select class="form-select" id="pavillons_id" formControlName="pavillons_id" [(ngModel)]="pavillons_id" >
+            <select class="form-select" id="pavillons_id"  [(ngModel)]="pavillons_id" >
               <!-- Options du menu déroulant -->
               <option *ngFor="let pavillon of tabpavillons" [value]="pavillons_id">{{pavillon.libelle}}</option>
             </select>

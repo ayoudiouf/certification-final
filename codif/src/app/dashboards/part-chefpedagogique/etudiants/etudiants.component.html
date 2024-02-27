@@ -31,7 +31,7 @@
                   <td>{{etudiants.telephone}}</td>
                   <td>{{etudiants.INE}}</td>
                   <td>{{etudiants.adresse}}</td>
-                 
+
 
                   <!-- <td><span id="icon">
                     <button>
@@ -78,8 +78,9 @@
       <div class="modal-body">
         <!-- <form action="" > -->
 
+          <div class="d-flex">
           <!-- Nom -->
-          <div class="mb-3">
+          <div class="mb-3 me-2">
             <label for="exampleInputnom" class="form-label">Nom<span class="span_validate" id="validationNom"></span></label>
             <input type="text" class="form-control" id="nom"[(ngModel)]="nom" (input)="nomValidate()"/>
 
@@ -89,11 +90,12 @@
             <div class="mb-3">
               <label for="exampleInputprenom" class="form-label">Prenom<span class="span_validate" id="validationPrenom"></span></label>
               <input type="text" class="form-control" id="prenom"  [(ngModel)]="prenom" (input)="prenomValidate()"/>
-
             </div>
+          </div>
 
+          <div class="d-flex">
           <!-- Telephone -->
-          <div class="mb-3">
+          <div class="mb-3 me-2">
             <label for="telephone" class="form-label">Telephone<span class="span_validate" id="validationTelephone"></span></label>
             <input type="text" class="form-control" id="telephone"  [(ngModel)]="telephone" (input)="telephoneValidate()"/>
 
@@ -103,13 +105,12 @@
           <div class="mb-3">
             <label for="email" class="form-label">Email<span class="span_validate" id="validationEmail"></span></label>
             <input type="text" class="form-control" id="email"  [(ngModel)]="email" (input)="emailValidate()"/>
-
-
           </div>
+        </div>
 
+        <div class="d-flex">
           <!-- Password -->
-
-          <div class="mb-3">
+          <div class="mb-3 me-2">
             <label for="password" class="form-label">Password<span class="span_validate" id="validationPassword"></span></label>
             <input type="password" class="form-control" id="password"  [(ngModel)]="password" (input)="passwordValidate()"/>
 
@@ -119,54 +120,57 @@
            <div class="mb-3">
             <label for="filiere" class="form-label">Filiere<span class="span_validate" id="validationFiliere"></span></label>
             <input type="text" class="form-control" id="filiere"  [(ngModel)]="filiere" (input)="filiereValidate()"/>
-
+          </div>
           </div>
 
+          <div class="d-flex">
           <!-- Niveau Etudes -->
-          <div class="mb-3">
+          <div class="mb-3 me-2">
           <label for="niveau_etude" class="form-label">Niveau Etudes<span class="span_validate" id="validationNiveauetudes"></span></label>
           <input type="text" class="form-control" id="niveau_etudes" [(ngModel)]="niveau_etudes" (input)="niveau_etudesValidate()"/>
-
         </div>
 
           <!-- Moyennes -->
           <div class="mb-3">
             <label for="moyennes" class="form-label">Moyennes<span class="span_validate" id="validationMoyennes"></span></label>
             <input type="text" class="form-control" id="moyennes" [(ngModel)]="moyennes" (input)="moyennesValidate()"/>
-
+          </div>
           </div>
 
+          <div class="d-flex">
            <!-- Lieu-Naissance -->
-           <div class="mb-3">
+           <div class="mb-3 me-2">
             <label for="lieu_naissance" class="form-label">Lieu Naissance<span class="span_validate" id="validationLieunaissance"></span></label>
             <input type="text" class="form-control" id="lieu_naissance"  [(ngModel)]="lieu_naissance" (input)="lieu_naissanceValidate()"/>
 
           </div>
 
-           <!-- Date-Naissance -->
-           <div class="mb-3">
-            <label for="date_naissance" class="form-label">Date Naissance<span class="span_validate" id="validationDatenaissance"></span></label>
-            <input type="date" class="form-control" name="date_naissance" id="date_naissance"  [(ngModel)]="date_naissance" (input)="dateValidate()"/>
+          <!--INE  -->
+          <div class="mb-3">
+            <label for="INE" class="form-label">INE<span class="span_validate" id="validationINE"></span></label>
+            <input type="text" class="form-control" id="INE"  [(ngModel)]="INE" (input)="INEValidate()"/>
+          </div>
 
           </div>
+
+          <div class="d-flex">
            <!-- Sexe -->
-          <div class="mb-3">
+          <div class="mb-3 w-50 me-2">
             <label for="sexe" class="form-label">Sexe</label>
-            <select name="sexe" id="sexe" [(ngModel)]="sexe" >
+            <select name="sexe"  class="form-control" id="sexe" [(ngModel)]="sexe" >
                 <option value="Homme">Homme</option>
                  <option value="Femme">Femme</option>
             </select>
             <div id="type_pavillon" class="form-text"></div>
           </div>
 
-           <!--INE  -->
-           <div class="mb-3">
-            <label for="INE" class="form-label">INE<span class="span_validate" id="validationINE"></span></label>
-            <input type="text" class="form-control" id="INE"  [(ngModel)]="INE" (input)="INEValidate()"/>
-            <!-- <div id="INE" class="form-text"></div>
-            <p class="text-danger"*ngIf="isINEValid">{{verifMessageINE}}</p>
-            <p class="text-success"*ngIf="isINEValid"><i class="fa-solid fa-check"></i>exact</p> -->
+           <!-- Date-Naissance -->
+           <div class="mb-3 w-50">
+            <label for="date_naissance" class="form-label">Date Naissance<span class="span_validate" id="validationDatenaissance"></span></label>
+            <input type="date" class="form-control" name="date_naissance" id="date_naissance"  [(ngModel)]="date_naissance" (input)="dateValidate()"/>
           </div>
+
+        </div>
 
           <!-- Adresse -->
           <div class="mb-3">

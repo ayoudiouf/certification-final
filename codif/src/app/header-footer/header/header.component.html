@@ -44,12 +44,10 @@
                     <img src="../../../assets/logo/logo.codification.png" alt="">
                   </div>
                   <div class="navbar-nav mr-auto py-0" id="navigation">
-                      <a href="index.html" class="nav-item  nav-link">Accueil</a>
-                      <a href="#propos" class="nav-item nav-link">A propos</a>
-                      <a  href="#loge" class="nav-item nav-link">Vous loger</a>
-                      <a href="#equipe" class="nav-item nav-link">L'équipe</a>
-                      <a href="#actu" class="nav-item nav-link">Témoignage</a>
-                      <a href="#nouscontacter" class="nav-item nav-link">Contact</a>
+
+
+                      <a (click)="scroll()" class="nav-item  nav-link" routerLinkActive="activeMenu">Accueil</a>
+                      <a href="acueil#{{item.valeur}}" class="nav-item nav-link" routerLinkActive="activeMenu" *ngFor="let item of tableau" [style.color]="item.color"> {{item.display}} </a>
                   </div>
 
                 <!-- Dropdown -->

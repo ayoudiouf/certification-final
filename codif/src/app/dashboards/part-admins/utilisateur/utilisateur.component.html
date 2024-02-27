@@ -7,7 +7,7 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text text-black text-center">Liste des Utilisateurs</h1>
+          <h1 class="text text-black text-center">#Liste des Utilisateurs</h1>
           <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutChefPavion" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button>
           <!-- <div class="mb-3">
             <label for="exampleInputemail" class="form-label">Email <span class="span_validate" id="validationEmail"></span></label>
@@ -26,7 +26,7 @@
                   <th class="tHead">Prenom</th>
                   <th class="tHead">Email</th>
                   <!-- <th class="tHead">Password</th> -->
-                  <th class="tHead">Telephone</th>
+                  <th class="tHead">Téléphone</th>
                   <th class="tHead">Role</th>
                   <th class="tHead">Status</th>
                   <th class="tHead">Action</th>
@@ -55,9 +55,6 @@
                     <i class="fa-solid fa-ban" (click)="changeEtat(utilisateur.id)" style="cursor: pointer;"></i>
 
                 </button>
-
-
-
 
                   </span>
                 </td>
@@ -93,7 +90,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 " id="exampleModalLabel ">Ajouter Role </h1>
+        <h1 class="modal-title fs-5 " id="exampleModalLabel ">Ajouter Utilisateur </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -113,6 +110,18 @@
             <input type="text" name="prenom" class="form-control" (input)="prenomValidate()" [(ngModel)]="prenom_utilisateur">
             <!-- <div id="premonHelp" class="form-text"></div> -->
           </div>
+
+
+          <!-- Role -->
+          <div class="mb-3">
+            <label for="nomRole" class="form-label">Role</label>
+            <select class="form-select" id="nomRole"  [(ngModel)]="roles_id" >
+              <!-- Options du menu déroulant -->
+              <option *ngFor="let role of dataRole" [value]="roles_id">{{role.nomRole}}</option>
+            </select>
+
+          </div>
+
 
           <!-- email -->
           <div class="mb-3">
@@ -140,14 +149,11 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="typebutton btn btn-warning" (click)="ajoutUtilisateur()" [disabled]="truthyTab.length<5">Ajouter</button>
+          <button type="button" class="typebutton btn btn-warning" (click)="ajoutUtilisateur()"  accordion>Ajouter</button>
         </div>
         <!-- </form> -->
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="typebutton btn btn-primary">Ajouter</button>
-      </div> -->
+     
     </div>
   </div>
 </div>

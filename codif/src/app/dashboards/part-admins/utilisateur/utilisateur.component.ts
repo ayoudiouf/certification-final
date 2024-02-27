@@ -19,6 +19,7 @@ export class UtilisateurComponent implements OnInit {
   password: any = "";
   telephone: any = "";
   status: any = "";
+  roles_id: any = "";
 
   tabUtilisateurs: any[] = [];
 
@@ -28,11 +29,14 @@ export class UtilisateurComponent implements OnInit {
   password_utilisateur: any = "";
   telephone_utilisateur: any = "";
   status_utilisateur: any = "";
+  roles_id_utilisateur: any = "";
   // tab for validations
   public truthyTab: any[] = [];
 
+  dataRole: any[] = [];
   ngOnInit(): void {
     this.listeUtilisateurs();
+    this.getAllnomRoleUtilisateur();
     this.dtOptions = {
       searching: true,
       lengthChange: false,
@@ -57,6 +61,7 @@ export class UtilisateurComponent implements OnInit {
     password: ['', Validators.required,],
     telephone: ['', Validators.required,],
     status: ['', Validators.required,],
+    roles_id: ['', Validators.required,],
   });
 
   profileFormEdit: FormGroup = this.formbuilder.group({
@@ -66,6 +71,7 @@ export class UtilisateurComponent implements OnInit {
     password: ['', Validators.required,],
     telephone: ['', Validators.required,],
     status: ['', Validators.required,],
+    roles_id: ['', Validators.required,],
   });
 
   // fonction pour ajouter
@@ -85,6 +91,7 @@ export class UtilisateurComponent implements OnInit {
       password: this.password_utilisateur,
       telephone: this.telephone_utilisateur,
       status: this.status_utilisateur,
+      // roles_id: this.roles_id_utilsateur,
     }
 
     console.log(donne);
@@ -114,6 +121,18 @@ export class UtilisateurComponent implements OnInit {
     )
   }
 
+
+  getAllnomRoleUtilisateur(){
+    this.userService.getAllnomRoleUtilisateur().subscribe((reponse: any) => {
+      this.dataRole = reponse.roles
+        console.log("rollllllll",this.dataRole);
+        // console.log(reponse.nomRole); this.tabRole = reponse.nomRole;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
   // methode pour charger element a modifier dans formulaire
   seletedUtilisateur: any = {};
   utilisateurChoisi: any
@@ -125,6 +144,7 @@ export class UtilisateurComponent implements OnInit {
     this.password = use.password;
     this.telephone = use.telephone;
     this.status = use.status;
+    // this.roles_id = use.roles_id;
   }
 
   editUtilisateur() {

@@ -40,6 +40,7 @@ export class ChambreComponent implements OnInit{
   public truthyTab: any[] = [];
 
   ngOnInit(): void {
+   this.listepavillonchambre()
 
     this.getAllChambre();
     // this.getPavillons();
@@ -162,6 +163,16 @@ ajouterChambre() {
       console.log("neekkk", this. tabchambres);
     },
     );
+  }
+
+  listepavillonchambre(){
+
+    this.ChambreServices.listepavillon().subscribe((reponse:any) =>{
+        this.tabpavillons =  reponse.Pavillon;
+        console.log(this.tabchambres);
+
+    });
+
   }
 
   // seletedChambre: any = {};

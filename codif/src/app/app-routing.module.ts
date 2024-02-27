@@ -26,6 +26,9 @@ import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { AuthGuard } from './gards/guard-route.guard';
 import { DashResponsableComponent } from './dashboards/part-responsable/dash-responsable/dash-responsable.component';
 import { EtudiantcassocialComponent } from './dashboards/part-responsable/etudiantcassocial/etudiantcassocial.component';
+import { RoleComponent } from './dashboards/part-admins/role/role.component';
+import { BeneficiaireComponent } from './dashboards/part-admins/beneficiaire/beneficiaire.component';
+
 
 const routes: Routes = [
   // CanActivate:[/login];
@@ -51,8 +54,9 @@ const routes: Routes = [
   {path : 'etudiantreclamation' , component: DemandereclamationComponent, canActivate: [AuthGuard]},
   {path : 'payeetudiant' , component: EtudiantpayeComponent, canActivate: [AuthGuard]},
   { path: 'dahresponsable', component: DashResponsableComponent, canActivate: [AuthGuard]},
-
+  { path: 'role', component: RoleComponent, canActivate: [AuthGuard]},
   {path : 'listchambre' , component: ChambreComponent, canActivate: [AuthGuard]},
+  {path : 'beneficiaire' , component: BeneficiaireComponent, canActivate: [AuthGuard]},
   {path : 'connexion' , component: ConnexionComponent},
   {path : 'listeEtudiantCasSos' , component: EtudiantcassocialComponent, canActivate: [AuthGuard]},
   {path : 'paiementetudiant' , component: PaiementComponent, canActivate: [AuthGuard]},

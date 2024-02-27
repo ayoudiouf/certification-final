@@ -78,7 +78,7 @@
 
            <!-- Type Pavillon -->
           <div class="mb-3">
-            <label for="type_pavillon" class="form-label">Type_pavillon<span class="span_validate" id="validationTypepavillon"></span></label>
+            <label for="type_pavillon" class="form-label">Type de pavillon<span class="span_validate" id="validationTypepavillon"></span></label>
             <select class="form-control" name="type_chambre" id="type_chambre" [(ngModel)]="type_pavillon" (input)="pavillonValidate()">
                 <option value="Homme">Homme</option>
                  <option value="Femme">Femme</option>
@@ -97,6 +97,7 @@
           <div class="mb-3">
             <label for="exampleInputnbrsetage" class="form-label" >Nombres Etages<span class="span_validate" id="validationNombreEtage"></span></label>
             <select class="form-control" name="number" id="type_chambre" [(ngModel)]="nombres_etages" (input)="nombreetagesValidate()">
+              <option value="0">0</option>
               <option value="2">2</option>
               <option value="2">3</option>
                <option value="4">4</option>

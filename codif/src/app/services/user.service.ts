@@ -32,7 +32,9 @@ ajoutProfil(utilisateur:any){
 listeUtilisateur(){
   return this.http.get(`${url_base}Utilisateurs`);
 }
-
+getAllnomRoleUtilisateur(){
+  return this.http.get(`${url_base}listesRoles`);
+}
   // methode pour modifier donnée ves l'api
   editUtilisateur( id:any, modifuser: any){
     return this.http

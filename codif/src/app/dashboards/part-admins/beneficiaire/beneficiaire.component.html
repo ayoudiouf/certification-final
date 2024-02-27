@@ -1,0 +1,96 @@
+<div class="wrapper">
+  <app-sitebar></app-sitebar>
+  <div class="main">
+  <app-header-sidebar></app-header-sidebar>
+  <main class="content px-3 py-2">
+    <!-- COntenue dynamique -->
+    <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
+    <h1 class="text text-black text-center">#Liste des Bénéficiaires</h1>
+    <!-- <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutRole" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button> -->
+
+
+    <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" >
+      <!-- *ngIf="tabbeneficiaires.length >0" -->
+
+      <thead>
+        <tr>
+
+          <th class="tHead" >Nom</th>
+          <th class="tHead">Prenom</th>
+          <th class="tHead">Licence</th>
+          <th class="tHead">Telephone </th>
+          <th class="tHead">INE</th>
+          <th class="tHead">Adresse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let beneficiaire of tabbeneficiaires">
+          <td>{{beneficiaire.nom}}</td>
+          <td>{{beneficiaire.prenom}}</td>
+          <td>{{beneficiaire.niveau_etudes}}</td>
+          <td>{{beneficiaire.telephone}}</td>
+          <td>{{beneficiaire.INE}}</td>
+          <td>{{beneficiaire.adresse}}</td>
+
+
+          <!-- <td><span id="icon">
+            <button>
+              <i class="fa-solid fa-eye"  data-bs-toggle="modal"
+              data-bs-target="#detailsEtudiants"  (click)="getEtudiantParMerite(etudiants.id)"  ></i>
+            </button>
+          </span></td> -->
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- <table *ngIf="tabbeneficiaires.length <0">
+      <thead>
+          <tr>
+              <th>nom</th>
+              <th>prenom</th>
+              <th>niveau_etudes</th>
+              <th>telephone</th>
+              <th>INE</th>
+              <th>adresse</th>
+
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td colspan="7">Aucune donnée disponible au niveau du tableau</td>
+          </tr>
+      </tbody>
+    </table> -->
+
+    </div>
+</main>
+</div>
+</div>
+<!-- The Modal Ajouter-->
+<div class="modal fade" id="ajoutRole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h1 class="modal-title fs-5 " id="exampleModalLabel ">Ajouter Role </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+        <!-- <form action="" > -->
+
+           <!-- Role -->
+          <!-- <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Role <span class="span_validate" id="validationNomrole"></span></label>
+            <input type="text" name="nomRole" class="form-control" (input)="nomRoleValidate()" [(ngModel)]="nomRole">
+
+          </div> -->
+        <!-- </form> -->
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="typebutton btn btn-warning" (click)="AjouterRole()" [disabled]="truthyTab.length<1">Ajouter</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+

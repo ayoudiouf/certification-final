@@ -25,6 +25,7 @@
                   <th class="tHead">INE</th>
                   <th class="tHead">Niveau_etudes </th>
                   <th class="tHead">Sexe </th>
+                  <th class="tHead">Etat </th>
                   <th class="tHead">Action</th>
 
                 </tr>
@@ -41,17 +42,22 @@
                   <td>{{etudiantParMerite.INE }}</td>
                   <td>{{etudiantParMerite.niveau_etudes}}</td>
                   <td>{{etudiantParMerite.sexe }}</td>
+                  <td>{{etudiantParMerite.Etat }}</td>
                   <td>
                     <span id="icon" >
 
-                      <!-- <button>
-                        <i class="fa-solid fa-square-check" (click)="validerEttudiant(etudiantParMerite.id)">
-                        </i>
-                      </button> -->
-                      <button (click)="validerEtudiant(etudiantParMerite.id)">
+                      <!-- <button (click)="validerEtudiant(etudiantParMerite.id)">
                         <i class="fa-solid fa-square-check"></i>
-                      </button>
+                      </button> -->
+                          <button *ngIf="etudiantParMerite.Etat == 'Validé'" disabled style="cursor: not-allowed; background-color: green;">
+                            <i class="fa-solid fa-square-check" (click)="validerEtudiant(etudiantParMerite.id)">
+                            </i>
+                          </button>
 
+                          <button *ngIf="etudiantParMerite.Etat != 'Validé'">
+                            <i class="fa-solid fa-square-check" (click)="validerEtudiant(etudiantParMerite.id)">
+                            </i>
+                          </button>
                     </span>
                   </td>
                 </tr>

@@ -17,6 +17,11 @@ export class ChambresService {
     return this.http.post(`${url_base}admin/chambre/create/${1}` ,chambre);
 
   }
+  // La liste des pavillon
+  listepavillon(){
+    return this.http.get(`${url_base}pavillons`);
+
+  }
 
   postchambreChefPavillon(chambre: any) {
     return this.http.post(`${url_base}chambre/create` ,chambre);

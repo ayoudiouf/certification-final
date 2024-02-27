@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UserService } from '../services/user.service';
@@ -8,13 +8,20 @@ import { UserService } from '../services/user.service';
   templateUrl: './sidebaretudiant.component.html',
   styleUrls: ['./sidebaretudiant.component.css']
 })
-export class SidebaretudiantComponent {
+export class SidebaretudiantComponent implements OnInit {
 
-  constructor(private userService: UserService, private router:Router){
+  userConnected: any;
+  constructor(private userService: UserService, private router: Router) {
 
+    ;
+  }
+  ngOnInit(): void {
+    const user = JSON.parse(localStorage.getItem('userOnline') || "")
+    this.userConnected = user.Results.Utilisateur;
+    
   }
 
-  logout(){
+  logout() {
     let admin = {
       email: "admin@gmail.com",
       password: "admin123@"
@@ -31,7 +38,7 @@ export class SidebaretudiantComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.userService.logout(admin).subscribe(
-          (response:any) => {
+          (response: any) => {
             console.log(response);
             localStorage.removeItem('userOnline');
             console.log(response);

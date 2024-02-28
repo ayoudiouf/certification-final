@@ -28,6 +28,12 @@ ajoutProfil(utilisateur:any){
 
 }
 
+Envoyeremail(id:any){
+
+  return this.http.post(`${url_base}refresh`,id)
+
+}
+
 // La liste des utilisateurs
 listeUtilisateur(){
   return this.http.get(`${url_base}Utilisateurs`);

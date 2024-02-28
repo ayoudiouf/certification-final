@@ -33,7 +33,7 @@ import { BeneficiaireComponent } from './dashboards/part-admins/beneficiaire/ben
 const routes: Routes = [
   // CanActivate:[/login];
   // canActivate: [AuthGuard]
-
+  {path : '' , redirectTo:'acueil', pathMatch:'full'},
   {path : 'acueil', component: AcueilComponent},
   {path : 'admin' , component: AdminComponent, canActivate: [AuthGuard]},
   {path : 'confidentialite' , component: PolitiqueDeConfidentialiteComponent, canActivate: [AuthGuard]},
@@ -60,8 +60,8 @@ const routes: Routes = [
   {path : 'connexion' , component: ConnexionComponent},
   {path : 'listeEtudiantCasSos' , component: EtudiantcassocialComponent, canActivate: [AuthGuard]},
   {path : 'paiementetudiant' , component: PaiementComponent, canActivate: [AuthGuard]},
-  {path : '' , redirectTo:'acueil', pathMatch:'full'},
-  // { path: '**', component: MaintenanceComponent },
+
+  { path: '**', component: MaintenanceComponent },
 ];
 
 @NgModule({

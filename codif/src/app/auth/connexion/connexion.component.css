@@ -91,6 +91,7 @@ span.span_validate
   border: none;
 }
 
+
 @media screen and (max-width: 1238px) {
   .first-form{
     display: flex;

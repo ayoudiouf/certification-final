@@ -49,7 +49,7 @@
                       <!-- <button (click)="validerEtudiant(etudiantParMerite.id)">
                         <i class="fa-solid fa-square-check"></i>
                       </button> -->
-                          <button *ngIf="etudiantParMerite.Etat == 'Validé'" disabled style="cursor: not-allowed; background-color: green;">
+                          <button *ngIf="etudiantParMerite.Etat == 'Validé'" [ngClass]="{disabled:etudiantParMerite.Etat == 'Validé'}" style="cursor: not-allowed; background-color: green;">
                             <i class="fa-solid fa-square-check" (click)="validerEtudiant(etudiantParMerite.id)">
                             </i>
                           </button>

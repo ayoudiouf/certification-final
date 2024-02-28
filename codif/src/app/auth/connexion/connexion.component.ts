@@ -15,6 +15,7 @@ export class ConnexionComponent implements OnInit {
 
   email_utilisateur :string="";
   password_utilisateur: string="";
+  email: string="";
   public truthyTab: any[] = [];
 
   ngOnInit(): void {
@@ -87,7 +88,7 @@ emailValidate() {
   // this.emailError = emailRegexGegin.test(this.email);
   if (emailRegexGegin.test(this.email_utilisateur)) {
     // console.log(emailRegexGegin.test(this.email));
-    validationEmail!.innerHTML = 'valide';
+    validationEmail!.innerHTML = 'Valide';
     validationEmail!.classList.remove('error');
     validationEmail!.classList.add('success');
     if (this.truthyTab.find((value: any) => value.email_utilisateur == true) == undefined) {
@@ -96,7 +97,38 @@ emailValidate() {
     console.log(this.truthyTab);
   } else {
     // console.log(emailRegexGegin.test(this.email));
-    validationEmail!.innerHTML = 'invalide';
+    validationEmail!.innerHTML = 'Invalide';
+    validationEmail!.classList.remove('success');
+    validationEmail!.classList.add('error');
+    if (this.truthyTab.find((value: any) => value.email_utilisateur == true) != undefined) {
+      this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.email_utilisateur == true), 1);
+    }
+
+  }
+  if (this.email_utilisateur == "") {
+    validationEmail!.innerHTML = "";
+  }
+  // console.log(this.truthyTab);
+}
+
+emailrefreshValidate() {
+  console.warn(this.email);
+  let validationEmail = document.getElementById('validationEmail');
+  const emailRegexGegin = /^[a-zA-Z]+[.a-z0-9]+@[a-z]+[.]{1}[a-z]{2,}$/;
+  // const emailRegexEnd = /^[a-z]{2,}$/;
+  // this.emailError = emailRegexGegin.test(this.email);
+  if (emailRegexGegin.test(this.email_utilisateur)) {
+    // console.log(emailRegexGegin.test(this.email));
+    validationEmail!.innerHTML = 'Valide';
+    validationEmail!.classList.remove('error');
+    validationEmail!.classList.add('success');
+    if (this.truthyTab.find((value: any) => value.email == true) == undefined) {
+      this.truthyTab.push({ email_utilisateur: true });
+    }
+    console.log(this.truthyTab);
+  } else {
+    // console.log(emailRegexGegin.test(this.email));
+    validationEmail!.innerHTML = 'Invalide';
     validationEmail!.classList.remove('success');
     validationEmail!.classList.add('error');
     if (this.truthyTab.find((value: any) => value.email_utilisateur == true) != undefined) {
@@ -187,5 +219,51 @@ passeValidate() {
 
   }
 
+  // Envoyeremail(id:any){
+  //   this.userservice.Envoyeremail(id).subscribe(
+  //     (respons) => {
+  //       console.log("est envoyé oui!!!!", respons);
+  //       // Afficher une alerte SweetAlert pour indiquer que l'étudiant a été validé avec succès
+  //       Swal.fire({
+  //         icon: 'success',
+  //         title: 'Email Envoyé!',
+  //         text: 'L\'étudiant a été validé avec succès.',
+  //       });
+  //     },
+  //     (error) => {
+  //       console.error("Une erreur s'est produite lors de la validation de l'étudiant", error);
+  //       // Afficher une alerte SweetAlert pour indiquer qu'une erreur s'est produite
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: 'Erreur',
+  //         // text: 'Une erreur s\'est produite lors de la validation de l\'étudiant. Veuillez réessayer plus tard.',
+  //         text: 'Désolé l\'étudiant a été déjà valider. Veuillez réessayer plus tard.',
+  //       });
+  //     }
+  //   );
+  // }
+
+  Envoyeremail(email_utilisateur: string): void {
+    this.userservice.Envoyeremail(email_utilisateur).subscribe(
+      (respons) => {
+        console.log("Email envoyé avec succès!", respons);
+       
+        Swal.fire({
+          icon: 'success',
+          title: 'Email Envoyé!',
+          text: 'Un e-mail de récupération de mot de passe a été envoyé à votre adresse e-mail.',
+        });
+      },
+      (error) => {
+        console.error("Une erreur s'est produite lors de l'envoi de l'e-mail de récupération", error);
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail de récupération. Veuillez réessayer plus tard.',
+        });
+      }
+    );
+  }
 
 }

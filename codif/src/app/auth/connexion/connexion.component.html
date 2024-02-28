@@ -14,7 +14,7 @@
 
           <div class="mb-3" >
             <label  class="form-label text-black ">Email<span class="span_validate" id="validationEmail"></span></label>
-            <input type="email" class="form-control w-100 " name="email"  id="exampleFormControlInput1 " placeholder="email"(input)="emailValidate()" [(ngModel)]="email_utilisateur" >
+            <input type="email" class="form-control w-100 " name="email"  id="exampleFormControlInput1 " placeholder="email..."(input)="emailValidate()" [(ngModel)]="email_utilisateur" >
             <!-- <p class="text-danger">{{verifMessageEmail}}</p> -->
           </div>
 
@@ -28,7 +28,7 @@
           <div class="mb-3 position-relative">
             <label for="passwordExemple0" class="form-label text-black">Mot de passe<span class="span_validate" id="validationPassword"></span></label>
             <div class="input-group">
-                <input type="password" class="form-control w-100" name="password" id="passwordExemple0" placeholder="mot de passe" [(ngModel)]="password_utilisateur" (input)="passeValidate()">
+                <input type="password" class="form-control w-100" name="password" id="passwordExemple0" placeholder="mot de passe..." [(ngModel)]="password_utilisateur" (input)="passeValidate()">
                 <button class="btn btn-outline-secondary toggle-button" type="button" id="toggleButton">
                     <i class="fas fa-eye" id="toggleIcon"></i>
                 </button>
@@ -38,7 +38,7 @@
 
           <div class="col-12 px-0 my-3">
             <button type="submit" class="text-white w-100  btn-submit my-2" (click)="login()"[disabled]="truthyTab.length<2">Se connecter</button>
-            <a class="para text-black-50">Mot de pass oublier</a> <br>
+            <a class="para text-black-50" data-bs-toggle="modal" data-bs-target="#ajoutRole">Mot de pass oublier</a> <br>
 
           </div>
 
@@ -102,4 +102,32 @@
     </div>
   </div>
 
+</div>
+<!-- The Modal Mot de Passe Oublier-->
+<div class="modal fade" id="ajoutRole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 " id="exampleModalLabel ">Veuillez renseigner votre Email </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" >
+
+           <!-- Email -->
+          <div class="mb-3">
+            <label for="exampleInputnom" class="form-label">Email <span class="span_validate" id="validationEmail"></span></label>
+            <input type="email" name="email" class="form-control" (input)="emailrefreshValidate()" [(ngModel)]="email_utilisateur">
+            <div id="nomHelp" class="form-text"></div>
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button> -->
+        <button type="button" class="typebutton btn btn-warning text-white" (click)="Envoyeremail(email_utilisateur)">Envoyer</button>
+        <!-- [disabled]="truthyTab.length<1" -->
+      </div>
+    </div>
+  </div>
 </div>

@@ -17,23 +17,50 @@
             <input type="email" class="form-control w-100 " name="email"  id="exampleFormControlInput1 " placeholder="email..."(input)="emailValidate()" [(ngModel)]="email_utilisateur" >
             <!-- <p class="text-danger">{{verifMessageEmail}}</p> -->
           </div>
-
-          <!-- <div class="mb-3" >
+<!--
+          <div class="mb-3" >
             <label for="passwordExemple0" class="form-label text-black">Mot de passe<span class="span_validate" id="validationPassword"></span></label>
             <input type="password" class="form-control w-100 " name="password"  id="passwordExemple0" placeholder="mot de pass" [(ngModel)]="password_utilisateur" (input)="passeValidate()">
             <button class="btn btn-outline-secondary" type="button" id="toggleButton">
               <i class="fas fa-eye" id="toggleIcon"></i>
           </button>
           </div> -->
+<!-- 
           <div class="mb-3 position-relative">
             <label for="passwordExemple0" class="form-label text-black">Mot de passe<span class="span_validate" id="validationPassword"></span></label>
             <div class="input-group">
-                <input type="password" class="form-control w-100" name="password" id="passwordExemple0" placeholder="mot de passe..." [(ngModel)]="password_utilisateur" (input)="passeValidate()">
+                <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control w-100" name="password" id="passwordExemple0" placeholder="mot de passe..." [(ngModel)]="password_utilisateur" (input)="passeValidate()">
                 <button class="btn btn-outline-secondary toggle-button" type="button" id="toggleButton">
-                    <i class="fas fa-eye" id="toggleIcon"></i>
+            <i
+             class="fas fa-eye" [ngClass]="{ ' fa-eye': isPasswordVisible, 'fa-eye-slash': !isPasswordVisible }" (click)="togglePasswordVisibility()" >
+            </i>
                 </button>
             </div>
+        </div> -->
+
+        <div>
+          <label for="passwordExemple0" class="form-label text-black">Mot de passe<span class="span_validate" id="validationPassword"></span> </label>
+
+          <div class="input-group mb-3">
+            <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control"  name="password" placeholder="Mot de passe..."  [(ngModel)]="password_utilisateur" (input)="passeValidate()">
+            <span class="input-group-text" id="basic-addon2"> <i
+              class="fas fa-eye" [ngClass]="{ 'fa-eye': isPasswordVisible, 'fa-eye-slash': !isPasswordVisible }" (click)="togglePasswordVisibility()" >
+             </i></span>
+          </div>
         </div>
+
+
+<!--
+        <div class="input-group form-group mb-4">
+          <label for="exampleInputPassword1">Mot de passe<span class="span_validate" id="validationPassword"></span></label>
+            <input type="{{ isPasswordVisible ? 'text' : 'password' }}"
+            class="form-control w-100"
+             id="password_utilisateur" name="password_utilisateur" [(ngModel)]="password_utilisateur"(input)="passeValidate()" />
+            <span class="input-group-text"> <i
+             class="fas fa-eye" [ngClass]="{ ' fa-eye': isPasswordVisible, 'fa-eye-slash': !isPasswordVisible }" (click)="togglePasswordVisibility()" ></i>
+            </span>
+
+          </div> -->
 
 
           <div class="col-12 px-0 my-3">

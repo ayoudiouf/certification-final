@@ -140,8 +140,76 @@ a.sidebar-link {
 }
 
 
+ Style général des boutons
+.paginate_button {
+  padding: 5px 10px;
+ background-color: #a41034;
+  border: 2px solid#a41034;
 
-/* Responsive */
+  margin-right: 5px;
+}
+.page-item:last-child .page-link{
+  color: #a41034;
+  border: 2px solid #a41034 ;
+}
+.page-item:first-child .page-link{
+  color: #a41034;
+  border: 2px solid  #a41034;
+
+
+}
+.page-item:nth-last-child(1) .page-link{
+  color: #a41034;
+  border: 2px solid  #a41034;
+
+
+}
+
+.page-item:nth-last-child(2) .page-link{
+  color: #a41034;
+  border: 2px solid  #a41034;
+  border-radius: 100px;
+
+
+}
+.page-item:nth-last-child(3) .page-link{
+  color: #a41034;
+  border: 2px solid  #a41034;
+
+
+
+}
+
+.page-item.disabled .page-link {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #a41034;
+  color: white;
+}
+
+.page-item.active .page-link {
+  border-radius: 100px;
+  background-color: #a41034;
+  color: white;
+}
+
+ Boutons Précédent et Suivant
+.paginate_button.previous{
+  font-weight: bold;
+   background-color: #a41034 !important;
+  border-radius: 100px;
+  color: white;
+}
+.paginate_button.next {
+  font-weight: bold;
+   background-color: #a41034 !important;
+  border-radius: 100px;
+  color: white;
+}
+
+ /* Responsive */
 
 @media (min-width: 768px) {
   .content {

@@ -7,7 +7,7 @@
       <main class="content px-3 py-2">
           <!-- COntenue dynamique -->
           <div class="container-fluid overflow-y-scroll" style="height: 88vh;">
-          <h1 class="text text-black text-center">#Liste des étudiant par mérite</h1>
+          <h1 class="text text-black text-center">#Liste des étudiants par mérite</h1>
 
 
           <!-- <button>
@@ -21,11 +21,11 @@
                   <th class="tHead">Nom</th>
                   <th class="tHead">Prenom</th>
                   <th class="tHead">Email</th>
-                  <th class="tHead">Telephone </th>
+                  <th class="tHead">Téléphone </th>
                   <th class="tHead">INE</th>
-                  <th class="tHead">Niveau_etudes </th>
+                  <th class="tHead">Niveau d'Etudes </th>
                   <th class="tHead">Sexe </th>
-                  <th class="tHead">Etat </th>
+                  <th class="tHead">Etats </th>
                   <th class="tHead">Action</th>
 
                 </tr>
@@ -49,7 +49,7 @@
                       <!-- <button (click)="validerEtudiant(etudiantParMerite.id)">
                         <i class="fa-solid fa-square-check"></i>
                       </button> -->
-                          <button *ngIf="etudiantParMerite.Etat == 'Validé'" [ngClass]="{disabled:etudiantParMerite.Etat == 'Validé'}" style="cursor: not-allowed; background-color: green;">
+                          <button disabled *ngIf="etudiantParMerite.Etat == 'Validé'" [ngClass]="{disabled:etudiantParMerite.Etat == 'Validé'}" style="cursor: not-allowed; background-color: green;">
                             <i class="fa-solid fa-square-check" (click)="validerEtudiant(etudiantParMerite.id)">
                             </i>
                           </button>

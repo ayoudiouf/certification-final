@@ -14,10 +14,16 @@ actu: any = "actu";
 nouscontacter: any = "nouscontacter";
 tableau = [
   {
+    id: 0,
+    valeur: "accueil",
+    display: "Accueil",
+    color: "#a04134"
+  },
+  {
     id: 1,
     valeur: "propo",
     display: "A propos",
-    color: "initial"
+    color: "#initial"
   },
   {
     id: 2,
@@ -52,26 +58,15 @@ tableau = [
   }
 
   ngOnInit(): void {
-    this.updateColorsBasedOnURL().subscribe();
   }
-  updateColorsBasedOnURL(): Observable<any> {
-    let val = window.location.href;
-    let val2 = val.search(/#/);
-    if (val2 !== -1) {
-      let suffix = val.substring(val2 + 1);
-      this.tableau.forEach(tab => {
-        if (tab.valeur === suffix) {
-          tab.color = "#A41034";
-        } else {
-          tab.color = "initial";
-        }
-      });
-    } else {
-      this.tableau.forEach(tab => {
-        tab.color = "initial";
-      });
-    }
-    return <any>(1)
+  changerCouleur(id: any) {
+    this.tableau.find(ele => ele.id == id)?.color == "#a04134";
+    this.tableau.forEach(tab => {
+      tab.color = "initial";
+      if (tab.id == id) {
+        tab.color = "#a04134";
+      }
+    });
   }
 
  }

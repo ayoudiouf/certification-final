@@ -27,7 +27,7 @@ export class BeneficiaireComponent {
   date_naissance:any;
 
   tabbeneficiaires: any[] = [];
-  
+
   ngOnInit(): void {
     this.getAllBeneficiaire();
 
@@ -47,8 +47,8 @@ export class BeneficiaireComponent {
 
   getAllBeneficiaire(){
     this.beneficiaireService.getAllBeneficiaire().subscribe((reponse: any) => {
-      this.tabbeneficiaires = reponse.roles
-        console.log("rollllllll",this.tabbeneficiaires);
+      this.tabbeneficiaires = reponse
+        console.log("je suis benefiaire",this.tabbeneficiaires);
         // console.log(reponse.nomRole); this.tabRole = reponse.nomRole;
       },
       (err) => {

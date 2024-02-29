@@ -141,6 +141,8 @@ emailrefreshValidate() {
   }
   // console.log(this.truthyTab);
 }
+
+
 passeValidate() {
   let validationPrenom = document.getElementById('validationPassword');
   const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9-@_&]{7,}$/;
@@ -170,21 +172,26 @@ passeValidate() {
 }
 
 
+isPasswordVisible: boolean = false;
+
+togglePasswordVisibility() {
+  this.isPasswordVisible = !this.isPasswordVisible;
+}
   login(){
     // this.emailValidate();
     // this.passeValidate();
     let emailUser= this.email_utilisateur;
     let passwordUser =this.password_utilisateur;
 
-
     if (this.truthyTab.length>=2){
       // console.log("votre mail est :",emailUser, "et votre password est :",passwordUser);
+      // alert('jhahahaha');
       this.userservice.login({email:emailUser,password:passwordUser},
         (response:any)=>{
         // console.log(response.Results.Utilisateur.roles_id);
         // stocker notre les info de la requete dans notre localstorage
         // console.log(response.Results.access_token);
-          console.log(response.Results.access_token);
+          console.log("rep dino",response);
 
 
           localStorage.setItem('userOnline', JSON.stringify(response));
@@ -195,20 +202,25 @@ passeValidate() {
           const userOnline = JSON.parse(
             localStorage.getItem('userOnline') || ''
           );
-          if(response.Results.Utilisateur.roles_id==1){
+          // if(response.user.roles_id==1){
+          //   // this.route.navigate(['/admin'])
+          //   alert('hello hahahahahahah')
+          // }
+          if(response.user[0].roles_id==1){
             this.route.navigate(['/admin'])
-          }else if(response.Results.Utilisateur.roles_id==2){
+          }else if(response.user[0].roles_id==2){
             this.route.navigate(['/chefpavion'])
-          }else if(response.Results.Utilisateur.roles_id==3){
+          }else if(response.user[0].roles_id==3){
             this.route.navigate(['/chefpedagogique'])
-          }else if(response.Results.Utilisateur.roles_id==4){
+          }else if(response.user[0].roles_id==4){
             this.route.navigate(['/etudiant'])
-          }else if(response.Results.Utilisateur.roles_id==5){
+          }else if(response.user[0].roles_id==5){
             this.route.navigate(['/dahresponsable'])
           }
 
         },
         (err:any) =>{
+          console.log(err)
           // this.verifMessageEmail = this.verifMessagePassword = "Email ou mot de passe incorrect"
         }
       )
@@ -247,7 +259,7 @@ passeValidate() {
     this.userservice.Envoyeremail(email_utilisateur).subscribe(
       (respons) => {
         console.log("Email envoyé avec succès!", respons);
-       
+
         Swal.fire({
           icon: 'success',
           title: 'Email Envoyé!',

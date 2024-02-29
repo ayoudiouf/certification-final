@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   /* scroll-snap-stop: 90px; */
-  scroll-margin-top: 130px;
+  scroll-margin-top: 170px;
   }
   .pagecontainer {
     position: absolute;
-    top: 134px;
+    top: 124px;
   }
   input{
     height: 50px;

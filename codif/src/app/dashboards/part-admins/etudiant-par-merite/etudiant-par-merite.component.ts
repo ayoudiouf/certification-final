@@ -39,6 +39,7 @@ throw new Error('Method not implemented.');
 
   ngOnInit(): void {
     this.getAllEtudiantParMeriteadmin();
+  
 
     this.dtOptions = {
       searching: true,

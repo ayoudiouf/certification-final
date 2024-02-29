@@ -16,8 +16,8 @@ export class AuthInterceptor implements HttpInterceptor {
     const userOnline = JSON.parse(localStorage.getItem('userOnline') || 'null');
 
     // Assurez-vous que userOnline et userOnline.authorization sont définis
-    if ( userOnline && userOnline.Results.access_token) {
-      const token = userOnline.Results.access_token;
+    if ( userOnline && userOnline.access_token) {
+      const token = userOnline.access_token;
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
@@ -28,5 +28,5 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request);
   }
 
-  
+
 }

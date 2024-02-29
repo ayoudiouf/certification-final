@@ -9,8 +9,8 @@
     <!-- <button type="button " data-bs-toggle="modal" data-bs-target="#ajoutRole" style="background-color: #A41034; color: white; width: 10%;height: 40px; border-radius: 10px;">Ajouter</button> -->
 
 
-    <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" >
-      <!-- *ngIf="tabbeneficiaires.length >0" -->
+    <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table"  *ngIf="tabbeneficiaires.length >0">
+
 
       <thead>
         <tr>
@@ -44,7 +44,7 @@
       </tbody>
     </table>
 
-    <!-- <table *ngIf="tabbeneficiaires.length <0">
+    <table *ngIf="tabbeneficiaires.length <0">
       <thead>
           <tr>
               <th>nom</th>
@@ -61,7 +61,7 @@
               <td colspan="7">Aucune donnée disponible au niveau du tableau</td>
           </tr>
       </tbody>
-    </table> -->
+    </table>
 
     </div>
 </main>

@@ -17,7 +17,8 @@ export class SidebaretudiantComponent implements OnInit {
   }
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('userOnline') || "")
-    this.userConnected = user.Results.Utilisateur;
+    this.userConnected = user.user;
+    console.log(this.userConnected)
 
   }
 

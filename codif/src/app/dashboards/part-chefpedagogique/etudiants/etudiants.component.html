@@ -167,7 +167,8 @@
            <!-- Date-Naissance -->
            <div class="mb-3 w-50">
             <label for="date_naissance" class="form-label">Date Naissance<span class="span_validate" id="validationDatenaissance"></span></label>
-            <input type="date" class="form-control" name="date_naissance" id="date_naissance"  [(ngModel)]="date_naissance" (input)="dateValidate()"/>
+            <!-- <input type="date" class="form-control" name="date_naissance" id="date_naissance"  [(ngModel)]="date_naissance" (input)="dateValidate()"/> -->
+            <input type="date" class="form-control" name="date_naissance" id="date_naissance" [(ngModel)]="date_naissance" (input)="dateValidate()" max="{{ yesterday | date: 'yyyy-MM-dd' }}" />
           </div>
 
         </div>

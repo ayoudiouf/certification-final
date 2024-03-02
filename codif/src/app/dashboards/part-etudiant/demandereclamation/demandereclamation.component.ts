@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { ReclamationModel } from 'src/app/models/reclamation';
@@ -31,6 +31,18 @@ export class DemandereclamationComponent implements OnInit{
 
   }
 
+
+  profileForm: FormGroup = this.formbuilder.group({
+    objet: ['', Validators.required],
+    message: ['', Validators.required],
+
+  });
+
+  profileFormEdite: FormGroup = this.formbuilder.group({
+    objet: ['', Validators.required],
+    message: ['', Validators.required],
+
+  });
   dtOptions: DataTables.Settings = {};
   ngOnInit(): void {
     // const script = document.createElement('script');
@@ -70,16 +82,14 @@ newObjet : any= {
   console.log("voir donneee", this.formrecla);
 
    this.newObjet ={
-  objet : this.formrecla.objet,
-  message : this.formrecla.message
+  objet : this.objet,
+  message : this.message
 }
-  // const userOnline = JSON.parse(
-  //   localStorage.getItem('userOnline') || '');
+
   this.reclamationService.FaireReclamation(this.newObjet).subscribe((response: any) => {
 
     console.log("lou khew", response);
 
-    // this.getAllReclamationetudiant()
   });
 
 
@@ -121,7 +131,7 @@ deleteReclamationChefEtudiant(id: any) {
 
 objetValidate() {
   let validationPrenom = document.getElementById('validationObjet');
-  const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+  const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9]{3,}$/;
   if (nomPrenomRegex.test(this.objet)) {
     // console.log(nomPrenomRegex.test(this.prenom));
     validationPrenom!.innerHTML = 'Valide';
@@ -145,7 +155,7 @@ objetValidate() {
 }
 messageValidate() {
   let validationPrenom = document.getElementById('validationMessage');
-  const nomPrenomRegex = /^[a-zA-Z]{2,25}$/;
+  const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9]{3,}$/;
   if (nomPrenomRegex.test(this.message)) {
     // console.log(nomPrenomRegex.test(this.prenom));
     validationPrenom!.innerHTML = 'Valide';

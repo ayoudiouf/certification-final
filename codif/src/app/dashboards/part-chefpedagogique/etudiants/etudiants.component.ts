@@ -26,6 +26,7 @@ export class EtudiantsComponent  implements OnInit{
   adresse:any;
   lieu_naissance:any;
   date_naissance:any;
+  yesterday:any;
 
   etudiantsparmerites: any[] = [];
 
@@ -51,7 +52,9 @@ export class EtudiantsComponent  implements OnInit{
     };
   }
   constructor(private listeEtudiantParOrdreMeriteService: ListeEtudiantParOrdreMeriteService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient){
-
+      const today = new Date();
+      this.yesterday = new Date(today);
+      this.yesterday.setDate(today.getDate() - 1);
   }
 
      // Les variables de la vérification
@@ -327,6 +330,7 @@ export class EtudiantsComponent  implements OnInit{
       sexe: this.sexe,
       adresse: this.adresse,
       lieu_naissance: this.lieu_naissance,
+      date_naissance: this.date_naissance,
 
       }
 

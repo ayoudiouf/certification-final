@@ -19,7 +19,10 @@ export class ConnexionComponent implements OnInit {
   public truthyTab: any[] = [];
 
   ngOnInit(): void {
-
+    // Initialiser le localstorage
+    if(!localStorage.getItem("refreshCount")){
+      localStorage.setItem("refreshCount", JSON.stringify(0));
+    }
   }
 
   constructor(private userservice: UserService, private formbuilder: FormBuilder,private route:Router) {
@@ -178,8 +181,7 @@ togglePasswordVisibility() {
   this.isPasswordVisible = !this.isPasswordVisible;
 }
   login(){
-    // this.emailValidate();
-    // this.passeValidate();
+
     let emailUser= this.email_utilisateur;
     let passwordUser =this.password_utilisateur;
 
@@ -191,9 +193,9 @@ togglePasswordVisibility() {
         // console.log(response.Results.Utilisateur.roles_id);
         // stocker notre les info de la requete dans notre localstorage
         // console.log(response.Results.access_token);
-          console.log("rep dino",response);
 
 
+          this.userservice.deconnexionAutomatique();
           localStorage.setItem('userOnline', JSON.stringify(response));
           // console.log(response);
 
@@ -255,27 +257,27 @@ togglePasswordVisibility() {
   //   );
   // }
 
-  Envoyeremail(email_utilisateur: string): void {
-    this.userservice.Envoyeremail(email_utilisateur).subscribe(
-      (respons) => {
-        console.log("Email envoyé avec succès!", respons);
+  // Envoyeremail(email_utilisateur: string): void {
+  //   this.userservice.Envoyeremail(email_utilisateur).subscribe(
+  //     (respons:any) => {
+  //       console.log("Email envoyé avec succès!", respons);
 
-        Swal.fire({
-          icon: 'success',
-          title: 'Email Envoyé!',
-          text: 'Un e-mail de récupération de mot de passe a été envoyé à votre adresse e-mail.',
-        });
-      },
-      (error) => {
-        console.error("Une erreur s'est produite lors de l'envoi de l'e-mail de récupération", error);
+  //       Swal.fire({
+  //         icon: 'success',
+  //         title: 'Email Envoyé!',
+  //         text: 'Un e-mail de récupération de mot de passe a été envoyé à votre adresse e-mail.',
+  //       });
+  //     },
+  //     (error:any) => {
+  //       console.error("Une erreur s'est produite lors de l'envoi de l'e-mail de récupération", error);
 
-        Swal.fire({
-          icon: 'error',
-          title: 'Erreur',
-          text: 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail de récupération. Veuillez réessayer plus tard.',
-        });
-      }
-    );
-  }
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: 'Erreur',
+  //         text: 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail de récupération. Veuillez réessayer plus tard.',
+  //       });
+  //     }
+  //   );
+  // }
 
 }

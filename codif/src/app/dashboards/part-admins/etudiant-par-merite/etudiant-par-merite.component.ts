@@ -11,27 +11,27 @@ import Swal from 'sweetalert2';
   templateUrl: './etudiant-par-merite.component.html',
   styleUrls: ['./etudiant-par-merite.component.css']
 })
-export class EtudiantParMeriteComponent implements OnInit{
-toggleSelection(_t27: any) {
-throw new Error('Method not implemented.');
-}
+export class EtudiantParMeriteComponent implements OnInit {
+  toggleSelection(_t27: any) {
+    throw new Error('Method not implemented.');
+  }
 
-  seletedEtudiantParMeriteAdmin:any;
+  seletedEtudiantParMeriteAdmin: any;
   dtOptions: DataTables.Settings = {};
   etudiantParMerites: any;
 
   // INE = string;
-  nom : any;
-  prenom : any;
-  email : any;
-  INE : any;
-  roles_id : any;
-  telephone : any;
-  sexe : any;
+  nom: any;
+  prenom: any;
+  email: any;
+  INE: any;
+  roles_id: any;
+  telephone: any;
+  sexe: any;
   niveau_etudes: any;
-  status_id : any;
-  adresse : any;
-  libelle: string='';
+  status_id: any;
+  adresse: any;
+  libelle: string = '';
   type_pavillon: any;
   nombres_etages: any;
   nombres_chambres: any;
@@ -39,7 +39,9 @@ throw new Error('Method not implemented.');
 
   ngOnInit(): void {
     this.getAllEtudiantParMeriteadmin();
-  
+
+    // this.etudiantParMerites = this.filterEtudiantsByNiveau(reponse, 'Licence 1');
+
 
     this.dtOptions = {
       searching: true,
@@ -52,8 +54,9 @@ throw new Error('Method not implemented.');
     };
   }
   constructor(private etudiantpareriteService: ListeEtudiantParOrdreMeriteService, private formbuilder: FormBuilder, private route: Router, private http: HttpClient
-    ) {
+  ) {
   }
+
 
   profileForm: FormGroup = this.formbuilder.group({
     INE: ['', Validators.required],
@@ -104,55 +107,100 @@ throw new Error('Method not implemented.');
 
       console.log(response);
 
-      this.getAllEtudiantParMeriteadmin() ;
+      this.getAllEtudiantParMeriteadmin();
     });
   }
-// fonction qui permet de lister
+  // fonction qui permet de lister
+  etudiantlicenceun: any[] = [];
+  etudianslicencedeux: any[] = [];
+  etudianslicencedtrois: any[] = [];
+
+
+  currentFilter: string = 'all'; // Initial value, showing all students
+
+  filterStudents(filter: string) {
+    this.currentFilter = filter;
+    this.getAllEtudiantParMeriteadmin();
+  }
+
   getAllEtudiantParMeriteadmin() {
-    this.etudiantpareriteService.getAllEtudiantParMeriteadmin().subscribe((reponse) => {
-      // console.log('la reponse du baken est ',reponse)
-
-        this.etudiantParMerites = reponse ;
-        console.log("merite",reponse);
-
+    this.etudiantpareriteService.getAllEtudiantParMeriteadmin().subscribe((reponse: any) => {
+        this.etudiantParMerites = reponse.filter((etudiant: any) => {
+            if (this.currentFilter === 'all') {
+                return true; // Show all students
+            } else if (this.currentFilter === 'licence1') {
+                return etudiant.niveau_etudes === 'Licence 1'; // Show only Licence 1 students
+            } else if (this.currentFilter === 'licence2') {
+                return etudiant.niveau_etudes === 'Licence 2'; // Show only Licence 2 students
+            }
+            // Add an else clause to return a default value if no condition is met
+            return false;
+        });
     });
+}
+
+
+
+  // getAllEtudiantParMeriteadmin() {
+  //   this.etudiantpareriteService.getAllEtudiantParMeriteadmin().subscribe((reponse) => {
+  //     // console.log('la reponse du baken est ',reponse)
+
+  //     this.etudiantParMerites = reponse;
+  //     console.log(this.etudiantParMerites);
+  //     console.log("merite", reponse);
+  //     this.etudiantParMerites.forEach((elt: any) => {
+  //       if (elt.niveau_etudes == "Licence 1") {
+  //         this.etudiantlicenceun.push(elt);
+  //       } else if (elt.niveau_etudes == "Licence 2") {
+  //         this.etudianslicencedeux.push(elt);
+  //       } else {
+  //         this.etudianslicencedtrois.push(elt);
+  //       }
+
+  //     })
+  //     console.log(this.etudiantlicenceun);
+  //     console.log(this.etudianslicencedeux);
+  //   });
+  // }
+
+
+  filterEtudiantsByNiveau(etudiants: any[], niveau: string): any[] {
+    return etudiants.filter(etudiant => etudiant.niveau_etudes === niveau);
   }
 
+  // fonction qui permet de valider un etudiant
+  // validerEttudiant(id: any) {
 
-
-// fonction qui permet de valider un etudiant
-// validerEttudiant(id: any) {
-
-//   this.etudiantpareriteService.validerEtudiant(id).subscribe((respons)=>{
-//     console.log("est validi oui!!!!", respons);
-//   })
-// }
+  //   this.etudiantpareriteService.validerEtudiant(id).subscribe((respons)=>{
+  //     console.log("est validi oui!!!!", respons);
+  //   })
+  // }
 
 
 
-validerEtudiant(id: any) {
-  this.etudiantpareriteService.validerEtudiant(id).subscribe(
-    (respons) => {
-      console.log("est validé oui!!!!", respons);
-      // Afficher une alerte SweetAlert pour indiquer que l'étudiant a été validé avec succès
-      Swal.fire({
-        icon: 'success',
-        title: 'Étudiant Validé!',
-        text: 'L\'étudiant a été validé avec succès.',
-      });
-    },
-    (error) => {
-      console.error("Une erreur s'est produite lors de la validation de l'étudiant", error);
-      // Afficher une alerte SweetAlert pour indiquer qu'une erreur s'est produite
-      Swal.fire({
-        icon: 'error',
-        title: 'Erreur',
-        // text: 'Une erreur s\'est produite lors de la validation de l\'étudiant. Veuillez réessayer plus tard.',
-        text: 'Désolé l\'étudiant a été déjà valider. Veuillez réessayer plus tard.',
-      });
-    }
-  );
-}
+  validerEtudiant(id: any) {
+    this.etudiantpareriteService.validerEtudiant(id).subscribe(
+      (respons) => {
+        console.log("est validé oui!!!!", respons);
+        // Afficher une alerte SweetAlert pour indiquer que l'étudiant a été validé avec succès
+        Swal.fire({
+          icon: 'success',
+          title: 'Étudiant Validé!',
+          text: 'L\'étudiant a été validé avec succès.',
+        });
+      },
+      (error) => {
+        console.error("Une erreur s'est produite lors de la validation de l'étudiant", error);
+        // Afficher une alerte SweetAlert pour indiquer qu'une erreur s'est produite
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          // text: 'Une erreur s\'est produite lors de la validation de l\'étudiant. Veuillez réessayer plus tard.',
+          text: 'Désolé l\'étudiant a été déjà valider. Veuillez réessayer plus tard.',
+        });
+      }
+    );
+  }
 
 
 }

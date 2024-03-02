@@ -10,9 +10,9 @@
           <h1 class="text text-black text-center">#Liste des étudiants par mérite</h1>
 
 
-          <!-- <button>
-            <input type="checkbox" (change)="selectAll($event)">
-          </button> -->
+          <button (click)="filterStudents('all')">Tout les étudiants</button>
+          <button (click)="filterStudents('licence1')">Licence 1</button>
+          <button (click)="filterStudents('licence2')">Licence 2</button>
           <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="etudiantParMerites.length >0">
 
             <thead class="titre" style="background-color: #A41034;">
@@ -25,6 +25,7 @@
                   <th class="tHead">INE</th>
                   <th class="tHead">Niveau d'Etudes </th>
                   <th class="tHead">Sexe </th>
+                  <th class="tHead">Adresse </th>
                   <th class="tHead">Etats </th>
                   <th class="tHead">Action</th>
 
@@ -42,6 +43,7 @@
                   <td>{{etudiantParMerite.INE }}</td>
                   <td>{{etudiantParMerite.niveau_etudes}}</td>
                   <td>{{etudiantParMerite.sexe }}</td>
+                  <td>{{etudiantParMerite.adresse }}</td>
                   <td>{{etudiantParMerite.Etat }}</td>
                   <td>
                     <span id="icon" >
@@ -50,7 +52,7 @@
                         <i class="fa-solid fa-square-check"></i>
                       </button> -->
                           <button disabled *ngIf="etudiantParMerite.Etat == 'Validé'" [ngClass]="{disabled:etudiantParMerite.Etat == 'Validé'}" style="cursor: not-allowed; background-color: green;">
-                            <i class="fa-solid fa-square-check" (click)="validerEtudiant(etudiantParMerite.id)">
+                            <i class="fa-solid fa-square-check" >
                             </i>
                           </button>
 

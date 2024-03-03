@@ -30,7 +30,7 @@ export class ReclamationService {
     return this.http.delete(`${url_base}SupprimerReclamation/delete/{id}`);
 
   }
-
+  // SupprimerReclamation/delete/{id}
 
 
    // Detail d'une reclamaton

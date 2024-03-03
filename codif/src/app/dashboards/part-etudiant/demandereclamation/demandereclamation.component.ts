@@ -45,6 +45,7 @@ export class DemandereclamationComponent implements OnInit{
   });
   dtOptions: DataTables.Settings = {};
   ngOnInit(): void {
+
     // const script = document.createElement('script');
     // script.src = '../../../assets/js/script.js';
     // Ajustez le chemin en conséquence
@@ -58,7 +59,8 @@ export class DemandereclamationComponent implements OnInit{
         url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json'
       }
     };
-    this.getAllReclamationetudiant()
+    this.FaireUneReclamation();
+    this.getAllReclamationetudiant();
 }
 
 getAllReclamationetudiant() {
@@ -129,52 +131,52 @@ deleteReclamationChefEtudiant(id: any) {
 //   this.seletedDemandeReclamation = demande;
 //   }
 
-objetValidate() {
-  let validationPrenom = document.getElementById('validationObjet');
-  const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9]{3,}$/;
-  if (nomPrenomRegex.test(this.objet)) {
-    // console.log(nomPrenomRegex.test(this.prenom));
-    validationPrenom!.innerHTML = 'Valide';
-    validationPrenom!.classList.remove('error');
-    validationPrenom!.classList.add('success');
-    if (this.truthyTab.find((value: any) => value.objet == true) == undefined) {
-      this.truthyTab.push({ objet: true });
-    }
-  } else {
-    // console.log(nomPrenomRegex.test(this.prenom));
-    validationPrenom!.innerHTML = 'Invalide';
-    validationPrenom!.classList.remove('success');
-    validationPrenom!.classList.add('error');
-    if (this.truthyTab.find((value: any) => value.objet == true) != undefined) {
-      this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.objet == true), 1);
-    }
-  }
-  if (this.objet == "") {
-    validationPrenom!.innerHTML = "";
-  }
-}
-messageValidate() {
-  let validationPrenom = document.getElementById('validationMessage');
-  const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9]{3,}$/;
-  if (nomPrenomRegex.test(this.message)) {
-    // console.log(nomPrenomRegex.test(this.prenom));
-    validationPrenom!.innerHTML = 'Valide';
-    validationPrenom!.classList.remove('error');
-    validationPrenom!.classList.add('success');
-    if (this.truthyTab.find((value: any) => value.message == true) == undefined) {
-      this.truthyTab.push({ message: true });
-    }
-  } else {
-    // console.log(nomPrenomRegex.test(this.prenom));
-    validationPrenom!.innerHTML = 'Invalide';
-    validationPrenom!.classList.remove('success');
-    validationPrenom!.classList.add('error');
-    if (this.truthyTab.find((value: any) => value.message == true) != undefined) {
-      this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.message == true), 1);
-    }
-  }
-  if (this.message == "") {
-    validationPrenom!.innerHTML = "";
-  }
-}
+// objetValidate() {
+//   let validationPrenom = document.getElementById('validationObjet');
+//   const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9]{3,}$/;
+//   if (nomPrenomRegex.test(this.objet)) {
+//     // console.log(nomPrenomRegex.test(this.prenom));
+//     validationPrenom!.innerHTML = 'Valide';
+//     validationPrenom!.classList.remove('error');
+//     validationPrenom!.classList.add('success');
+//     if (this.truthyTab.find((value: any) => value.objet == true) == undefined) {
+//       this.truthyTab.push({ objet: true });
+//     }
+//   } else {
+//     // console.log(nomPrenomRegex.test(this.prenom));
+//     validationPrenom!.innerHTML = 'Invalide';
+//     validationPrenom!.classList.remove('success');
+//     validationPrenom!.classList.add('error');
+//     if (this.truthyTab.find((value: any) => value.objet == true) != undefined) {
+//       this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.objet == true), 1);
+//     }
+//   }
+//   if (this.objet == "") {
+//     validationPrenom!.innerHTML = "";
+//   }
+// }
+// messageValidate() {
+//   let validationPrenom = document.getElementById('validationMessage');
+//   const nomPrenomRegex = /^[a-zA-Z]+[a-z0-9]{3,}$/;
+//   if (nomPrenomRegex.test(this.message)) {
+//     // console.log(nomPrenomRegex.test(this.prenom));
+//     validationPrenom!.innerHTML = 'Valide';
+//     validationPrenom!.classList.remove('error');
+//     validationPrenom!.classList.add('success');
+//     if (this.truthyTab.find((value: any) => value.message == true) == undefined) {
+//       this.truthyTab.push({ message: true });
+//     }
+//   } else {
+//     // console.log(nomPrenomRegex.test(this.prenom));
+//     validationPrenom!.innerHTML = 'Invalide';
+//     validationPrenom!.classList.remove('success');
+//     validationPrenom!.classList.add('error');
+//     if (this.truthyTab.find((value: any) => value.message == true) != undefined) {
+//       this.truthyTab.splice(this.truthyTab.findIndex((value: any) => value.message == true), 1);
+//     }
+//   }
+//   if (this.message == "") {
+//     validationPrenom!.innerHTML = "";
+//   }
+// }
 }

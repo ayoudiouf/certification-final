@@ -87,22 +87,23 @@
         <!-- bojet -->
       <div class="mb-3">
         <label for="exampleInputmessage" class="form-label">Objet<span class="span_validate" id="validationObjet"></span></label>
-        <input type="text" class="form-control"  name="objet"  (input)="objetValidate()" [(ngModel)]="objet">
-
+        <input type="text" class="form-control"  name="objet"   [(ngModel)]="objet">
+        <!-- (input)="objetValidate()" -->
 
       </div>
 
       <!-- message -->
           <div class="mb-3">
             <label for="exampleInputmessage" class="form-label">Message<span class="span_validate" id="validationMessage"></span></label>
-            <input type="text" class="form-control" name="message" (input)="messageValidate()" [(ngModel)]="message">
-
+            <input type="text" class="form-control" name="message"  [(ngModel)]="message">
+            <!-- (input)="messageValidate()" -->
 
           </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="typebutton btn " (click)="FaireUneReclamation()"[disabled]="truthyTab.length<2">Envoyer</button>
+        <button type="button" class="typebutton btn " (click)="FaireUneReclamation()">Envoyer</button>
+        <!-- [disabled]="truthyTab.length<2" -->
         <button type="button" class="btn  " data-bs-dismiss="modal">Annuler</button>
       </div>
     </div>

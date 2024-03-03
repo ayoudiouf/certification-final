@@ -36,80 +36,80 @@ ajoutProfil(utilisateur:any){
 
 
 // Methode pour rafraichir automatiquement le token après chaque 15mns
-deconnexionAutomatique() {
-  console.log('deconnection automatique demarer')
-  setTimeout(() => {
-    this.refreshToken(this.onSuccess, this.onError);
-  }, 10000); // 10 secondes
+// deconnexionAutomatique() {
+//   console.log('deconnection automatique demarer')
+//   setTimeout(() => {
+//     this.refreshToken(this.onSuccess, this.onError);
+//   }, 60000); // 10 secondes
 
-}
+// }
 
-// Service pour rafraichir le token
-refreshToken(onSuccess: Function, onError: Function) {
-  console.log("Function de rafraichessement");
+// // Service pour rafraichir le token
+// refreshToken(onSuccess: Function, onError: Function) {
+//   console.log("Function de rafraichessement");
 
-  // Vérifier si le nombre de rafraîchissements a atteint la limite de 4
-  const refreshCount = parseInt(localStorage.getItem('refreshCount') || '0');
-  if (refreshCount >= 8) {
-    // Afficher SweetAlert pour proposer de rafraîchir le token ou se déconnecter
-    this.showLogoutAlert();
-    console.log("Function de rafraichessement superieure à 1", refreshCount);
-  } else {
-    // Mettre à jour le nombre de rafraîchissements dans le localStorage
-    localStorage.setItem('refreshCount', (refreshCount + 1).toString());
-    console.log("Function de rafraichessement inf à 1", refreshCount)
-    // Réinitialiser le timer de déconnexion automatique
-    this.deconnexionAutomatique();
-  }
+//   // Vérifier si le nombre de rafraîchissements a atteint la limite de 4
+//   const refreshCount = parseInt(localStorage.getItem('refreshCount') || '0');
+//   if (refreshCount >= 8) {
+//     // Afficher SweetAlert pour proposer de rafraîchir le token ou se déconnecter
+//     this.showLogoutAlert();
+//     console.log("Function de rafraichessement superieure à 1", refreshCount);
+//   } else {
+//     // Mettre à jour le nombre de rafraîchissements dans le localStorage
+//     localStorage.setItem('refreshCount', (refreshCount + 1).toString());
+//     console.log("Function de rafraichessement inf à 1", refreshCount)
+//     // Réinitialiser le timer de déconnexion automatique
+//     this.deconnexionAutomatique();
+//   }
 
-  // Effectuer le rafraîchissement du token
-  return this.http.get<any>(`${url_base}refresh`).subscribe(
-    (response: any) => onSuccess(response),
-    (error: any) => onError(error)
-  );
-}
-onSuccess = (response: any) => {
-  // Mettre à jour le token
-  let userOnline= JSON.parse (localStorage.getItem("userOnline.access_token") || "");
-  if(userOnline.access_token){
-    console.log(response);
-    // userOnline.access_token = response.access_token;
+//   // Effectuer le rafraîchissement du token
+//   return this.http.get<any>(`${url_base}refresh`).subscribe(
+//     (response: any) => onSuccess(response),
+//     (error: any) => onError(error)
+//   );
+// }
+// onSuccess = (response: any) => {
+//   // Mettre à jour le token
+//   let userOnline= JSON.parse (localStorage.getItem("userOnline.access_token") || "");
+//   if(userOnline.access_token){
+//     console.log(response);
+//     // userOnline.access_token = response.access_token;
 
-    // localStorage.setItem('userOnline', JSON.stringify(userOnline));
-    console.log('voici la reponse du changement du token', response.token);
+//     // localStorage.setItem('userOnline', JSON.stringify(userOnline));
+//     console.log('voici la reponse du changement du token', response.token);
 
-  }
-};
+//   }
+// };
 
-showLogoutAlert() {
-  let refresh = 0;
-  localStorage.setItem('refreshCount', JSON.stringify(refresh));
-  // this.logout();
-  // sweetAlertMessage("success", "Session expirée", "Veuillez vous reconnectez")
+// showLogoutAlert() {
+//   let refresh = 0;
+//   localStorage.setItem('refreshCount', JSON.stringify(refresh));
+//   // this.logout();
+//   // sweetAlertMessage("success", "Session expirée", "Veuillez vous reconnectez")
 
-  // this.MessageSucces()
-  // Swal.fire({
-  //   title: 'Votre Session a expirer',
-  //   text: 'Deconnecter vous ou rafraichissez votre token',
-  //   icon: 'warning',
-  //   showCancelButton: true,
-  //   confirmButtonColor: '#3085d6',
-  //   cancelButtonColor: '#d33',
-  //   confirmButtonText: 'Oui! je raffraichie',
-  // }).then((result) => {
-  //   if (result.isConfirmed) {
-  //     Swal.fire({
-  //       title: 'non!',
-  //       text: 'non!, je me deconnecte',
-  //       icon: 'success',
-  //     });
-  //   }
-  // });
-}
+//   // this.MessageSucces()
+//   // Swal.fire({
+//   //   title: 'Votre Session a expirer',
+//   //   text: 'Deconnecter vous ou rafraichissez votre token',
+//   //   icon: 'warning',
+//   //   showCancelButton: true,
+//   //   confirmButtonColor: '#3085d6',
+//   //   cancelButtonColor: '#d33',
+//   //   confirmButtonText: 'Oui! je raffraichie',
+//   // }).then((result) => {
+//   //   if (result.isConfirmed) {
+//   //     Swal.fire({
+//   //       title: 'non!',
+//   //       text: 'non!, je me deconnecte',
+//   //       icon: 'success',
+//   //     });
+//   //   }
+//   // });
+// }
 
-onError = (error: any) => {
-  console.log('Voici les erreurs du changement du token', error);
-};
+// onError = (error: any) => {
+//   console.log('Voici les erreurs du changement du token', error);
+// };
 
 
 // La liste des utilisateurs

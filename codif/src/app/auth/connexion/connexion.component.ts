@@ -195,7 +195,7 @@ togglePasswordVisibility() {
         // console.log(response.Results.access_token);
 
 
-          this.userservice.deconnexionAutomatique();
+          // this.userservice.deconnexionAutomatique();
           localStorage.setItem('userOnline', JSON.stringify(response));
           // console.log(response);
 

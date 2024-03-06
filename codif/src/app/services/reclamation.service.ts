@@ -30,7 +30,7 @@ export class ReclamationService {
     return this.http.delete(`${url_base}SupprimerReclamation/delete/{id}`);
 
   }
-  // SupprimerReclamation/delete/{id}
+
 
 
    // Detail d'une reclamaton
@@ -65,10 +65,16 @@ export class ReclamationService {
 
   }
 
+    // methode pour supprimer les Reclamation chef Pavillon
+    deleteReclamationEtudiant(id: any) {
+      return this.http.delete(`${url_base}chefpavillon/SupprimerReclamation/delete/${id}`)
 
-   // methode pour supprimer les Reclamation chef Etudiant
+    }
+
+
+   // methode pour supprimer les Reclamation Etudiant
    deleteReclamationChefEtudiant(id: any) {
-    return this.http.delete(`${url_base}SupprimerReclamation/delete/${id}`)
+    return this.http.delete(`${url_base}etudiant/SupprimerReclamation/delete/${id}`)
 
   }
 

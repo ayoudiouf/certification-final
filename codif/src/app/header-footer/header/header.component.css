@@ -88,6 +88,8 @@ height: 80px;
   background-color: #A41034 !important;
 }
 
+  
+
 /* Media query menu header */
 @media (max-width:990px){
   #logomenu1 img{
@@ -95,6 +97,7 @@ height: 80px;
     }
     #navigation{
       width: 100%;
+      margin: auto;
     }
     .Menu{
 

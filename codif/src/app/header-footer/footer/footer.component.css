@@ -1,30 +1,50 @@
+*{
+  margin: 0;
+  padding: 0;
+  /* scroll-snap-stop: 90px; */
+  scroll-margin-bottom: 270px;
+  }
+
 #logofooter img{
   height: 60px;
   width: 90px;
-  /* margin-left: 30px; */
   }
-  #iconecocialfooter i {
+  /* #iconecocialfooter i {
     background-color: white;
-
-    /* color: black; */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
   #footernavigate a:hover  {
     color: Black !important;
     font-weight: bold;
     font-size: 18px;
   }
+  button{
+  background-color: black;
+  color: white;
+  width: 150px;
+  border-radius: 10px;
+  }
   @media screen and (max-width: 1238px){
+    .container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-    #iconecocialfooter i {
-      /* display: flex;
-     flex-direction: column; */
+    input{
+      width: 160px;
+      }
+
+    /* #iconecocialfooter i {
+       display: flex;
+     flex-direction: column;
 
      display: block;
-     /* flex-direction: column; */
-    }
+     flex-direction: column;
+    } */
   }
 
 

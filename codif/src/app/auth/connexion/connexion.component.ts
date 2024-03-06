@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { data } from 'jquery';
 
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -31,9 +32,6 @@ export class ConnexionComponent implements OnInit {
   profileForm: FormGroup = this.formbuilder.group({
     email: ['', Validators.required,],
     password: ['', Validators.required,],
-    // email: ['', [Validators.required, Validators.email]],
-    // password: ['',  [Validators.required, Validators.minLength(6)]],
-    // password: ['', [Validators.required, Validators.minLength(6)]]
 
   });
 
@@ -184,6 +182,7 @@ togglePasswordVisibility() {
 
     let emailUser= this.email_utilisateur;
     let passwordUser =this.password_utilisateur;
+    let email =this.email;
 
     if (this.truthyTab.length>=2){
       // console.log("votre mail est :",emailUser, "et votre password est :",passwordUser);
@@ -233,32 +232,17 @@ togglePasswordVisibility() {
 
   }
 
-  // Envoyeremail(id:any){
-  //   this.userservice.Envoyeremail(id).subscribe(
-  //     (respons) => {
-  //       console.log("est envoyé oui!!!!", respons);
-  //       // Afficher une alerte SweetAlert pour indiquer que l'étudiant a été validé avec succès
-  //       Swal.fire({
-  //         icon: 'success',
-  //         title: 'Email Envoyé!',
-  //         text: 'L\'étudiant a été validé avec succès.',
-  //       });
-  //     },
-  //     (error) => {
-  //       console.error("Une erreur s'est produite lors de la validation de l'étudiant", error);
-  //       // Afficher une alerte SweetAlert pour indiquer qu'une erreur s'est produite
-  //       Swal.fire({
-  //         icon: 'error',
-  //         title: 'Erreur',
-  //         // text: 'Une erreur s\'est produite lors de la validation de l\'étudiant. Veuillez réessayer plus tard.',
-  //         text: 'Désolé l\'étudiant a été déjà valider. Veuillez réessayer plus tard.',
-  //       });
-  //     }
-  //   );
-  // }
 
-  // Envoyeremail(email_utilisateur: string): void {
-  //   this.userservice.Envoyeremail(email_utilisateur).subscribe(
+  // motdepassValidate(email_utilisateur: string): void {
+  //   // Vérifier si l'e-mail est valide
+  //   if (!email_utilisateur) {
+  //     // Afficher un message d'erreur ou empêcher l'envoi de la demande
+  //     console.error("L'adresse e-mail est requise");
+  //     return;
+  //   }
+
+  //   // Envoyer la demande uniquement si l'e-mail est valide
+  //   this.userservice.motdepassValidate(email_utilisateur).subscribe(
   //     (respons:any) => {
   //       console.log("Email envoyé avec succès!", respons);
 
@@ -280,4 +264,20 @@ togglePasswordVisibility() {
   //   );
   // }
 
+  // motdepassValidate() {
+  //   this.userservice.motdepassValidate(data).subscribe((reponse: any) => {
+  //     console.warn(reponse);
+  //     window.open(reponse.payment_url,'_self');
+  //   });
+  // }
+
+  motdepassValidate() {
+    // Assurez-vous que email_utilisateur contient l'e-mail à envoyer
+    const email_utilisateur = 'exemple@email.com';
+    // Appelez la méthode motdepassValidate() du service en passant l'e-mail
+    this.userservice.motdepassValidate(email_utilisateur).subscribe((reponse: any) => {
+      console.warn(reponse);
+      window.open(reponse);
+    });
+  }
 }

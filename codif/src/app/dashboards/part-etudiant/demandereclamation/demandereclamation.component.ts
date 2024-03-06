@@ -46,6 +46,7 @@ export class DemandereclamationComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
   ngOnInit(): void {
 
+    this.FaireUneReclamation()
     // const script = document.createElement('script');
     // script.src = '../../../assets/js/script.js';
     // Ajustez le chemin en conséquence
@@ -59,7 +60,7 @@ export class DemandereclamationComponent implements OnInit{
         url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json'
       }
     };
-    this.FaireUneReclamation();
+    // this.FaireUneReclamation();
     this.getAllReclamationetudiant();
 }
 

@@ -64,8 +64,9 @@
 
 
           <div class="col-12 px-0 my-3">
-            <button type="submit" class="text-white w-100  btn-submit my-2" (click)="login()"[disabled]="truthyTab.length<2">Se connecter</button>
-            <!-- <a class="para text-black-50" data-bs-toggle="modal" data-bs-target="#ajoutRole">Mot de pass oublier</a> <br> -->
+            <button type="submit" class="text-white w-100  btn-submit my-2" (click)="login()">Se connecter</button>
+            <!-- [disabled]="truthyTab.length<2" -->
+            <a class="para text-black-50"   data-bs-toggle="modal" data-bs-target="#ajoutRole">Mot de pass oublier</a> <br>
 
           </div>
 
@@ -131,7 +132,7 @@
 
 </div>
 <!-- The Modal Mot de Passe Oublier-->
-<!-- <div class="modal fade" id="ajoutRole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ajoutRole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -141,20 +142,16 @@
       <div class="modal-body">
         <form action="" >
 
-
           <div class="mb-3">
             <label for="exampleInputnom" class="form-label">Email <span class="span_validate" id="validationEmail"></span></label>
-            <input type="email" name="email" class="form-control" (input)="emailrefreshValidate()" [(ngModel)]="email_utilisateur">
+            <input type="email" class="form-control" name="email_utilisateur" [(ngModel)]="email_utilisateur">
             <div id="nomHelp" class="form-text"></div>
-
           </div>
         </form>
       </div>
       <div class="modal-footer">
-
-        <button type="button" class="typebutton btn btn-warning text-white" (click)="Envoyeremail(email_utilisateur)">Envoyer</button>
-
+        <button type="button" class="typebutton btn btn-warning text-white" (click)="motdepassValidate()">Envoyer</button>
       </div>
     </div>
   </div>
-</div> -->
+</div>

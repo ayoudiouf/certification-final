@@ -1,10 +1,5 @@
 <app-header></app-header>
 <div class="pagecontainer">
-  <!-- <div class="banier mx-0 ">
-    <img src="../../assets/apropos/baniireapropos.png" alt="">
-  </div> -->
-
-
   <div class="slides-frame " id="accueil">
     <div class="slides">
         <div class="slide-1 slide">
@@ -14,7 +9,6 @@
           <img src="../../../assets/apropos/Rectangle 479.png" alt="">
       </div>
       <div class="slide-3 slide">
-        <!-- <img src="../../../assets/apropos/Rectangle 5814.png" alt=""> -->
     </div>
     </div>
 </div>
@@ -71,50 +65,59 @@
       </div>
     </div>
   </div>
-  <!-- <div class="b border-light">
 
-  </div> -->
-  <h1 class="m-lg-5 fw-bold text-center" id="propo">Qui sommes-nous</h1>
-  <div class="d-flex gap-5 w-75" id="propos" >
-    <div class="image h-100" >
-      <img src="../../assets/apropos/Group 9993.png" alt="">
-    </div>
-    <div>
-      <p style="text-align: justify;" >L’université cheick Anta Diop offre un espace d’échange et de suivie pour tout personne en quêtes de recherche de chambre dans le campus. De par son réseau les administrateurs hautement qualifié dans la plateforme ont les réponse a toutes vos questions et attentes L'université Cheikh Anta Diop de Dakar (UCAD) est la meilleure université en Afrique francophone selon le classement eduranking.org.
-        C'est un classement indépendant basé sur une évaluation de plus de 14.000 universités de 183 pays. Selon ce classement, l'UCAD occupe la 1ere place en Afrique Francophone et la 28ème place en Afrique.
-      La codification à l'UCAD est ouverte à tous les étudiants justifiant des titres requis, sans distinction de nationalité, de race, de sexe ni de religion, dans la limite des places disponibles et selon des procédures d'admission spécifiques à chaque établissement. </p>
+  <!-- Qui somme nous  -->
+  <div class="quisommeNous container mx-auto">
+    <h1 class="fw-bold text-center" id="propo">Qui sommes-nous</h1>
+    <div class="containerQuiSommeNous row">
+      <div class="col-lg-6 px-3">
+        <img src="../../assets/apropos/Group 9993.png" alt="">
+      </div>
+      <div class="col-lg-6 px-3 py-5">
+        <p style="text-align: justify;" >L’université cheick Anta Diop offre un espace d’échange et de suivie pour tout personne en quêtes de recherche de chambre dans le campus. De par son réseau les administrateurs hautement qualifié dans la plateforme ont les réponse a toutes vos questions et attentes L'université Cheikh Anta Diop de Dakar (UCAD) est la meilleure université en Afrique francophone selon le classement eduranking.org.
+          C'est un classement indépendant basé sur une évaluation de plus de 14.000 universités de 183 pays. Selon ce classement, l'UCAD occupe la 1ere place en Afrique Francophone et la 28ème place en Afrique.
+        La codification à l'UCAD est ouverte à tous les étudiants justifiant des titres requis, sans distinction de nationalité, de race, de sexe ni de religion, dans la limite des places disponibles et selon des procédures d'admission spécifiques à chaque établissement. </p>
 
-    </div>
-      <!-- Loge -->
-  </div>
-  <h1 class="m-lg-5 fw-bold text-center" id="loge" >Vous loger</h1>
-  <a class="loginpage " [routerLink]="['/connexion']">Je paie mon logement</a>
+      </div>
 
-  <div class="loge d-flex justify-content-sm-between mb-5">
-    <div class="imgloge">
-      <img src="../../../assets/apropos/image 8.png" alt="">
-    </div>
-    <div class="texte">
-      <h4 class="mt-2">Vie Etudiant</h4>
-      <p class="mt-2 p-2">Dès la venue de l’étudiant, le service de l’hébergement se charge de l’accueillir et de l’orienter dans ses démarches afin qu’il puisse bénéficier des œuvres sociales du COUD. Et pour se faire, certaines conditions sont à remplir.
-        Pour une bonne gestion des cités universitaires, des réformes ont été instaurés : une plateforme numérique de codifications pour garantir l’équité, la transparence et la justice. Les codifications sont réparties entre deux quotas : un quota pédagogique et un quota social. Le quota pédagogique est limité à 70% sur la base des critères d’excellence et le quota social est limité à 30% pour les étudiants en situation de handicap.
-        Le COUD dispose de soixante-dix (70) logements (pavillons et résidences) répartis dans la grande cité, les sites externes et les universités rattachées. Grâce à des équipements de qualité, ces résidences sont la garantie d’un vrai confort de vie et d’étude.</p>
     </div>
   </div>
 
+  <!-- Logement -->
+  <div class="containerLogement containerEspace container mx-auto">
+    <a class="loginpage mb-5" [routerLink]="['/connexion']">Je paie mon logement</a>
+    <h1 class="fw-bold text-center mb-3" id="loge" >Vous loger</h1>
 
-  <div class=" info d-flex ">
-    <img src="../../../assets/service/etudiant.jpg" alt="">
-    <div class=" textpara bg-white" >
-      <h4 class="fw-bold mt-3">Comment ça marche</h4>
-      <p class=" etudiant mt-3">La plateforme de codification a pour objectif d'inscrire les étudiants nouvellement arrivés à l'université avec une mention "très bien" ou "assez bien", ainsi que les étudiants en L1, L2 et L3 ayant une moyenne leur permettant de bénéficier de la codification pour faciliter leur accès aux démarches de logement universitaire. Cette initiative favorisera la transparence et le suivi administratif des étudiants dans les logements universitaires.</p>
+    <!-- Vie éstudiantine  -->
+    <div class="row mb-5">
+      <div class="col-lg-6 pe-4">
+        <img src="../../../assets/apropos/image 8.png" alt="">
+      </div>
+      <div class="texte col-lg-6">
+        <h4 class="mt-2">Vie Etudiant</h4>
+        <p class="mt-2 p-2">Dès la venue de l’étudiant, le service de l’hébergement se charge de l’accueillir et de l’orienter dans ses démarches afin qu’il puisse bénéficier des œuvres sociales du COUD. Et pour se faire, certaines conditions sont à remplir.
+          Pour une bonne gestion des cités universitaires, des réformes ont été instaurés : une plateforme numérique de codifications pour garantir l’équité, la transparence et la justice. Les codifications sont réparties entre deux quotas : un quota pédagogique et un quota social. Le quota pédagogique est limité à 70% sur la base des critères d’excellence et le quota social est limité à 30% pour les étudiants en situation de handicap.
+          Le COUD dispose de soixante-dix (70) logements (pavillons et résidences) répartis dans la grande cité, les sites externes et les universités rattachées. Grâce à des équipements de qualité, ces résidences sont la garantie d’un vrai confort de vie et d’étude.</p>
+      </div>
+    </div>
+
+    <!-- Comment ça marche  -->
+    <div class=" info d-flex row">
+      <div class="col-lg-4">
+        <img src="../../../assets/service/etudiant.jpg" alt="">
+      </div>
+
+      <div class=" col-lg-8 textpara bg-white" >
+        <h4 class="fw-bold mt-3">Comment ça marche</h4>
+        <p class="  mt-3">La plateforme de codification a pour objectif d'inscrire les étudiants nouvellement arrivés à l'université avec une mention "très bien" ou "assez bien", ainsi que les étudiants en L1, L2 et L3 ayant une moyenne leur permettant de bénéficier de la codification pour faciliter leur accès aux démarches de logement universitaire. Cette initiative favorisera la transparence et le suivi administratif des étudiants dans les logements universitaires.</p>
+      </div>
     </div>
   </div>
+
   <!-- Equipes -->
-  <div class="title" id="equipe">
-    <h1 class="m-lg-5 fw-bold text-center" >L'équipe</h1>
+  <div class="title container mx-auto" id="equipe">
+    <h1 class="fw-bold text-center mb-5" >L'équipe</h1>
     <div class="team">
-
       <div>
         <div class="content">
           <h2>Tidjane Badji</h2>
@@ -150,74 +153,83 @@
   </div>
 
     <!-- Temognage -->
-  <h1 class="m-lg-5 fw-bold text-center" id="actu" >Témoignages</h1>
+  <div class="containerTemoignage container mx-auto">
+    <h1 class="m-lg-5 fw-bold text-center" id="actu" >Témoignages</h1>
+    <div class="bootstrap snippets bootdeys">
+        <div class="col-md-12 ">
+            <div class="timeline-centered timeline-sm">
 
+                <article class="timeline-entry left-aligned">
+                    <div class="timeline-entry-inner">
+                        <time datetime="2014-01-10T03:45" class="timeline-time"></time>
+                        <div class="timeline-icon bg-green"><i class="fa fa-group"></i></div>
+                        <div class="timeline-label bg-green"><h4 class="timeline-title">Mariama Sambou <br>
+                          </h4>
 
-<div class="container bootstrap snippets bootdeys mx-auto">
-    <div class="col-md-12 ">
-        <div class="timeline-centered timeline-sm">
-
-            <article class="timeline-entry left-aligned">
-                <div class="timeline-entry-inner">
-                    <time datetime="2014-01-10T03:45" class="timeline-time"></time>
-                    <div class="timeline-icon bg-green"><i class="fa fa-group"></i></div>
-                    <div class="timeline-label bg-green"><h4 class="timeline-title">Mariama Sambou <br>
+                        <p>Je tiens à exprimer toute ma gratitude pour votre initiative qui a considérablement facilité l'accès au campus. Avant, il était extrêmement difficile pour moi de me rendre à l'université depuis chez ma tante chaque jour, surtout sachant que j'avais la moyenne pour une codification. Grâce à votre soutien, cette contrainte quotidienne s'est transformée en opportunité, et je suis vraiment reconnaissante pour cela. Merci infiniment.</p></div>
+                    </div>
+                </article>
+                <article class="timeline-entry">
+                    <div class="timeline-entry-inner">
+                      <time datetime="2014-01-10T03:45" class="timeline-time"></time>
+                      <div class="timeline-icon bg-orange"><i class="fa fa-group"></i></div>
+                      <div class="timeline-label bg-orange"><h4 class="timeline-title">Anta Sylla <br>
                       </h4>
 
-                    <p>Je tiens à exprimer toute ma gratitude pour votre initiative qui a considérablement facilité l'accès au campus. Avant, il était extrêmement difficile pour moi de me rendre à l'université depuis chez ma tante chaque jour, surtout sachant que j'avais la moyenne pour une codification. Grâce à votre soutien, cette contrainte quotidienne s'est transformée en opportunité, et je suis vraiment reconnaissante pour cela. Merci infiniment.</p></div>
-                </div>
-            </article>
-            <article class="timeline-entry">
-                <div class="timeline-entry-inner">
-                  <time datetime="2014-01-10T03:45" class="timeline-time"></time>
-                  <div class="timeline-icon bg-orange"><i class="fa fa-group"></i></div>
-                  <div class="timeline-label bg-orange"><h4 class="timeline-title">Anta Sylla <br>
-                   </h4>
-
-                  <p>Je tiens à exprimer toute ma gratitude pour votre initiative qui a considérablement facilité l'accès au campus. Avant, il était extrêmement difficile pour moi de me rendre à l'université depuis chez ma tante chaque jour, surtout sachant que j'avais la moyenne pour une codification. Grâce à votre soutien, cette contrainte quotidienne s'est transformée en opportunité, et je suis vraiment reconnaissante pour cela. Merci infiniment.</p></div>
-              </div>
-            </article>
+                      <p>Je tiens à exprimer toute ma gratitude pour votre initiative qui a considérablement facilité l'accès au campus. Avant, il était extrêmement difficile pour moi de me rendre à l'université depuis chez ma tante chaque jour, surtout sachant que j'avais la moyenne pour une codification. Grâce à votre soutien, cette contrainte quotidienne s'est transformée en opportunité, et je suis vraiment reconnaissante pour cela. Merci infiniment.</p></div>
+                  </div>
+                </article>
+            </div>
         </div>
     </div>
-</div>
+  </div>
 
   <!-- Contact -->
-<h1 class="m-lg-5 fw-bold text-center" id="nouscontacter" >Contact</h1>
-<div class="contact">
-  <div><img src="../../../assets/actu/Blue Modern Contact Us Instagram Post(1).png" alt=""></div>
-  <div class="form">
-    <h5 class="mb-5 text-xl-center fw-bold">formulaire</h5>
-    <div class="nom mb-3 w-90 m-lg-4">
-      <label for="exampleInputname" class="form-label mb-1">Nom</label>
-      <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" [(ngModel)]="nom" required>
-    </div>
-    <div class="nom mb-3 w-90 m-lg-4">
-      <label for="exampleInputname" class="form-label mb-1">Prenom</label>
-      <input type="name" class="form-control" id="exampleInputPrenom" aria-describedby="prenomHelp" [(ngModel)]="prenom" required>
-    </div>
-    <div class="mail mb-3 w-90 m-lg-4">
-      <label for="exampleInputEmail1" class="form-label mb-1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="email" required >
-    </div>
-    <div class="form-floating mb-3  w-90 m-lg-4">
-      <textarea class="form-control h-25" placeholder="Laissez un commentaire ici" id="floatingTextarea" ></textarea>
-      <label for="floatingTextarea">Message</label>
-  </div>
-  <button type="submit" class="btn  w-25" (click)="onSubmit()" >Envoyer</button>
+  <div class="containerContact container mx-auto">
+    <h1 class="m-lg-5 fw-bold text-center" id="nouscontacter" >Contact</h1>
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="../../../assets/actu/Blue Modern Contact Us Instagram Post(1).png" alt="">
+      </div>
+      <div class="col-lg-6 ">
+        <div class="form ">
+          <h5 class="mb-5 pt-3 text-center fw-bold">formulaire</h5>
+          <div class="nom mb-3 w-90 m-lg-4">
+            <label for="exampleInputname" class="form-label mb-1">Nom</label>
+            <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" [(ngModel)]="nom" required>
+          </div>
+          <div class="nom mb-3 w-90 m-lg-4">
+            <label for="exampleInputname" class="form-label mb-1">Prenom</label>
+            <input type="name" class="form-control" id="exampleInputPrenom" aria-describedby="prenomHelp" [(ngModel)]="prenom" required>
+          </div>
+          <div class="mail mb-3 w-90 m-lg-4">
+            <label for="exampleInputEmail1" class="form-label mb-1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="email" required >
+          </div>
+          <div class="form-floating mb-3  w-90 m-lg-4">
+            <textarea class="form-control h-25" placeholder="Laissez un commentaire ici" id="floatingTextarea" ></textarea>
+            <label for="floatingTextarea">Message</label>
+          </div>
+          <button type="submit" class="btn w-25 mb-3" (click)="onSubmit()" >Envoyer</button>
 
-</div>
-</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 <!-- Patenaire -->
-<h1 class="m-lg-5 fw-bold text-center">Partenaires</h1>
-<div class="partener mb-5">
-  <img src="../../../assets/partenaires/Logo_OIF.svg_.png" alt="">
-  <img src="../../../assets/partenaires/ucad.png" alt="">
-  <img src="../../../assets/partenaires/guorguisy.png" alt="">
-  <img src="../../../assets/partenaires/maroc.png" alt="">
-  <img src="../../../assets/partenaires/lonase.png" alt="">
-  <img src="../../../assets/partenaires/V dclic_0.jpg" alt="">
+<div class="containerPartenaire container mx-auto">
+  <h1 class="m-lg-5 fw-bold text-center">Partenaires</h1>
+  <div class="partener mb-5">
+    <img src="../../../assets/partenaires/Logo_OIF.svg_.png" alt="">
+    <img src="../../../assets/partenaires/ucad.png" alt="">
+    <img src="../../../assets/partenaires/guorguisy.png" alt="">
+    <img src="../../../assets/partenaires/maroc.png" alt="">
+    <img src="../../../assets/partenaires/lonase.png" alt="">
+    <img src="../../../assets/partenaires/V dclic_0.jpg" alt="">
 
+  </div>
 </div>
 
 <app-footer></app-footer>

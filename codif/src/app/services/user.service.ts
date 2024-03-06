@@ -149,5 +149,17 @@ isLoggedIn(): boolean {
   // return this.getToken() !== null;
 }
 
+// motdepassValidate(){
+//   return this.http.post(`${url_base}forget-password`)
+// }
+motdepassValidate(email: string) {
+  // Créez un objet contenant l'e-mail à envoyer
+  const data = { email: email };
+
+  // Effectuez la requête HTTP POST avec l'e-mail en tant que corps de la requête
+  return this.http.post(`${url_base}forget-password`, data);
+}
+
+
 }
 

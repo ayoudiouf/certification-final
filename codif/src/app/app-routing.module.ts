@@ -36,7 +36,7 @@ const routes: Routes = [
   {path : '' , redirectTo:'acueil', pathMatch:'full'},
   {path : 'acueil', component: AcueilComponent},
   {path : 'admin' , component: AdminComponent, canActivate: [AuthGuard]},
-  {path : 'confidentialite' , component: PolitiqueDeConfidentialiteComponent, canActivate: [AuthGuard]},
+  {path : 'confidentialite' , component: PolitiqueDeConfidentialiteComponent},
   {path : 'chefpavion', component: DashChefpavionComponent, canActivate: [AuthGuard]},
   // {path : 'admin', component: AdminComponent},
   {path : 'chefpedagogique', component: DashChefpedagogiqueComponent, canActivate: [AuthGuard]},
